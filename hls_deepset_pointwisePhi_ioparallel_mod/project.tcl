@@ -1,5 +1,5 @@
 variable project_name
-set project_name "hls_deepset_pointwisePhi_ioparallel"
+set project_name "hls_deepset_pointwisePhi_ioparallel_mod"
 variable backend
 set backend "vivado"
 variable part

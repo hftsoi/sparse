@@ -9,8 +9,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 LDFLAGS=
 INCFLAGS="-Ifirmware/ap_types/"
-PROJECT=hls_deepset_pointwisePhi_ioparallel
-LIB_STAMP=a586e972
+PROJECT=hls_deepset_pointwisePhi_ioparallel_mod
+LIB_STAMP=8abc293b
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 WEIGHTS_DIR="\"${BASEDIR}/firmware/weights\""
 

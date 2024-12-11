@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <vector>
 
-#include "firmware/hls_deepset_pointwisePhi_ioparallel.h"
+#include "firmware/hls_deepset_pointwisePhi_iostream_mod.h"
 #include "firmware/nnet_utils/nnet_helpers.h"
 
 // hls-fpga-machine-learning insert bram
@@ -59,12 +59,12 @@ int main(int argc, char **argv) {
             }
 
             // hls-fpga-machine-learning insert data
-      input_t phi_input[N_INPUT_1_1*N_INPUT_2_1];
+      hls::stream<input_t> phi_input("phi_input");
       nnet::copy_data<float, input_t, 0, N_INPUT_1_1*N_INPUT_2_1>(in, phi_input);
-      result_t layer18_out[N_LAYER_16];
+      hls::stream<result_t> layer18_out("layer18_out");
 
             // hls-fpga-machine-learning insert top-level-function
-            hls_deepset_pointwisePhi_ioparallel(phi_input,layer18_out);
+            hls_deepset_pointwisePhi_iostream_mod(phi_input,layer18_out);
 
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
@@ -88,12 +88,12 @@ int main(int argc, char **argv) {
         std::cout << "INFO: Unable to open input/predictions file, using default input." << std::endl;
 
         // hls-fpga-machine-learning insert zero
-    input_t phi_input[N_INPUT_1_1*N_INPUT_2_1];
+    hls::stream<input_t> phi_input("phi_input");
     nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1>(phi_input);
-    result_t layer18_out[N_LAYER_16];
+    hls::stream<result_t> layer18_out("layer18_out");
 
         // hls-fpga-machine-learning insert top-level-function
-        hls_deepset_pointwisePhi_ioparallel(phi_input,layer18_out);
+        hls_deepset_pointwisePhi_iostream_mod(phi_input,layer18_out);
 
         // hls-fpga-machine-learning insert output
         nnet::print_result<result_t, N_LAYER_16>(layer18_out, std::cout, true);

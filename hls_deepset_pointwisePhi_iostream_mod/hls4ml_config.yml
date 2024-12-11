@@ -93,12 +93,12 @@ HLSConfig:
     TraceOutput: false
 IOType: io_stream
 InputData: null
-KerasModel: !keras_model 'hls_deepset_pointwisePhi_iostream/keras_model.keras'
-OutputDir: hls_deepset_pointwisePhi_iostream
+KerasModel: !keras_model 'hls_deepset_pointwisePhi_iostream_mod/keras_model.keras'
+OutputDir: hls_deepset_pointwisePhi_iostream_mod
 OutputPredictions: null
 Part: xcvu13p-flga2577-2-e
-ProjectName: hls_deepset_pointwisePhi_iostream
-Stamp: 1d27ddf2
+ProjectName: hls_deepset_pointwisePhi_iostream_mod
+Stamp: 52b95d2e
 Version: 1.0.0
 WriterConfig:
   Namespace: null

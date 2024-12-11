@@ -93,12 +93,12 @@ HLSConfig:
     TraceOutput: false
 IOType: io_parallel
 InputData: null
-KerasModel: !keras_model 'hls_deepset_pointwisePhi_ioparallel/keras_model.keras'
-OutputDir: hls_deepset_pointwisePhi_ioparallel
+KerasModel: !keras_model 'hls_deepset_pointwisePhi_ioparallel_mod/keras_model.keras'
+OutputDir: hls_deepset_pointwisePhi_ioparallel_mod
 OutputPredictions: null
 Part: xcvu13p-flga2577-2-e
-ProjectName: hls_deepset_pointwisePhi_ioparallel
-Stamp: a586e972
+ProjectName: hls_deepset_pointwisePhi_ioparallel_mod
+Stamp: 8abc293b
 Version: 1.0.0
 WriterConfig:
   Namespace: null

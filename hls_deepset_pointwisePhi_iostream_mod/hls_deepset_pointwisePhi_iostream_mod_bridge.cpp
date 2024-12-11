@@ -1,7 +1,7 @@
-#ifndef HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_BRIDGE_H_
-#define HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_BRIDGE_H_
+#ifndef HLS_DEEPSET_POINTWISEPHI_IOSTREAM_MOD_BRIDGE_H_
+#define HLS_DEEPSET_POINTWISEPHI_IOSTREAM_MOD_BRIDGE_H_
 
-#include "firmware/hls_deepset_pointwisePhi_ioparallel.h"
+#include "firmware/hls_deepset_pointwisePhi_iostream_mod.h"
 #include "firmware/nnet_utils/nnet_helpers.h"
 #include <algorithm>
 #include <map>
@@ -48,32 +48,32 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 }
 
 // Wrapper of top level function for Python bridge
-void hls_deepset_pointwisePhi_ioparallel_float(
+void hls_deepset_pointwisePhi_iostream_mod_float(
     float phi_input[N_INPUT_1_1*N_INPUT_2_1],
     float layer18_out[N_LAYER_16]
 ) {
 
-    input_t phi_input_ap[N_INPUT_1_1*N_INPUT_2_1];
+    hls::stream<input_t> phi_input_ap("phi_input");
     nnet::convert_data<float, input_t, N_INPUT_1_1*N_INPUT_2_1>(phi_input, phi_input_ap);
 
-    result_t layer18_out_ap[N_LAYER_16];
+    hls::stream<result_t> layer18_out_ap("layer18_out");
 
-    hls_deepset_pointwisePhi_ioparallel(phi_input_ap,layer18_out_ap);
+    hls_deepset_pointwisePhi_iostream_mod(phi_input_ap,layer18_out_ap);
 
     nnet::convert_data<result_t, float, N_LAYER_16>(layer18_out_ap, layer18_out);
 }
 
-void hls_deepset_pointwisePhi_ioparallel_double(
+void hls_deepset_pointwisePhi_iostream_mod_double(
     double phi_input[N_INPUT_1_1*N_INPUT_2_1],
     double layer18_out[N_LAYER_16]
 ) {
 
-    input_t phi_input_ap[N_INPUT_1_1*N_INPUT_2_1];
+    hls::stream<input_t> phi_input_ap("phi_input");
     nnet::convert_data<double, input_t, N_INPUT_1_1*N_INPUT_2_1>(phi_input, phi_input_ap);
 
-    result_t layer18_out_ap[N_LAYER_16];
+    hls::stream<result_t> layer18_out_ap("layer18_out");
 
-    hls_deepset_pointwisePhi_ioparallel(phi_input_ap,layer18_out_ap);
+    hls_deepset_pointwisePhi_iostream_mod(phi_input_ap,layer18_out_ap);
 
     nnet::convert_data<result_t, double, N_LAYER_16>(layer18_out_ap, layer18_out);
 }

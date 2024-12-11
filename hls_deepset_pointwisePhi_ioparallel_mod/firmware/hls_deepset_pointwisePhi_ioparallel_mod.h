@@ -1,5 +1,5 @@
-#ifndef HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_H_
-#define HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_H_
+#ifndef HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_MOD_H_
+#define HLS_DEEPSET_POINTWISEPHI_IOPARALLEL_MOD_H_
 
 #include "ap_fixed.h"
 #include "ap_int.h"
@@ -9,7 +9,7 @@
 
 
 // Prototype of top level function for C-synthesis
-void hls_deepset_pointwisePhi_ioparallel(
+void hls_deepset_pointwisePhi_ioparallel_mod(
     input_t phi_input[N_INPUT_1_1*N_INPUT_2_1],
     result_t layer18_out[N_LAYER_16]
 );
