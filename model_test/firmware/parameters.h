@@ -37,7 +37,7 @@ struct config19_mult : nnet::dense_config {
     static const unsigned n_out = 16;
     static const unsigned reuse_factor = 1;
     static const unsigned strategy = nnet::latency;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 5;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     typedef model_default_t accum_t;
     typedef bias19_t bias_t;
@@ -60,7 +60,7 @@ struct config19 : nnet::conv1d_config {
     static const unsigned dilation = 1;
     static const unsigned out_width = 12;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 5;
     static const unsigned multiplier_limit =
         DIV_ROUNDUP(kernel_size * n_chan * n_filt, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
@@ -96,7 +96,7 @@ struct config20_mult : nnet::dense_config {
     static const unsigned n_out = 16;
     static const unsigned reuse_factor = 1;
     static const unsigned strategy = nnet::latency;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 1;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     typedef model_default_t accum_t;
     typedef bias20_t bias_t;
@@ -119,7 +119,7 @@ struct config20 : nnet::conv1d_config {
     static const unsigned dilation = 1;
     static const unsigned out_width = 12;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 1;
     static const unsigned multiplier_limit =
         DIV_ROUNDUP(kernel_size * n_chan * n_filt, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
@@ -155,7 +155,7 @@ struct config21_mult : nnet::dense_config {
     static const unsigned n_out = 16;
     static const unsigned reuse_factor = 1;
     static const unsigned strategy = nnet::latency;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 2;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     typedef model_default_t accum_t;
     typedef bias21_t bias_t;
@@ -178,7 +178,7 @@ struct config21 : nnet::conv1d_config {
     static const unsigned dilation = 1;
     static const unsigned out_width = 12;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 2;
     static const unsigned multiplier_limit =
         DIV_ROUNDUP(kernel_size * n_chan * n_filt, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
@@ -263,8 +263,8 @@ struct config16 : nnet::dense_config {
     static const unsigned io_type = nnet::io_parallel;
     static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
-    static const unsigned n_nonzeros = 80;
+    static const unsigned n_zeros = 1;
+    static const unsigned n_nonzeros = 79;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
     typedef model_default_t accum_t;
