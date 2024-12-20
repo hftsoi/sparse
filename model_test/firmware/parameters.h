@@ -16,6 +16,7 @@
 #include "nnet_utils/nnet_pooling.h"
 #include "nnet_utils/nnet_pooling_stream.h"
 #include "nnet_utils/nnet_sepconv1d_stream.h"
+#include "nnet_utils/nnet_mask.h"
 
 // hls-fpga-machine-learning insert weights
 #include "weights/w19.h"

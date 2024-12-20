@@ -3,7 +3,6 @@
 #include "model_test.h"
 #include "parameters.h"
 
-
 void model_test(
     input_t phi_input[N_INPUT_1_1*N_INPUT_2_1],
     result_t layer18_out[N_LAYER_16]
@@ -36,6 +35,15 @@ void model_test(
     // ****************************************
 
     // hls-fpga-machine-learning insert layers
+
+    ap_uint<1> mask[N_INPUT_1_1];
+    #pragma HLS ARRAY_PARTITION variable=mask complete dim=0
+    nnet::compute_mask<input_t>(phi_input, mask, N_INPUT_1_1, N_INPUT_2_1);
+
+    std::cout << "\n" << std::endl;
+    for (int i = 0; i < N_INPUT_1_1; i++) {
+        std::cout << mask[i];
+    }
 
     phi1_result_t layer19_out[N_OUTPUTS_19*N_FILT_19];
     #pragma HLS ARRAY_PARTITION variable=layer19_out complete dim=0
