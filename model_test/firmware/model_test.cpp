@@ -47,7 +47,7 @@ void model_test(
 
     phi1_result_t layer19_out[N_OUTPUTS_19*N_FILT_19];
     #pragma HLS ARRAY_PARTITION variable=layer19_out complete dim=0
-    nnet::pointwise_conv_1d_cl<input_t, phi1_result_t, config19>(phi_input, layer19_out, w19, b19); // phi1
+    nnet::pointwise_conv_1d_mask_cl<input_t, phi1_result_t, config19>(phi_input, mask, layer19_out, w19, b19); // phi1
 
     layer4_t layer4_out[N_OUTPUTS_2*N_FILT_2];
     #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
@@ -55,7 +55,7 @@ void model_test(
 
     phi2_result_t layer20_out[N_OUTPUTS_20*N_FILT_20];
     #pragma HLS ARRAY_PARTITION variable=layer20_out complete dim=0
-    nnet::pointwise_conv_1d_cl<layer4_t, phi2_result_t, config20>(layer4_out, layer20_out, w20, b20); // phi2
+    nnet::pointwise_conv_1d_mask_cl<layer4_t, phi2_result_t, config20>(layer4_out, mask, layer20_out, w20, b20); // phi2
 
     layer7_t layer7_out[N_OUTPUTS_5*N_FILT_5];
     #pragma HLS ARRAY_PARTITION variable=layer7_out complete dim=0
@@ -63,7 +63,7 @@ void model_test(
 
     phi3_result_t layer21_out[N_OUTPUTS_21*N_FILT_21];
     #pragma HLS ARRAY_PARTITION variable=layer21_out complete dim=0
-    nnet::pointwise_conv_1d_cl<layer7_t, phi3_result_t, config21>(layer7_out, layer21_out, w21, b21); // phi3
+    nnet::pointwise_conv_1d_mask_cl<layer7_t, phi3_result_t, config21>(layer7_out, mask, layer21_out, w21, b21); // phi3
 
     layer10_t layer10_out[N_OUTPUTS_8*N_FILT_8];
     #pragma HLS ARRAY_PARTITION variable=layer10_out complete dim=0
