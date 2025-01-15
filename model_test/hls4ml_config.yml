@@ -23,28 +23,6 @@ HLSConfig:
       Precision:
         result: auto
       Trace: false
-    conv3:
-      Precision:
-        bias: fixed<8,1,TRN,WRAP,0>
-        result: auto
-        weight: fixed<8,1,TRN,WRAP,0>
-      Trace: false
-    conv3_linear:
-      Precision:
-        result: auto
-      Trace: false
-    relu1:
-      Precision:
-        result: ufixed<8,0,RND_CONV,SAT,0>
-      Trace: false
-    relu2:
-      Precision:
-        result: ufixed<8,0,RND_CONV,SAT,0>
-      Trace: false
-    relu3:
-      Precision:
-        result: ufixed<8,0,RND_CONV,SAT,0>
-      Trace: false
     x_in:
       Precision: ap_fixed<12, 4, AP_RND, AP_SAT>
       Trace: false
@@ -62,7 +40,7 @@ OutputDir: model_test
 OutputPredictions: null
 Part: xcvu13p-flga2577-2-e
 ProjectName: model_test
-Stamp: 3ddb6961
+Stamp: 5d4827b4
 Version: 1.0.0
 WriterConfig:
   Namespace: null

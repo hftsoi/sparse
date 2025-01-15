@@ -61,26 +61,26 @@ int main(int argc, char **argv) {
             // hls-fpga-machine-learning insert data
       input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
       nnet::copy_data<float, input_t, 0, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, x_in);
-      result_t layer10_out[OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8];
+      result_t layer4_out[OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4];
 
             // hls-fpga-machine-learning insert top-level-function
-            model_test(x_in,layer10_out);
+            model_test(x_in,layer4_out);
 
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
                 // hls-fpga-machine-learning insert predictions
-                for(int i = 0; i < OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8; i++) {
+                for(int i = 0; i < OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4; i++) {
                   std::cout << pr[i] << " ";
                 }
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
                 // hls-fpga-machine-learning insert quantized
-                nnet::print_result<result_t, OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8>(layer10_out, std::cout, true);
+                nnet::print_result<result_t, OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4>(layer4_out, std::cout, true);
             }
             e++;
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8>(layer10_out, fout);
+            nnet::print_result<result_t, OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4>(layer4_out, fout);
         }
         fin.close();
         fpr.close();
@@ -90,16 +90,16 @@ int main(int argc, char **argv) {
         // hls-fpga-machine-learning insert zero
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
     nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(x_in);
-    result_t layer10_out[OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8];
+    result_t layer4_out[OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4];
 
         // hls-fpga-machine-learning insert top-level-function
-        model_test(x_in,layer10_out);
+        model_test(x_in,layer4_out);
 
         // hls-fpga-machine-learning insert output
-        nnet::print_result<result_t, OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8>(layer10_out, std::cout, true);
+        nnet::print_result<result_t, OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4>(layer4_out, std::cout, true);
 
         // hls-fpga-machine-learning insert tb-output
-        nnet::print_result<result_t, OUT_HEIGHT_8*OUT_WIDTH_8*N_FILT_8>(layer10_out, fout);
+        nnet::print_result<result_t, OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4>(layer4_out, fout);
     }
 
     fout.close();
