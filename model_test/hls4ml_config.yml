@@ -1,0 +1,70 @@
+Backend: Vivado
+ClockPeriod: 5
+ClockUncertainty: 12.5%
+HLSConfig:
+  LayerName:
+    conv1:
+      Precision:
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: auto
+        weight: fixed<8,1,TRN,WRAP,0>
+      Trace: false
+    conv1_linear:
+      Precision:
+        result: auto
+      Trace: false
+    conv2:
+      Precision:
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: auto
+        weight: fixed<8,1,TRN,WRAP,0>
+      Trace: false
+    conv2_linear:
+      Precision:
+        result: auto
+      Trace: false
+    conv3:
+      Precision:
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: auto
+        weight: fixed<8,1,TRN,WRAP,0>
+      Trace: false
+    conv3_linear:
+      Precision:
+        result: auto
+      Trace: false
+    relu1:
+      Precision:
+        result: ufixed<8,0,RND_CONV,SAT,0>
+      Trace: false
+    relu2:
+      Precision:
+        result: ufixed<8,0,RND_CONV,SAT,0>
+      Trace: false
+    relu3:
+      Precision:
+        result: ufixed<8,0,RND_CONV,SAT,0>
+      Trace: false
+    x_in:
+      Precision: ap_fixed<12, 4, AP_RND, AP_SAT>
+      Trace: false
+  Model:
+    BramFactor: 1000000000
+    Precision:
+      default: fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_parallel
+InputData: null
+KerasModel: !keras_model 'model_test/keras_model.keras'
+OutputDir: model_test
+OutputPredictions: null
+Part: xcvu13p-flga2577-2-e
+ProjectName: model_test
+Stamp: 3ddb6961
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  WriteTar: false
+  WriteWeightsTxt: true
