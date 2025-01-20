@@ -1,0 +1,462 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'coder' on host 'coder-hftsoi-vivado' (Linux_x86_64 version 5.15.134+release+2.10.0r8-amd64) on Sun Jan 19 22:44:28 UTC 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/coder/sparse/model_test'
+Sourcing Tcl script 'build_prj.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/home/coder/sparse/model_test/model_test_prj'.
+INFO: [HLS 200-10] Adding design file 'firmware/model_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'model_test_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb_data' to the project
+INFO: [HLS 200-10] Opening and resetting solution '/home/coder/sparse/model_test/model_test_prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 4096.
+INFO: [XFORM 203-1161] The maximum of name length is set into 80.
+INFO: [HLS 200-10] Setting target device to 'xcvu13p-flga2577-2-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
+***** C/RTL SYNTHESIS *****
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'firmware/model_test.cpp' ... 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: firmware/model_test.cpp:42:5
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: firmware/model_test.cpp:76:5
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: firmware/model_test.cpp:105:5
+WARNING: [HLS 214-167] There are a total of 6 such instances of non-canonical statements in the dataflow region: firmware/model_test.cpp:34:2
+WARNING: [HLS 200-471] Dataflow form checks found 4 issue(s) in file firmware/model_test.cpp
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1501.570 ; gain = 1099.754 ; free physical = 256906 ; free virtual = 445590
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1501.570 ; gain = 1099.754 ; free physical = 256906 ; free virtual = 445590
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 1501.570 ; gain = 1099.754 ; free physical = 256842 ; free virtual = 445543
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 1501.570 ; gain = 1099.754 ; free physical = 256829 ; free virtual = 445530
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (firmware/model_test.cpp:42) in function 'model_test' completely with a factor of 784.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (firmware/model_test.cpp:76) in function 'model_test' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-14' (firmware/model_test.cpp:105) in function 'model_test' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-14.1' (firmware/model_test.cpp:107) in function 'model_test' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-15' (firmware/model_test.cpp:210) in function 'model_test' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-16' (firmware/model_test.cpp:215) in function 'model_test' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-17' (firmware/model_test.cpp:228) in function 'model_test' completely with a factor of 10.
+INFO: [XFORM 203-131] Reshaping array 'x_in.V' (firmware/model_test.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer4_out.V' (firmware/model_test.cpp:9) in dimension 1 completely.
+WARNING: [XFORM 203-713] All the elements of global array 'feat_in.V' should be updated in process function 'Loop_memset_hash_in_proc37', otherwise it may not be synthesized correctly.
+INFO: [XFORM 203-712] Applying dataflow to function 'model_test', detected/extracted 2 process function(s): 
+	 'Loop_memset_hash_in_proc37'
+	 'Loop_memset_rule_1_proc'.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:32:34 ; elapsed = 00:32:43 . Memory (MB): peak = 1501.570 ; gain = 1099.754 ; free physical = 266510 ; free virtual = 445403
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_1' (firmware/model_test.cpp:87:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_2' (firmware/model_test.cpp:88:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_3' (firmware/model_test.cpp:89:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_4' (firmware/model_test.cpp:90:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_5' (firmware/model_test.cpp:91:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_6' (firmware/model_test.cpp:92:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_7' (firmware/model_test.cpp:93:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_8' (firmware/model_test.cpp:94:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_9' (firmware/model_test.cpp:95:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_5' (firmware/model_test.cpp:116:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_5' (firmware/model_test.cpp:117:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_4' (firmware/model_test.cpp:121:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_4' (firmware/model_test.cpp:122:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_2' (firmware/model_test.cpp:134:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_2' (firmware/model_test.cpp:135:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_6' (firmware/model_test.cpp:126:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_6' (firmware/model_test.cpp:127:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_1' (firmware/model_test.cpp:139:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_1' (firmware/model_test.cpp:140:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_8' (firmware/model_test.cpp:152:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_8' (firmware/model_test.cpp:153:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_3' (firmware/model_test.cpp:144:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_3' (firmware/model_test.cpp:145:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_7' (firmware/model_test.cpp:157:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_7' (firmware/model_test.cpp:158:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_9' (firmware/model_test.cpp:162:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'rule_9' (firmware/model_test.cpp:163:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:212:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:217:60)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:218:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:219:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:220:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:221:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:222:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:223:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:224:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_out.V' (firmware/model_test.cpp:225:67)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_in' (firmware/model_test.cpp:35:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_in.V' (firmware/model_test.cpp:36:40)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_in' (firmware/model_test.cpp:54:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_in' (firmware/model_test.cpp:55:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'feat_in.V' (firmware/model_test.cpp:57:13)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:34:56 ; elapsed = 00:35:09 . Memory (MB): peak = 1950.906 ; gain = 1549.090 ; free physical = 266125 ; free virtual = 444980
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'model_test' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_memset_hash_in_proc37' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2988.06 seconds; current allocated memory: 2.429 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 53.39 seconds; current allocated memory: 2.493 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_memset_rule_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 386.41 seconds; current allocated memory: 2.533 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 62.94 seconds; current allocated memory: 2.593 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'model_test' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 48.24 seconds; current allocated memory: 2.595 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.72 seconds; current allocated memory: 2.598 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_memset_hash_in_proc37' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_memset_hash_in_proc37'.
+INFO: [HLS 200-111]  Elapsed time: 15.59 seconds; current allocated memory: 2.747 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_memset_rule_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'model_test_mul_mul_12s_7ns_18_1_1': 20 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'model_test_mul_mul_12s_8ns_19_1_1': 20 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_memset_rule_1_proc'.
+INFO: [HLS 200-111]  Elapsed time: 73.57 seconds; current allocated memory: 125.404 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'model_test' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/x_in_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_0_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_1_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_2_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_3_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_4_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_5_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_6_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_7_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_8_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer4_out_9_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'model_test' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'model_test'.
+INFO: [HLS 200-111]  Elapsed time: 69.57 seconds; current allocated memory: 488.530 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 268.74 MHz
+INFO: [RTMG 210-278] Implementing memory 'Loop_memset_hash_in_proc37_hash_in_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'Loop_memset_rule_1_proc_rule_1_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'Loop_memset_rule_1_proc_feat_out_V_ram (RAM)' using block RAMs.
+INFO: [HLS 200-741] Implementing PIPO model_test_feat_in_V_memcore using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'model_test_feat_in_V_memcore_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load990_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd991_cast8206_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_1987_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd988_cast8205_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_2984_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd985_cast8204_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_3981_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd982_cast8203_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_10978_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd979_cast8202_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_11975_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd976_cast8201_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_12972_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd973_cast8200_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_13969_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd970_cast8199_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_4966_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd967_cast8198_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_14963_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd964_cast8197_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_5960_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd961_cast8196_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_15957_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd958_cast8195_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_6954_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd955_cast8194_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_16951_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd952_cast8193_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_7948_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd949_cast8192_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_17945_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd946_cast8191_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_8942_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd943_cast8190_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_18939_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd940_cast8189_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_9936_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd937_cast8188_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash_in_load_19934_loc_channel_U(fifo_w7_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'extLd_cast8187_loc_channel_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [HLS 200-741] Implementing PIPO model_test_feat_in_V_memcore using a single memory for all blocks
+INFO: [HLS 200-741] Implementing PIPO model_test_feat_in_V_memcore using a single memory for all blocks
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 01:00:55 ; elapsed = 01:02:10 . Memory (MB): peak = 6457.934 ; gain = 6056.117 ; free physical = 264321 ; free virtual = 441287
+INFO: [VHDL 208-304] Generating VHDL RTL for model_test.
+INFO: [VLOG 209-307] Generating Verilog RTL for model_test.
+***** C/RTL SYNTHESIS COMPLETED IN 1h2m5s *****
+***** C/RTL SIMULATION *****
+INFO: [HLS 200-10] Adding test bench file 'model_test_test.cpp' to the project
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/tools/Xilinx/Vivado/2020.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling model_test_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_model_test.cpp
+   Compiling model_test.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+0.0859375 0.0859375 0.0859375 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-302] Starting C TB testing ...  
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+0.0859375 0.0859375 0.0859375 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [COSIM 212-323] Starting verilog simulation...
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/tools/Xilinx/Vivado/2020.1/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_model_test_top glbl -prj model_test.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /tools/Xilinx/Vivado/2020.1/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s model_test -debug wave 
+Multi-threading is on. Using 126 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_model_test_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/Loop_memset_hash_in_proc37.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_hash_in_proc37
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/Loop_memset_rule_1_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_rule_1_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/Loop_memset_hash_in_proc37_hash_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_hash_in_proc37_hash_in_ram
+INFO: [VRFC 10-311] analyzing module Loop_memset_hash_in_proc37_hash_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test_mul_mul_12s_7ns_18_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_mul_mul_12s_7ns_18_1_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module model_test_mul_mul_12s_7ns_18_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test_mul_mul_12s_8ns_19_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_mul_mul_12s_8ns_19_1_1_DSP48_1
+INFO: [VRFC 10-311] analyzing module model_test_mul_mul_12s_8ns_19_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/Loop_memset_rule_1_proc_rule_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_rule_1_proc_rule_1_ram
+INFO: [VRFC 10-311] analyzing module Loop_memset_rule_1_proc_rule_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/Loop_memset_rule_1_proc_feat_out_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_rule_1_proc_feat_out_V_ram
+INFO: [VRFC 10-311] analyzing module Loop_memset_rule_1_proc_feat_out_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test_feat_in_V_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_feat_in_V_memcore_ram
+INFO: [VRFC 10-311] analyzing module model_test_feat_in_V_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test_feat_in_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_feat_in_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/fifo_w7_d2_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w7_d2_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w7_d2_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/fifo_w8_d2_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w8_d2_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w8_d2_A
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.model_test_feat_in_V_memcore_ram
+Compiling module xil_defaultlib.model_test_feat_in_V_memcore
+Compiling module xil_defaultlib.model_test_feat_in_V(AddressRang...
+Compiling module xil_defaultlib.Loop_memset_hash_in_proc37_hash_...
+Compiling module xil_defaultlib.Loop_memset_hash_in_proc37_hash_...
+Compiling module xil_defaultlib.Loop_memset_hash_in_proc37
+Compiling module xil_defaultlib.Loop_memset_rule_1_proc_rule_1_r...
+Compiling module xil_defaultlib.Loop_memset_rule_1_proc_rule_1(D...
+Compiling module xil_defaultlib.Loop_memset_rule_1_proc_feat_out...
+Compiling module xil_defaultlib.Loop_memset_rule_1_proc_feat_out...
+Compiling module xil_defaultlib.model_test_mul_mul_12s_7ns_18_1_...
+Compiling module xil_defaultlib.model_test_mul_mul_12s_7ns_18_1_...
+Compiling module xil_defaultlib.model_test_mul_mul_12s_8ns_19_1_...
+Compiling module xil_defaultlib.model_test_mul_mul_12s_8ns_19_1_...
+Compiling module xil_defaultlib.Loop_memset_rule_1_proc
+Compiling module xil_defaultlib.fifo_w7_d2_A_shiftReg
+Compiling module xil_defaultlib.fifo_w7_d2_A
+Compiling module xil_defaultlib.fifo_w8_d2_A_shiftReg
+Compiling module xil_defaultlib.fifo_w8_d2_A
+Compiling module xil_defaultlib.model_test
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.apatb_model_test_top
+Compiling module work.glbl
+Built simulation snapshot model_test
+
+****** Webtalk v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/xsim.dir/model_test/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Jan 19 23:48:21 2025...
+
+****** xsim v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/model_test/xsim_script.tcl
+# xsim {model_test} -autoloadwcfg -tclbatch {model_test.tcl}
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source model_test.tcl
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set layer4_out_group [add_wave_group layer4_out(wire) -into $coutputgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_9_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_8_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_7_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_6_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_5_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_4_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_3_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_2_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_1_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_0_V_ap_vld -into $layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_9_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_8_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_7_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_6_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_5_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_4_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_3_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_2_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_1_V -into $layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer4_out_0_V -into $layer4_out_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set x_in_group [add_wave_group x_in(wire) -into $cinputgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/x_in_V_ap_vld -into $x_in_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/x_in_V -into $x_in_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_start -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_done -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_ready -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_idle -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_model_test_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_x_in_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_0_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_1_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_2_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_3_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_4_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_5_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_6_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_7_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_8_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer4_out_9_V -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_layer4_out_group [add_wave_group layer4_out(wire) -into $tbcoutputgroup]
+## add_wave /apatb_model_test_top/layer4_out_9_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_8_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_7_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_6_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_5_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_4_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_3_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_2_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_1_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_0_V_ap_vld -into $tb_layer4_out_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer4_out_9_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_8_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_7_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_6_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_5_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_4_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_3_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_2_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_1_V -into $tb_layer4_out_group -radix hex
+## add_wave /apatb_model_test_top/layer4_out_0_V -into $tb_layer4_out_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_x_in_group [add_wave_group x_in(wire) -into $tbcinputgroup]
+## add_wave /apatb_model_test_top/x_in_V_ap_vld -into $tb_x_in_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/x_in_V -into $tb_x_in_group -radix hex
+## save_wave_config model_test.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 3 [0.00%] @ "113000"
+// RTL Simulation : 1 / 3 [36.45%] @ "6543000"
+// RTL Simulation : 2 / 3 [36.45%] @ "10623000"
+// RTL Simulation : 3 / 3 [100.00%] @ "14703000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 14722500 ps : File "/home/coder/sparse/model_test/model_test_prj/solution1/sim/verilog/model_test.autotb.v" Line 838
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Jan 19 23:48:48 2025...
+INFO: [COSIM 212-316] Starting C post checking ...
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+0.0859375 0.0859375 0.0859375 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO:
+Report time       : Sun 19 Jan 2025 11:47:40 PM UTC.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+
+|          |          |                    Latency                    |                    Interval                   |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|
+|   Verilog|      Pass|             NA|             NA|             NA|             NA|             NA|             NA|
++----------+----------+-----------------------------------------------+-----------------------------------------------+
+
+***** C/RTL SIMULATION COMPLETED IN 0h2m12s *****
+INFO: [HLS 200-112] Total elapsed time: 3865.52 seconds; peak allocated memory: 2.747 GB.
+INFO: [Common 17-206] Exiting vivado_hls at Sun Jan 19 23:48:53 2025...

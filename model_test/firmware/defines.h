@@ -14,8 +14,8 @@
 #define OUT_HEIGHT_2 28
 #define OUT_WIDTH_2 28
 #define N_FILT_2 1
-#define OUT_HEIGHT_4 28
-#define OUT_WIDTH_4 28
+#define OUT_HEIGHT_4 10
+#define OUT_WIDTH_4 1
 #define N_FILT_4 1
 
 
