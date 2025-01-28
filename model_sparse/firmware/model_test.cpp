@@ -4,55 +4,18 @@
 #include "parameters.h"
 
 
-void model_test(
-    input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    //result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2]
-    result_t layer2_out[10]
-) {
+#define N_MAX_PIXELS 10
 
-    // hls-fpga-machine-learning insert IO
-    #pragma HLS ARRAY_RESHAPE variable=x_in complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
-    #pragma HLS INTERFACE ap_vld port=x_in,layer2_out 
-    #pragma HLS DATAFLOW
-
-    // hls-fpga-machine-learning insert load weights
-#ifndef __SYNTHESIS__
-    static bool loaded_weights = false;
-    if (!loaded_weights) {
-        nnet::load_weights_from_txt<weight2_t, 9>(w2, "w2.txt");
-        nnet::load_weights_from_txt<bias2_t, 1>(b2, "b2.txt");
-        loaded_weights = true;    }
-#endif
-    // ****************************************
-    // NETWORK INSTANTIATION
-    // ****************************************
-
-    // hls-fpga-machine-learning insert layers
-
-    //hls::stream<int> test;
-    //test.write(10);
-    //test.write(100);
-    //std::cout << "aaaaaaaaaaa " << test.read() << test.read() << std::endl;
-
-    const unsigned N_MAX_PIXELS = 10;
-    unsigned hash_in[N_MAX_PIXELS * 2] = {0};
-    input_t feat_in[N_MAX_PIXELS] = {0};
-    #pragma HLS ARRAY_PARTITION variable=hash_in complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=feat_in complete dim=0
-    //hls::stream<unsigned> hash_h;
-    //hls::stream<unsigned> hash_w;
-    //hls::stream<input_t> feat;
-
-    int counter_active_sites = 0;
-    int coordinate_h = 1;
-    int coordinate_w = 1;
-    int coordinate_c = 1;
+void input_streaming(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
+                     hls::stream<unsigned> &hash_stream,
+                     hls::stream<input_t> &feat_stream,
+                     unsigned hash_arr[N_MAX_PIXELS * 2],
+                     input_t feat_arr[N_MAX_PIXELS]) {
+InputStreamLoop:
     for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
         #pragma HLS UNROLL
-        if (counter_active_sites == N_MAX_PIXELS) break;
-
-        if (x_in[i] != 0) {
+        
+        if (input_array[i] != 0) {
 
             int pixels_per_channel = N_INPUT_1_1 * N_INPUT_2_1;
             int i_c = i / pixels_per_channel + 1;
@@ -60,59 +23,42 @@ void model_test(
             int i_h = remainder / N_INPUT_2_1 + 1;
             int i_w = remainder % N_INPUT_2_1 + 1;
 
-            hash_in[2 * counter_active_sites] = i_h;
-            hash_in[2 * counter_active_sites + 1] = i_w;
-            //hash_h.write(i_h);
-            //hash_w.write(i_w);
-
-            feat_in[counter_active_sites] = x_in[i];
-            //feat.write(x_in[i]);
-
-            counter_active_sites += 1;
+            hash_stream.write(i_h);
+            hash_stream.write(i_w);
+            feat_stream.write(input_array[i]);
+            //std::cout << i_h << " " << i_w << " " << input_array[i] << std::endl;
         }
     }
 
-    /*
-    std::cout << "counter_active_sites: " << counter_active_sites << std::endl;
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        std::cout << "hash_in: " << hash_in[2 * i] << " " << hash_in[2 * i + 1] << std::endl;
-    }
-    std::cout << std::endl;
-
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        std::cout << "feat_in: " << feat_in[i] << std::endl;
-    }
-    std::cout << std::endl;
-    */
-    /*
-    unsigned hash_out[N_MAX_PIXELS * 2] = {0};
-    #pragma HLS ARRAY_PARTITION variable=hash_out complete dim=0
+StreamToArrayLoop:
     for (int i = 0; i < N_MAX_PIXELS; i++) {
         #pragma HLS UNROLL
-        hash_out[2 * i] = hash_in[2 * i];
-        hash_out[2 * i + 1] = hash_in[2 * i + 1];
+
+        if (!feat_stream.empty()) {
+            hash_arr[2 * i] = hash_stream.read();
+            hash_arr[2 * i + 1] = hash_stream.read();
+            feat_arr[i] = feat_stream.read();
+        }
     }
-    */
-    //for (int i = 0; i < N_MAX_PIXELS; i++) {
-    //    std::cout << "hash_out: " << hash_out[2 * i] << " " << hash_out[2 * i + 1] << std::endl;
-    //}
-    //std::cout << std::endl;
+}
 
-    result_t feat_out[N_MAX_PIXELS] = {0};
-    #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
 
+void compute(unsigned hash_arr[N_MAX_PIXELS * 2],
+             input_t feat_in[N_MAX_PIXELS],
+             result_t feat_out[N_MAX_PIXELS],
+             weight2_t w2[9]) {
+MultAddLoop1:
     for (int i = 0; i < N_MAX_PIXELS; i++) {
         #pragma HLS UNROLL
-        if (i == counter_active_sites) break;
 
         feat_out[i] += feat_in[i] * w2[4];
 
+    MultAddLoop2:
         for (int j = 0; j < N_MAX_PIXELS; j++) {
             #pragma HLS UNROLL
-            if (j == counter_active_sites) break;
 
-            int offset_h = hash_in[2 * j] - hash_in[2 * i];
-            int offset_w = hash_in[2 * j + 1] - hash_in[2 * i + 1];
+            int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
+            int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
 
             if ((offset_h == 0) && (offset_w == 1)) {
                 feat_out[j] += feat_in[i] * w2[3];
@@ -140,6 +86,50 @@ void model_test(
             }
         }
     }
+}
+
+
+
+void model_test(
+    input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
+    //result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2]
+    result_t layer2_out[10]
+) {
+
+    // hls-fpga-machine-learning insert IO
+    #pragma HLS ARRAY_RESHAPE variable=x_in complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
+    #pragma HLS INTERFACE ap_vld port=x_in,layer2_out 
+    #pragma HLS DATAFLOW
+
+    // hls-fpga-machine-learning insert load weights
+#ifndef __SYNTHESIS__
+    static bool loaded_weights = false;
+    if (!loaded_weights) {
+        nnet::load_weights_from_txt<weight2_t, 9>(w2, "w2.txt");
+        nnet::load_weights_from_txt<bias2_t, 1>(b2, "b2.txt");
+        loaded_weights = true;    }
+#endif
+    // ****************************************
+    // NETWORK INSTANTIATION
+    // ****************************************
+
+    // hls-fpga-machine-learning insert layers
+    
+    hls::stream<unsigned> hash_stream;
+    hls::stream<input_t> feat_stream;
+
+    unsigned hash_arr[N_MAX_PIXELS * 2] = {0};
+    input_t feat_arr[N_MAX_PIXELS] = {0};
+    #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
+
+    input_streaming(x_in, hash_stream, feat_stream, hash_arr, feat_arr);
+
+    result_t feat_out[N_MAX_PIXELS] = {0};
+    #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
+    
+    compute(hash_arr, feat_arr, feat_out, w2);
 
     /*
     unsigned rule_1[N_MAX_PIXELS * 2] = {0};

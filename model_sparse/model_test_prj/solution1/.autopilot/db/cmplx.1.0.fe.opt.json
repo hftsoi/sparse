@@ -1,0 +1,62 @@
+{
+  "0": {
+    "basicblocks": 11,
+    "calls": "3 1",
+    "file": "model_test.cpp",
+    "fileloc": 93,
+    "instructions": 93,
+    "loads": {
+      "L": 1
+    },
+    "name": "model_test",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 4181
+  },
+  "1": {
+    "basicblocks": 44,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 46,
+    "instructions": 230,
+    "loads": {
+      "L": 4
+    },
+    "name": "compute",
+    "total_instructions": 3479
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "w2.h",
+    "fileloc": 12,
+    "instructions": 10,
+    "name": "__cxx_global_var_init.1",
+    "total_instructions": 3673
+  },
+  "3": {
+    "basicblocks": 17,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 9,
+    "instructions": 73,
+    "loads": {
+      "L": 1
+    },
+    "name": "input_streaming",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 223
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "2",
+    "file": "model_test.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 2,
+    "name": "",
+    "total_instructions": 3675
+  }
+}

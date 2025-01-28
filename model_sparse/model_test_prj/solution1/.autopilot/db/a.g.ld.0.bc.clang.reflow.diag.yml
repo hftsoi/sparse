@@ -1,0 +1,314 @@
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_281_1
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:281:23'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          model_test
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop1
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:51:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 49, Column: 0 }
+Function:        _Z7computePjP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS0_ILi25ELi10ELS1_5ELS2_3ELi0EEPS0_ILi8ELi1ELS1_5ELS2_3ELi0EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        MultAddLoop2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 13, Column: 0 }
+Function:        _Z15input_streamingP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EERN3hls6streamIjLi0EEERNS5_IS2_Li0EEEPjS3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        StreamToArrayLoop
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:34:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          input_streaming
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/model_test.cpp, Line: 13, Column: 0 }
+Function:        _Z15input_streamingP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EERN3hls6streamIjLi0EEERNS5_IS2_Li0EEEPjS3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        InputStreamLoop
+  - String:          ''' ('
+  - LoopLoc:         'firmware/model_test.cpp:15:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          input_streaming
+  - String:          ''' completely with a factor of '
+  - Factor:          '100'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 121, Column: 14 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          hash_arr
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 122, Column: 13 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          feat_arr
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 134, Column: 14 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          feat_out
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          layer2_out
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-reshape
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_reshape
+  - String:          ' to '''
+  - UOName:          x_in
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' reshaping'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...

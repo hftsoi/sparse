@@ -1,0 +1,48 @@
+{
+  "0": {
+    "basicblocks": 32,
+    "calls": "1 2",
+    "file": "model_test.cpp",
+    "fileloc": 93,
+    "instructions": 157,
+    "loads": {
+      "L": 14
+    },
+    "name": "model_test",
+    "stores": {
+      "L": 10,
+      "T": 10
+    },
+    "total_instructions": 46579
+  },
+  "1": {
+    "basicblocks": 627,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 9,
+    "instructions": 1533,
+    "loads": {
+      "L": 200
+    },
+    "name": "input_streaming",
+    "stores": {
+      "L": 30
+    },
+    "total_instructions": 1533
+  },
+  "2": {
+    "basicblocks": 17694,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 46,
+    "instructions": 44889,
+    "loads": {
+      "L": 3640
+    },
+    "name": "compute",
+    "stores": {
+      "L": 1620
+    },
+    "total_instructions": 44889
+  }
+}

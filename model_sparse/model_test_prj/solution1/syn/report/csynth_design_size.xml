@@ -3,7 +3,10 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="model_test" col1="model_test.cpp:7" col2="4068" col3="53260" col4="18492" col5="18898"/>
+                <row id="0" col0="model_test" col1="model_test.cpp:93" col2="4181" col3="46579" col4="15362" col5="16012">
+                    <row id="3" col0="input_streaming" col1="model_test.cpp:9" col2="223" col3="1533" col4="802" col5="1462"/>
+                    <row id="1" col0="compute" col1="model_test.cpp:46" col2="3479" col3="44889" col4="14417" col5="14417"/>
+                </row>
             </rows>
             <notes/>
         </hiertable>
