@@ -1,0 +1,1410 @@
+
+
+================================================================
+== Synthesis Summary Report of 'model_test'
+================================================================
++ General Information: 
+    * Date:           Tue Jan 28 03:43:20 2025
+    * Version:        2023.1 (Build 3854077 on May  4 2023)
+    * Project:        model_test_prj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu13p-flga2577-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------+------+------+---------+---------+----------+---------+------+----------+------+-----------+-------------+-------------+-----+
+    |         Modules         | Issue|      | Latency | Latency | Iteration|         | Trip |          |      |           |             |             |     |
+    |         & Loops         | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM |    DSP    |      FF     |     LUT     | URAM|
+    +-------------------------+------+------+---------+---------+----------+---------+------+----------+------+-----------+-------------+-------------+-----+
+    |+ model_test*            |     -|  0.04|       63|  315.000|         -|       64|     -|  dataflow|     -|  106 (~0%)|  22588 (~0%)|  140535 (8%)|    -|
+    | + Block_entry2894_proc  |     -|  0.04|       63|  315.000|         -|       63|     -|        no|     -|  106 (~0%)|  22588 (~0%)|  140535 (8%)|    -|
+    +-------------------------+------+------+---------+---------+----------+---------+------+----------+------+-----------+-------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++--------------+--------+-----------+----------+
+| Port         | Mode   | Direction | Bitwidth |
++--------------+--------+-----------+----------+
+| layer2_out_0 | ap_vld | out       | 25       |
+| layer2_out_1 | ap_vld | out       | 25       |
+| layer2_out_2 | ap_vld | out       | 25       |
+| layer2_out_3 | ap_vld | out       | 25       |
+| layer2_out_4 | ap_vld | out       | 25       |
+| layer2_out_5 | ap_vld | out       | 25       |
+| layer2_out_6 | ap_vld | out       | 25       |
+| layer2_out_7 | ap_vld | out       | 25       |
+| layer2_out_8 | ap_vld | out       | 25       |
+| layer2_out_9 | ap_vld | out       | 25       |
+| x_in         | ap_vld | in        | 1200     |
++--------------+--------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+---------------------------------------+
+| Argument   | Direction | Datatype                              |
++------------+-----------+---------------------------------------+
+| x_in       | in        | ap_fixed<12, 4, AP_RND, AP_SAT, 0>*   |
+| layer2_out | out       | ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>* |
++------------+-----------+---------------------------------------+
+
+* SW-to-HW Mapping
++------------+---------------------+---------+
+| Argument   | HW Interface        | HW Type |
++------------+---------------------+---------+
+| x_in       | x_in                | port    |
+| x_in       | x_in_ap_vld         | port    |
+| layer2_out | layer2_out_0        | port    |
+| layer2_out | layer2_out_0_ap_vld | port    |
+| layer2_out | layer2_out_1        | port    |
+| layer2_out | layer2_out_1_ap_vld | port    |
+| layer2_out | layer2_out_2        | port    |
+| layer2_out | layer2_out_2_ap_vld | port    |
+| layer2_out | layer2_out_3        | port    |
+| layer2_out | layer2_out_3_ap_vld | port    |
+| layer2_out | layer2_out_4        | port    |
+| layer2_out | layer2_out_4_ap_vld | port    |
+| layer2_out | layer2_out_5        | port    |
+| layer2_out | layer2_out_5_ap_vld | port    |
+| layer2_out | layer2_out_6        | port    |
+| layer2_out | layer2_out_6_ap_vld | port    |
+| layer2_out | layer2_out_7        | port    |
+| layer2_out | layer2_out_7_ap_vld | port    |
+| layer2_out | layer2_out_8        | port    |
+| layer2_out | layer2_out_8_ap_vld | port    |
+| layer2_out | layer2_out_9        | port    |
+| layer2_out | layer2_out_9_ap_vld | port    |
++------------+---------------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
+| Name                                     | DSP | Pragma | Variable                 | Op  | Impl   | Latency |
++------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
+| + model_test                             | 106 |        |                          |     |        |         |
+|  + Block_entry2894_proc                  | 106 |        |                          |     |        |         |
+|    counter_active_sites_3_fu_144775_p2   | -   |        | counter_active_sites_3   | add | fabric | 0       |
+|    counter_active_sites_5_fu_144830_p2   | -   |        | counter_active_sites_5   | add | fabric | 0       |
+|    counter_active_sites_7_fu_144856_p2   | -   |        | counter_active_sites_7   | add | fabric | 0       |
+|    counter_active_sites_9_fu_144884_p2   | -   |        | counter_active_sites_9   | add | fabric | 0       |
+|    counter_active_sites_11_fu_144913_p2  | -   |        | counter_active_sites_11  | add | fabric | 0       |
+|    counter_active_sites_13_fu_145039_p2  | -   |        | counter_active_sites_13  | add | fabric | 0       |
+|    counter_active_sites_15_fu_145070_p2  | -   |        | counter_active_sites_15  | add | fabric | 0       |
+|    counter_active_sites_17_fu_145092_p2  | -   |        | counter_active_sites_17  | add | fabric | 0       |
+|    counter_active_sites_19_fu_145310_p2  | -   |        | counter_active_sites_19  | add | fabric | 0       |
+|    counter_active_sites_21_fu_145378_p2  | -   |        | counter_active_sites_21  | add | fabric | 0       |
+|    counter_active_sites_23_fu_145456_p2  | -   |        | counter_active_sites_23  | add | fabric | 0       |
+|    counter_active_sites_25_fu_145524_p2  | -   |        | counter_active_sites_25  | add | fabric | 0       |
+|    counter_active_sites_27_fu_145602_p2  | -   |        | counter_active_sites_27  | add | fabric | 0       |
+|    counter_active_sites_29_fu_145670_p2  | -   |        | counter_active_sites_29  | add | fabric | 0       |
+|    counter_active_sites_31_fu_145748_p2  | -   |        | counter_active_sites_31  | add | fabric | 0       |
+|    counter_active_sites_33_fu_145816_p2  | -   |        | counter_active_sites_33  | add | fabric | 0       |
+|    counter_active_sites_35_fu_145894_p2  | -   |        | counter_active_sites_35  | add | fabric | 0       |
+|    counter_active_sites_37_fu_145962_p2  | -   |        | counter_active_sites_37  | add | fabric | 0       |
+|    counter_active_sites_39_fu_146040_p2  | -   |        | counter_active_sites_39  | add | fabric | 0       |
+|    counter_active_sites_41_fu_146108_p2  | -   |        | counter_active_sites_41  | add | fabric | 0       |
+|    counter_active_sites_43_fu_146186_p2  | -   |        | counter_active_sites_43  | add | fabric | 0       |
+|    counter_active_sites_45_fu_146254_p2  | -   |        | counter_active_sites_45  | add | fabric | 0       |
+|    counter_active_sites_47_fu_146332_p2  | -   |        | counter_active_sites_47  | add | fabric | 0       |
+|    counter_active_sites_49_fu_146400_p2  | -   |        | counter_active_sites_49  | add | fabric | 0       |
+|    counter_active_sites_51_fu_146478_p2  | -   |        | counter_active_sites_51  | add | fabric | 0       |
+|    counter_active_sites_53_fu_146546_p2  | -   |        | counter_active_sites_53  | add | fabric | 0       |
+|    counter_active_sites_55_fu_146624_p2  | -   |        | counter_active_sites_55  | add | fabric | 0       |
+|    counter_active_sites_57_fu_146692_p2  | -   |        | counter_active_sites_57  | add | fabric | 0       |
+|    counter_active_sites_59_fu_146910_p2  | -   |        | counter_active_sites_59  | add | fabric | 0       |
+|    counter_active_sites_61_fu_146978_p2  | -   |        | counter_active_sites_61  | add | fabric | 0       |
+|    counter_active_sites_63_fu_147056_p2  | -   |        | counter_active_sites_63  | add | fabric | 0       |
+|    counter_active_sites_65_fu_147124_p2  | -   |        | counter_active_sites_65  | add | fabric | 0       |
+|    counter_active_sites_67_fu_147202_p2  | -   |        | counter_active_sites_67  | add | fabric | 0       |
+|    counter_active_sites_69_fu_147270_p2  | -   |        | counter_active_sites_69  | add | fabric | 0       |
+|    counter_active_sites_71_fu_147348_p2  | -   |        | counter_active_sites_71  | add | fabric | 0       |
+|    counter_active_sites_73_fu_147416_p2  | -   |        | counter_active_sites_73  | add | fabric | 0       |
+|    counter_active_sites_75_fu_147494_p2  | -   |        | counter_active_sites_75  | add | fabric | 0       |
+|    counter_active_sites_77_fu_147562_p2  | -   |        | counter_active_sites_77  | add | fabric | 0       |
+|    counter_active_sites_79_fu_147640_p2  | -   |        | counter_active_sites_79  | add | fabric | 0       |
+|    counter_active_sites_81_fu_147708_p2  | -   |        | counter_active_sites_81  | add | fabric | 0       |
+|    counter_active_sites_83_fu_147786_p2  | -   |        | counter_active_sites_83  | add | fabric | 0       |
+|    counter_active_sites_85_fu_147854_p2  | -   |        | counter_active_sites_85  | add | fabric | 0       |
+|    counter_active_sites_87_fu_147932_p2  | -   |        | counter_active_sites_87  | add | fabric | 0       |
+|    counter_active_sites_89_fu_148000_p2  | -   |        | counter_active_sites_89  | add | fabric | 0       |
+|    counter_active_sites_91_fu_148078_p2  | -   |        | counter_active_sites_91  | add | fabric | 0       |
+|    counter_active_sites_93_fu_148146_p2  | -   |        | counter_active_sites_93  | add | fabric | 0       |
+|    counter_active_sites_95_fu_148224_p2  | -   |        | counter_active_sites_95  | add | fabric | 0       |
+|    counter_active_sites_97_fu_148292_p2  | -   |        | counter_active_sites_97  | add | fabric | 0       |
+|    counter_active_sites_99_fu_148370_p2  | -   |        | counter_active_sites_99  | add | fabric | 0       |
+|    counter_active_sites_101_fu_148438_p2 | -   |        | counter_active_sites_101 | add | fabric | 0       |
+|    counter_active_sites_103_fu_148516_p2 | -   |        | counter_active_sites_103 | add | fabric | 0       |
+|    counter_active_sites_105_fu_148584_p2 | -   |        | counter_active_sites_105 | add | fabric | 0       |
+|    counter_active_sites_107_fu_148662_p2 | -   |        | counter_active_sites_107 | add | fabric | 0       |
+|    counter_active_sites_109_fu_148730_p2 | -   |        | counter_active_sites_109 | add | fabric | 0       |
+|    counter_active_sites_111_fu_148808_p2 | -   |        | counter_active_sites_111 | add | fabric | 0       |
+|    counter_active_sites_113_fu_148876_p2 | -   |        | counter_active_sites_113 | add | fabric | 0       |
+|    counter_active_sites_115_fu_148954_p2 | -   |        | counter_active_sites_115 | add | fabric | 0       |
+|    counter_active_sites_117_fu_149022_p2 | -   |        | counter_active_sites_117 | add | fabric | 0       |
+|    counter_active_sites_119_fu_149100_p2 | -   |        | counter_active_sites_119 | add | fabric | 0       |
+|    counter_active_sites_121_fu_149168_p2 | -   |        | counter_active_sites_121 | add | fabric | 0       |
+|    counter_active_sites_123_fu_149246_p2 | -   |        | counter_active_sites_123 | add | fabric | 0       |
+|    counter_active_sites_125_fu_149314_p2 | -   |        | counter_active_sites_125 | add | fabric | 0       |
+|    counter_active_sites_127_fu_149392_p2 | -   |        | counter_active_sites_127 | add | fabric | 0       |
+|    counter_active_sites_129_fu_149460_p2 | -   |        | counter_active_sites_129 | add | fabric | 0       |
+|    counter_active_sites_131_fu_149538_p2 | -   |        | counter_active_sites_131 | add | fabric | 0       |
+|    counter_active_sites_133_fu_149606_p2 | -   |        | counter_active_sites_133 | add | fabric | 0       |
+|    counter_active_sites_135_fu_149684_p2 | -   |        | counter_active_sites_135 | add | fabric | 0       |
+|    counter_active_sites_137_fu_149752_p2 | -   |        | counter_active_sites_137 | add | fabric | 0       |
+|    counter_active_sites_139_fu_149930_p2 | -   |        | counter_active_sites_139 | add | fabric | 0       |
+|    counter_active_sites_141_fu_149958_p2 | -   |        | counter_active_sites_141 | add | fabric | 0       |
+|    counter_active_sites_143_fu_149996_p2 | -   |        | counter_active_sites_143 | add | fabric | 0       |
+|    counter_active_sites_145_fu_150024_p2 | -   |        | counter_active_sites_145 | add | fabric | 0       |
+|    counter_active_sites_147_fu_150062_p2 | -   |        | counter_active_sites_147 | add | fabric | 0       |
+|    counter_active_sites_149_fu_150090_p2 | -   |        | counter_active_sites_149 | add | fabric | 0       |
+|    counter_active_sites_151_fu_150128_p2 | -   |        | counter_active_sites_151 | add | fabric | 0       |
+|    counter_active_sites_153_fu_150156_p2 | -   |        | counter_active_sites_153 | add | fabric | 0       |
+|    counter_active_sites_155_fu_150194_p2 | -   |        | counter_active_sites_155 | add | fabric | 0       |
+|    counter_active_sites_157_fu_150222_p2 | -   |        | counter_active_sites_157 | add | fabric | 0       |
+|    counter_active_sites_159_fu_150260_p2 | -   |        | counter_active_sites_159 | add | fabric | 0       |
+|    counter_active_sites_161_fu_150288_p2 | -   |        | counter_active_sites_161 | add | fabric | 0       |
+|    counter_active_sites_163_fu_150326_p2 | -   |        | counter_active_sites_163 | add | fabric | 0       |
+|    counter_active_sites_165_fu_150354_p2 | -   |        | counter_active_sites_165 | add | fabric | 0       |
+|    counter_active_sites_167_fu_150392_p2 | -   |        | counter_active_sites_167 | add | fabric | 0       |
+|    counter_active_sites_169_fu_150420_p2 | -   |        | counter_active_sites_169 | add | fabric | 0       |
+|    counter_active_sites_171_fu_150458_p2 | -   |        | counter_active_sites_171 | add | fabric | 0       |
+|    counter_active_sites_173_fu_150486_p2 | -   |        | counter_active_sites_173 | add | fabric | 0       |
+|    counter_active_sites_175_fu_150524_p2 | -   |        | counter_active_sites_175 | add | fabric | 0       |
+|    counter_active_sites_177_fu_150552_p2 | -   |        | counter_active_sites_177 | add | fabric | 0       |
+|    counter_active_sites_179_fu_150590_p2 | -   |        | counter_active_sites_179 | add | fabric | 0       |
+|    counter_active_sites_181_fu_150618_p2 | -   |        | counter_active_sites_181 | add | fabric | 0       |
+|    counter_active_sites_183_fu_150656_p2 | -   |        | counter_active_sites_183 | add | fabric | 0       |
+|    counter_active_sites_185_fu_150684_p2 | -   |        | counter_active_sites_185 | add | fabric | 0       |
+|    counter_active_sites_187_fu_150722_p2 | -   |        | counter_active_sites_187 | add | fabric | 0       |
+|    counter_active_sites_189_fu_150750_p2 | -   |        | counter_active_sites_189 | add | fabric | 0       |
+|    counter_active_sites_191_fu_150788_p2 | -   |        | counter_active_sites_191 | add | fabric | 0       |
+|    counter_active_sites_193_fu_150816_p2 | -   |        | counter_active_sites_193 | add | fabric | 0       |
+|    counter_active_sites_195_fu_150853_p2 | -   |        | counter_active_sites_195 | add | fabric | 0       |
+|    counter_active_sites_197_fu_150891_p2 | -   |        | counter_active_sites_197 | add | fabric | 0       |
+|    mul_12s_8ns_20_1_1_U1                 | 1   |        | feat_out                 | mul | auto   | 0       |
+|    offset_h_fu_151049_p2                 | -   |        | offset_h                 | sub | fabric | 0       |
+|    offset_w_fu_151055_p2                 | -   |        | offset_w                 | sub | fabric | 0       |
+|    feat_out_7_fu_151163_p2               | -   |        | feat_out_7               | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U2                  | 1   |        | feat_out_6               | mul | auto   | 0       |
+|    feat_out_5_fu_151197_p2               | -   |        | feat_out_5               | sub | fabric | 0       |
+|    feat_out_4_fu_151220_p2               | -   |        | feat_out_4               | sub | fabric | 0       |
+|    feat_out_3_fu_151243_p2               | -   |        | feat_out_3               | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U3                 | 1   |        | feat_out_2               | mul | auto   | 0       |
+|    feat_out_1_fu_151269_p2               | -   |        | feat_out_1               | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U4                 | 1   |        | mul_ln101                | mul | auto   | 0       |
+|    offset_h_1_fu_151297_p2               | -   |        | offset_h_1               | sub | fabric | 0       |
+|    offset_w_1_fu_151303_p2               | -   |        | offset_w_1               | sub | fabric | 0       |
+|    feat_out_14_fu_151411_p2              | -   |        | feat_out_14              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U5                  | 1   |        | feat_out_13              | mul | auto   | 0       |
+|    feat_out_12_fu_151445_p2              | -   |        | feat_out_12              | sub | fabric | 0       |
+|    feat_out_11_fu_151468_p2              | -   |        | feat_out_11              | sub | fabric | 0       |
+|    feat_out_10_fu_151491_p2              | -   |        | feat_out_10              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U6                 | 1   |        | feat_out_9               | mul | auto   | 0       |
+|    feat_out_8_fu_151517_p2               | -   |        | feat_out_8               | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U7                 | 1   |        | mul_ln101_1              | mul | auto   | 0       |
+|    offset_h_2_fu_151535_p2               | -   |        | offset_h_2               | sub | fabric | 0       |
+|    offset_w_2_fu_151541_p2               | -   |        | offset_w_2               | sub | fabric | 0       |
+|    feat_out_22_fu_151649_p2              | -   |        | feat_out_22              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U8                  | 1   |        | feat_out_21              | mul | auto   | 0       |
+|    feat_out_20_fu_151683_p2              | -   |        | feat_out_20              | sub | fabric | 0       |
+|    feat_out_19_fu_151706_p2              | -   |        | feat_out_19              | sub | fabric | 0       |
+|    feat_out_18_fu_151729_p2              | -   |        | feat_out_18              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U9                 | 1   |        | feat_out_17              | mul | auto   | 0       |
+|    feat_out_16_fu_151755_p2              | -   |        | feat_out_16              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U10                | 1   |        | mul_ln101_2              | mul | auto   | 0       |
+|    offset_h_3_fu_151773_p2               | -   |        | offset_h_3               | sub | fabric | 0       |
+|    offset_w_3_fu_151779_p2               | -   |        | offset_w_3               | sub | fabric | 0       |
+|    feat_out_30_fu_151887_p2              | -   |        | feat_out_30              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U11                 | 1   |        | feat_out_29              | mul | auto   | 0       |
+|    feat_out_28_fu_151921_p2              | -   |        | feat_out_28              | sub | fabric | 0       |
+|    feat_out_27_fu_151944_p2              | -   |        | feat_out_27              | sub | fabric | 0       |
+|    feat_out_26_fu_151967_p2              | -   |        | feat_out_26              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U12                | 1   |        | feat_out_25              | mul | auto   | 0       |
+|    feat_out_24_fu_151993_p2              | -   |        | feat_out_24              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U13                | 1   |        | mul_ln101_3              | mul | auto   | 0       |
+|    offset_h_4_fu_152011_p2               | -   |        | offset_h_4               | sub | fabric | 0       |
+|    offset_w_4_fu_152017_p2               | -   |        | offset_w_4               | sub | fabric | 0       |
+|    feat_out_38_fu_152125_p2              | -   |        | feat_out_38              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U14                 | 1   |        | feat_out_37              | mul | auto   | 0       |
+|    feat_out_36_fu_152159_p2              | -   |        | feat_out_36              | sub | fabric | 0       |
+|    feat_out_35_fu_152182_p2              | -   |        | feat_out_35              | sub | fabric | 0       |
+|    feat_out_34_fu_152205_p2              | -   |        | feat_out_34              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U15                | 1   |        | feat_out_33              | mul | auto   | 0       |
+|    feat_out_32_fu_152231_p2              | -   |        | feat_out_32              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U16                | 1   |        | mul_ln101_4              | mul | auto   | 0       |
+|    offset_h_5_fu_152249_p2               | -   |        | offset_h_5               | sub | fabric | 0       |
+|    offset_w_5_fu_152255_p2               | -   |        | offset_w_5               | sub | fabric | 0       |
+|    feat_out_46_fu_152363_p2              | -   |        | feat_out_46              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U17                 | 1   |        | feat_out_45              | mul | auto   | 0       |
+|    feat_out_44_fu_152397_p2              | -   |        | feat_out_44              | sub | fabric | 0       |
+|    feat_out_43_fu_152420_p2              | -   |        | feat_out_43              | sub | fabric | 0       |
+|    feat_out_42_fu_152443_p2              | -   |        | feat_out_42              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U18                | 1   |        | feat_out_41              | mul | auto   | 0       |
+|    feat_out_40_fu_152469_p2              | -   |        | feat_out_40              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U19                | 1   |        | mul_ln101_5              | mul | auto   | 0       |
+|    offset_h_6_fu_152487_p2               | -   |        | offset_h_6               | sub | fabric | 0       |
+|    offset_w_6_fu_152493_p2               | -   |        | offset_w_6               | sub | fabric | 0       |
+|    feat_out_54_fu_152601_p2              | -   |        | feat_out_54              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U20                 | 1   |        | feat_out_53              | mul | auto   | 0       |
+|    feat_out_52_fu_152635_p2              | -   |        | feat_out_52              | sub | fabric | 0       |
+|    feat_out_51_fu_152658_p2              | -   |        | feat_out_51              | sub | fabric | 0       |
+|    feat_out_50_fu_152681_p2              | -   |        | feat_out_50              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U21                | 1   |        | feat_out_49              | mul | auto   | 0       |
+|    feat_out_48_fu_152707_p2              | -   |        | feat_out_48              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U22                | 1   |        | mul_ln101_6              | mul | auto   | 0       |
+|    offset_h_7_fu_152725_p2               | -   |        | offset_h_7               | sub | fabric | 0       |
+|    offset_w_7_fu_152731_p2               | -   |        | offset_w_7               | sub | fabric | 0       |
+|    feat_out_62_fu_152839_p2              | -   |        | feat_out_62              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U23                 | 1   |        | feat_out_61              | mul | auto   | 0       |
+|    feat_out_60_fu_152873_p2              | -   |        | feat_out_60              | sub | fabric | 0       |
+|    feat_out_59_fu_152896_p2              | -   |        | feat_out_59              | sub | fabric | 0       |
+|    feat_out_58_fu_152919_p2              | -   |        | feat_out_58              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U24                | 1   |        | feat_out_57              | mul | auto   | 0       |
+|    feat_out_56_fu_152945_p2              | -   |        | feat_out_56              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U25                | 1   |        | mul_ln101_7              | mul | auto   | 0       |
+|    offset_h_8_fu_152963_p2               | -   |        | offset_h_8               | sub | fabric | 0       |
+|    offset_w_8_fu_152969_p2               | -   |        | offset_w_8               | sub | fabric | 0       |
+|    feat_out_70_fu_153077_p2              | -   |        | feat_out_70              | sub | fabric | 0       |
+|    mul_12s_5s_17_1_1_U26                 | 1   |        | feat_out_69              | mul | auto   | 0       |
+|    feat_out_68_fu_153109_p2              | -   |        | feat_out_68              | sub | fabric | 0       |
+|    feat_out_67_fu_153131_p2              | -   |        | feat_out_67              | sub | fabric | 0       |
+|    feat_out_66_fu_153153_p2              | -   |        | feat_out_66              | sub | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U27                | 1   |        | feat_out_65              | mul | auto   | 0       |
+|    feat_out_64_fu_153177_p2              | -   |        | feat_out_64              | sub | fabric | 0       |
+|    mul_12s_7ns_18_1_1_U28                | 1   |        | mul_ln101_8              | mul | auto   | 0       |
+|    mac_muladd_12s_7ns_18s_20_1_1_U53     | 1   |        | mul_ln108                | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_18s_20_1_1_U53     | 1   |        | feat_out_79              | add | dsp48  | 0       |
+|    offset_h_9_fu_153280_p2               | -   |        | offset_h_9               | sub | fabric | 0       |
+|    offset_w_9_fu_153284_p2               | -   |        | offset_w_9               | sub | fabric | 0       |
+|    sub_ln139_fu_153382_p2                | -   |        | sub_ln139                | sub | fabric | 0       |
+|    feat_out_87_fu_153392_p2              | -   |        | feat_out_87              | add | fabric | 0       |
+|    mac_muladd_12s_5s_19s_19_1_1_U54      | 1   |        | mul_ln136                | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_19s_19_1_1_U54      | 1   |        | feat_out_86              | add | dsp48  | 0       |
+|    sub_ln133_fu_153418_p2                | -   |        | sub_ln133                | sub | fabric | 0       |
+|    feat_out_85_fu_153428_p2              | -   |        | feat_out_85              | add | fabric | 0       |
+|    sub_ln130_fu_153450_p2                | -   |        | sub_ln130                | sub | fabric | 0       |
+|    feat_out_84_fu_153460_p2              | -   |        | feat_out_84              | add | fabric | 0       |
+|    sub_ln127_fu_153482_p2                | -   |        | sub_ln127                | sub | fabric | 0       |
+|    feat_out_83_fu_153492_p2              | -   |        | feat_out_83              | add | fabric | 0       |
+|    mac_muladd_12s_5ns_19s_19_1_1_U55     | 1   |        | mul_ln124                | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_19s_19_1_1_U55     | 1   |        | feat_out_82              | add | dsp48  | 0       |
+|    sub_ln121_fu_153518_p2                | -   |        | sub_ln121                | sub | fabric | 0       |
+|    feat_out_81_fu_153528_p2              | -   |        | feat_out_81              | add | fabric | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U56     | 1   |        | mul_ln118                | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U56     | 1   |        | feat_out_80              | add | dsp48  | 0       |
+|    offset_h_10_fu_153542_p2              | -   |        | offset_h_10              | sub | fabric | 0       |
+|    offset_w_10_fu_153546_p2              | -   |        | offset_w_10              | sub | fabric | 0       |
+|    feat_out_96_fu_153652_p2              | -   |        | feat_out_96              | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U57      | 1   |        | mul_ln136_1              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U57      | 1   |        | feat_out_95              | add | dsp48  | 0       |
+|    sub_ln133_1_fu_153670_p2              | -   |        | sub_ln133_1              | sub | fabric | 0       |
+|    feat_out_94_fu_153680_p2              | -   |        | feat_out_94              | add | fabric | 0       |
+|    sub_ln130_1_fu_153698_p2              | -   |        | sub_ln130_1              | sub | fabric | 0       |
+|    feat_out_93_fu_153708_p2              | -   |        | feat_out_93              | add | fabric | 0       |
+|    sub_ln127_1_fu_153726_p2              | -   |        | sub_ln127_1              | sub | fabric | 0       |
+|    feat_out_92_fu_153736_p2              | -   |        | feat_out_92              | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U58     | 1   |        | mul_ln124_1              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U58     | 1   |        | feat_out_91              | add | dsp48  | 0       |
+|    sub_ln121_1_fu_153754_p2              | -   |        | sub_ln121_1              | sub | fabric | 0       |
+|    feat_out_90_fu_153764_p2              | -   |        | feat_out_90              | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U59     | 1   |        | mul_ln118_1              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U59     | 1   |        | feat_out_89              | add | dsp48  | 0       |
+|    offset_h_11_fu_153774_p2              | -   |        | offset_h_11              | sub | fabric | 0       |
+|    offset_w_11_fu_153778_p2              | -   |        | offset_w_11              | sub | fabric | 0       |
+|    feat_out_104_fu_153884_p2             | -   |        | feat_out_104             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U60      | 1   |        | mul_ln136_2              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U60      | 1   |        | feat_out_103             | add | dsp48  | 0       |
+|    sub_ln133_2_fu_153902_p2              | -   |        | sub_ln133_2              | sub | fabric | 0       |
+|    feat_out_102_fu_153911_p2             | -   |        | feat_out_102             | add | fabric | 0       |
+|    sub_ln130_2_fu_153929_p2              | -   |        | sub_ln130_2              | sub | fabric | 0       |
+|    feat_out_101_fu_153938_p2             | -   |        | feat_out_101             | add | fabric | 0       |
+|    sub_ln127_2_fu_153956_p2              | -   |        | sub_ln127_2              | sub | fabric | 0       |
+|    feat_out_100_fu_153965_p2             | -   |        | feat_out_100             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U61     | 1   |        | mul_ln124_2              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U61     | 1   |        | feat_out_99              | add | dsp48  | 0       |
+|    sub_ln121_2_fu_153983_p2              | -   |        | sub_ln121_2              | sub | fabric | 0       |
+|    feat_out_98_fu_153992_p2              | -   |        | feat_out_98              | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U62     | 1   |        | mul_ln118_2              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U62     | 1   |        | feat_out_97              | add | dsp48  | 0       |
+|    offset_h_12_fu_153998_p2              | -   |        | offset_h_12              | sub | fabric | 0       |
+|    offset_w_12_fu_154002_p2              | -   |        | offset_w_12              | sub | fabric | 0       |
+|    feat_out_113_fu_154108_p2             | -   |        | feat_out_113             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U63      | 1   |        | mul_ln136_3              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U63      | 1   |        | feat_out_112             | add | dsp48  | 0       |
+|    sub_ln133_3_fu_154126_p2              | -   |        | sub_ln133_3              | sub | fabric | 0       |
+|    feat_out_111_fu_154135_p2             | -   |        | feat_out_111             | add | fabric | 0       |
+|    sub_ln130_3_fu_154153_p2              | -   |        | sub_ln130_3              | sub | fabric | 0       |
+|    feat_out_110_fu_154162_p2             | -   |        | feat_out_110             | add | fabric | 0       |
+|    sub_ln127_3_fu_154180_p2              | -   |        | sub_ln127_3              | sub | fabric | 0       |
+|    feat_out_109_fu_154189_p2             | -   |        | feat_out_109             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U64     | 1   |        | mul_ln124_3              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U64     | 1   |        | feat_out_108             | add | dsp48  | 0       |
+|    sub_ln121_3_fu_154207_p2              | -   |        | sub_ln121_3              | sub | fabric | 0       |
+|    feat_out_107_fu_154216_p2             | -   |        | feat_out_107             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U65     | 1   |        | mul_ln118_3              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U65     | 1   |        | feat_out_106             | add | dsp48  | 0       |
+|    offset_h_13_fu_154222_p2              | -   |        | offset_h_13              | sub | fabric | 0       |
+|    offset_w_13_fu_154226_p2              | -   |        | offset_w_13              | sub | fabric | 0       |
+|    feat_out_122_fu_154332_p2             | -   |        | feat_out_122             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U66      | 1   |        | mul_ln136_4              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U66      | 1   |        | feat_out_121             | add | dsp48  | 0       |
+|    sub_ln133_4_fu_154350_p2              | -   |        | sub_ln133_4              | sub | fabric | 0       |
+|    feat_out_120_fu_154359_p2             | -   |        | feat_out_120             | add | fabric | 0       |
+|    sub_ln130_4_fu_154377_p2              | -   |        | sub_ln130_4              | sub | fabric | 0       |
+|    feat_out_119_fu_154386_p2             | -   |        | feat_out_119             | add | fabric | 0       |
+|    sub_ln127_4_fu_154404_p2              | -   |        | sub_ln127_4              | sub | fabric | 0       |
+|    feat_out_118_fu_154413_p2             | -   |        | feat_out_118             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U67     | 1   |        | mul_ln124_4              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U67     | 1   |        | feat_out_117             | add | dsp48  | 0       |
+|    sub_ln121_4_fu_154431_p2              | -   |        | sub_ln121_4              | sub | fabric | 0       |
+|    feat_out_116_fu_154440_p2             | -   |        | feat_out_116             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U68     | 1   |        | mul_ln118_4              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U68     | 1   |        | feat_out_115             | add | dsp48  | 0       |
+|    offset_h_14_fu_154446_p2              | -   |        | offset_h_14              | sub | fabric | 0       |
+|    offset_w_14_fu_154450_p2              | -   |        | offset_w_14              | sub | fabric | 0       |
+|    feat_out_131_fu_154556_p2             | -   |        | feat_out_131             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U69      | 1   |        | mul_ln136_5              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U69      | 1   |        | feat_out_130             | add | dsp48  | 0       |
+|    sub_ln133_5_fu_154574_p2              | -   |        | sub_ln133_5              | sub | fabric | 0       |
+|    feat_out_129_fu_154583_p2             | -   |        | feat_out_129             | add | fabric | 0       |
+|    sub_ln130_5_fu_154601_p2              | -   |        | sub_ln130_5              | sub | fabric | 0       |
+|    feat_out_128_fu_154610_p2             | -   |        | feat_out_128             | add | fabric | 0       |
+|    sub_ln127_5_fu_154628_p2              | -   |        | sub_ln127_5              | sub | fabric | 0       |
+|    feat_out_127_fu_154637_p2             | -   |        | feat_out_127             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U70     | 1   |        | mul_ln124_5              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U70     | 1   |        | feat_out_126             | add | dsp48  | 0       |
+|    sub_ln121_5_fu_154655_p2              | -   |        | sub_ln121_5              | sub | fabric | 0       |
+|    feat_out_125_fu_154664_p2             | -   |        | feat_out_125             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U71     | 1   |        | mul_ln118_5              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U71     | 1   |        | feat_out_124             | add | dsp48  | 0       |
+|    offset_h_15_fu_154670_p2              | -   |        | offset_h_15              | sub | fabric | 0       |
+|    offset_w_15_fu_154674_p2              | -   |        | offset_w_15              | sub | fabric | 0       |
+|    feat_out_140_fu_154780_p2             | -   |        | feat_out_140             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U72      | 1   |        | mul_ln136_6              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U72      | 1   |        | feat_out_139             | add | dsp48  | 0       |
+|    sub_ln133_6_fu_154798_p2              | -   |        | sub_ln133_6              | sub | fabric | 0       |
+|    feat_out_138_fu_154807_p2             | -   |        | feat_out_138             | add | fabric | 0       |
+|    sub_ln130_6_fu_154825_p2              | -   |        | sub_ln130_6              | sub | fabric | 0       |
+|    feat_out_137_fu_154834_p2             | -   |        | feat_out_137             | add | fabric | 0       |
+|    sub_ln127_6_fu_154852_p2              | -   |        | sub_ln127_6              | sub | fabric | 0       |
+|    feat_out_136_fu_154861_p2             | -   |        | feat_out_136             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U73     | 1   |        | mul_ln124_6              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U73     | 1   |        | feat_out_135             | add | dsp48  | 0       |
+|    sub_ln121_6_fu_154879_p2              | -   |        | sub_ln121_6              | sub | fabric | 0       |
+|    feat_out_134_fu_154888_p2             | -   |        | feat_out_134             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U74     | 1   |        | mul_ln118_6              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U74     | 1   |        | feat_out_133             | add | dsp48  | 0       |
+|    offset_h_16_fu_154894_p2              | -   |        | offset_h_16              | sub | fabric | 0       |
+|    offset_w_16_fu_154898_p2              | -   |        | offset_w_16              | sub | fabric | 0       |
+|    feat_out_149_fu_155004_p2             | -   |        | feat_out_149             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U75      | 1   |        | mul_ln136_7              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U75      | 1   |        | feat_out_148             | add | dsp48  | 0       |
+|    sub_ln133_7_fu_155022_p2              | -   |        | sub_ln133_7              | sub | fabric | 0       |
+|    feat_out_147_fu_155031_p2             | -   |        | feat_out_147             | add | fabric | 0       |
+|    sub_ln130_7_fu_155049_p2              | -   |        | sub_ln130_7              | sub | fabric | 0       |
+|    feat_out_146_fu_155058_p2             | -   |        | feat_out_146             | add | fabric | 0       |
+|    sub_ln127_7_fu_155076_p2              | -   |        | sub_ln127_7              | sub | fabric | 0       |
+|    feat_out_145_fu_155085_p2             | -   |        | feat_out_145             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U76     | 1   |        | mul_ln124_7              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U76     | 1   |        | feat_out_144             | add | dsp48  | 0       |
+|    sub_ln121_7_fu_155103_p2              | -   |        | sub_ln121_7              | sub | fabric | 0       |
+|    feat_out_143_fu_155112_p2             | -   |        | feat_out_143             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U77     | 1   |        | mul_ln118_7              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U77     | 1   |        | feat_out_142             | add | dsp48  | 0       |
+|    offset_h_17_fu_155118_p2              | -   |        | offset_h_17              | sub | fabric | 0       |
+|    offset_w_17_fu_155122_p2              | -   |        | offset_w_17              | sub | fabric | 0       |
+|    feat_out_158_fu_155228_p2             | -   |        | feat_out_158             | sub | fabric | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U78      | 1   |        | mul_ln136_8              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_18s_19_1_1_U78      | 1   |        | feat_out_157             | add | dsp48  | 0       |
+|    sub_ln133_8_fu_155246_p2              | -   |        | sub_ln133_8              | sub | fabric | 0       |
+|    feat_out_156_fu_155255_p2             | -   |        | feat_out_156             | add | fabric | 0       |
+|    sub_ln130_8_fu_155273_p2              | -   |        | sub_ln130_8              | sub | fabric | 0       |
+|    feat_out_155_fu_155282_p2             | -   |        | feat_out_155             | add | fabric | 0       |
+|    sub_ln127_8_fu_155300_p2              | -   |        | sub_ln127_8              | sub | fabric | 0       |
+|    feat_out_154_fu_155309_p2             | -   |        | feat_out_154             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U79     | 1   |        | mul_ln124_8              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_18s_19_1_1_U79     | 1   |        | feat_out_153             | add | dsp48  | 0       |
+|    sub_ln121_8_fu_155327_p2              | -   |        | sub_ln121_8              | sub | fabric | 0       |
+|    feat_out_152_fu_155336_p2             | -   |        | feat_out_152             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U80     | 1   |        | mul_ln118_8              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_18s_19_1_1_U80     | 1   |        | feat_out_151             | add | dsp48  | 0       |
+|    mac_muladd_12s_7ns_19s_20_1_1_U81     | 1   |        | mul_ln108_1              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_19s_20_1_1_U81     | 1   |        | feat_out_166             | add | dsp48  | 0       |
+|    offset_h_18_fu_155421_p2              | -   |        | offset_h_18              | sub | fabric | 0       |
+|    offset_w_18_fu_155425_p2              | -   |        | offset_w_18              | sub | fabric | 0       |
+|    sub_ln139_9_fu_155531_p2              | -   |        | sub_ln139_9              | sub | fabric | 0       |
+|    feat_out_174_fu_155541_p2             | -   |        | feat_out_174             | add | fabric | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U82      | 1   |        | mul_ln136_9              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U82      | 1   |        | feat_out_173             | add | dsp48  | 0       |
+|    sub_ln133_9_fu_155559_p2              | -   |        | sub_ln133_9              | sub | fabric | 0       |
+|    feat_out_172_fu_155569_p2             | -   |        | feat_out_172             | add | fabric | 0       |
+|    sub_ln130_9_fu_155587_p2              | -   |        | sub_ln130_9              | sub | fabric | 0       |
+|    feat_out_171_fu_155597_p2             | -   |        | feat_out_171             | add | fabric | 0       |
+|    sub_ln127_9_fu_155615_p2              | -   |        | sub_ln127_9              | sub | fabric | 0       |
+|    feat_out_170_fu_155625_p2             | -   |        | feat_out_170             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U83     | 1   |        | mul_ln124_9              | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U83     | 1   |        | feat_out_169             | add | dsp48  | 0       |
+|    sub_ln121_9_fu_155643_p2              | -   |        | sub_ln121_9              | sub | fabric | 0       |
+|    feat_out_168_fu_155653_p2             | -   |        | feat_out_168             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U84     | 1   |        | mul_ln118_9              | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U84     | 1   |        | feat_out_167             | add | dsp48  | 0       |
+|    offset_h_19_fu_155703_p2              | -   |        | offset_h_19              | sub | fabric | 0       |
+|    offset_w_19_fu_155659_p2              | -   |        | offset_w_19              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U29                | 1   |        | mul_ln118_10             | mul | auto   | 0       |
+|    feat_out_176_fu_155720_p2             | -   |        | feat_out_176             | add | fabric | 0       |
+|    sub_ln121_10_fu_155681_p2             | -   |        | sub_ln121_10             | sub | fabric | 0       |
+|    feat_out_177_fu_155738_p2             | -   |        | feat_out_177             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U30                | 1   |        | mul_ln124_10             | mul | auto   | 0       |
+|    feat_out_178_fu_155764_p2             | -   |        | feat_out_178             | add | fabric | 0       |
+|    sub_ln127_10_fu_155787_p2             | -   |        | sub_ln127_10             | sub | fabric | 0       |
+|    feat_out_179_fu_155796_p2             | -   |        | feat_out_179             | add | fabric | 0       |
+|    sub_ln133_10_fu_155831_p2             | -   |        | sub_ln133_10             | sub | fabric | 0       |
+|    feat_out_180_fu_155840_p2             | -   |        | feat_out_180             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U31                 | 1   |        | mul_ln136_10             | mul | auto   | 0       |
+|    feat_out_181_fu_155854_p2             | -   |        | feat_out_181             | add | fabric | 0       |
+|    sub_ln139_10_fu_155882_p2             | -   |        | sub_ln139_10             | sub | fabric | 0       |
+|    feat_out_182_fu_155892_p2             | -   |        | feat_out_182             | add | fabric | 0       |
+|    offset_h_20_fu_156084_p2              | -   |        | offset_h_20              | sub | fabric | 0       |
+|    offset_w_20_fu_156088_p2              | -   |        | offset_w_20              | sub | fabric | 0       |
+|    feat_out_199_fu_156186_p2             | -   |        | feat_out_199             | add | fabric | 0       |
+|    feat_out_198_fu_156200_p2             | -   |        | feat_out_198             | add | fabric | 0       |
+|    feat_out_197_fu_156215_p2             | -   |        | feat_out_197             | add | fabric | 0       |
+|    feat_out_196_fu_156229_p2             | -   |        | feat_out_196             | add | fabric | 0       |
+|    feat_out_195_fu_156240_p2             | -   |        | feat_out_195             | add | fabric | 0       |
+|    feat_out_194_fu_156249_p2             | -   |        | feat_out_194             | add | fabric | 0       |
+|    feat_out_192_fu_156263_p2             | -   |        | feat_out_192             | add | fabric | 0       |
+|    feat_out_191_fu_156274_p2             | -   |        | feat_out_191             | add | fabric | 0       |
+|    offset_h_21_fu_156280_p2              | -   |        | offset_h_21              | sub | fabric | 0       |
+|    offset_w_21_fu_156284_p2              | -   |        | offset_w_21              | sub | fabric | 0       |
+|    feat_out_208_fu_156382_p2             | -   |        | feat_out_208             | add | fabric | 0       |
+|    feat_out_207_fu_156396_p2             | -   |        | feat_out_207             | add | fabric | 0       |
+|    feat_out_206_fu_156411_p2             | -   |        | feat_out_206             | add | fabric | 0       |
+|    feat_out_205_fu_156425_p2             | -   |        | feat_out_205             | add | fabric | 0       |
+|    feat_out_204_fu_156436_p2             | -   |        | feat_out_204             | add | fabric | 0       |
+|    feat_out_203_fu_156445_p2             | -   |        | feat_out_203             | add | fabric | 0       |
+|    feat_out_201_fu_156459_p2             | -   |        | feat_out_201             | add | fabric | 0       |
+|    feat_out_200_fu_156470_p2             | -   |        | feat_out_200             | add | fabric | 0       |
+|    offset_h_22_fu_156476_p2              | -   |        | offset_h_22              | sub | fabric | 0       |
+|    offset_w_22_fu_156480_p2              | -   |        | offset_w_22              | sub | fabric | 0       |
+|    feat_out_217_fu_156578_p2             | -   |        | feat_out_217             | add | fabric | 0       |
+|    feat_out_216_fu_156592_p2             | -   |        | feat_out_216             | add | fabric | 0       |
+|    feat_out_215_fu_156607_p2             | -   |        | feat_out_215             | add | fabric | 0       |
+|    feat_out_214_fu_156621_p2             | -   |        | feat_out_214             | add | fabric | 0       |
+|    feat_out_213_fu_156632_p2             | -   |        | feat_out_213             | add | fabric | 0       |
+|    feat_out_212_fu_156641_p2             | -   |        | feat_out_212             | add | fabric | 0       |
+|    feat_out_210_fu_156655_p2             | -   |        | feat_out_210             | add | fabric | 0       |
+|    feat_out_209_fu_156666_p2             | -   |        | feat_out_209             | add | fabric | 0       |
+|    offset_h_23_fu_156672_p2              | -   |        | offset_h_23              | sub | fabric | 0       |
+|    offset_w_23_fu_156676_p2              | -   |        | offset_w_23              | sub | fabric | 0       |
+|    feat_out_226_fu_156774_p2             | -   |        | feat_out_226             | add | fabric | 0       |
+|    feat_out_225_fu_156788_p2             | -   |        | feat_out_225             | add | fabric | 0       |
+|    feat_out_224_fu_156803_p2             | -   |        | feat_out_224             | add | fabric | 0       |
+|    feat_out_223_fu_156817_p2             | -   |        | feat_out_223             | add | fabric | 0       |
+|    feat_out_222_fu_156828_p2             | -   |        | feat_out_222             | add | fabric | 0       |
+|    feat_out_221_fu_156837_p2             | -   |        | feat_out_221             | add | fabric | 0       |
+|    feat_out_219_fu_156851_p2             | -   |        | feat_out_219             | add | fabric | 0       |
+|    feat_out_218_fu_156862_p2             | -   |        | feat_out_218             | add | fabric | 0       |
+|    offset_h_24_fu_156868_p2              | -   |        | offset_h_24              | sub | fabric | 0       |
+|    offset_w_24_fu_156872_p2              | -   |        | offset_w_24              | sub | fabric | 0       |
+|    feat_out_235_fu_156970_p2             | -   |        | feat_out_235             | add | fabric | 0       |
+|    feat_out_234_fu_156984_p2             | -   |        | feat_out_234             | add | fabric | 0       |
+|    feat_out_233_fu_156999_p2             | -   |        | feat_out_233             | add | fabric | 0       |
+|    feat_out_232_fu_157013_p2             | -   |        | feat_out_232             | add | fabric | 0       |
+|    feat_out_231_fu_157024_p2             | -   |        | feat_out_231             | add | fabric | 0       |
+|    feat_out_230_fu_157033_p2             | -   |        | feat_out_230             | add | fabric | 0       |
+|    feat_out_228_fu_157047_p2             | -   |        | feat_out_228             | add | fabric | 0       |
+|    feat_out_227_fu_157058_p2             | -   |        | feat_out_227             | add | fabric | 0       |
+|    offset_h_25_fu_157064_p2              | -   |        | offset_h_25              | sub | fabric | 0       |
+|    offset_w_25_fu_157068_p2              | -   |        | offset_w_25              | sub | fabric | 0       |
+|    feat_out_244_fu_157166_p2             | -   |        | feat_out_244             | add | fabric | 0       |
+|    feat_out_243_fu_157180_p2             | -   |        | feat_out_243             | add | fabric | 0       |
+|    feat_out_242_fu_157195_p2             | -   |        | feat_out_242             | add | fabric | 0       |
+|    feat_out_241_fu_157209_p2             | -   |        | feat_out_241             | add | fabric | 0       |
+|    feat_out_240_fu_157220_p2             | -   |        | feat_out_240             | add | fabric | 0       |
+|    feat_out_239_fu_157229_p2             | -   |        | feat_out_239             | add | fabric | 0       |
+|    feat_out_237_fu_157243_p2             | -   |        | feat_out_237             | add | fabric | 0       |
+|    feat_out_236_fu_157254_p2             | -   |        | feat_out_236             | add | fabric | 0       |
+|    offset_h_26_fu_157260_p2              | -   |        | offset_h_26              | sub | fabric | 0       |
+|    offset_w_26_fu_157264_p2              | -   |        | offset_w_26              | sub | fabric | 0       |
+|    feat_out_252_fu_157362_p2             | -   |        | feat_out_252             | add | fabric | 0       |
+|    feat_out_251_fu_157376_p2             | -   |        | feat_out_251             | add | fabric | 0       |
+|    feat_out_250_fu_157391_p2             | -   |        | feat_out_250             | add | fabric | 0       |
+|    feat_out_249_fu_157405_p2             | -   |        | feat_out_249             | add | fabric | 0       |
+|    feat_out_248_fu_157416_p2             | -   |        | feat_out_248             | add | fabric | 0       |
+|    feat_out_247_fu_157425_p2             | -   |        | feat_out_247             | add | fabric | 0       |
+|    feat_out_246_fu_157439_p2             | -   |        | feat_out_246             | add | fabric | 0       |
+|    feat_out_245_fu_157450_p2             | -   |        | feat_out_245             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_20ns_20_1_1_U85    | 1   |        | mul_ln108_2              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_20ns_20_1_1_U85    | 1   |        | feat_out_253             | add | dsp48  | 0       |
+|    offset_h_90_fu_157503_p2              | -   |        | offset_h_90              | sub | fabric | 0       |
+|    offset_w_27_fu_157507_p2              | -   |        | offset_w_27              | sub | fabric | 0       |
+|    sub_ln139_18_fu_157613_p2             | -   |        | sub_ln139_18             | sub | fabric | 0       |
+|    feat_out_262_fu_157623_p2             | -   |        | feat_out_262             | add | fabric | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U86      | 1   |        | mul_ln136_18             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U86      | 1   |        | feat_out_261             | add | dsp48  | 0       |
+|    sub_ln133_18_fu_157641_p2             | -   |        | sub_ln133_18             | sub | fabric | 0       |
+|    feat_out_260_fu_157651_p2             | -   |        | feat_out_260             | add | fabric | 0       |
+|    sub_ln130_18_fu_157669_p2             | -   |        | sub_ln130_18             | sub | fabric | 0       |
+|    feat_out_259_fu_157679_p2             | -   |        | feat_out_259             | add | fabric | 0       |
+|    sub_ln127_18_fu_157697_p2             | -   |        | sub_ln127_18             | sub | fabric | 0       |
+|    feat_out_258_fu_157707_p2             | -   |        | feat_out_258             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U87     | 1   |        | mul_ln124_18             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U87     | 1   |        | feat_out_257             | add | dsp48  | 0       |
+|    sub_ln121_18_fu_157725_p2             | -   |        | sub_ln121_18             | sub | fabric | 0       |
+|    feat_out_255_fu_157735_p2             | -   |        | feat_out_255             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U88     | 1   |        | mul_ln118_11             | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U88     | 1   |        | feat_out_254             | add | dsp48  | 0       |
+|    offset_h_28_fu_157741_p2              | -   |        | offset_h_28              | sub | fabric | 0       |
+|    offset_w_28_fu_157745_p2              | -   |        | offset_w_28              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U32                | 1   |        | mul_ln118_12             | mul | auto   | 0       |
+|    feat_out_263_fu_157837_p2             | -   |        | feat_out_263             | add | fabric | 0       |
+|    sub_ln121_19_fu_157779_p2             | -   |        | sub_ln121_19             | sub | fabric | 0       |
+|    feat_out_264_fu_157851_p2             | -   |        | feat_out_264             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U33                | 1   |        | mul_ln124_19             | mul | auto   | 0       |
+|    feat_out_265_fu_157870_p2             | -   |        | feat_out_265             | add | fabric | 0       |
+|    sub_ln127_19_fu_157891_p2             | -   |        | sub_ln127_19             | sub | fabric | 0       |
+|    feat_out_266_fu_157900_p2             | -   |        | feat_out_266             | add | fabric | 0       |
+|    sub_ln133_19_fu_157926_p2             | -   |        | sub_ln133_19             | sub | fabric | 0       |
+|    feat_out_267_fu_157935_p2             | -   |        | feat_out_267             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U34                 | 1   |        | mul_ln136_19             | mul | auto   | 0       |
+|    feat_out_268_fu_157953_p2             | -   |        | feat_out_268             | add | fabric | 0       |
+|    sub_ln139_19_fu_157970_p2             | -   |        | sub_ln139_19             | sub | fabric | 0       |
+|    feat_out_269_fu_157980_p2             | -   |        | feat_out_269             | add | fabric | 0       |
+|    offset_h_29_fu_158171_p2              | -   |        | offset_h_29              | sub | fabric | 0       |
+|    offset_w_29_fu_157815_p2              | -   |        | offset_w_29              | sub | fabric | 0       |
+|    feat_out_278_fu_158185_p2             | -   |        | feat_out_278             | add | fabric | 0       |
+|    feat_out_279_fu_158200_p2             | -   |        | feat_out_279             | add | fabric | 0       |
+|    feat_out_280_fu_158223_p2             | -   |        | feat_out_280             | add | fabric | 0       |
+|    feat_out_281_fu_158234_p2             | -   |        | feat_out_281             | add | fabric | 0       |
+|    feat_out_282_fu_158257_p2             | -   |        | feat_out_282             | add | fabric | 0       |
+|    feat_out_284_fu_158268_p2             | -   |        | feat_out_284             | add | fabric | 0       |
+|    feat_out_285_fu_158284_p2             | -   |        | feat_out_285             | add | fabric | 0       |
+|    offset_h_30_fu_158476_p2              | -   |        | offset_h_30              | sub | fabric | 0       |
+|    offset_w_30_fu_158480_p2              | -   |        | offset_w_30              | sub | fabric | 0       |
+|    feat_out_303_fu_158574_p2             | -   |        | feat_out_303             | add | fabric | 0       |
+|    feat_out_302_fu_158588_p2             | -   |        | feat_out_302             | add | fabric | 0       |
+|    feat_out_300_fu_158594_p2             | -   |        | feat_out_300             | add | fabric | 0       |
+|    grp_fu_144570_p2                      | -   |        | feat_out_299             | add | fabric | 0       |
+|    feat_out_298_fu_158600_p2             | -   |        | feat_out_298             | add | fabric | 0       |
+|    feat_out_297_fu_158606_p2             | -   |        | feat_out_297             | add | fabric | 0       |
+|    grp_fu_144570_p2                      | -   |        | feat_out_296             | add | fabric | 0       |
+|    feat_out_295_fu_158612_p2             | -   |        | feat_out_295             | add | fabric | 0       |
+|    offset_h_31_fu_158622_p2              | -   |        | offset_h_31              | sub | fabric | 0       |
+|    offset_w_31_fu_158626_p2              | -   |        | offset_w_31              | sub | fabric | 0       |
+|    feat_out_312_fu_158720_p2             | -   |        | feat_out_312             | add | fabric | 0       |
+|    feat_out_311_fu_158734_p2             | -   |        | feat_out_311             | add | fabric | 0       |
+|    feat_out_309_fu_158740_p2             | -   |        | feat_out_309             | add | fabric | 0       |
+|    grp_fu_144575_p2                      | -   |        | feat_out_308             | add | fabric | 0       |
+|    feat_out_307_fu_158746_p2             | -   |        | feat_out_307             | add | fabric | 0       |
+|    feat_out_306_fu_158752_p2             | -   |        | feat_out_306             | add | fabric | 0       |
+|    grp_fu_144575_p2                      | -   |        | feat_out_305             | add | fabric | 0       |
+|    feat_out_304_fu_158758_p2             | -   |        | feat_out_304             | add | fabric | 0       |
+|    offset_h_32_fu_158764_p2              | -   |        | offset_h_32              | sub | fabric | 0       |
+|    offset_w_32_fu_158768_p2              | -   |        | offset_w_32              | sub | fabric | 0       |
+|    feat_out_321_fu_158862_p2             | -   |        | feat_out_321             | add | fabric | 0       |
+|    feat_out_320_fu_158876_p2             | -   |        | feat_out_320             | add | fabric | 0       |
+|    feat_out_318_fu_158882_p2             | -   |        | feat_out_318             | add | fabric | 0       |
+|    grp_fu_144582_p2                      | -   |        | feat_out_317             | add | fabric | 0       |
+|    feat_out_316_fu_158888_p2             | -   |        | feat_out_316             | add | fabric | 0       |
+|    feat_out_315_fu_158894_p2             | -   |        | feat_out_315             | add | fabric | 0       |
+|    grp_fu_144582_p2                      | -   |        | feat_out_314             | add | fabric | 0       |
+|    feat_out_313_fu_158900_p2             | -   |        | feat_out_313             | add | fabric | 0       |
+|    offset_h_33_fu_158906_p2              | -   |        | offset_h_33              | sub | fabric | 0       |
+|    offset_w_33_fu_158910_p2              | -   |        | offset_w_33              | sub | fabric | 0       |
+|    feat_out_329_fu_159004_p2             | -   |        | feat_out_329             | add | fabric | 0       |
+|    feat_out_328_fu_159018_p2             | -   |        | feat_out_328             | add | fabric | 0       |
+|    feat_out_327_fu_159024_p2             | -   |        | feat_out_327             | add | fabric | 0       |
+|    grp_fu_144589_p2                      | -   |        | feat_out_326             | add | fabric | 0       |
+|    feat_out_325_fu_159030_p2             | -   |        | feat_out_325             | add | fabric | 0       |
+|    feat_out_324_fu_159036_p2             | -   |        | feat_out_324             | add | fabric | 0       |
+|    grp_fu_144589_p2                      | -   |        | feat_out_323             | add | fabric | 0       |
+|    feat_out_322_fu_159042_p2             | -   |        | feat_out_322             | add | fabric | 0       |
+|    offset_h_34_fu_159048_p2              | -   |        | offset_h_34              | sub | fabric | 0       |
+|    offset_w_34_fu_159052_p2              | -   |        | offset_w_34              | sub | fabric | 0       |
+|    feat_out_338_fu_159146_p2             | -   |        | feat_out_338             | add | fabric | 0       |
+|    feat_out_336_fu_159160_p2             | -   |        | feat_out_336             | add | fabric | 0       |
+|    feat_out_335_fu_159166_p2             | -   |        | feat_out_335             | add | fabric | 0       |
+|    grp_fu_144596_p2                      | -   |        | feat_out_334             | add | fabric | 0       |
+|    feat_out_333_fu_159172_p2             | -   |        | feat_out_333             | add | fabric | 0       |
+|    feat_out_332_fu_159178_p2             | -   |        | feat_out_332             | add | fabric | 0       |
+|    grp_fu_144596_p2                      | -   |        | feat_out_331             | add | fabric | 0       |
+|    feat_out_330_fu_159184_p2             | -   |        | feat_out_330             | add | fabric | 0       |
+|    offset_h_35_fu_159190_p2              | -   |        | offset_h_35              | sub | fabric | 0       |
+|    offset_w_35_fu_159194_p2              | -   |        | offset_w_35              | sub | fabric | 0       |
+|    feat_out_346_fu_159288_p2             | -   |        | feat_out_346             | add | fabric | 0       |
+|    feat_out_345_fu_159302_p2             | -   |        | feat_out_345             | add | fabric | 0       |
+|    feat_out_344_fu_159308_p2             | -   |        | feat_out_344             | add | fabric | 0       |
+|    grp_fu_144603_p2                      | -   |        | feat_out_343             | add | fabric | 0       |
+|    feat_out_342_fu_159314_p2             | -   |        | feat_out_342             | add | fabric | 0       |
+|    feat_out_341_fu_159320_p2             | -   |        | feat_out_341             | add | fabric | 0       |
+|    grp_fu_144603_p2                      | -   |        | feat_out_340             | add | fabric | 0       |
+|    feat_out_339_fu_159326_p2             | -   |        | feat_out_339             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_20s_21_1_1_U89     | 1   |        | mul_ln108_3              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_20s_21_1_1_U89     | 1   |        | feat_out_347             | add | dsp48  | 0       |
+|    offset_h_91_fu_159372_p2              | -   |        | offset_h_91              | sub | fabric | 0       |
+|    offset_w_36_fu_159376_p2              | -   |        | offset_w_36              | sub | fabric | 0       |
+|    sub_ln139_22_fu_159482_p2             | -   |        | sub_ln139_22             | sub | fabric | 0       |
+|    feat_out_355_fu_159492_p2             | -   |        | feat_out_355             | add | fabric | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U90      | 1   |        | mul_ln136_22             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_20s_20_1_1_U90      | 1   |        | feat_out_354             | add | dsp48  | 0       |
+|    sub_ln133_22_fu_159510_p2             | -   |        | sub_ln133_22             | sub | fabric | 0       |
+|    feat_out_353_fu_159520_p2             | -   |        | feat_out_353             | add | fabric | 0       |
+|    sub_ln130_20_fu_159538_p2             | -   |        | sub_ln130_20             | sub | fabric | 0       |
+|    feat_out_352_fu_159548_p2             | -   |        | feat_out_352             | add | fabric | 0       |
+|    sub_ln127_22_fu_159566_p2             | -   |        | sub_ln127_22             | sub | fabric | 0       |
+|    feat_out_351_fu_159576_p2             | -   |        | feat_out_351             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U91     | 1   |        | mul_ln124_22             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_20s_20_1_1_U91     | 1   |        | feat_out_350             | add | dsp48  | 0       |
+|    sub_ln121_22_fu_159594_p2             | -   |        | sub_ln121_22             | sub | fabric | 0       |
+|    feat_out_349_fu_159604_p2             | -   |        | feat_out_349             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U92     | 1   |        | mul_ln118_13             | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_20s_20_1_1_U92     | 1   |        | feat_out_348             | add | dsp48  | 0       |
+|    offset_h_37_fu_159674_p2              | -   |        | offset_h_37              | sub | fabric | 0       |
+|    offset_w_37_fu_159610_p2              | -   |        | offset_w_37              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U35                | 1   |        | mul_ln118_14             | mul | auto   | 0       |
+|    feat_out_356_fu_159698_p2             | -   |        | feat_out_356             | add | fabric | 0       |
+|    sub_ln121_23_fu_159632_p2             | -   |        | sub_ln121_23             | sub | fabric | 0       |
+|    feat_out_357_fu_159718_p2             | -   |        | feat_out_357             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U36                | 1   |        | mul_ln124_23             | mul | auto   | 0       |
+|    feat_out_358_fu_159748_p2             | -   |        | feat_out_358             | add | fabric | 0       |
+|    sub_ln127_23_fu_159656_p2             | -   |        | sub_ln127_23             | sub | fabric | 0       |
+|    feat_out_359_fu_159766_p2             | -   |        | feat_out_359             | add | fabric | 0       |
+|    sub_ln133_23_fu_159801_p2             | -   |        | sub_ln133_23             | sub | fabric | 0       |
+|    feat_out_360_fu_159810_p2             | -   |        | feat_out_360             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U37                 | 1   |        | mul_ln136_23             | mul | auto   | 0       |
+|    feat_out_361_fu_159834_p2             | -   |        | feat_out_361             | add | fabric | 0       |
+|    sub_ln139_23_fu_159866_p2             | -   |        | sub_ln139_23             | sub | fabric | 0       |
+|    feat_out_362_fu_159876_p2             | -   |        | feat_out_362             | add | fabric | 0       |
+|    offset_h_38_fu_160068_p2              | -   |        | offset_h_38              | sub | fabric | 0       |
+|    offset_w_38_fu_159662_p2              | -   |        | offset_w_38              | sub | fabric | 0       |
+|    feat_out_364_fu_160089_p2             | -   |        | feat_out_364             | add | fabric | 0       |
+|    feat_out_365_fu_160105_p2             | -   |        | feat_out_365             | add | fabric | 0       |
+|    feat_out_366_fu_160132_p2             | -   |        | feat_out_366             | add | fabric | 0       |
+|    feat_out_367_fu_160147_p2             | -   |        | feat_out_367             | add | fabric | 0       |
+|    feat_out_368_fu_160170_p2             | -   |        | feat_out_368             | add | fabric | 0       |
+|    feat_out_369_fu_160185_p2             | -   |        | feat_out_369             | add | fabric | 0       |
+|    feat_out_370_fu_160205_p2             | -   |        | feat_out_370             | add | fabric | 0       |
+|    offset_h_39_fu_160397_p2              | -   |        | offset_h_39              | sub | fabric | 0       |
+|    offset_w_39_fu_159666_p2              | -   |        | offset_w_39              | sub | fabric | 0       |
+|    feat_out_372_fu_160411_p2             | -   |        | feat_out_372             | add | fabric | 0       |
+|    feat_out_374_fu_160426_p2             | -   |        | feat_out_374             | add | fabric | 0       |
+|    feat_out_375_fu_160453_p2             | -   |        | feat_out_375             | add | fabric | 0       |
+|    feat_out_376_fu_160468_p2             | -   |        | feat_out_376             | add | fabric | 0       |
+|    feat_out_377_fu_160491_p2             | -   |        | feat_out_377             | add | fabric | 0       |
+|    feat_out_378_fu_160506_p2             | -   |        | feat_out_378             | add | fabric | 0       |
+|    feat_out_379_fu_160526_p2             | -   |        | feat_out_379             | add | fabric | 0       |
+|    offset_h_40_fu_160718_p2              | -   |        | offset_h_40              | sub | fabric | 0       |
+|    offset_w_40_fu_160722_p2              | -   |        | offset_w_40              | sub | fabric | 0       |
+|    feat_out_389_fu_160816_p2             | -   |        | feat_out_389             | add | fabric | 0       |
+|    feat_out_388_fu_160830_p2             | -   |        | feat_out_388             | add | fabric | 0       |
+|    feat_out_387_fu_160836_p2             | -   |        | feat_out_387             | add | fabric | 0       |
+|    grp_fu_144610_p2                      | -   |        | feat_out_386             | add | fabric | 0       |
+|    feat_out_385_fu_160845_p2             | -   |        | feat_out_385             | add | fabric | 0       |
+|    feat_out_384_fu_160851_p2             | -   |        | feat_out_384             | add | fabric | 0       |
+|    grp_fu_144610_p2                      | -   |        | feat_out_383             | add | fabric | 0       |
+|    feat_out_381_fu_160860_p2             | -   |        | feat_out_381             | add | fabric | 0       |
+|    offset_h_41_fu_160870_p2              | -   |        | offset_h_41              | sub | fabric | 0       |
+|    offset_w_41_fu_160874_p2              | -   |        | offset_w_41              | sub | fabric | 0       |
+|    feat_out_398_fu_160968_p2             | -   |        | feat_out_398             | add | fabric | 0       |
+|    feat_out_397_fu_160982_p2             | -   |        | feat_out_397             | add | fabric | 0       |
+|    feat_out_396_fu_160988_p2             | -   |        | feat_out_396             | add | fabric | 0       |
+|    grp_fu_144615_p2                      | -   |        | feat_out_395             | add | fabric | 0       |
+|    feat_out_394_fu_160997_p2             | -   |        | feat_out_394             | add | fabric | 0       |
+|    feat_out_393_fu_161004_p2             | -   |        | feat_out_393             | add | fabric | 0       |
+|    grp_fu_144615_p2                      | -   |        | feat_out_392             | add | fabric | 0       |
+|    feat_out_390_fu_161013_p2             | -   |        | feat_out_390             | add | fabric | 0       |
+|    offset_h_42_fu_161020_p2              | -   |        | offset_h_42              | sub | fabric | 0       |
+|    offset_w_42_fu_161024_p2              | -   |        | offset_w_42              | sub | fabric | 0       |
+|    feat_out_407_fu_161118_p2             | -   |        | feat_out_407             | add | fabric | 0       |
+|    feat_out_406_fu_161132_p2             | -   |        | feat_out_406             | add | fabric | 0       |
+|    feat_out_405_fu_161138_p2             | -   |        | feat_out_405             | add | fabric | 0       |
+|    grp_fu_144622_p2                      | -   |        | feat_out_404             | add | fabric | 0       |
+|    feat_out_403_fu_161147_p2             | -   |        | feat_out_403             | add | fabric | 0       |
+|    feat_out_402_fu_161154_p2             | -   |        | feat_out_402             | add | fabric | 0       |
+|    grp_fu_144622_p2                      | -   |        | feat_out_401             | add | fabric | 0       |
+|    feat_out_399_fu_161163_p2             | -   |        | feat_out_399             | add | fabric | 0       |
+|    offset_h_43_fu_161170_p2              | -   |        | offset_h_43              | sub | fabric | 0       |
+|    offset_w_43_fu_161174_p2              | -   |        | offset_w_43              | sub | fabric | 0       |
+|    feat_out_415_fu_161268_p2             | -   |        | feat_out_415             | add | fabric | 0       |
+|    feat_out_414_fu_161282_p2             | -   |        | feat_out_414             | add | fabric | 0       |
+|    feat_out_413_fu_161288_p2             | -   |        | feat_out_413             | add | fabric | 0       |
+|    grp_fu_144629_p2                      | -   |        | feat_out_412             | add | fabric | 0       |
+|    feat_out_411_fu_161297_p2             | -   |        | feat_out_411             | add | fabric | 0       |
+|    feat_out_410_fu_161304_p2             | -   |        | feat_out_410             | add | fabric | 0       |
+|    grp_fu_144629_p2                      | -   |        | feat_out_409             | add | fabric | 0       |
+|    feat_out_408_fu_161313_p2             | -   |        | feat_out_408             | add | fabric | 0       |
+|    offset_h_44_fu_161320_p2              | -   |        | offset_h_44              | sub | fabric | 0       |
+|    offset_w_44_fu_161324_p2              | -   |        | offset_w_44              | sub | fabric | 0       |
+|    feat_out_424_fu_161418_p2             | -   |        | feat_out_424             | add | fabric | 0       |
+|    feat_out_423_fu_161432_p2             | -   |        | feat_out_423             | add | fabric | 0       |
+|    feat_out_422_fu_161438_p2             | -   |        | feat_out_422             | add | fabric | 0       |
+|    grp_fu_144636_p2                      | -   |        | feat_out_421             | add | fabric | 0       |
+|    feat_out_420_fu_161447_p2             | -   |        | feat_out_420             | add | fabric | 0       |
+|    feat_out_419_fu_161454_p2             | -   |        | feat_out_419             | add | fabric | 0       |
+|    grp_fu_144636_p2                      | -   |        | feat_out_417             | add | fabric | 0       |
+|    feat_out_416_fu_161463_p2             | -   |        | feat_out_416             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_20s_21_1_1_U93     | 1   |        | mul_ln108_4              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_20s_21_1_1_U93     | 1   |        | feat_out_425             | add | dsp48  | 0       |
+|    offset_h_92_fu_161506_p2              | -   |        | offset_h_92              | sub | fabric | 0       |
+|    offset_w_45_fu_161510_p2              | -   |        | offset_w_45              | sub | fabric | 0       |
+|    sub_ln139_24_fu_161616_p2             | -   |        | sub_ln139_24             | sub | fabric | 0       |
+|    feat_out_433_fu_161626_p2             | -   |        | feat_out_433             | add | fabric | 0       |
+|    mac_muladd_12s_5s_20s_21_1_1_U94      | 1   |        | mul_ln136_24             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_20s_21_1_1_U94      | 1   |        | feat_out_432             | add | dsp48  | 0       |
+|    sub_ln133_24_fu_161648_p2             | -   |        | sub_ln133_24             | sub | fabric | 0       |
+|    feat_out_431_fu_161658_p2             | -   |        | feat_out_431             | add | fabric | 0       |
+|    sub_ln130_21_fu_161675_p2             | -   |        | sub_ln130_21             | sub | fabric | 0       |
+|    feat_out_430_fu_161685_p2             | -   |        | feat_out_430             | add | fabric | 0       |
+|    sub_ln127_24_fu_161707_p2             | -   |        | sub_ln127_24             | sub | fabric | 0       |
+|    feat_out_429_fu_161717_p2             | -   |        | feat_out_429             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_20s_21_1_1_U95     | 1   |        | mul_ln124_24             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_20s_21_1_1_U95     | 1   |        | feat_out_428             | add | dsp48  | 0       |
+|    sub_ln121_24_fu_161734_p2             | -   |        | sub_ln121_24             | sub | fabric | 0       |
+|    feat_out_427_fu_161744_p2             | -   |        | feat_out_427             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_20s_21_1_1_U96     | 1   |        | mul_ln118_15             | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_20s_21_1_1_U96     | 1   |        | feat_out_426             | add | dsp48  | 0       |
+|    offset_h_46_fu_161824_p2              | -   |        | offset_h_46              | sub | fabric | 0       |
+|    offset_w_46_fu_161754_p2              | -   |        | offset_w_46              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U38                | 1   |        | mul_ln118_16             | mul | auto   | 0       |
+|    feat_out_434_fu_161848_p2             | -   |        | feat_out_434             | add | fabric | 0       |
+|    sub_ln121_25_fu_161776_p2             | -   |        | sub_ln121_25             | sub | fabric | 0       |
+|    feat_out_435_fu_161867_p2             | -   |        | feat_out_435             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U39                | 1   |        | mul_ln124_25             | mul | auto   | 0       |
+|    feat_out_436_fu_161893_p2             | -   |        | feat_out_436             | add | fabric | 0       |
+|    sub_ln127_25_fu_161916_p2             | -   |        | sub_ln127_25             | sub | fabric | 0       |
+|    feat_out_437_fu_161925_p2             | -   |        | feat_out_437             | add | fabric | 0       |
+|    sub_ln133_25_fu_161800_p2             | -   |        | sub_ln133_25             | sub | fabric | 0       |
+|    feat_out_438_fu_161951_p2             | -   |        | feat_out_438             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U40                 | 1   |        | mul_ln136_25             | mul | auto   | 0       |
+|    feat_out_439_fu_161965_p2             | -   |        | feat_out_439             | add | fabric | 0       |
+|    sub_ln139_25_fu_161993_p2             | -   |        | sub_ln139_25             | sub | fabric | 0       |
+|    feat_out_440_fu_162003_p2             | -   |        | feat_out_440             | add | fabric | 0       |
+|    offset_h_47_fu_162191_p2              | -   |        | offset_h_47              | sub | fabric | 0       |
+|    offset_w_47_fu_161812_p2              | -   |        | offset_w_47              | sub | fabric | 0       |
+|    feat_out_449_fu_162212_p2             | -   |        | feat_out_449             | add | fabric | 0       |
+|    feat_out_450_fu_162228_p2             | -   |        | feat_out_450             | add | fabric | 0       |
+|    feat_out_451_fu_162251_p2             | -   |        | feat_out_451             | add | fabric | 0       |
+|    feat_out_452_fu_162262_p2             | -   |        | feat_out_452             | add | fabric | 0       |
+|    feat_out_453_fu_162285_p2             | -   |        | feat_out_453             | add | fabric | 0       |
+|    feat_out_454_fu_162296_p2             | -   |        | feat_out_454             | add | fabric | 0       |
+|    feat_out_455_fu_162312_p2             | -   |        | feat_out_455             | add | fabric | 0       |
+|    offset_h_48_fu_162500_p2              | -   |        | offset_h_48              | sub | fabric | 0       |
+|    offset_w_48_fu_161816_p2              | -   |        | offset_w_48              | sub | fabric | 0       |
+|    feat_out_465_fu_162521_p2             | -   |        | feat_out_465             | add | fabric | 0       |
+|    feat_out_466_fu_162537_p2             | -   |        | feat_out_466             | add | fabric | 0       |
+|    feat_out_467_fu_162560_p2             | -   |        | feat_out_467             | add | fabric | 0       |
+|    feat_out_468_fu_162571_p2             | -   |        | feat_out_468             | add | fabric | 0       |
+|    feat_out_469_fu_162594_p2             | -   |        | feat_out_469             | add | fabric | 0       |
+|    feat_out_470_fu_162605_p2             | -   |        | feat_out_470             | add | fabric | 0       |
+|    feat_out_471_fu_162621_p2             | -   |        | feat_out_471             | add | fabric | 0       |
+|    offset_h_49_fu_162809_p2              | -   |        | offset_h_49              | sub | fabric | 0       |
+|    offset_w_49_fu_161820_p2              | -   |        | offset_w_49              | sub | fabric | 0       |
+|    feat_out_482_fu_162823_p2             | -   |        | feat_out_482             | add | fabric | 0       |
+|    feat_out_483_fu_162838_p2             | -   |        | feat_out_483             | add | fabric | 0       |
+|    feat_out_484_fu_162861_p2             | -   |        | feat_out_484             | add | fabric | 0       |
+|    feat_out_485_fu_162872_p2             | -   |        | feat_out_485             | add | fabric | 0       |
+|    feat_out_486_fu_162895_p2             | -   |        | feat_out_486             | add | fabric | 0       |
+|    feat_out_487_fu_162906_p2             | -   |        | feat_out_487             | add | fabric | 0       |
+|    feat_out_488_fu_162922_p2             | -   |        | feat_out_488             | add | fabric | 0       |
+|    offset_h_50_fu_163110_p2              | -   |        | offset_h_50              | sub | fabric | 0       |
+|    offset_w_50_fu_163114_p2              | -   |        | offset_w_50              | sub | fabric | 0       |
+|    feat_out_505_fu_163212_p2             | -   |        | feat_out_505             | add | fabric | 0       |
+|    feat_out_504_fu_163226_p2             | -   |        | feat_out_504             | add | fabric | 0       |
+|    feat_out_503_fu_163240_p2             | -   |        | feat_out_503             | add | fabric | 0       |
+|    feat_out_502_fu_163254_p2             | -   |        | feat_out_502             | add | fabric | 0       |
+|    feat_out_501_fu_163269_p2             | -   |        | feat_out_501             | add | fabric | 0       |
+|    feat_out_500_fu_163283_p2             | -   |        | feat_out_500             | add | fabric | 0       |
+|    feat_out_498_fu_163297_p2             | -   |        | feat_out_498             | add | fabric | 0       |
+|    feat_out_497_fu_163308_p2             | -   |        | feat_out_497             | add | fabric | 0       |
+|    offset_h_51_fu_163314_p2              | -   |        | offset_h_51              | sub | fabric | 0       |
+|    offset_w_51_fu_163318_p2              | -   |        | offset_w_51              | sub | fabric | 0       |
+|    feat_out_513_fu_163416_p2             | -   |        | feat_out_513             | add | fabric | 0       |
+|    feat_out_512_fu_163430_p2             | -   |        | feat_out_512             | add | fabric | 0       |
+|    feat_out_511_fu_163444_p2             | -   |        | feat_out_511             | add | fabric | 0       |
+|    feat_out_510_fu_163458_p2             | -   |        | feat_out_510             | add | fabric | 0       |
+|    feat_out_509_fu_163473_p2             | -   |        | feat_out_509             | add | fabric | 0       |
+|    feat_out_508_fu_163487_p2             | -   |        | feat_out_508             | add | fabric | 0       |
+|    feat_out_507_fu_163501_p2             | -   |        | feat_out_507             | add | fabric | 0       |
+|    feat_out_506_fu_163512_p2             | -   |        | feat_out_506             | add | fabric | 0       |
+|    offset_h_52_fu_163518_p2              | -   |        | offset_h_52              | sub | fabric | 0       |
+|    offset_w_52_fu_163522_p2              | -   |        | offset_w_52              | sub | fabric | 0       |
+|    feat_out_521_fu_163620_p2             | -   |        | feat_out_521             | add | fabric | 0       |
+|    feat_out_520_fu_163634_p2             | -   |        | feat_out_520             | add | fabric | 0       |
+|    feat_out_519_fu_163648_p2             | -   |        | feat_out_519             | add | fabric | 0       |
+|    feat_out_518_fu_163662_p2             | -   |        | feat_out_518             | add | fabric | 0       |
+|    feat_out_517_fu_163677_p2             | -   |        | feat_out_517             | add | fabric | 0       |
+|    feat_out_516_fu_163691_p2             | -   |        | feat_out_516             | add | fabric | 0       |
+|    feat_out_515_fu_163705_p2             | -   |        | feat_out_515             | add | fabric | 0       |
+|    feat_out_514_fu_163716_p2             | -   |        | feat_out_514             | add | fabric | 0       |
+|    offset_h_53_fu_163722_p2              | -   |        | offset_h_53              | sub | fabric | 0       |
+|    offset_w_53_fu_163726_p2              | -   |        | offset_w_53              | sub | fabric | 0       |
+|    feat_out_529_fu_163824_p2             | -   |        | feat_out_529             | add | fabric | 0       |
+|    feat_out_528_fu_163838_p2             | -   |        | feat_out_528             | add | fabric | 0       |
+|    feat_out_527_fu_163852_p2             | -   |        | feat_out_527             | add | fabric | 0       |
+|    feat_out_526_fu_163866_p2             | -   |        | feat_out_526             | add | fabric | 0       |
+|    feat_out_525_fu_163881_p2             | -   |        | feat_out_525             | add | fabric | 0       |
+|    feat_out_524_fu_163895_p2             | -   |        | feat_out_524             | add | fabric | 0       |
+|    feat_out_523_fu_163909_p2             | -   |        | feat_out_523             | add | fabric | 0       |
+|    feat_out_522_fu_163920_p2             | -   |        | feat_out_522             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U97     | 1   |        | mul_ln108_5              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U97     | 1   |        | feat_out_530             | add | dsp48  | 0       |
+|    offset_h_93_fu_163946_p2              | -   |        | offset_h_93              | sub | fabric | 0       |
+|    offset_w_54_fu_163950_p2              | -   |        | offset_w_54              | sub | fabric | 0       |
+|    sub_ln139_26_fu_164056_p2             | -   |        | sub_ln139_26             | sub | fabric | 0       |
+|    feat_out_538_fu_164066_p2             | -   |        | feat_out_538             | add | fabric | 0       |
+|    mac_muladd_12s_5s_21s_21_1_1_U98      | 1   |        | mul_ln136_26             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_21s_21_1_1_U98      | 1   |        | feat_out_537             | add | dsp48  | 0       |
+|    sub_ln133_26_fu_164084_p2             | -   |        | sub_ln133_26             | sub | fabric | 0       |
+|    feat_out_536_fu_164094_p2             | -   |        | feat_out_536             | add | fabric | 0       |
+|    sub_ln130_22_fu_164112_p2             | -   |        | sub_ln130_22             | sub | fabric | 0       |
+|    feat_out_535_fu_164122_p2             | -   |        | feat_out_535             | add | fabric | 0       |
+|    sub_ln127_26_fu_164140_p2             | -   |        | sub_ln127_26             | sub | fabric | 0       |
+|    feat_out_534_fu_164150_p2             | -   |        | feat_out_534             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_21s_21_1_1_U99     | 1   |        | mul_ln124_26             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_21s_21_1_1_U99     | 1   |        | feat_out_533             | add | dsp48  | 0       |
+|    sub_ln121_26_fu_164168_p2             | -   |        | sub_ln121_26             | sub | fabric | 0       |
+|    feat_out_532_fu_164178_p2             | -   |        | feat_out_532             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_21s_21_1_1_U100    | 1   |        | mul_ln118_17             | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_21s_21_1_1_U100    | 1   |        | feat_out_531             | add | dsp48  | 0       |
+|    offset_h_55_fu_164234_p2              | -   |        | offset_h_55              | sub | fabric | 0       |
+|    offset_w_55_fu_164184_p2              | -   |        | offset_w_55              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U41                | 1   |        | mul_ln118_18             | mul | auto   | 0       |
+|    feat_out_539_fu_164258_p2             | -   |        | feat_out_539             | add | fabric | 0       |
+|    sub_ln121_27_fu_164206_p2             | -   |        | sub_ln121_27             | sub | fabric | 0       |
+|    feat_out_540_fu_164278_p2             | -   |        | feat_out_540             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U42                | 1   |        | mul_ln124_27             | mul | auto   | 0       |
+|    feat_out_541_fu_164304_p2             | -   |        | feat_out_541             | add | fabric | 0       |
+|    sub_ln127_27_fu_164327_p2             | -   |        | sub_ln127_27             | sub | fabric | 0       |
+|    feat_out_542_fu_164336_p2             | -   |        | feat_out_542             | add | fabric | 0       |
+|    sub_ln133_27_fu_164371_p2             | -   |        | sub_ln133_27             | sub | fabric | 0       |
+|    feat_out_543_fu_164380_p2             | -   |        | feat_out_543             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U43                 | 1   |        | mul_ln136_27             | mul | auto   | 0       |
+|    feat_out_544_fu_164400_p2             | -   |        | feat_out_544             | add | fabric | 0       |
+|    sub_ln139_27_fu_164428_p2             | -   |        | sub_ln139_27             | sub | fabric | 0       |
+|    feat_out_545_fu_164438_p2             | -   |        | feat_out_545             | add | fabric | 0       |
+|    offset_h_56_fu_164626_p2              | -   |        | offset_h_56              | sub | fabric | 0       |
+|    offset_w_56_fu_164218_p2              | -   |        | offset_w_56              | sub | fabric | 0       |
+|    feat_out_555_fu_164647_p2             | -   |        | feat_out_555             | add | fabric | 0       |
+|    feat_out_556_fu_164663_p2             | -   |        | feat_out_556             | add | fabric | 0       |
+|    feat_out_557_fu_164686_p2             | -   |        | feat_out_557             | add | fabric | 0       |
+|    feat_out_558_fu_164697_p2             | -   |        | feat_out_558             | add | fabric | 0       |
+|    feat_out_559_fu_164720_p2             | -   |        | feat_out_559             | add | fabric | 0       |
+|    feat_out_560_fu_164731_p2             | -   |        | feat_out_560             | add | fabric | 0       |
+|    feat_out_561_fu_164747_p2             | -   |        | feat_out_561             | add | fabric | 0       |
+|    offset_h_57_fu_164935_p2              | -   |        | offset_h_57              | sub | fabric | 0       |
+|    offset_w_57_fu_164222_p2              | -   |        | offset_w_57              | sub | fabric | 0       |
+|    feat_out_571_fu_164956_p2             | -   |        | feat_out_571             | add | fabric | 0       |
+|    feat_out_572_fu_164972_p2             | -   |        | feat_out_572             | add | fabric | 0       |
+|    feat_out_573_fu_164995_p2             | -   |        | feat_out_573             | add | fabric | 0       |
+|    feat_out_574_fu_165006_p2             | -   |        | feat_out_574             | add | fabric | 0       |
+|    feat_out_575_fu_165029_p2             | -   |        | feat_out_575             | add | fabric | 0       |
+|    feat_out_576_fu_165040_p2             | -   |        | feat_out_576             | add | fabric | 0       |
+|    feat_out_577_fu_165056_p2             | -   |        | feat_out_577             | add | fabric | 0       |
+|    offset_h_58_fu_165244_p2              | -   |        | offset_h_58              | sub | fabric | 0       |
+|    offset_w_58_fu_164226_p2              | -   |        | offset_w_58              | sub | fabric | 0       |
+|    feat_out_587_fu_165265_p2             | -   |        | feat_out_587             | add | fabric | 0       |
+|    feat_out_588_fu_165281_p2             | -   |        | feat_out_588             | add | fabric | 0       |
+|    feat_out_589_fu_165304_p2             | -   |        | feat_out_589             | add | fabric | 0       |
+|    feat_out_590_fu_165315_p2             | -   |        | feat_out_590             | add | fabric | 0       |
+|    feat_out_591_fu_165338_p2             | -   |        | feat_out_591             | add | fabric | 0       |
+|    feat_out_592_fu_165349_p2             | -   |        | feat_out_592             | add | fabric | 0       |
+|    feat_out_593_fu_165365_p2             | -   |        | feat_out_593             | add | fabric | 0       |
+|    offset_h_59_fu_165553_p2              | -   |        | offset_h_59              | sub | fabric | 0       |
+|    offset_w_59_fu_164230_p2              | -   |        | offset_w_59              | sub | fabric | 0       |
+|    feat_out_602_fu_165567_p2             | -   |        | feat_out_602             | add | fabric | 0       |
+|    feat_out_603_fu_165582_p2             | -   |        | feat_out_603             | add | fabric | 0       |
+|    feat_out_604_fu_165605_p2             | -   |        | feat_out_604             | add | fabric | 0       |
+|    feat_out_605_fu_165616_p2             | -   |        | feat_out_605             | add | fabric | 0       |
+|    feat_out_606_fu_165639_p2             | -   |        | feat_out_606             | add | fabric | 0       |
+|    feat_out_607_fu_165650_p2             | -   |        | feat_out_607             | add | fabric | 0       |
+|    feat_out_608_fu_165666_p2             | -   |        | feat_out_608             | add | fabric | 0       |
+|    offset_h_60_fu_165854_p2              | -   |        | offset_h_60              | sub | fabric | 0       |
+|    offset_w_60_fu_165858_p2              | -   |        | offset_w_60              | sub | fabric | 0       |
+|    feat_out_624_fu_165952_p2             | -   |        | feat_out_624             | add | fabric | 0       |
+|    feat_out_623_fu_165966_p2             | -   |        | feat_out_623             | add | fabric | 0       |
+|    feat_out_622_fu_165972_p2             | -   |        | feat_out_622             | add | fabric | 0       |
+|    grp_fu_144643_p2                      | -   |        | feat_out_621             | add | fabric | 0       |
+|    feat_out_620_fu_165978_p2             | -   |        | feat_out_620             | add | fabric | 0       |
+|    feat_out_619_fu_165984_p2             | -   |        | feat_out_619             | add | fabric | 0       |
+|    grp_fu_144643_p2                      | -   |        | feat_out_618             | add | fabric | 0       |
+|    feat_out_617_fu_165990_p2             | -   |        | feat_out_617             | add | fabric | 0       |
+|    offset_h_61_fu_165996_p2              | -   |        | offset_h_61              | sub | fabric | 0       |
+|    offset_w_61_fu_166000_p2              | -   |        | offset_w_61              | sub | fabric | 0       |
+|    feat_out_632_fu_166094_p2             | -   |        | feat_out_632             | add | fabric | 0       |
+|    feat_out_631_fu_166108_p2             | -   |        | feat_out_631             | add | fabric | 0       |
+|    feat_out_630_fu_166114_p2             | -   |        | feat_out_630             | add | fabric | 0       |
+|    grp_fu_144648_p2                      | -   |        | feat_out_629             | add | fabric | 0       |
+|    feat_out_628_fu_166120_p2             | -   |        | feat_out_628             | add | fabric | 0       |
+|    feat_out_627_fu_166126_p2             | -   |        | feat_out_627             | add | fabric | 0       |
+|    grp_fu_144648_p2                      | -   |        | feat_out_626             | add | fabric | 0       |
+|    feat_out_625_fu_166132_p2             | -   |        | feat_out_625             | add | fabric | 0       |
+|    offset_h_62_fu_166138_p2              | -   |        | offset_h_62              | sub | fabric | 0       |
+|    offset_w_62_fu_166142_p2              | -   |        | offset_w_62              | sub | fabric | 0       |
+|    feat_out_640_fu_166236_p2             | -   |        | feat_out_640             | add | fabric | 0       |
+|    feat_out_639_fu_166250_p2             | -   |        | feat_out_639             | add | fabric | 0       |
+|    feat_out_638_fu_166256_p2             | -   |        | feat_out_638             | add | fabric | 0       |
+|    grp_fu_144655_p2                      | -   |        | feat_out_637             | add | fabric | 0       |
+|    feat_out_636_fu_166262_p2             | -   |        | feat_out_636             | add | fabric | 0       |
+|    feat_out_635_fu_166268_p2             | -   |        | feat_out_635             | add | fabric | 0       |
+|    grp_fu_144655_p2                      | -   |        | feat_out_634             | add | fabric | 0       |
+|    feat_out_633_fu_166274_p2             | -   |        | feat_out_633             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U101    | 1   |        | mul_ln108_6              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U101    | 1   |        | feat_out_641             | add | dsp48  | 0       |
+|    offset_h_94_fu_166300_p2              | -   |        | offset_h_94              | sub | fabric | 0       |
+|    offset_w_63_fu_166304_p2              | -   |        | offset_w_63              | sub | fabric | 0       |
+|    sub_ln139_28_fu_166410_p2             | -   |        | sub_ln139_28             | sub | fabric | 0       |
+|    feat_out_649_fu_166420_p2             | -   |        | feat_out_649             | add | fabric | 0       |
+|    mac_muladd_12s_5s_21s_21_1_1_U102     | 1   |        | mul_ln136_28             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5s_21s_21_1_1_U102     | 1   |        | feat_out_648             | add | dsp48  | 0       |
+|    sub_ln133_28_fu_166438_p2             | -   |        | sub_ln133_28             | sub | fabric | 0       |
+|    feat_out_647_fu_166448_p2             | -   |        | feat_out_647             | add | fabric | 0       |
+|    sub_ln130_23_fu_166466_p2             | -   |        | sub_ln130_23             | sub | fabric | 0       |
+|    feat_out_646_fu_166476_p2             | -   |        | feat_out_646             | add | fabric | 0       |
+|    sub_ln127_28_fu_166494_p2             | -   |        | sub_ln127_28             | sub | fabric | 0       |
+|    feat_out_645_fu_166504_p2             | -   |        | feat_out_645             | add | fabric | 0       |
+|    mac_muladd_12s_5ns_21s_21_1_1_U103    | 1   |        | mul_ln124_28             | mul | dsp48  | 0       |
+|    mac_muladd_12s_5ns_21s_21_1_1_U103    | 1   |        | feat_out_644             | add | dsp48  | 0       |
+|    sub_ln121_28_fu_166522_p2             | -   |        | sub_ln121_28             | sub | fabric | 0       |
+|    feat_out_643_fu_166532_p2             | -   |        | feat_out_643             | add | fabric | 0       |
+|    mac_muladd_12s_6ns_21s_21_1_1_U104    | 1   |        | mul_ln118_19             | mul | dsp48  | 0       |
+|    mac_muladd_12s_6ns_21s_21_1_1_U104    | 1   |        | feat_out_642             | add | dsp48  | 0       |
+|    offset_h_64_fu_166592_p2              | -   |        | offset_h_64              | sub | fabric | 0       |
+|    offset_w_64_fu_166538_p2              | -   |        | offset_w_64              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U44                | 1   |        | mul_ln118_20             | mul | auto   | 0       |
+|    feat_out_650_fu_166616_p2             | -   |        | feat_out_650             | add | fabric | 0       |
+|    sub_ln121_29_fu_166560_p2             | -   |        | sub_ln121_29             | sub | fabric | 0       |
+|    feat_out_651_fu_166635_p2             | -   |        | feat_out_651             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U45                | 1   |        | mul_ln124_29             | mul | auto   | 0       |
+|    feat_out_652_fu_166661_p2             | -   |        | feat_out_652             | add | fabric | 0       |
+|    sub_ln127_29_fu_166684_p2             | -   |        | sub_ln127_29             | sub | fabric | 0       |
+|    feat_out_653_fu_166693_p2             | -   |        | feat_out_653             | add | fabric | 0       |
+|    sub_ln133_29_fu_166728_p2             | -   |        | sub_ln133_29             | sub | fabric | 0       |
+|    feat_out_654_fu_166737_p2             | -   |        | feat_out_654             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U46                 | 1   |        | mul_ln136_29             | mul | auto   | 0       |
+|    feat_out_655_fu_166761_p2             | -   |        | feat_out_655             | add | fabric | 0       |
+|    sub_ln139_29_fu_166789_p2             | -   |        | sub_ln139_29             | sub | fabric | 0       |
+|    feat_out_656_fu_166803_p2             | -   |        | feat_out_656             | add | fabric | 0       |
+|    offset_h_65_fu_166991_p2              | -   |        | offset_h_65              | sub | fabric | 0       |
+|    offset_w_65_fu_166572_p2              | -   |        | offset_w_65              | sub | fabric | 0       |
+|    feat_out_665_fu_167012_p2             | -   |        | feat_out_665             | add | fabric | 0       |
+|    feat_out_666_fu_167028_p2             | -   |        | feat_out_666             | add | fabric | 0       |
+|    feat_out_667_fu_167051_p2             | -   |        | feat_out_667             | add | fabric | 0       |
+|    feat_out_668_fu_167062_p2             | -   |        | feat_out_668             | add | fabric | 0       |
+|    feat_out_669_fu_167085_p2             | -   |        | feat_out_669             | add | fabric | 0       |
+|    feat_out_670_fu_167096_p2             | -   |        | feat_out_670             | add | fabric | 0       |
+|    feat_out_671_fu_167112_p2             | -   |        | feat_out_671             | add | fabric | 0       |
+|    offset_h_66_fu_167300_p2              | -   |        | offset_h_66              | sub | fabric | 0       |
+|    offset_w_66_fu_166576_p2              | -   |        | offset_w_66              | sub | fabric | 0       |
+|    feat_out_680_fu_167321_p2             | -   |        | feat_out_680             | add | fabric | 0       |
+|    feat_out_681_fu_167337_p2             | -   |        | feat_out_681             | add | fabric | 0       |
+|    feat_out_682_fu_167360_p2             | -   |        | feat_out_682             | add | fabric | 0       |
+|    feat_out_683_fu_167371_p2             | -   |        | feat_out_683             | add | fabric | 0       |
+|    feat_out_684_fu_167394_p2             | -   |        | feat_out_684             | add | fabric | 0       |
+|    feat_out_685_fu_167405_p2             | -   |        | feat_out_685             | add | fabric | 0       |
+|    feat_out_686_fu_167421_p2             | -   |        | feat_out_686             | add | fabric | 0       |
+|    offset_h_67_fu_167609_p2              | -   |        | offset_h_67              | sub | fabric | 0       |
+|    offset_w_67_fu_166580_p2              | -   |        | offset_w_67              | sub | fabric | 0       |
+|    feat_out_695_fu_167630_p2             | -   |        | feat_out_695             | add | fabric | 0       |
+|    feat_out_696_fu_167646_p2             | -   |        | feat_out_696             | add | fabric | 0       |
+|    feat_out_697_fu_167669_p2             | -   |        | feat_out_697             | add | fabric | 0       |
+|    feat_out_698_fu_167680_p2             | -   |        | feat_out_698             | add | fabric | 0       |
+|    feat_out_699_fu_167703_p2             | -   |        | feat_out_699             | add | fabric | 0       |
+|    feat_out_700_fu_167714_p2             | -   |        | feat_out_700             | add | fabric | 0       |
+|    feat_out_701_fu_167730_p2             | -   |        | feat_out_701             | add | fabric | 0       |
+|    offset_h_68_fu_167918_p2              | -   |        | offset_h_68              | sub | fabric | 0       |
+|    offset_w_68_fu_166584_p2              | -   |        | offset_w_68              | sub | fabric | 0       |
+|    feat_out_710_fu_167939_p2             | -   |        | feat_out_710             | add | fabric | 0       |
+|    feat_out_711_fu_167955_p2             | -   |        | feat_out_711             | add | fabric | 0       |
+|    feat_out_712_fu_167978_p2             | -   |        | feat_out_712             | add | fabric | 0       |
+|    feat_out_713_fu_167989_p2             | -   |        | feat_out_713             | add | fabric | 0       |
+|    feat_out_714_fu_168012_p2             | -   |        | feat_out_714             | add | fabric | 0       |
+|    feat_out_715_fu_168023_p2             | -   |        | feat_out_715             | add | fabric | 0       |
+|    feat_out_716_fu_168039_p2             | -   |        | feat_out_716             | add | fabric | 0       |
+|    offset_h_69_fu_168227_p2              | -   |        | offset_h_69              | sub | fabric | 0       |
+|    offset_w_69_fu_166588_p2              | -   |        | offset_w_69              | sub | fabric | 0       |
+|    feat_out_725_fu_168241_p2             | -   |        | feat_out_725             | add | fabric | 0       |
+|    feat_out_726_fu_168256_p2             | -   |        | feat_out_726             | add | fabric | 0       |
+|    feat_out_727_fu_168279_p2             | -   |        | feat_out_727             | add | fabric | 0       |
+|    feat_out_728_fu_168290_p2             | -   |        | feat_out_728             | add | fabric | 0       |
+|    feat_out_729_fu_168313_p2             | -   |        | feat_out_729             | add | fabric | 0       |
+|    feat_out_730_fu_168324_p2             | -   |        | feat_out_730             | add | fabric | 0       |
+|    feat_out_731_fu_168340_p2             | -   |        | feat_out_731             | add | fabric | 0       |
+|    offset_h_70_fu_168528_p2              | -   |        | offset_h_70              | sub | fabric | 0       |
+|    offset_w_70_fu_168532_p2              | -   |        | offset_w_70              | sub | fabric | 0       |
+|    feat_out_740_fu_168554_p2             | -   |        | feat_out_740             | add | fabric | 0       |
+|    feat_out_741_fu_168572_p2             | -   |        | feat_out_741             | add | fabric | 0       |
+|    feat_out_742_fu_168620_p2             | -   |        | feat_out_742             | add | fabric | 0       |
+|    add_ln138_fu_168776_p2                | -   |        | add_ln138                | add | fabric | 0       |
+|    add_ln138_1_fu_168813_p2              | -   |        | add_ln138_1              | add | fabric | 0       |
+|    offset_h_71_fu_168889_p2              | -   |        | offset_h_71              | sub | fabric | 0       |
+|    offset_w_71_fu_168893_p2              | -   |        | offset_w_71              | sub | fabric | 0       |
+|    feat_out_744_fu_168915_p2             | -   |        | feat_out_744             | add | fabric | 0       |
+|    feat_out_745_fu_168933_p2             | -   |        | feat_out_745             | add | fabric | 0       |
+|    feat_out_746_fu_168957_p2             | -   |        | feat_out_746             | add | fabric | 0       |
+|    feat_out_747_fu_168969_p2             | -   |        | feat_out_747             | add | fabric | 0       |
+|    feat_out_748_fu_168993_p2             | -   |        | feat_out_748             | add | fabric | 0       |
+|    feat_out_749_fu_169005_p2             | -   |        | feat_out_749             | add | fabric | 0       |
+|    feat_out_750_fu_169023_p2             | -   |        | feat_out_750             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U105    | 1   |        | mul_ln108_7              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U105    | 1   |        | feat_out_759             | add | dsp48  | 0       |
+|    offset_h_95_fu_169369_p2              | -   |        | offset_h_95              | sub | fabric | 0       |
+|    offset_w_72_fu_169241_p2              | -   |        | offset_w_72              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U47                | 1   |        | mul_ln118_21             | mul | auto   | 0       |
+|    feat_out_760_fu_169393_p2             | -   |        | feat_out_760             | add | fabric | 0       |
+|    sub_ln121_30_fu_169263_p2             | -   |        | sub_ln121_30             | sub | fabric | 0       |
+|    feat_out_761_fu_169413_p2             | -   |        | feat_out_761             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U48                | 1   |        | mul_ln124_30             | mul | auto   | 0       |
+|    feat_out_762_fu_169440_p2             | -   |        | feat_out_762             | add | fabric | 0       |
+|    sub_ln127_30_fu_169287_p2             | -   |        | sub_ln127_30             | sub | fabric | 0       |
+|    feat_out_763_fu_169455_p2             | -   |        | feat_out_763             | add | fabric | 0       |
+|    sub_ln133_30_fu_169491_p2             | -   |        | sub_ln133_30             | sub | fabric | 0       |
+|    feat_out_764_fu_169501_p2             | -   |        | feat_out_764             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U49                 | 1   |        | mul_ln136_30             | mul | auto   | 0       |
+|    feat_out_765_fu_169523_p2             | -   |        | feat_out_765             | add | fabric | 0       |
+|    sub_ln139_30_fu_169552_p2             | -   |        | sub_ln139_30             | sub | fabric | 0       |
+|    feat_out_766_fu_169562_p2             | -   |        | feat_out_766             | add | fabric | 0       |
+|    offset_h_73_fu_169293_p2              | -   |        | offset_h_73              | sub | fabric | 0       |
+|    offset_w_73_fu_169297_p2              | -   |        | offset_w_73              | sub | fabric | 0       |
+|    feat_out_775_fu_169763_p2             | -   |        | feat_out_775             | add | fabric | 0       |
+|    feat_out_776_fu_169773_p2             | -   |        | feat_out_776             | add | fabric | 0       |
+|    feat_out_777_fu_169789_p2             | -   |        | feat_out_777             | add | fabric | 0       |
+|    feat_out_778_fu_169798_p2             | -   |        | feat_out_778             | add | fabric | 0       |
+|    feat_out_779_fu_169812_p2             | -   |        | feat_out_779             | add | fabric | 0       |
+|    feat_out_780_fu_169821_p2             | -   |        | feat_out_780             | add | fabric | 0       |
+|    feat_out_781_fu_169826_p2             | -   |        | feat_out_781             | add | fabric | 0       |
+|    offset_h_74_fu_170013_p2              | -   |        | offset_h_74              | sub | fabric | 0       |
+|    offset_w_74_fu_169337_p2              | -   |        | offset_w_74              | sub | fabric | 0       |
+|    feat_out_790_fu_170034_p2             | -   |        | feat_out_790             | add | fabric | 0       |
+|    feat_out_791_fu_170050_p2             | -   |        | feat_out_791             | add | fabric | 0       |
+|    feat_out_792_fu_170073_p2             | -   |        | feat_out_792             | add | fabric | 0       |
+|    feat_out_793_fu_170084_p2             | -   |        | feat_out_793             | add | fabric | 0       |
+|    feat_out_794_fu_170107_p2             | -   |        | feat_out_794             | add | fabric | 0       |
+|    feat_out_795_fu_170118_p2             | -   |        | feat_out_795             | add | fabric | 0       |
+|    feat_out_796_fu_170134_p2             | -   |        | feat_out_796             | add | fabric | 0       |
+|    offset_h_75_fu_170322_p2              | -   |        | offset_h_75              | sub | fabric | 0       |
+|    offset_w_75_fu_169341_p2              | -   |        | offset_w_75              | sub | fabric | 0       |
+|    feat_out_805_fu_170343_p2             | -   |        | feat_out_805             | add | fabric | 0       |
+|    feat_out_806_fu_170359_p2             | -   |        | feat_out_806             | add | fabric | 0       |
+|    feat_out_807_fu_170382_p2             | -   |        | feat_out_807             | add | fabric | 0       |
+|    feat_out_808_fu_170393_p2             | -   |        | feat_out_808             | add | fabric | 0       |
+|    feat_out_809_fu_170416_p2             | -   |        | feat_out_809             | add | fabric | 0       |
+|    feat_out_810_fu_170427_p2             | -   |        | feat_out_810             | add | fabric | 0       |
+|    feat_out_811_fu_170443_p2             | -   |        | feat_out_811             | add | fabric | 0       |
+|    offset_h_76_fu_170631_p2              | -   |        | offset_h_76              | sub | fabric | 0       |
+|    offset_w_76_fu_169345_p2              | -   |        | offset_w_76              | sub | fabric | 0       |
+|    feat_out_830_fu_170652_p2             | -   |        | feat_out_830             | add | fabric | 0       |
+|    feat_out_831_fu_170668_p2             | -   |        | feat_out_831             | add | fabric | 0       |
+|    feat_out_832_fu_170691_p2             | -   |        | feat_out_832             | add | fabric | 0       |
+|    feat_out_833_fu_170702_p2             | -   |        | feat_out_833             | add | fabric | 0       |
+|    feat_out_834_fu_170725_p2             | -   |        | feat_out_834             | add | fabric | 0       |
+|    feat_out_835_fu_170736_p2             | -   |        | feat_out_835             | add | fabric | 0       |
+|    feat_out_836_fu_170752_p2             | -   |        | feat_out_836             | add | fabric | 0       |
+|    offset_h_77_fu_170940_p2              | -   |        | offset_h_77              | sub | fabric | 0       |
+|    offset_w_77_fu_169349_p2              | -   |        | offset_w_77              | sub | fabric | 0       |
+|    feat_out_845_fu_170961_p2             | -   |        | feat_out_845             | add | fabric | 0       |
+|    feat_out_846_fu_170977_p2             | -   |        | feat_out_846             | add | fabric | 0       |
+|    feat_out_847_fu_171000_p2             | -   |        | feat_out_847             | add | fabric | 0       |
+|    feat_out_848_fu_171011_p2             | -   |        | feat_out_848             | add | fabric | 0       |
+|    feat_out_849_fu_171034_p2             | -   |        | feat_out_849             | add | fabric | 0       |
+|    feat_out_850_fu_171045_p2             | -   |        | feat_out_850             | add | fabric | 0       |
+|    feat_out_851_fu_171061_p2             | -   |        | feat_out_851             | add | fabric | 0       |
+|    offset_h_78_fu_171249_p2              | -   |        | offset_h_78              | sub | fabric | 0       |
+|    offset_w_78_fu_169353_p2              | -   |        | offset_w_78              | sub | fabric | 0       |
+|    feat_out_860_fu_171270_p2             | -   |        | feat_out_860             | add | fabric | 0       |
+|    feat_out_861_fu_171286_p2             | -   |        | feat_out_861             | add | fabric | 0       |
+|    feat_out_862_fu_171309_p2             | -   |        | feat_out_862             | add | fabric | 0       |
+|    feat_out_863_fu_171320_p2             | -   |        | feat_out_863             | add | fabric | 0       |
+|    feat_out_864_fu_171343_p2             | -   |        | feat_out_864             | add | fabric | 0       |
+|    feat_out_865_fu_171354_p2             | -   |        | feat_out_865             | add | fabric | 0       |
+|    feat_out_866_fu_171370_p2             | -   |        | feat_out_866             | add | fabric | 0       |
+|    offset_h_79_fu_171558_p2              | -   |        | offset_h_79              | sub | fabric | 0       |
+|    offset_w_79_fu_169357_p2              | -   |        | offset_w_79              | sub | fabric | 0       |
+|    feat_out_875_fu_171572_p2             | -   |        | feat_out_875             | add | fabric | 0       |
+|    feat_out_876_fu_171587_p2             | -   |        | feat_out_876             | add | fabric | 0       |
+|    feat_out_877_fu_171603_p2             | -   |        | feat_out_877             | add | fabric | 0       |
+|    feat_out_878_fu_171614_p2             | -   |        | feat_out_878             | add | fabric | 0       |
+|    feat_out_879_fu_171636_p2             | -   |        | feat_out_879             | add | fabric | 0       |
+|    feat_out_880_fu_171647_p2             | -   |        | feat_out_880             | add | fabric | 0       |
+|    feat_out_881_fu_171663_p2             | -   |        | feat_out_881             | add | fabric | 0       |
+|    offset_h_80_fu_171851_p2              | -   |        | offset_h_80              | sub | fabric | 0       |
+|    offset_w_80_fu_171855_p2              | -   |        | offset_w_80              | sub | fabric | 0       |
+|    feat_out_890_fu_171877_p2             | -   |        | feat_out_890             | add | fabric | 0       |
+|    feat_out_891_fu_171894_p2             | -   |        | feat_out_891             | add | fabric | 0       |
+|    feat_out_892_fu_171917_p2             | -   |        | feat_out_892             | add | fabric | 0       |
+|    feat_out_893_fu_171928_p2             | -   |        | feat_out_893             | add | fabric | 0       |
+|    feat_out_894_fu_171951_p2             | -   |        | feat_out_894             | add | fabric | 0       |
+|    feat_out_895_fu_171962_p2             | -   |        | feat_out_895             | add | fabric | 0       |
+|    feat_out_896_fu_171979_p2             | -   |        | feat_out_896             | add | fabric | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U106    | 1   |        | mul_ln108_8              | mul | dsp48  | 0       |
+|    mac_muladd_12s_7ns_21s_21_1_1_U106    | 1   |        | feat_out_905             | add | dsp48  | 0       |
+|    offset_h_96_fu_172179_p2              | -   |        | offset_h_96              | sub | fabric | 0       |
+|    offset_w_81_fu_172183_p2              | -   |        | offset_w_81              | sub | fabric | 0       |
+|    mul_12s_7ns_19_1_1_U50                | 1   |        | mul_ln118_22             | mul | auto   | 0       |
+|    feat_out_906_fu_172668_p2             | -   |        | feat_out_906             | add | fabric | 0       |
+|    sub_ln121_31_fu_172223_p2             | -   |        | sub_ln121_31             | sub | fabric | 0       |
+|    feat_out_907_fu_172681_p2             | -   |        | feat_out_907             | add | fabric | 0       |
+|    mul_12s_6ns_18_1_1_U51                | 1   |        | mul_ln124_31             | mul | auto   | 0       |
+|    feat_out_908_fu_172693_p2             | -   |        | feat_out_908             | add | fabric | 0       |
+|    sub_ln127_31_fu_172714_p2             | -   |        | sub_ln127_31             | sub | fabric | 0       |
+|    feat_out_909_fu_172723_p2             | -   |        | feat_out_909             | add | fabric | 0       |
+|    sub_ln133_31_fu_172748_p2             | -   |        | sub_ln133_31             | sub | fabric | 0       |
+|    feat_out_910_fu_172758_p2             | -   |        | feat_out_910             | add | fabric | 0       |
+|    mul_12s_5s_17_1_1_U52                 | 1   |        | mul_ln136_31             | mul | auto   | 0       |
+|    feat_out_911_fu_172777_p2             | -   |        | feat_out_911             | add | fabric | 0       |
+|    sub_ln139_31_fu_172794_p2             | -   |        | sub_ln139_31             | sub | fabric | 0       |
+|    feat_out_912_fu_172804_p2             | -   |        | feat_out_912             | add | fabric | 0       |
+|    offset_h_82_fu_172265_p2              | -   |        | offset_h_82              | sub | fabric | 0       |
+|    offset_w_82_fu_172269_p2              | -   |        | offset_w_82              | sub | fabric | 0       |
+|    feat_out_921_fu_172995_p2             | -   |        | feat_out_921             | add | fabric | 0       |
+|    feat_out_922_fu_173004_p2             | -   |        | feat_out_922             | add | fabric | 0       |
+|    feat_out_923_fu_173013_p2             | -   |        | feat_out_923             | add | fabric | 0       |
+|    feat_out_924_fu_173022_p2             | -   |        | feat_out_924             | add | fabric | 0       |
+|    feat_out_925_fu_173035_p2             | -   |        | feat_out_925             | add | fabric | 0       |
+|    feat_out_926_fu_173044_p2             | -   |        | feat_out_926             | add | fabric | 0       |
+|    feat_out_927_fu_173049_p2             | -   |        | feat_out_927             | add | fabric | 0       |
+|    offset_h_83_fu_172321_p2              | -   |        | offset_h_83              | sub | fabric | 0       |
+|    offset_w_83_fu_172325_p2              | -   |        | offset_w_83              | sub | fabric | 0       |
+|    feat_out_936_fu_173240_p2             | -   |        | feat_out_936             | add | fabric | 0       |
+|    feat_out_937_fu_173249_p2             | -   |        | feat_out_937             | add | fabric | 0       |
+|    feat_out_938_fu_173258_p2             | -   |        | feat_out_938             | add | fabric | 0       |
+|    feat_out_939_fu_173267_p2             | -   |        | feat_out_939             | add | fabric | 0       |
+|    feat_out_940_fu_173280_p2             | -   |        | feat_out_940             | add | fabric | 0       |
+|    feat_out_941_fu_173289_p2             | -   |        | feat_out_941             | add | fabric | 0       |
+|    feat_out_942_fu_173294_p2             | -   |        | feat_out_942             | add | fabric | 0       |
+|    offset_h_84_fu_172377_p2              | -   |        | offset_h_84              | sub | fabric | 0       |
+|    offset_w_84_fu_172381_p2              | -   |        | offset_w_84              | sub | fabric | 0       |
+|    feat_out_951_fu_173485_p2             | -   |        | feat_out_951             | add | fabric | 0       |
+|    feat_out_952_fu_173494_p2             | -   |        | feat_out_952             | add | fabric | 0       |
+|    feat_out_953_fu_173503_p2             | -   |        | feat_out_953             | add | fabric | 0       |
+|    feat_out_954_fu_173512_p2             | -   |        | feat_out_954             | add | fabric | 0       |
+|    feat_out_955_fu_173525_p2             | -   |        | feat_out_955             | add | fabric | 0       |
+|    feat_out_956_fu_173534_p2             | -   |        | feat_out_956             | add | fabric | 0       |
+|    feat_out_957_fu_173539_p2             | -   |        | feat_out_957             | add | fabric | 0       |
+|    offset_h_85_fu_172433_p2              | -   |        | offset_h_85              | sub | fabric | 0       |
+|    offset_w_85_fu_172437_p2              | -   |        | offset_w_85              | sub | fabric | 0       |
+|    feat_out_966_fu_173730_p2             | -   |        | feat_out_966             | add | fabric | 0       |
+|    feat_out_967_fu_173739_p2             | -   |        | feat_out_967             | add | fabric | 0       |
+|    feat_out_968_fu_173748_p2             | -   |        | feat_out_968             | add | fabric | 0       |
+|    feat_out_969_fu_173757_p2             | -   |        | feat_out_969             | add | fabric | 0       |
+|    feat_out_970_fu_173770_p2             | -   |        | feat_out_970             | add | fabric | 0       |
+|    feat_out_971_fu_173779_p2             | -   |        | feat_out_971             | add | fabric | 0       |
+|    feat_out_972_fu_173784_p2             | -   |        | feat_out_972             | add | fabric | 0       |
+|    offset_h_86_fu_172489_p2              | -   |        | offset_h_86              | sub | fabric | 0       |
+|    offset_w_86_fu_172493_p2              | -   |        | offset_w_86              | sub | fabric | 0       |
+|    feat_out_981_fu_173975_p2             | -   |        | feat_out_981             | add | fabric | 0       |
+|    feat_out_982_fu_173984_p2             | -   |        | feat_out_982             | add | fabric | 0       |
+|    feat_out_983_fu_173993_p2             | -   |        | feat_out_983             | add | fabric | 0       |
+|    feat_out_984_fu_174002_p2             | -   |        | feat_out_984             | add | fabric | 0       |
+|    feat_out_985_fu_174015_p2             | -   |        | feat_out_985             | add | fabric | 0       |
+|    feat_out_986_fu_174024_p2             | -   |        | feat_out_986             | add | fabric | 0       |
+|    feat_out_987_fu_174029_p2             | -   |        | feat_out_987             | add | fabric | 0       |
+|    offset_h_87_fu_172545_p2              | -   |        | offset_h_87              | sub | fabric | 0       |
+|    offset_w_87_fu_172549_p2              | -   |        | offset_w_87              | sub | fabric | 0       |
+|    feat_out_996_fu_174220_p2             | -   |        | feat_out_996             | add | fabric | 0       |
+|    feat_out_997_fu_174229_p2             | -   |        | feat_out_997             | add | fabric | 0       |
+|    feat_out_998_fu_174238_p2             | -   |        | feat_out_998             | add | fabric | 0       |
+|    feat_out_999_fu_174247_p2             | -   |        | feat_out_999             | add | fabric | 0       |
+|    feat_out_1000_fu_174260_p2            | -   |        | feat_out_1000            | add | fabric | 0       |
+|    feat_out_1001_fu_174269_p2            | -   |        | feat_out_1001            | add | fabric | 0       |
+|    feat_out_1002_fu_174274_p2            | -   |        | feat_out_1002            | add | fabric | 0       |
+|    offset_h_88_fu_172601_p2              | -   |        | offset_h_88              | sub | fabric | 0       |
+|    offset_w_88_fu_172605_p2              | -   |        | offset_w_88              | sub | fabric | 0       |
+|    feat_out_1011_fu_174465_p2            | -   |        | feat_out_1011            | add | fabric | 0       |
+|    feat_out_1012_fu_174474_p2            | -   |        | feat_out_1012            | add | fabric | 0       |
+|    feat_out_1013_fu_174483_p2            | -   |        | feat_out_1013            | add | fabric | 0       |
+|    feat_out_1014_fu_174492_p2            | -   |        | feat_out_1014            | add | fabric | 0       |
+|    feat_out_1015_fu_174505_p2            | -   |        | feat_out_1015            | add | fabric | 0       |
+|    feat_out_1016_fu_174514_p2            | -   |        | feat_out_1016            | add | fabric | 0       |
+|    feat_out_1017_fu_174519_p2            | -   |        | feat_out_1017            | add | fabric | 0       |
+|    offset_h_89_fu_172645_p2              | -   |        | offset_h_89              | sub | fabric | 0       |
+|    offset_w_89_fu_172649_p2              | -   |        | offset_w_89              | sub | fabric | 0       |
+|    feat_out_1033_fu_174774_p2            | -   |        | feat_out_1033            | add | fabric | 0       |
+|    feat_out_1032_fu_174786_p2            | -   |        | feat_out_1032            | add | fabric | 0       |
+|    feat_out_1031_fu_174791_p2            | -   |        | feat_out_1031            | add | fabric | 0       |
+|    grp_fu_144662_p2                      | -   |        | feat_out_1030            | add | fabric | 0       |
+|    feat_out_1029_fu_174796_p2            | -   |        | feat_out_1029            | add | fabric | 0       |
+|    feat_out_1028_fu_174801_p2            | -   |        | feat_out_1028            | add | fabric | 0       |
+|    grp_fu_144662_p2                      | -   |        | feat_out_1027            | add | fabric | 0       |
+|    feat_out_1026_fu_174806_p2            | -   |        | feat_out_1026            | add | fabric | 0       |
++------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Ignored Pragmas
++------------+------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Type       | Options                            | Location                                                         | Messages                                                                          |
++------------+------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| allocation | instances=compute_output_buffer_1d | firmware/nnet_utils/nnet_conv2d_stream.h:79 in conv_2d_buffer_cl | unexpected pragma argument 'compute_output_buffer_1d', expects function/operation |
+| allocation | instances=compute_output_buffer_2d | firmware/nnet_utils/nnet_conv2d_stream.h:80 in conv_2d_buffer_cl | unexpected pragma argument 'compute_output_buffer_2d', expects function/operation |
++------------+------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+
+* Pragmas with Warnings
++----------+-----------------------------------+-----------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type     | Options                           | Location                                                                                | Messages                                                                                                                                                                           |
++----------+-----------------------------------+-----------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dataflow |                                   | firmware/model_test.cpp:17 in model_test                                                | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
+| inline   | region                            | firmware/nnet_utils/nnet_conv2d.h:47 in conv_2d_cl                                      | 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead                                                                                                        |
+| inline   | region                            | firmware/nnet_utils/nnet_conv2d.h:63 in pointwise_conv_2d_cl                            | 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead                                                                                                        |
+| resource | variable=weights core=ROM_nP_BRAM | firmware/nnet_utils/nnet_dense_resource.h:33 in dense_resource_rf_leq_nin, weights      | 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead                                                                                                         |
+| resource | variable=weights core=ROM_nP_BRAM | firmware/nnet_utils/nnet_dense_resource.h:107 in dense_resource_rf_gt_nin_rem0, weights | 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead                                                                                                         |
+| resource | variable=weights core=ROM_nP_BRAM | firmware/nnet_utils/nnet_dense_resource.h:189 in dense_resource_rf_gt_nin, weights      | 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead                                                                                                         |
++----------+-----------------------------------+-----------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++----------------------+-----------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| Type                 | Options                                                               | Location                                                                                       |
++----------------------+-----------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| array_reshape        | variable=x_in complete dim=0                                          | firmware/model_test.cpp:14 in model_test, x_in                                                 |
+| array_partition      | variable=layer2_out complete dim=0                                    | firmware/model_test.cpp:15 in model_test, layer2_out                                           |
+| interface            | ap_vld port=x_in,layer2_out                                           | firmware/model_test.cpp:16 in model_test, x_in,layer2_out                                      |
+| array_partition      | variable=hash_in complete dim=0                                       | firmware/model_test.cpp:41 in model_test, hash_in                                              |
+| array_partition      | variable=feat_in complete dim=0                                       | firmware/model_test.cpp:42 in model_test, feat_in                                              |
+| unroll               |                                                                       | firmware/model_test.cpp:52 in model_test                                                       |
+| array_partition      | variable=feat_out complete dim=0                                      | firmware/model_test.cpp:102 in model_test, feat_out                                            |
+| unroll               |                                                                       | firmware/model_test.cpp:105 in model_test                                                      |
+| unroll               |                                                                       | firmware/model_test.cpp:111 in model_test                                                      |
+| unroll               |                                                                       | firmware/model_test.cpp:288 in model_test                                                      |
+| array_partition      | variable=data_buf complete dim=0                                      | firmware/nnet_utils/nnet_conv2d_latency.h:20 in conv_2d_latency_cl, data_buf                   |
+| array_partition      | variable=mult complete                                                | firmware/nnet_utils/nnet_conv2d_latency.h:23 in conv_2d_latency_cl, mult                       |
+| array_partition      | variable=acc complete                                                 | firmware/nnet_utils/nnet_conv2d_latency.h:26 in conv_2d_latency_cl, acc                        |
+| array_partition      | variable=weights complete                                             | firmware/nnet_utils/nnet_conv2d_latency.h:28 in conv_2d_latency_cl, weights                    |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_conv2d_latency.h:29 in conv_2d_latency_cl, biases                     |
+| allocation           | operation instances=mul limit=CONFIG_T::mult_config::multiplier_limit | firmware/nnet_utils/nnet_conv2d_latency.h:32 in conv_2d_latency_cl                             |
+| pipeline             | II=CONFIG_T::reuse_factor rewind                                      | firmware/nnet_utils/nnet_conv2d_latency.h:36 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:42 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:49 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:53 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:63 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:70 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:73 in conv_2d_latency_cl                             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_latency.h:81 in conv_2d_latency_cl                             |
+| array_partition      | variable=data_buf complete dim=0                                      | firmware/nnet_utils/nnet_conv2d_resource.h:27 in conv_2d_resource_cl, data_buf                 |
+| array_reshape        | variable=weights block factor=block_factor                            | firmware/nnet_utils/nnet_conv2d_resource.h:29 in conv_2d_resource_cl, weights                  |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_conv2d_resource.h:30 in conv_2d_resource_cl, biases                   |
+| array_partition      | variable=acc complete dim=0                                           | firmware/nnet_utils/nnet_conv2d_resource.h:33 in conv_2d_resource_cl, acc                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:43 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:47 in conv_2d_resource_cl                           |
+| pipeline             | II=1 rewind                                                           | firmware/nnet_utils/nnet_conv2d_resource.h:54 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:63 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:67 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:93 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_resource.h:97 in conv_2d_resource_cl                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv2d_stream.h:20 in compute_scaled_indices_2d                       |
+| stream               | variable=data_window[i_out] depth=win_depth                           | firmware/nnet_utils/nnet_conv2d_stream.h:39 in conv_2d_encoded_cl, data_window[i_out]          |
+| array_partition      | variable=CONFIG_T::pixels complete                                    | firmware/nnet_utils/nnet_conv2d_stream.h:42 in conv_2d_encoded_cl, CONFIG_T::pixels            |
+| array_partition      | variable=pixel_idx complete                                           | firmware/nnet_utils/nnet_conv2d_stream.h:49 in conv_2d_encoded_cl, pixel_idx                   |
+| loop_flatten         |                                                                       | firmware/nnet_utils/nnet_conv2d_stream.h:55 in conv_2d_encoded_cl                              |
+| pipeline             | II=CONFIG_T::reuse_factor                                             | firmware/nnet_utils/nnet_conv2d_stream.h:57 in conv_2d_encoded_cl                              |
+| array_partition      | variable = line_buffer complete dim = 2                               | firmware/nnet_utils/nnet_conv2d_stream.h:76 in conv_2d_buffer_cl                               |
+| loop_flatten         |                                                                       | firmware/nnet_utils/nnet_conv2d_stream.h:87 in conv_2d_buffer_cl                               |
+| pipeline             | II=CONFIG_T::reuse_factor                                             | firmware/nnet_utils/nnet_conv2d_stream.h:89 in conv_2d_buffer_cl                               |
+| inline               | recursive                                                             | firmware/nnet_utils/nnet_conv2d_stream.h:105 in conv_2d_cl                                     |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:17 in scale_index_k_gte_s                               |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:38 in scale_index_k_lt_s                                |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:61 in scale_index                                       |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:74 in scale_index                                       |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:84 in mult_buffer                                       |
+| array_partition      | variable = data complete                                              | firmware/nnet_utils/nnet_conv_stream.h:87 in mult_buffer                                       |
+| array_partition      | variable = res complete                                               | firmware/nnet_utils/nnet_conv_stream.h:89 in mult_buffer                                       |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:93 in mult_buffer                                       |
+| inline               | recursive                                                             | firmware/nnet_utils/nnet_conv_stream.h:97 in mult_buffer                                       |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:103 in mult_buffer                                      |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:129 in compute_output_encoded                           |
+| pipeline             | II = CONFIG_T::reuse_factor                                           | firmware/nnet_utils/nnet_conv_stream.h:133 in compute_output_encoded                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:136 in compute_output_encoded                           |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:139 in compute_output_encoded                           |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:156 in kernel_shift_1d                                  |
+| pipeline             | II = 1                                                                | firmware/nnet_utils/nnet_conv_stream.h:162 in kernel_shift_1d                                  |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:165 in kernel_shift_1d                                  |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:175 in kernel_shift_1d                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:184 in kernel_shift_2d                                  |
+| pipeline             | II = 1                                                                | firmware/nnet_utils/nnet_conv_stream.h:190 in kernel_shift_2d                                  |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:206 in kernel_shift_2d                                  |
+| pipeline             |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:221 in shift_line_buffer                                |
+| array_partition      | variable = shift_buffer complete dim = 0                              | firmware/nnet_utils/nnet_conv_stream.h:225 in shift_line_buffer                                |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:229 in shift_line_buffer                                |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:240 in shift_line_buffer                                |
+| inline               | OFF                                                                   | firmware/nnet_utils/nnet_conv_stream.h:258 in compute_output_buffer_2d                         |
+| array_partition      | variable = kernel_data complete                                       | firmware/nnet_utils/nnet_conv_stream.h:272 in compute_output_buffer_2d                         |
+| array_partition      | variable = res_out complete dim = 0                                   | firmware/nnet_utils/nnet_conv_stream.h:275 in compute_output_buffer_2d                         |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:294 in compute_output_buffer_2d                         |
+| inline               | OFF                                                                   | firmware/nnet_utils/nnet_conv_stream.h:328 in compute_output_buffer_1d                         |
+| array_partition      | variable = kernel_data complete                                       | firmware/nnet_utils/nnet_conv_stream.h:338 in compute_output_buffer_1d                         |
+| array_partition      | variable = res_out complete dim = 0                                   | firmware/nnet_utils/nnet_conv_stream.h:341 in compute_output_buffer_1d                         |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_conv_stream.h:360 in compute_output_buffer_1d                         |
+| inline               |                                                                       | firmware/nnet_utils/nnet_dense.h:44 in dense                                                   |
+| inline               |                                                                       | firmware/nnet_utils/nnet_dense.h:53 in dense                                                   |
+| inline               |                                                                       | firmware/nnet_utils/nnet_dense.h:64 in dense                                                   |
+| inline               |                                                                       | firmware/nnet_utils/nnet_dense.h:75 in dense                                                   |
+| function_instantiate | variable=weights,biases                                               | firmware/nnet_utils/nnet_dense_latency.h:21 in dense_latency, weights,biases                   |
+| pipeline             | II=CONFIG_T::reuse_factor                                             | firmware/nnet_utils/nnet_dense_latency.h:26 in dense_latency                                   |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_dense_latency.h:29 in dense_latency, biases                           |
+| array_partition      | variable=mult complete                                                | firmware/nnet_utils/nnet_dense_latency.h:30 in dense_latency, mult                             |
+| array_partition      | variable=acc complete                                                 | firmware/nnet_utils/nnet_dense_latency.h:31 in dense_latency, acc                              |
+| allocation           | operation instances=mul limit=CONFIG_T::multiplier_limit              | firmware/nnet_utils/nnet_dense_latency.h:33 in dense_latency                                   |
+| function_instantiate | variable=weights,biases                                               | firmware/nnet_utils/nnet_dense_resource.h:28 in dense_resource_rf_leq_nin, weights,biases      |
+| array_reshape        | variable=weights block factor=block_factor                            | firmware/nnet_utils/nnet_dense_resource.h:29 in dense_resource_rf_leq_nin, weights             |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_dense_resource.h:30 in dense_resource_rf_leq_nin, biases              |
+| array_partition      | variable=acc complete                                                 | firmware/nnet_utils/nnet_dense_resource.h:37 in dense_resource_rf_leq_nin, acc                 |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:41 in dense_resource_rf_leq_nin                      |
+| pipeline             | II=1 rewind                                                           | firmware/nnet_utils/nnet_dense_resource.h:47 in dense_resource_rf_leq_nin                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:56 in dense_resource_rf_leq_nin                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:81 in dense_resource_rf_leq_nin                      |
+| function_instantiate | variable=weights,biases                                               | firmware/nnet_utils/nnet_dense_resource.h:102 in dense_resource_rf_gt_nin_rem0, weights,biases |
+| array_reshape        | variable=weights block factor=block_factor                            | firmware/nnet_utils/nnet_dense_resource.h:103 in dense_resource_rf_gt_nin_rem0, weights        |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_dense_resource.h:104 in dense_resource_rf_gt_nin_rem0, biases         |
+| array_partition      | variable=acc complete                                                 | firmware/nnet_utils/nnet_dense_resource.h:111 in dense_resource_rf_gt_nin_rem0, acc            |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:115 in dense_resource_rf_gt_nin_rem0                 |
+| pipeline             | II=1 rewind                                                           | firmware/nnet_utils/nnet_dense_resource.h:136 in dense_resource_rf_gt_nin_rem0                 |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:143 in dense_resource_rf_gt_nin_rem0                 |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:163 in dense_resource_rf_gt_nin_rem0                 |
+| function_instantiate | variable=weights,biases                                               | firmware/nnet_utils/nnet_dense_resource.h:184 in dense_resource_rf_gt_nin, weights,biases      |
+| array_reshape        | variable=weights block factor=block_factor                            | firmware/nnet_utils/nnet_dense_resource.h:185 in dense_resource_rf_gt_nin, weights             |
+| array_partition      | variable=biases complete                                              | firmware/nnet_utils/nnet_dense_resource.h:186 in dense_resource_rf_gt_nin, biases              |
+| array_partition      | variable=acc complete                                                 | firmware/nnet_utils/nnet_dense_resource.h:193 in dense_resource_rf_gt_nin, acc                 |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:197 in dense_resource_rf_gt_nin                      |
+| pipeline             | II=1 rewind                                                           | firmware/nnet_utils/nnet_dense_resource.h:203 in dense_resource_rf_gt_nin                      |
+| array_partition      | variable=tmpmult complete                                             | firmware/nnet_utils/nnet_dense_resource.h:205 in dense_resource_rf_gt_nin, tmpmult             |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:209 in dense_resource_rf_gt_nin                      |
+| array_partition      | variable=mult complete                                                | firmware/nnet_utils/nnet_dense_resource.h:219 in dense_resource_rf_gt_nin, mult                |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:223 in dense_resource_rf_gt_nin                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:229 in dense_resource_rf_gt_nin                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:239 in dense_resource_rf_gt_nin                      |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_dense_resource.h:249 in dense_resource_rf_gt_nin                      |
+| inline               | recursive                                                             | firmware/nnet_utils/nnet_dense_resource.h:259 in dense_resource                                |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:25 in product                                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:34 in product                                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:46 in product                                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:58 in product                                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:72 in product                                                  |
+| inline               |                                                                       | firmware/nnet_utils/nnet_mult.h:82 in product                                                  |
+| unroll               |                                                                       | firmware/nnet_utils/nnet_types.h:28 in operator=                                               |
++----------------------+-----------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+
+

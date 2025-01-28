@@ -1,0 +1,141 @@
+
+
+================================================================
+== Vitis HLS Report for 'model_test'
+================================================================
+* Date:           Tue Jan 28 03:43:10 2025
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        model_test_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-flga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  4.325 ns|     0.62 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max   | min | max |   Type   |
+    +---------+---------+-----------+----------+-----+-----+----------+
+    |        6|       63|  30.000 ns|  0.315 us|    7|   64|  dataflow|
+    +---------+---------+-----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                         |                      |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |         Instance        |        Module        |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +-------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |Block_entry2894_proc_U0  |Block_entry2894_proc  |        6|       63|  30.000 ns|  0.315 us|    6|   63|       no|
+        +-------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        -|        -|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|    106|    22588|   140535|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        -|        -|     -|
+|Register             |        -|      -|        -|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|    106|    22588|   140535|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      3|        2|       32|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|     ~0|       ~0|        8|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-----+-------+--------+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP |   FF  |   LUT  | URAM|
+    +-------------------------+----------------------+---------+-----+-------+--------+-----+
+    |Block_entry2894_proc_U0  |Block_entry2894_proc  |        0|  106|  22588|  140535|    0|
+    +-------------------------+----------------------+---------+-----+-------+--------+-----+
+    |Total                    |                      |        0|  106|  22588|  140535|    0|
+    +-------------------------+----------------------+---------+-----+-------+--------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+------+------------+--------------+--------------+
+|      RTL Ports      | Dir | Bits |  Protocol  | Source Object|    C Type    |
++---------------------+-----+------+------------+--------------+--------------+
+|x_in                 |   in|  1200|      ap_vld|          x_in|       pointer|
+|x_in_ap_vld          |   in|     1|      ap_vld|          x_in|       pointer|
+|layer2_out_0         |  out|    25|      ap_vld|  layer2_out_0|       pointer|
+|layer2_out_0_ap_vld  |  out|     1|      ap_vld|  layer2_out_0|       pointer|
+|layer2_out_1         |  out|    25|      ap_vld|  layer2_out_1|       pointer|
+|layer2_out_1_ap_vld  |  out|     1|      ap_vld|  layer2_out_1|       pointer|
+|layer2_out_2         |  out|    25|      ap_vld|  layer2_out_2|       pointer|
+|layer2_out_2_ap_vld  |  out|     1|      ap_vld|  layer2_out_2|       pointer|
+|layer2_out_3         |  out|    25|      ap_vld|  layer2_out_3|       pointer|
+|layer2_out_3_ap_vld  |  out|     1|      ap_vld|  layer2_out_3|       pointer|
+|layer2_out_4         |  out|    25|      ap_vld|  layer2_out_4|       pointer|
+|layer2_out_4_ap_vld  |  out|     1|      ap_vld|  layer2_out_4|       pointer|
+|layer2_out_5         |  out|    25|      ap_vld|  layer2_out_5|       pointer|
+|layer2_out_5_ap_vld  |  out|     1|      ap_vld|  layer2_out_5|       pointer|
+|layer2_out_6         |  out|    25|      ap_vld|  layer2_out_6|       pointer|
+|layer2_out_6_ap_vld  |  out|     1|      ap_vld|  layer2_out_6|       pointer|
+|layer2_out_7         |  out|    25|      ap_vld|  layer2_out_7|       pointer|
+|layer2_out_7_ap_vld  |  out|     1|      ap_vld|  layer2_out_7|       pointer|
+|layer2_out_8         |  out|    25|      ap_vld|  layer2_out_8|       pointer|
+|layer2_out_8_ap_vld  |  out|     1|      ap_vld|  layer2_out_8|       pointer|
+|layer2_out_9         |  out|    25|      ap_vld|  layer2_out_9|       pointer|
+|layer2_out_9_ap_vld  |  out|     1|      ap_vld|  layer2_out_9|       pointer|
+|ap_clk               |   in|     1|  ap_ctrl_hs|    model_test|  return value|
+|ap_rst               |   in|     1|  ap_ctrl_hs|    model_test|  return value|
+|ap_start             |   in|     1|  ap_ctrl_hs|    model_test|  return value|
+|ap_done              |  out|     1|  ap_ctrl_hs|    model_test|  return value|
+|ap_ready             |  out|     1|  ap_ctrl_hs|    model_test|  return value|
+|ap_idle              |  out|     1|  ap_ctrl_hs|    model_test|  return value|
++---------------------+-----+------+------------+--------------+--------------+
+
