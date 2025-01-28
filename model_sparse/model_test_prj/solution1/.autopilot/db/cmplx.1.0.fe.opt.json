@@ -1,9 +1,9 @@
 {
   "0": {
     "basicblocks": 11,
-    "calls": "3 1",
+    "calls": "4 1",
     "file": "model_test.cpp",
-    "fileloc": 93,
+    "fileloc": 97,
     "instructions": 93,
     "loads": {
       "L": 1
@@ -12,21 +12,30 @@
     "stores": {
       "T": 1
     },
-    "total_instructions": 4181
+    "total_instructions": 4486
   },
   "1": {
-    "basicblocks": 44,
+    "basicblocks": 49,
     "calls": "",
     "file": "model_test.cpp",
     "fileloc": 46,
-    "instructions": 230,
+    "instructions": 247,
     "loads": {
       "L": 4
     },
     "name": "compute",
-    "total_instructions": 3479
+    "total_instructions": 3784
   },
   "2": {
+    "basicblocks": 1,
+    "calls": "3",
+    "file": "model_test.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 2,
+    "name": "",
+    "total_instructions": 3675
+  },
+  "3": {
     "basicblocks": 1,
     "calls": "",
     "file": "w2.h",
@@ -35,7 +44,7 @@
     "name": "__cxx_global_var_init.1",
     "total_instructions": 3673
   },
-  "3": {
+  "4": {
     "basicblocks": 17,
     "calls": "",
     "file": "model_test.cpp",
@@ -49,14 +58,5 @@
       "L": 5
     },
     "total_instructions": 223
-  },
-  "4": {
-    "basicblocks": 1,
-    "calls": "2",
-    "file": "model_test.pp.0.cpp",
-    "fileloc": 0,
-    "instructions": 2,
-    "name": "",
-    "total_instructions": 3675
   }
 }

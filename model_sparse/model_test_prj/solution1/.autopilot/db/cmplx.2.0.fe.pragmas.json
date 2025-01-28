@@ -3,7 +3,7 @@
     "basicblocks": 32,
     "calls": "1 2",
     "file": "model_test.cpp",
-    "fileloc": 93,
+    "fileloc": 97,
     "instructions": 157,
     "loads": {
       "L": 14
@@ -13,7 +13,7 @@
       "L": 10,
       "T": 10
     },
-    "total_instructions": 46579
+    "total_instructions": 48267
   },
   "1": {
     "basicblocks": 627,
@@ -31,18 +31,18 @@
     "total_instructions": 1533
   },
   "2": {
-    "basicblocks": 17694,
+    "basicblocks": 18854,
     "calls": "",
     "file": "model_test.cpp",
     "fileloc": 46,
-    "instructions": 44889,
+    "instructions": 46577,
     "loads": {
-      "L": 3640
+      "L": 3850
     },
     "name": "compute",
     "stores": {
       "L": 1620
     },
-    "total_instructions": 44889
+    "total_instructions": 46577
   }
 }

@@ -1,7 +1,7 @@
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 101, Column: 0 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
@@ -39,7 +39,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -55,7 +55,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -71,7 +71,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -87,7 +87,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -103,7 +103,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -119,7 +119,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -135,7 +135,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -151,7 +151,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -167,7 +167,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -183,7 +183,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:57:9'
+  - LoopLoc:         'firmware/model_test.cpp:59:9'
   - String:          ') '
   - String:          'in function '''
   - String:          compute
@@ -225,7 +225,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 121, Column: 14 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 126, Column: 14 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -243,7 +243,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 122, Column: 13 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 127, Column: 13 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -261,7 +261,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 134, Column: 14 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 133, Column: 14 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -279,7 +279,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 101, Column: 0 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -297,7 +297,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-reshape
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 97, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 101, Column: 0 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '

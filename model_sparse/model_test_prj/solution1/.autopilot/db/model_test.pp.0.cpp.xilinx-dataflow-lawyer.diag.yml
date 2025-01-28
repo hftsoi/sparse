@@ -7,6 +7,6 @@ Diagnostics:
     FilePath:        firmware/model_test.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-11] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region'
-    FileOffset:      '103:9'
+    FileOffset:      '107:9'
     FilePath:        firmware/model_test.cpp
 ...

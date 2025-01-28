@@ -57959,38 +57959,42 @@ MultAddLoop1:
     for (int i = 0; i < 10; i++) {
 #pragma HLS UNROLL
 
- feat_out[i] += feat_in[i] * w2[4];
+ if (feat_in[i] != 0) {
+            feat_out[i] += feat_in[i] * w2[4];
+        }
 
     MultAddLoop2:
         for (int j = 0; j < 10; j++) {
 #pragma HLS UNROLL
 
- int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
-            int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
+ if ((feat_in[i] != 0) && (feat_in[j] != 0)){
+                int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
+                int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
 
-            if ((offset_h == 0) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[3];
-            }
-            else if ((offset_h == 0) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[5];
-            }
-            else if ((offset_h == 1) && (offset_w == 0)) {
-                feat_out[j] += feat_in[i] * w2[1];
-            }
-            else if ((offset_h == 1) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[0];
-            }
-            else if ((offset_h == 1) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[2];
-            }
-            else if ((offset_h == -1) && (offset_w == 0)) {
-                feat_out[j] += feat_in[i] * w2[7];
-            }
-            else if ((offset_h == -1) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[6];
-            }
-            else if ((offset_h == -1) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[8];
+                if ((offset_h == 0) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[3];
+                }
+                else if ((offset_h == 0) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[5];
+                }
+                else if ((offset_h == 1) && (offset_w == 0)) {
+                    feat_out[j] += feat_in[i] * w2[1];
+                }
+                else if ((offset_h == 1) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[0];
+                }
+                else if ((offset_h == 1) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[2];
+                }
+                else if ((offset_h == -1) && (offset_w == 0)) {
+                    feat_out[j] += feat_in[i] * w2[7];
+                }
+                else if ((offset_h == -1) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[6];
+                }
+                else if ((offset_h == -1) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[8];
+                }
             }
         }
     }
@@ -58005,7 +58009,7 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 ) {
 #line 183 "/home/coder/sparse/model_sparse/build_prj.tcl"
 #pragma HLSDIRECTIVE TOP name=model_test
-# 97 "firmware/model_test.cpp"
+# 101 "firmware/model_test.cpp"
 
 
 
@@ -58013,9 +58017,10 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
 #pragma HLS INTERFACE ap_vld port=x_in,layer2_out
 #pragma HLS DATAFLOW
-# 119 "firmware/model_test.cpp"
+# 123 "firmware/model_test.cpp"
  hls::stream<unsigned> hash_stream;
     hls::stream<input_t> feat_stream;
+
     unsigned hash_arr[10 * 2] = {0};
     input_t feat_arr[10] = {0};
 #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
@@ -58023,14 +58028,9 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 
  input_streaming(x_in, hash_stream, feat_stream, hash_arr, feat_arr);
 
-
-
-
-
-
-
     result_t feat_out[10] = {0};
 #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
+
  compute(hash_arr, feat_arr, feat_out, w2);
 # 281 "firmware/model_test.cpp"
     VITIS_LOOP_281_1: for (int i = 0; i < 10; i++) {

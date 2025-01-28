@@ -51,38 +51,42 @@ MultAddLoop1:
     for (int i = 0; i < N_MAX_PIXELS; i++) {
         #pragma HLS UNROLL
 
-        feat_out[i] += feat_in[i] * w2[4];
+        if (feat_in[i] != 0) {
+            feat_out[i] += feat_in[i] * w2[4];
+        }
 
     MultAddLoop2:
         for (int j = 0; j < N_MAX_PIXELS; j++) {
             #pragma HLS UNROLL
 
-            int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
-            int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
+            if ((feat_in[i] != 0) && (feat_in[j] != 0)){
+                int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
+                int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
 
-            if ((offset_h == 0) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[3];
-            }
-            else if ((offset_h == 0) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[5];
-            }
-            else if ((offset_h == 1) && (offset_w == 0)) {
-                feat_out[j] += feat_in[i] * w2[1];
-            }
-            else if ((offset_h == 1) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[0];
-            }
-            else if ((offset_h == 1) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[2];
-            }
-            else if ((offset_h == -1) && (offset_w == 0)) {
-                feat_out[j] += feat_in[i] * w2[7];
-            }
-            else if ((offset_h == -1) && (offset_w == 1)) {
-                feat_out[j] += feat_in[i] * w2[6];
-            }
-            else if ((offset_h == -1) && (offset_w == -1)) {
-                feat_out[j] += feat_in[i] * w2[8];
+                if ((offset_h == 0) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[3];
+                }
+                else if ((offset_h == 0) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[5];
+                }
+                else if ((offset_h == 1) && (offset_w == 0)) {
+                    feat_out[j] += feat_in[i] * w2[1];
+                }
+                else if ((offset_h == 1) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[0];
+                }
+                else if ((offset_h == 1) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[2];
+                }
+                else if ((offset_h == -1) && (offset_w == 0)) {
+                    feat_out[j] += feat_in[i] * w2[7];
+                }
+                else if ((offset_h == -1) && (offset_w == 1)) {
+                    feat_out[j] += feat_in[i] * w2[6];
+                }
+                else if ((offset_h == -1) && (offset_w == -1)) {
+                    feat_out[j] += feat_in[i] * w2[8];
+                }
             }
         }
     }
@@ -128,7 +132,7 @@ void model_test(
 
     result_t feat_out[N_MAX_PIXELS] = {0};
     #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
-    
+
     compute(hash_arr, feat_arr, feat_out, w2);
 
     /*
