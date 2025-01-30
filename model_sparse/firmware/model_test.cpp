@@ -5,7 +5,7 @@
 
 
 #define N_MAX_PIXELS 10
-
+/*
 void input_streaming(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
                      unsigned hash_arr[N_MAX_PIXELS * 2],
                      input_t feat_arr[N_MAX_PIXELS]) {
@@ -13,9 +13,9 @@ void input_streaming(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
     hls::stream<unsigned> hash_h_stream;
     hls::stream<unsigned> hash_w_stream;
     hls::stream<input_t> feat_stream;
-    #pragma HLS STREAM variable=hash_h_stream depth=N_MAX_PIXELS
-    #pragma HLS STREAM variable=hash_w_stream depth=N_MAX_PIXELS
-    #pragma HLS STREAM variable=feat_stream depth=N_MAX_PIXELS
+    #pragma HLS STREAM variable=hash_h_stream depth=N_MAX_PIXELS*2
+    #pragma HLS STREAM variable=hash_w_stream depth=N_MAX_PIXELS*2
+    #pragma HLS STREAM variable=feat_stream depth=N_MAX_PIXELS*2
 InputStreamLoop:
     for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
         #pragma HLS UNROLL
@@ -27,11 +27,9 @@ InputStreamLoop:
             int i_h = remainder / N_INPUT_2_1 + 1;
             int i_w = remainder % N_INPUT_2_1 + 1;
 
-            // if double writes on the same stream, cc -> min 100 and max 200
-            // if single write on each stream, cc -> min 100 and max 100
-            hash_h_stream.write(i_h);
-            hash_w_stream.write(i_w);
-            feat_stream.write(input_array[i]);
+            hash_h_stream.write_nb(i_h);
+            hash_w_stream.write_nb(i_w);
+            feat_stream.write_nb(input_array[i]);
         }
     }
 
@@ -40,18 +38,66 @@ StreamToArrayLoop:
         #pragma HLS UNROLL
 
         if (!feat_stream.empty()) {
-            hash_arr[2 * i] = hash_h_stream.read();
-            hash_arr[2 * i + 1] = hash_w_stream.read();
-            feat_arr[i] = feat_stream.read();
+            hash_h_stream.read_nb(hash_arr[2 * i]);
+            hash_w_stream.read_nb(hash_arr[2 * i + 1]);
+            feat_stream.read_nb(feat_arr[i]);
         }
+    }
+}
+*/
+
+void sparse_input(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
+                  ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
+                  input_t feat_arr[N_MAX_PIXELS]) {
+
+    ap_uint<1> active_bit[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1] = {0};
+    #pragma HLS ARRAY_PARTITION variable=active_bit complete dim=0
+
+ActiveBitLoop:
+    for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
+        #pragma HLS UNROLL
+
+        if (input_array[i] != 0) {
+            active_bit[i] = 1;
+        }
+        else {
+            active_bit[i] = 0;
+        }
+    }
+
+SparseFillLoop1:
+    ap_uint<2> check_bit = 1;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        #pragma HLS UNROLL
+
+    SparseFillLoop2:
+        for (int j = 0; j < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; j++) {
+            #pragma HLS UNROLL
+            
+            ap_uint<10> pixels_per_channel = N_INPUT_1_1 * N_INPUT_2_1;
+            ap_uint<10> j_c = j / pixels_per_channel + 1;
+            ap_uint<10> remainder = j % pixels_per_channel;
+            ap_uint<10> j_h = remainder / N_INPUT_2_1 + 1;
+            ap_uint<10> j_w = remainder % N_INPUT_2_1 + 1;
+            
+            if (active_bit[j] == check_bit) {
+                hash_arr[2 * i] = j_h;
+                hash_arr[2 * i + 1] = j_w;
+                feat_arr[i] = input_array[j];
+
+                active_bit[j] = 0;
+                check_bit = 2;
+            }
+        }
+        check_bit = 1;
     }
 }
 
 
-void compute(unsigned hash_arr[N_MAX_PIXELS * 2],
-             input_t feat_in[N_MAX_PIXELS],
-             result_t feat_out[N_MAX_PIXELS],
-             weight2_t w2[9]) {
+void sparse_compute(ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
+                    input_t feat_in[N_MAX_PIXELS],
+                    result_t feat_out[N_MAX_PIXELS],
+                    weight2_t w2[9]) {
 MultAddLoop1:
     for (int i = 0; i < N_MAX_PIXELS; i++) {
         #pragma HLS UNROLL
@@ -126,15 +172,15 @@ void model_test(
     // hls-fpga-machine-learning insert layers
     
 
-    unsigned hash_arr[N_MAX_PIXELS * 2] = {0};
+    ap_uint<10> hash_arr[N_MAX_PIXELS * 2] = {0};
     input_t feat_arr[N_MAX_PIXELS] = {0};
     #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
     #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
-    input_streaming(x_in, hash_arr, feat_arr);
+    sparse_input(x_in, hash_arr, feat_arr);
 
     result_t feat_out[N_MAX_PIXELS] = {0};
     #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
-    compute(hash_arr, feat_arr, feat_out, w2);
+    sparse_compute(hash_arr, feat_arr, feat_out, w2);
 
 
     for (int i = 0; i < N_MAX_PIXELS; i++) {

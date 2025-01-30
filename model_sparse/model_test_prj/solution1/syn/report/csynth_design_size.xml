@@ -3,9 +3,9 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="model_test" col1="model_test.cpp:102" col2="4494" col3="48266" col4="16925" col5="17576">
-                    <row id="3" col0="input_streaming" col1="model_test.cpp:9" col2="253" col3="1542" col4="811" col5="1474"/>
-                    <row id="1" col0="compute" col1="model_test.cpp:51" col2="3784" col3="46577" col4="15977" col5="15977"/>
+                <row id="0" col0="model_test" col1="model_test.cpp:148" col2="5571" col3="64538" col4="27996" col5="27950">
+                    <row id="3" col0="sparse_input" col1="model_test.cpp:49" col2="1117" col3="16412" col4="10622" col5="10622"/>
+                    <row id="1" col0="sparse_compute" col1="model_test.cpp:97" col2="3966" col3="47977" col4="17237" col5="17237"/>
                 </row>
             </rows>
             <notes/>
