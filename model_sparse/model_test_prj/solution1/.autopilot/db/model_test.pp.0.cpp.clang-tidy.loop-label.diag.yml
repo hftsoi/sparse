@@ -215,12 +215,21 @@ Diagnostics:
         Length:          0
         ReplacementText: 'VITIS_LOOP_38_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_281_1:  '
-    FileOffset:      281
+    Message:         'Added loop label VITIS_LOOP_70_1:  '
+    FileOffset:      70
     FilePath:        /home/coder/sparse/model_sparse/firmware/model_test.cpp
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2412004
+        Offset:          2408857
         Length:          0
-        ReplacementText: 'VITIS_LOOP_281_1: '
+        ReplacementText: 'VITIS_LOOP_70_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_186_1:  '
+    FileOffset:      186
+    FilePath:        /home/coder/sparse/model_sparse/firmware/model_test.cpp
+    Replacements:    
+      - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
+        Offset:          2412123
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_186_1: '
 ...

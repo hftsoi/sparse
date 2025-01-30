@@ -1,0 +1,5 @@
+7 warnings and 3 errors generated.
+Error while processing /home/coder/sparse/model_conv_npart50/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.
+clang-tidy applied 22 of 22 suggested fixes.
+Suppressed 255 warnings (248 in non-user code, 7 with check filters).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

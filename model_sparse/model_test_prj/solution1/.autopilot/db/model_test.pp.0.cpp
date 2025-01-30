@@ -57910,51 +57910,59 @@ struct config2 : nnet::conv2d_config {
 };
 const ap_uint<config2::filt_height * config2::filt_width> config2::pixels[] = {0};
 # 5 "firmware/model_test.cpp" 2
+# 49 "firmware/model_test.cpp"
+void sparse_input(input_t input_array[10*10*1],
+                  ap_uint<10> hash_arr[10 * 2],
+                  input_t feat_arr[10]) {
 
+    ap_uint<1> active_bit[10*10*1] = {0};
+#pragma HLS ARRAY_PARTITION variable=active_bit complete dim=0
 
-
-
-void input_streaming(input_t input_array[10*10*1],
-                     hls::stream<unsigned> &hash_stream,
-                     hls::stream<input_t> &feat_stream,
-                     unsigned hash_arr[10 * 2],
-                     input_t feat_arr[10]) {
-InputStreamLoop:
+ActiveBitLoop:
     for (int i = 0; i < 10*10*1; i++) {
 #pragma HLS UNROLL
 
  if (input_array[i] != 0) {
-
-            int pixels_per_channel = 10 * 10;
-            int i_c = i / pixels_per_channel + 1;
-            int remainder = i % pixels_per_channel;
-            int i_h = remainder / 10 + 1;
-            int i_w = remainder % 10 + 1;
-
-            hash_stream.write(i_h);
-            hash_stream.write(i_w);
-            feat_stream.write(input_array[i]);
-
+            active_bit[i] = 1;
+        }
+        else {
+            active_bit[i] = 0;
         }
     }
 
-StreamToArrayLoop:
-    for (int i = 0; i < 10; i++) {
+SparseFillLoop1:
+    ap_uint<2> check_bit = 1;
+    VITIS_LOOP_70_1: for (int i = 0; i < 10; i++) {
 #pragma HLS UNROLL
 
- if (!feat_stream.empty()) {
-            hash_arr[2 * i] = hash_stream.read();
-            hash_arr[2 * i + 1] = hash_stream.read();
-            feat_arr[i] = feat_stream.read();
+ SparseFillLoop2:
+        for (int j = 0; j < 10*10*1; j++) {
+#pragma HLS UNROLL
+
+ ap_uint<10> pixels_per_channel = 10 * 10;
+            ap_uint<10> j_c = j / pixels_per_channel + 1;
+            ap_uint<10> remainder = j % pixels_per_channel;
+            ap_uint<10> j_h = remainder / 10 + 1;
+            ap_uint<10> j_w = remainder % 10 + 1;
+
+            if (active_bit[j] == check_bit) {
+                hash_arr[2 * i] = j_h;
+                hash_arr[2 * i + 1] = j_w;
+                feat_arr[i] = input_array[j];
+
+                active_bit[j] = 0;
+                check_bit = 2;
+            }
         }
+        check_bit = 1;
     }
 }
 
 
-void compute(unsigned hash_arr[10 * 2],
-             input_t feat_in[10],
-             result_t feat_out[10],
-             weight2_t w2[9]) {
+void sparse_compute(ap_uint<10> hash_arr[10 * 2],
+                    input_t feat_in[10],
+                    result_t feat_out[10],
+                    weight2_t w2[9]) {
 MultAddLoop1:
     for (int i = 0; i < 10; i++) {
 #pragma HLS UNROLL
@@ -58009,7 +58017,7 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 ) {
 #line 183 "/home/coder/sparse/model_sparse/build_prj.tcl"
 #pragma HLSDIRECTIVE TOP name=model_test
-# 101 "firmware/model_test.cpp"
+# 152 "firmware/model_test.cpp"
 
 
 
@@ -58017,29 +58025,21 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
 #pragma HLS INTERFACE ap_vld port=x_in,layer2_out
 #pragma HLS DATAFLOW
-# 123 "firmware/model_test.cpp"
- hls::stream<unsigned> hash_stream;
-    hls::stream<input_t> feat_stream;
-
-    unsigned hash_arr[10 * 2] = {0};
+# 175 "firmware/model_test.cpp"
+ ap_uint<10> hash_arr[10 * 2] = {0};
     input_t feat_arr[10] = {0};
 #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
 #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
-
- input_streaming(x_in, hash_stream, feat_stream, hash_arr, feat_arr);
+ sparse_input(x_in, hash_arr, feat_arr);
 
     result_t feat_out[10] = {0};
 #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
+ sparse_compute(hash_arr, feat_arr, feat_out, w2);
 
- compute(hash_arr, feat_arr, feat_out, w2);
-# 281 "firmware/model_test.cpp"
-    VITIS_LOOP_281_1: for (int i = 0; i < 10; i++) {
+
+    VITIS_LOOP_186_1: for (int i = 0; i < 10; i++) {
 #pragma HLS UNROLL
  layer2_out[i] = feat_out[i];
-
     }
-
-
-
 
 }

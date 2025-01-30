@@ -1,0 +1,210 @@
+
+
+================================================================
+== Vitis HLS Report for 'model_test'
+================================================================
+* Date:           Thu Jan 30 18:47:20 2025
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        model_test_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-flga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  4.370 ns|     0.62 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |       27|       27|  0.135 us|  0.135 us|   19|   19|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 6, States = { 1 2 3 4 5 6 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.28>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%x_in_c = alloca i64 1"   --->   Operation 7 'alloca' 'x_in_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.28> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1200> <Depth = 3> <FIFO>
+ST_1 : Operation 8 [1/1] (1.28ns)   --->   "%call_ln0 = call void @entry_proc, i1200 %x_in, i1200 %x_in_c"   --->   Operation 8 'call' 'call_ln0' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 9 [2/2] (0.00ns)   --->   "%call_ret = call i200 @sparse_input, i1200 %x_in_c" [firmware/model_test.cpp:179]   --->   Operation 9 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 4.33>
+ST_3 : Operation 10 [1/2] (4.33ns)   --->   "%call_ret = call i200 @sparse_input, i1200 %x_in_c" [firmware/model_test.cpp:179]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 4.33> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%hash_arr_channel = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 11 'extractvalue' 'hash_arr_channel' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%hash_arr = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 12 'extractvalue' 'hash_arr' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%hash_arr_1 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 13 'extractvalue' 'hash_arr_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%hash_arr_2 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 14 'extractvalue' 'hash_arr_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "%hash_arr_3 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 15 'extractvalue' 'hash_arr_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%hash_arr_4 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 16 'extractvalue' 'hash_arr_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%hash_arr_5 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 17 'extractvalue' 'hash_arr_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%hash_arr_6 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 18 'extractvalue' 'hash_arr_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%hash_arr_7 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 19 'extractvalue' 'hash_arr_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%hash_arr_8 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 20 'extractvalue' 'hash_arr_8' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%hash_arr_9 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 21 'extractvalue' 'hash_arr_9' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%hash_arr_10 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 22 'extractvalue' 'hash_arr_10' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%hash_arr_11 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 23 'extractvalue' 'hash_arr_11' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%hash_arr_12 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 24 'extractvalue' 'hash_arr_12' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%hash_arr_13 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 25 'extractvalue' 'hash_arr_13' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%hash_arr_14 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 26 'extractvalue' 'hash_arr_14' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%hash_arr_15 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 27 'extractvalue' 'hash_arr_15' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%hash_arr_16 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 28 'extractvalue' 'hash_arr_16' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%hash_arr_17 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 29 'extractvalue' 'hash_arr_17' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%hash_arr_18 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 30 'extractvalue' 'hash_arr_18' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 4> <Depth = 2> <FIFO>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%feat_arr_channel = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 31 'extractvalue' 'feat_arr_channel' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%feat_arr = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 32 'extractvalue' 'feat_arr' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%feat_arr_1 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 33 'extractvalue' 'feat_arr_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%feat_arr_2 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 34 'extractvalue' 'feat_arr_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%feat_arr_3 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 35 'extractvalue' 'feat_arr_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%feat_arr_4 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 36 'extractvalue' 'feat_arr_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%feat_arr_5 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 37 'extractvalue' 'feat_arr_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%feat_arr_6 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 38 'extractvalue' 'feat_arr_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%feat_arr_7 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 39 'extractvalue' 'feat_arr_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%feat_arr_8 = extractvalue i200 %call_ret" [firmware/model_test.cpp:179]   --->   Operation 40 'extractvalue' 'feat_arr_8' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.34> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 12> <Depth = 2> <FIFO>
+
+State 4 <SV = 3> <Delay = 3.69>
+ST_4 : Operation 41 [2/2] (3.69ns)   --->   "%feat_out_channel = call i21 @sparse_compute, i4 %hash_arr_channel, i4 %hash_arr, i4 %hash_arr_1, i4 %hash_arr_2, i4 %hash_arr_3, i4 %hash_arr_4, i4 %hash_arr_5, i4 %hash_arr_6, i4 %hash_arr_7, i4 %hash_arr_8, i4 %hash_arr_9, i4 %hash_arr_10, i4 %hash_arr_11, i4 %hash_arr_12, i4 %hash_arr_13, i4 %hash_arr_14, i4 %hash_arr_15, i4 %hash_arr_16, i4 %hash_arr_17, i4 %hash_arr_18, i12 %feat_arr_channel, i12 %feat_arr, i12 %feat_arr_1, i12 %feat_arr_2, i12 %feat_arr_3, i12 %feat_arr_4, i12 %feat_arr_5, i12 %feat_arr_6, i12 %feat_arr_7, i12 %feat_arr_8" [firmware/model_test.cpp:183]   --->   Operation 41 'call' 'feat_out_channel' <Predicate = true> <Delay = 3.69> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 21> <Depth = 2> <FIFO>
+
+State 5 <SV = 4> <Delay = 3.97>
+ST_5 : Operation 42 [1/2] (3.97ns)   --->   "%feat_out_channel = call i21 @sparse_compute, i4 %hash_arr_channel, i4 %hash_arr, i4 %hash_arr_1, i4 %hash_arr_2, i4 %hash_arr_3, i4 %hash_arr_4, i4 %hash_arr_5, i4 %hash_arr_6, i4 %hash_arr_7, i4 %hash_arr_8, i4 %hash_arr_9, i4 %hash_arr_10, i4 %hash_arr_11, i4 %hash_arr_12, i4 %hash_arr_13, i4 %hash_arr_14, i4 %hash_arr_15, i4 %hash_arr_16, i4 %hash_arr_17, i4 %hash_arr_18, i12 %feat_arr_channel, i12 %feat_arr, i12 %feat_arr_1, i12 %feat_arr_2, i12 %feat_arr_3, i12 %feat_arr_4, i12 %feat_arr_5, i12 %feat_arr_6, i12 %feat_arr_7, i12 %feat_arr_8" [firmware/model_test.cpp:183]   --->   Operation 42 'call' 'feat_out_channel' <Predicate = true> <Delay = 3.97> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 21> <Depth = 2> <FIFO>
+
+State 6 <SV = 5> <Delay = 1.42>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @x_in_c_str, i32 1, void @p_str, void @p_str, i32 3, i32 0, i1200 %x_in_c, i1200 %x_in_c"   --->   Operation 43 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1200 %x_in_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln0 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_0"   --->   Operation 45 'specdataflowpipeline' 'specdataflowpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1"   --->   Operation 46 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1200 %x_in"   --->   Operation 47 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1200 %x_in, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_0"   --->   Operation 49 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 51 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_1"   --->   Operation 51 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 52 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 52 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 53 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_2"   --->   Operation 53 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 54 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_2, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 54 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 55 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_3"   --->   Operation 55 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_3, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 56 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_4"   --->   Operation 57 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_4, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 58 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 59 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_5"   --->   Operation 59 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_5, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_6"   --->   Operation 61 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_6, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 62 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_7"   --->   Operation 63 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_7, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 64 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_8"   --->   Operation 65 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_8, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 66 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i25 %layer2_out_9"   --->   Operation 67 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 68 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i25 %layer2_out_9, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 68 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 69 [1/1] (1.42ns)   --->   "%feat_out_load_loc_channel = call i21 @Block_entry16_proc, i21 %feat_out_channel" [firmware/model_test.cpp:183]   --->   Operation 69 'call' 'feat_out_load_loc_channel' <Predicate = true> <Delay = 1.42> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 21> <Depth = 2> <FIFO>
+ST_6 : Operation 70 [1/1] (1.42ns)   --->   "%call_ln183 = call void @Block_entry17_proc, i21 %feat_out_load_loc_channel, i25 %layer2_out_0" [firmware/model_test.cpp:183]   --->   Operation 70 'call' 'call_ln183' <Predicate = true> <Delay = 1.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%ret_ln191 = ret" [firmware/model_test.cpp:191]   --->   Operation 71 'ret' 'ret_ln191' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.284ns
+The critical path consists of the following:
+	'alloca' operation ('x_in_c') [12]  (0.000 ns)
+	'call' operation ('call_ln0') to 'entry_proc' [39]  (1.284 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 4.332ns
+The critical path consists of the following:
+	'call' operation ('call_ret', firmware/model_test.cpp:179) to 'sparse_input' [40]  (4.332 ns)
+
+ <State 4>: 3.692ns
+The critical path consists of the following:
+	'call' operation ('feat_out_channel', firmware/model_test.cpp:183) to 'sparse_compute' [71]  (3.692 ns)
+
+ <State 5>: 3.975ns
+The critical path consists of the following:
+	'call' operation ('feat_out_channel', firmware/model_test.cpp:183) to 'sparse_compute' [71]  (3.975 ns)
+
+ <State 6>: 1.429ns
+The critical path consists of the following:
+	'call' operation ('feat_out_load_loc_channel', firmware/model_test.cpp:183) to 'Block_entry16_proc' [72]  (1.429 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

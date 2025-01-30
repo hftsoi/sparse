@@ -20,8 +20,8 @@
     <msg msg_groups="PRAGMA_INVALID" msg_id="207-5559" msg_severity="WARNING" msg_loc="firmware/nnet_utils/nnet_conv2d_stream.h:80:34" msg_body="unexpected pragma argument 'compute_output_buffer_2d', expects function/operation">
         <args ClangWarningOption="invalid-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:136:40" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:107:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:183:47" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:158:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
     <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="firmware/nnet_utils/nnet_helpers.h:285:99" msg_body="unused parameter 'keep'">
         <args ClangWarningOption="unused-parameter"/>
     </msg>
@@ -421,73 +421,85 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/nnet_utils/nnet_conv2d_stream.h:105:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="conv_2d_cl" ARG_PragmaIsValid="1" ARG_PragmaOptions="recursive" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:16:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="input_streaming" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:54:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_input" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=active_bit complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:35:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="input_streaming" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:52:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:71:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:60:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:75:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:103:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_compute" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:111:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sparse_compute" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/coder/sparse/model_sparse/build_prj.tcl:183:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=model_test" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:104:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:155:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=x_in complete dim=0" ARG_PragmaType="array_reshape" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:105:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:156:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer2_out complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:106:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:157:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_vld port=x_in,layer2_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:107:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:158:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:128:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:177:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=hash_arr complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:129:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:178:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=feat_arr complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:134:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:182:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=feat_out complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:282:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/model_test.cpp:187:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="model_test" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:101:0" msg_body="Unrolling loop 'VITIS_LOOP_281_1' (firmware/model_test.cpp:281:23) in function 'model_test' completely with a factor of 10">
-        <args Factor="10" LoopLoc="firmware/model_test.cpp:281:23" LoopName="VITIS_LOOP_281_1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:152:0" msg_body="Unrolling loop 'VITIS_LOOP_186_1' (firmware/model_test.cpp:186:23) in function 'model_test' completely with a factor of 10">
+        <args Factor="10" LoopLoc="firmware/model_test.cpp:186:23" LoopName="VITIS_LOOP_186_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:49:0" msg_body="Unrolling loop 'MultAddLoop1' (firmware/model_test.cpp:51:5) in function 'compute' completely with a factor of 10">
-        <args Factor="10" LoopLoc="firmware/model_test.cpp:51:5" LoopName="MultAddLoop1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:100:0" msg_body="Unrolling loop 'MultAddLoop1' (firmware/model_test.cpp:102:5) in function 'sparse_compute' completely with a factor of 10">
+        <args Factor="10" LoopLoc="firmware/model_test.cpp:102:5" LoopName="MultAddLoop1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:49:0" msg_body="Unrolling loop 'MultAddLoop2' (firmware/model_test.cpp:59:9) in function 'compute' completely with a factor of 10">
-        <args Factor="10" LoopLoc="firmware/model_test.cpp:59:9" LoopName="MultAddLoop2"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:100:0" msg_body="Unrolling loop 'MultAddLoop2' (firmware/model_test.cpp:110:9) in function 'sparse_compute' completely with a factor of 10">
+        <args Factor="10" LoopLoc="firmware/model_test.cpp:110:9" LoopName="MultAddLoop2"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:13:0" msg_body="Unrolling loop 'StreamToArrayLoop' (firmware/model_test.cpp:34:5) in function 'input_streaming' completely with a factor of 10">
-        <args Factor="10" LoopLoc="firmware/model_test.cpp:34:5" LoopName="StreamToArrayLoop"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:51:0" msg_body="Unrolling loop 'VITIS_LOOP_70_1' (firmware/model_test.cpp:70:22) in function 'sparse_input' completely with a factor of 10">
+        <args Factor="10" LoopLoc="firmware/model_test.cpp:70:22" LoopName="VITIS_LOOP_70_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:13:0" msg_body="Unrolling loop 'InputStreamLoop' (firmware/model_test.cpp:15:5) in function 'input_streaming' completely with a factor of 100">
-        <args Factor="100" LoopLoc="firmware/model_test.cpp:15:5" LoopName="InputStreamLoop"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:51:0" msg_body="Unrolling loop 'SparseFillLoop2' (firmware/model_test.cpp:74:9) in function 'sparse_input' completely with a factor of 100">
+        <args Factor="100" LoopLoc="firmware/model_test.cpp:74:9" LoopName="SparseFillLoop2"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:126:14" msg_body="Applying array_partition to 'hash_arr': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="firmware/model_test.cpp:51:0" msg_body="Unrolling loop 'ActiveBitLoop' (firmware/model_test.cpp:57:5) in function 'sparse_input' completely with a factor of 100">
+        <args Factor="100" LoopLoc="firmware/model_test.cpp:57:5" LoopName="ActiveBitLoop"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:53:16" msg_body="Applying array_partition to 'active_bit': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="active_bit"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:175:14" msg_body="Applying array_partition to 'hash_arr': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="hash_arr"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:127:13" msg_body="Applying array_partition to 'feat_arr': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:176:13" msg_body="Applying array_partition to 'feat_arr': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="feat_arr"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:133:14" msg_body="Applying array_partition to 'feat_out': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:181:14" msg_body="Applying array_partition to 'feat_out': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="feat_out"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:101:0" msg_body="Applying array_partition to 'layer2_out': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:152:0" msg_body="Applying array_partition to 'layer2_out': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="layer2_out"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:101:0" msg_body="Applying array_reshape to 'x_in': Complete reshaping on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/model_test.cpp:152:0" msg_body="Applying array_reshape to 'x_in': Complete reshaping on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="x_in"/>
     </msg>
 </xilinx:hls_fe_msgs>

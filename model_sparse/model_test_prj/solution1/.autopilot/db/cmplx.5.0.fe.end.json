@@ -1,23 +1,14 @@
 {
     "1": {
-        "name": "entry_proc",
+        "name": "sparse_compute",
         "file": "model_test.cpp",
         "fileloc": "0",
-        "instructions": "4",
-        "total_instructions": "4",
-        "calls": "",
-        "basicblocks": "1"
-    },
-    "2": {
-        "name": "compute",
-        "file": "model_test.cpp",
-        "fileloc": "0",
-        "instructions": "801",
-        "total_instructions": "801",
+        "instructions": "829",
+        "total_instructions": "829",
         "calls": "",
         "basicblocks": "73"
     },
-    "3": {
+    "2": {
         "name": "Block_entry17_proc",
         "file": "model_test.cpp",
         "fileloc": "0",
@@ -26,23 +17,32 @@
         "calls": "",
         "basicblocks": "1"
     },
+    "3": {
+        "name": "sparse_input",
+        "file": "model_test.cpp",
+        "fileloc": "0",
+        "instructions": "8160",
+        "total_instructions": "8160",
+        "calls": "",
+        "basicblocks": "1"
+    },
     "0": {
         "name": "model_test",
         "file": "model_test.cpp",
-        "fileloc": "97",
-        "instructions": "69",
-        "total_instructions": "1705",
-        "calls": "1 4 2 5 3",
+        "fileloc": "148",
+        "instructions": "63",
+        "total_instructions": "9062",
+        "calls": "4 3 1 5 2",
         "basicblocks": "1"
     },
     "4": {
-        "name": "input_streaming",
+        "name": "entry_proc",
         "file": "model_test.cpp",
         "fileloc": "0",
-        "instructions": "825",
-        "total_instructions": "825",
+        "instructions": "4",
+        "total_instructions": "4",
         "calls": "",
-        "basicblocks": "221"
+        "basicblocks": "1"
     },
     "5": {
         "name": "Block_entry16_proc",
