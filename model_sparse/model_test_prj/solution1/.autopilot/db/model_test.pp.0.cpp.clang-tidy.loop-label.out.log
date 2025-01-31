@@ -117,13 +117,3 @@
     ^~~
     VITIS_LOOP_38_1: 
 /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp:57762:5: note: FIX-IT applied suggested code changes
-/home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp:57935:5: warning: Added loop label VITIS_LOOP_70_1:   [xilinx-label-all-loops]
-    for (int i = 0; i < 10; i++) {
-    ^~~
-    VITIS_LOOP_70_1: 
-/home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp:57935:5: note: FIX-IT applied suggested code changes
-/home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp:58040:5: warning: Added loop label VITIS_LOOP_186_1:   [xilinx-label-all-loops]
-    for (int i = 0; i < 10; i++) {
-    ^~~
-    VITIS_LOOP_186_1: 
-/home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp:58040:5: note: FIX-IT applied suggested code changes

@@ -1,59 +1,59 @@
 {
   "0": {
-    "basicblocks": 13,
-    "calls": "3 1",
+    "basicblocks": 5,
+    "calls": "3 2",
     "file": "model_test.cpp",
-    "fileloc": 148,
-    "instructions": 84,
+    "fileloc": 187,
+    "instructions": 49,
+    "name": "model_test",
+    "total_instructions": 6230
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "model_test.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 2,
+    "name": "",
+    "total_instructions": 525
+  },
+  "2": {
+    "basicblocks": 46,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 121,
+    "instructions": 284,
     "loads": {
       "L": 1
     },
-    "name": "model_test",
+    "name": "sparse_compute",
     "stores": {
-      "T": 1
+      "L": 1
     },
-    "total_instructions": 5571
+    "total_instructions": 4344
   },
-  "1": {
-    "basicblocks": 49,
+  "3": {
+    "basicblocks": 28,
     "calls": "",
     "file": "model_test.cpp",
-    "fileloc": 97,
-    "instructions": 255,
-    "name": "sparse_compute",
-    "total_instructions": 3966
+    "fileloc": 48,
+    "instructions": 228,
+    "loads": {
+      "L": 10
+    },
+    "name": "sparse_input",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 1497
   },
-  "2": {
+  "4": {
     "basicblocks": 1,
     "calls": "",
     "file": "w2.h",
     "fileloc": 12,
     "instructions": 10,
     "name": "__cxx_global_var_init.1",
-    "total_instructions": 3673
-  },
-  "3": {
-    "basicblocks": 27,
-    "calls": "",
-    "file": "model_test.cpp",
-    "fileloc": 49,
-    "instructions": 200,
-    "loads": {
-      "L": 8
-    },
-    "name": "sparse_input",
-    "stores": {
-      "L": 8
-    },
-    "total_instructions": 1117
-  },
-  "4": {
-    "basicblocks": 1,
-    "calls": "2",
-    "file": "model_test.pp.0.cpp",
-    "fileloc": 0,
-    "instructions": 2,
-    "name": "",
-    "total_instructions": 3675
+    "total_instructions": 523
   }
 }

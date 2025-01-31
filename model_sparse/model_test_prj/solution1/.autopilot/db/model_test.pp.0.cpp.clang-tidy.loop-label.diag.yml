@@ -70,7 +70,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2326826
+        Offset:          2326827
         Length:          0
         ReplacementText: 'VITIS_LOOP_265_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -79,7 +79,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2327213
+        Offset:          2327214
         Length:          0
         ReplacementText: 'VITIS_LOOP_275_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -88,7 +88,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2327548
+        Offset:          2327549
         Length:          0
         ReplacementText: 'VITIS_LOOP_286_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -97,7 +97,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2327771
+        Offset:          2327772
         Length:          0
         ReplacementText: 'VITIS_LOOP_293_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -106,7 +106,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2327866
+        Offset:          2327867
         Length:          0
         ReplacementText: 'VITIS_LOOP_295_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -115,7 +115,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2328230
+        Offset:          2328231
         Length:          0
         ReplacementText: 'VITIS_LOOP_307_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -124,7 +124,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2328312
+        Offset:          2328313
         Length:          0
         ReplacementText: 'VITIS_LOOP_309_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -133,7 +133,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2328655
+        Offset:          2328656
         Length:          0
         ReplacementText: 'VITIS_LOOP_324_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -142,7 +142,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2329108
+        Offset:          2329109
         Length:          0
         ReplacementText: 'VITIS_LOOP_344_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -151,7 +151,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2329153
+        Offset:          2329154
         Length:          0
         ReplacementText: 'VITIS_LOOP_345_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -160,7 +160,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2329562
+        Offset:          2329563
         Length:          0
         ReplacementText: 'VITIS_LOOP_360_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -169,7 +169,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2329775
+        Offset:          2329776
         Length:          0
         ReplacementText: 'VITIS_LOOP_367_1: '
   - DiagnosticName:  clang-diagnostic-error
@@ -193,7 +193,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2387522
+        Offset:          2387523
         Length:          0
         ReplacementText: 'VITIS_LOOP_67_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -202,7 +202,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2387726
+        Offset:          2387727
         Length:          0
         ReplacementText: 'VITIS_LOOP_74_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -211,25 +211,7 @@ Diagnostics:
     FilePath:        /home/coder/sparse/model_sparse/firmware/nnet_utils/nnet_conv2d_stream.h
     Replacements:    
       - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2401842
+        Offset:          2401843
         Length:          0
         ReplacementText: 'VITIS_LOOP_38_1: '
-  - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_70_1:  '
-    FileOffset:      70
-    FilePath:        /home/coder/sparse/model_sparse/firmware/model_test.cpp
-    Replacements:    
-      - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2408857
-        Length:          0
-        ReplacementText: 'VITIS_LOOP_70_1: '
-  - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_186_1:  '
-    FileOffset:      186
-    FilePath:        /home/coder/sparse/model_sparse/firmware/model_test.cpp
-    Replacements:    
-      - FilePath:        /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-        Offset:          2412123
-        Length:          0
-        ReplacementText: 'VITIS_LOOP_186_1: '
 ...

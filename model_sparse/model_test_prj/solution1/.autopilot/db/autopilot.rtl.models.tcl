@@ -1,22 +1,7 @@
 set SynModuleInfo {
   {SRCNAME entry_proc MODELNAME entry_proc RTLNAME model_test_entry_proc}
   {SRCNAME sparse_input MODELNAME sparse_input RTLNAME model_test_sparse_input}
-  {SRCNAME sparse_compute MODELNAME sparse_compute RTLNAME model_test_sparse_compute
-    SUBMODULES {
-      {MODELNAME model_test_mul_12s_8ns_19_1_1 RTLNAME model_test_mul_12s_8ns_19_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mul_12s_7ns_18_1_1 RTLNAME model_test_mul_12s_7ns_18_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mul_12s_6ns_17_1_1 RTLNAME model_test_mul_12s_6ns_17_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mul_12s_5s_17_1_1 RTLNAME model_test_mul_12s_5s_17_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_5s_19s_19_1_1 RTLNAME model_test_mac_muladd_12s_5s_19s_19_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_5ns_19s_19_1_1 RTLNAME model_test_mac_muladd_12s_5ns_19s_19_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_6ns_19s_20_1_1 RTLNAME model_test_mac_muladd_12s_6ns_19s_20_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_5s_20s_20_1_1 RTLNAME model_test_mac_muladd_12s_5s_20s_20_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_5ns_20s_20_1_1 RTLNAME model_test_mac_muladd_12s_5ns_20s_20_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME model_test_mac_muladd_12s_6ns_20s_20_1_1 RTLNAME model_test_mac_muladd_12s_6ns_20s_20_1_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 0 ALLOW_PRAGMA 1}
-    }
-  }
-  {SRCNAME Block_entry16_proc MODELNAME Block_entry16_proc RTLNAME model_test_Block_entry16_proc}
-  {SRCNAME Block_entry17_proc MODELNAME Block_entry17_proc RTLNAME model_test_Block_entry17_proc}
+  {SRCNAME sparse_compute MODELNAME sparse_compute RTLNAME model_test_sparse_compute}
   {SRCNAME model_test MODELNAME model_test RTLNAME model_test IS_TOP 1
     SUBMODULES {
       {MODELNAME model_test_fifo_w1200_d3_A RTLNAME model_test_fifo_w1200_d3_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME x_in_c_U}
@@ -50,8 +35,6 @@ set SynModuleInfo {
       {MODELNAME model_test_fifo_w12_d2_S RTLNAME model_test_fifo_w12_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME feat_arr_6_U}
       {MODELNAME model_test_fifo_w12_d2_S RTLNAME model_test_fifo_w12_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME feat_arr_7_U}
       {MODELNAME model_test_fifo_w12_d2_S RTLNAME model_test_fifo_w12_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME feat_arr_8_U}
-      {MODELNAME model_test_fifo_w21_d2_S RTLNAME model_test_fifo_w21_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME feat_out_channel_U}
-      {MODELNAME model_test_fifo_w21_d2_S RTLNAME model_test_fifo_w21_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME feat_out_load_loc_channel_U}
       {MODELNAME model_test_start_for_sparse_input_U0 RTLNAME model_test_start_for_sparse_input_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME start_for_sparse_input_U0_U}
     }
   }

@@ -4,7 +4,6 @@
 #include "parameters.h"
 
 
-#define N_MAX_PIXELS 10
 /*
 void input_streaming(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
                      unsigned hash_arr[N_MAX_PIXELS * 2],
@@ -50,10 +49,11 @@ void sparse_input(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
                   ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
                   input_t feat_arr[N_MAX_PIXELS]) {
 
-    ap_uint<1> active_bit[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1] = {0};
+    ap_uint<2> active_bit[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1] = {0};
     #pragma HLS ARRAY_PARTITION variable=active_bit complete dim=0
 
 ActiveBitLoop:
+    //std::cout << "start printing active_bit" << std::endl << std::endl;
     for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
         #pragma HLS UNROLL
 
@@ -63,12 +63,14 @@ ActiveBitLoop:
         else {
             active_bit[i] = 0;
         }
+        //std::cout << active_bit[i] << " ";
     }
+    //std::cout << std::endl << std::endl << "done printing active_bit" << std::endl << std::endl;
 
 SparseFillLoop1:
-    ap_uint<2> check_bit = 1;
     for (int i = 0; i < N_MAX_PIXELS; i++) {
         #pragma HLS UNROLL
+        ap_uint<2> check_bit = 1;
 
     SparseFillLoop2:
         for (int j = 0; j < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; j++) {
@@ -89,8 +91,30 @@ SparseFillLoop1:
                 check_bit = 2;
             }
         }
-        check_bit = 1;
+        if (check_bit == 1) {
+            hash_arr[2 * i] = 0;
+            hash_arr[2 * i + 1] = 0;
+            feat_arr[i] = 0;
+        }
     }
+/*
+    std::cout << "start printing active_bit(after)" << std::endl << std::endl;
+    for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
+        std::cout << active_bit[i] << " ";
+    }
+    std::cout << std::endl << std::endl << "done printing active_bit(after)" << std::endl << std::endl;
+
+    std::cout << "start printing hash_arr" << std::endl << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        std::cout << hash_arr[2*i] << " " << hash_arr[2*i+1] << ", ";
+    }
+    std::cout << std::endl << std::endl << "done printing hash_arr" << std::endl << std::endl;
+
+    std::cout << "start printing feat_arr" << std::endl << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        std::cout << feat_arr[i] << " ";
+    }
+    std::cout << std::endl << std::endl << "done printing feat_arr" << std::endl << std::endl;*/
 }
 
 
@@ -99,48 +123,59 @@ void sparse_compute(ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
                     result_t feat_out[N_MAX_PIXELS],
                     weight2_t w2[9]) {
 MultAddLoop1:
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
+    for (int i_out = 0; i_out < N_MAX_PIXELS; i_out++) {
         #pragma HLS UNROLL
 
-        if (feat_in[i] != 0) {
-            feat_out[i] += feat_in[i] * w2[4];
-        }
+        feat_out[i_out] = 0;
+        feat_out[i_out] += feat_in[i_out] * w2[4];
 
     MultAddLoop2:
-        for (int j = 0; j < N_MAX_PIXELS; j++) {
+        for (int i_in = 0; i_in < N_MAX_PIXELS; i_in++) {
             #pragma HLS UNROLL
 
-            if ((feat_in[i] != 0) && (feat_in[j] != 0)){
-                int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
-                int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
+            if (feat_in[i_out] != 0){
+                ap_int<10> offset_h = hash_arr[2 * i_out] - hash_arr[2 * i_in];
+                ap_int<10> offset_w = hash_arr[2 * i_out + 1] - hash_arr[2 * i_in + 1];
 
                 if ((offset_h == 0) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[3];
+                    feat_out[i_out] += feat_in[i_in] * w2[3];
                 }
                 else if ((offset_h == 0) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[5];
+                    feat_out[i_out] += feat_in[i_in] * w2[5];
                 }
                 else if ((offset_h == 1) && (offset_w == 0)) {
-                    feat_out[j] += feat_in[i] * w2[1];
+                    feat_out[i_out] += feat_in[i_in] * w2[1];
                 }
                 else if ((offset_h == 1) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[0];
+                    feat_out[i_out] += feat_in[i_in] * w2[0];
                 }
                 else if ((offset_h == 1) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[2];
+                    feat_out[i_out] += feat_in[i_in] * w2[2];
                 }
                 else if ((offset_h == -1) && (offset_w == 0)) {
-                    feat_out[j] += feat_in[i] * w2[7];
+                    feat_out[i_out] += feat_in[i_in] * w2[7];
                 }
                 else if ((offset_h == -1) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[6];
+                    feat_out[i_out] += feat_in[i_in] * w2[6];
                 }
                 else if ((offset_h == -1) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[8];
+                    feat_out[i_out] += feat_in[i_in] * w2[8];
                 }
             }
         }
     }
+/*
+    std::cout << "start printing feat_in" << std::endl << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        std::cout << feat_in[i] << " ";
+    }
+    std::cout << std::endl << std::endl << "done printing feat_in" << std::endl << std::endl;
+
+    std::cout << "start printing feat_out" << std::endl << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        std::cout << feat_out[i] << " ";
+    }
+    std::cout << std::endl << std::endl << "done printing feat_out" << std::endl << std::endl;*/
 }
 
 
@@ -178,15 +213,8 @@ void model_test(
     #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
     sparse_input(x_in, hash_arr, feat_arr);
 
-    result_t feat_out[N_MAX_PIXELS] = {0};
-    #pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
-    sparse_compute(hash_arr, feat_arr, feat_out, w2);
+    sparse_compute(hash_arr, feat_arr, layer2_out, w2);
 
-
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        #pragma HLS UNROLL
-        layer2_out[i] = feat_out[i];
-    }
 
 }
 

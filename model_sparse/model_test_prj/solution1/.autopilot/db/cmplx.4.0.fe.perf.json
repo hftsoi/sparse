@@ -1,48 +1,44 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "2 1",
+    "calls": "1 2",
     "file": "model_test.cpp",
-    "fileloc": 148,
-    "instructions": 91,
-    "loads": {
-      "L": 10
-    },
+    "fileloc": 187,
+    "instructions": 60,
     "name": "model_test",
     "stores": {
-      "L": 3,
-      "T": 10
+      "L": 2
     },
-    "total_instructions": 27950
+    "total_instructions": 24303
   },
   "1": {
-    "basicblocks": 3729,
+    "basicblocks": 1931,
     "calls": "",
     "file": "model_test.cpp",
-    "fileloc": 97,
-    "instructions": 17237,
+    "fileloc": 48,
+    "instructions": 8820,
     "loads": {
-      "L": 1169
-    },
-    "name": "sparse_compute",
-    "stores": {
-      "L": 1460
-    },
-    "total_instructions": 17237
-  },
-  "2": {
-    "basicblocks": 1911,
-    "calls": "",
-    "file": "model_test.cpp",
-    "fileloc": 49,
-    "instructions": 10622,
-    "loads": {
-      "L": 456
+      "L": 461
     },
     "name": "sparse_input",
     "stores": {
-      "L": 2865
+      "L": 2895
     },
-    "total_instructions": 10622
+    "total_instructions": 8820
+  },
+  "2": {
+    "basicblocks": 2971,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 121,
+    "instructions": 15423,
+    "loads": {
+      "L": 762
+    },
+    "name": "sparse_compute",
+    "stores": {
+      "L": 1450
+    },
+    "total_instructions": 15423
   }
 }

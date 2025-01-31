@@ -13,7 +13,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set C_modelName {sparse_compute}
-set C_modelType { int 21 }
+set C_modelType { void 0 }
 set C_modelArgList {
 	{ p_read int 4 regular  }
 	{ p_read1 int 4 regular  }
@@ -45,6 +45,16 @@ set C_modelArgList {
 	{ p_read27 int 12 regular  }
 	{ p_read28 int 12 regular  }
 	{ p_read29 int 12 regular  }
+	{ layer2_out_0 int 25 regular {pointer 1}  }
+	{ layer2_out_1 int 25 regular {pointer 1}  }
+	{ layer2_out_2 int 25 regular {pointer 1}  }
+	{ layer2_out_3 int 25 regular {pointer 1}  }
+	{ layer2_out_4 int 25 regular {pointer 1}  }
+	{ layer2_out_5 int 25 regular {pointer 1}  }
+	{ layer2_out_6 int 25 regular {pointer 1}  }
+	{ layer2_out_7 int 25 regular {pointer 1}  }
+	{ layer2_out_8 int 25 regular {pointer 1}  }
+	{ layer2_out_9 int 25 regular {pointer 1}  }
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
@@ -78,9 +88,18 @@ set C_modelArgMapList {[
  	{ "Name" : "p_read27", "interface" : "wire", "bitwidth" : 12, "direction" : "READONLY"} , 
  	{ "Name" : "p_read28", "interface" : "wire", "bitwidth" : 12, "direction" : "READONLY"} , 
  	{ "Name" : "p_read29", "interface" : "wire", "bitwidth" : 12, "direction" : "READONLY"} , 
- 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 21} ]}
+ 	{ "Name" : "layer2_out_0", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_1", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_2", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_3", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_4", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_5", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_6", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_7", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_8", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "layer2_out_9", "interface" : "wire", "bitwidth" : 25, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 38
+set portNum 57
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -119,7 +138,26 @@ set portList {
 	{ p_read27 sc_in sc_lv 12 signal 27 } 
 	{ p_read28 sc_in sc_lv 12 signal 28 } 
 	{ p_read29 sc_in sc_lv 12 signal 29 } 
-	{ ap_return sc_out sc_lv 21 signal -1 } 
+	{ layer2_out_0 sc_out sc_lv 25 signal 30 } 
+	{ layer2_out_0_ap_vld sc_out sc_logic 1 outvld 30 } 
+	{ layer2_out_1 sc_out sc_lv 25 signal 31 } 
+	{ layer2_out_1_ap_vld sc_out sc_logic 1 outvld 31 } 
+	{ layer2_out_2 sc_out sc_lv 25 signal 32 } 
+	{ layer2_out_2_ap_vld sc_out sc_logic 1 outvld 32 } 
+	{ layer2_out_3 sc_out sc_lv 25 signal 33 } 
+	{ layer2_out_3_ap_vld sc_out sc_logic 1 outvld 33 } 
+	{ layer2_out_4 sc_out sc_lv 25 signal 34 } 
+	{ layer2_out_4_ap_vld sc_out sc_logic 1 outvld 34 } 
+	{ layer2_out_5 sc_out sc_lv 25 signal 35 } 
+	{ layer2_out_5_ap_vld sc_out sc_logic 1 outvld 35 } 
+	{ layer2_out_6 sc_out sc_lv 25 signal 36 } 
+	{ layer2_out_6_ap_vld sc_out sc_logic 1 outvld 36 } 
+	{ layer2_out_7 sc_out sc_lv 25 signal 37 } 
+	{ layer2_out_7_ap_vld sc_out sc_logic 1 outvld 37 } 
+	{ layer2_out_8 sc_out sc_lv 25 signal 38 } 
+	{ layer2_out_8_ap_vld sc_out sc_logic 1 outvld 38 } 
+	{ layer2_out_9 sc_out sc_lv 25 signal 39 } 
+	{ layer2_out_9_ap_vld sc_out sc_logic 1 outvld 39 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -159,10 +197,29 @@ set NewPortList {[
  	{ "name": "p_read27", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "p_read27", "role": "default" }} , 
  	{ "name": "p_read28", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "p_read28", "role": "default" }} , 
  	{ "name": "p_read29", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "p_read29", "role": "default" }} , 
- 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":21, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
+ 	{ "name": "layer2_out_0", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_0", "role": "default" }} , 
+ 	{ "name": "layer2_out_0_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_0", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_1", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_1", "role": "default" }} , 
+ 	{ "name": "layer2_out_1_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_1", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_2", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_2", "role": "default" }} , 
+ 	{ "name": "layer2_out_2_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_2", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_3", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_3", "role": "default" }} , 
+ 	{ "name": "layer2_out_3_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_3", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_4", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_4", "role": "default" }} , 
+ 	{ "name": "layer2_out_4_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_4", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_5", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_5", "role": "default" }} , 
+ 	{ "name": "layer2_out_5_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_5", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_6", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_6", "role": "default" }} , 
+ 	{ "name": "layer2_out_6_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_6", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_7", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_7", "role": "default" }} , 
+ 	{ "name": "layer2_out_7_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_7", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_8", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_8", "role": "default" }} , 
+ 	{ "name": "layer2_out_8_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_8", "role": "ap_vld" }} , 
+ 	{ "name": "layer2_out_9", "direction": "out", "datatype": "sc_lv", "bitwidth":25, "type": "signal", "bundle":{"name": "layer2_out_9", "role": "default" }} , 
+ 	{ "name": "layer2_out_9_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "layer2_out_9", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "sparse_compute",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -206,35 +263,17 @@ set RtlHierarchyInfo {[
 			{"Name" : "p_read26", "Type" : "None", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "1"},
 			{"Name" : "p_read27", "Type" : "None", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "1"},
 			{"Name" : "p_read28", "Type" : "None", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "1"},
-			{"Name" : "p_read29", "Type" : "None", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "1"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_8ns_19_1_1_U4", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_7ns_18_1_1_U5", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_6ns_17_1_1_U6", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_5s_17_1_1_U7", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_7ns_18_1_1_U8", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_6ns_17_1_1_U9", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_5s_17_1_1_U10", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_7ns_18_1_1_U11", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_6ns_17_1_1_U12", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_5s_17_1_1_U13", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_7ns_18_1_1_U14", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_6ns_17_1_1_U15", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_5s_17_1_1_U16", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_7ns_18_1_1_U17", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_6ns_17_1_1_U18", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_12s_5s_17_1_1_U19", "Parent" : "0"},
-	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5s_19s_19_1_1_U20", "Parent" : "0"},
-	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5ns_19s_19_1_1_U21", "Parent" : "0"},
-	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_6ns_19s_20_1_1_U22", "Parent" : "0"},
-	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5s_20s_20_1_1_U23", "Parent" : "0"},
-	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5ns_20s_20_1_1_U24", "Parent" : "0"},
-	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_6ns_20s_20_1_1_U25", "Parent" : "0"},
-	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5s_20s_20_1_1_U26", "Parent" : "0"},
-	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5ns_20s_20_1_1_U27", "Parent" : "0"},
-	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_6ns_20s_20_1_1_U28", "Parent" : "0"},
-	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5s_20s_20_1_1_U29", "Parent" : "0"},
-	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_5ns_20s_20_1_1_U30", "Parent" : "0"},
-	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_12s_6ns_20s_20_1_1_U31", "Parent" : "0"}]}
+			{"Name" : "p_read29", "Type" : "None", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "1"},
+			{"Name" : "layer2_out_0", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_1", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_2", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_3", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_4", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_5", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_6", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_7", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_8", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "layer2_out_9", "Type" : "Vld", "Direction" : "O"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -268,7 +307,17 @@ set ArgLastReadFirstWriteLatency {
 		p_read26 {Type I LastRead 0 FirstWrite -1}
 		p_read27 {Type I LastRead 0 FirstWrite -1}
 		p_read28 {Type I LastRead 0 FirstWrite -1}
-		p_read29 {Type I LastRead 0 FirstWrite -1}}}
+		p_read29 {Type I LastRead 0 FirstWrite -1}
+		layer2_out_0 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_1 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_2 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_3 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_4 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_5 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_6 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_7 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_8 {Type O LastRead -1 FirstWrite 7}
+		layer2_out_9 {Type O LastRead -1 FirstWrite 7}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -311,4 +360,14 @@ set Spec2ImplPortList {
 	p_read27 { ap_none {  { p_read27 in_data 0 12 } } }
 	p_read28 { ap_none {  { p_read28 in_data 0 12 } } }
 	p_read29 { ap_none {  { p_read29 in_data 0 12 } } }
+	layer2_out_0 { ap_vld {  { layer2_out_0 out_data 1 25 }  { layer2_out_0_ap_vld out_vld 1 1 } } }
+	layer2_out_1 { ap_vld {  { layer2_out_1 out_data 1 25 }  { layer2_out_1_ap_vld out_vld 1 1 } } }
+	layer2_out_2 { ap_vld {  { layer2_out_2 out_data 1 25 }  { layer2_out_2_ap_vld out_vld 1 1 } } }
+	layer2_out_3 { ap_vld {  { layer2_out_3 out_data 1 25 }  { layer2_out_3_ap_vld out_vld 1 1 } } }
+	layer2_out_4 { ap_vld {  { layer2_out_4 out_data 1 25 }  { layer2_out_4_ap_vld out_vld 1 1 } } }
+	layer2_out_5 { ap_vld {  { layer2_out_5 out_data 1 25 }  { layer2_out_5_ap_vld out_vld 1 1 } } }
+	layer2_out_6 { ap_vld {  { layer2_out_6 out_data 1 25 }  { layer2_out_6_ap_vld out_vld 1 1 } } }
+	layer2_out_7 { ap_vld {  { layer2_out_7 out_data 1 25 }  { layer2_out_7_ap_vld out_vld 1 1 } } }
+	layer2_out_8 { ap_vld {  { layer2_out_8 out_data 1 25 }  { layer2_out_8_ap_vld out_vld 1 1 } } }
+	layer2_out_9 { ap_vld {  { layer2_out_9 out_data 1 25 }  { layer2_out_9_ap_vld out_vld 1 1 } } }
 }

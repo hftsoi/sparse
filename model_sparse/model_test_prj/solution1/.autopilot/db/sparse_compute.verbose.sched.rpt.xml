@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sparse_compute'" level="0">
-<item name = "Date">Thu Jan 30 18:47:16 2025
+<item name = "Date">Fri Jan 31 22:01:49 2025
 </item>
 <item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">model_test_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 3.975 ns, 0.62 ns</column>
+<column name="ap_clk">5.00 ns, 4.351 ns, 0.62 ns</column>
 </table>
 </item>
 </section>

@@ -32984,11 +32984,11 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cstdio" 1 3
 # 40 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cstdio" 3
 # 9 "firmware/defines.h" 2
-# 20 "firmware/defines.h"
+# 21 "firmware/defines.h"
 typedef ap_fixed<12,4,AP_RND,AP_SAT,0> input_t;
 typedef ap_fixed<16,6> model_default_t;
 typedef ap_fixed<25,10> result_t;
-typedef ap_fixed<8,1> weight2_t;
+typedef ap_fixed<10,3> weight2_t;
 typedef ap_uint<1> bias2_t;
 # 9 "firmware/model_test.h" 2
 
@@ -57843,7 +57843,7 @@ void conv_2d_cl(
 
 # 1 "firmware/weights/w2.h" 1
 # 12 "firmware/weights/w2.h"
-weight2_t w2[9] = {-0.2421875, 0.1796875, 0.0234375, 0.3046875, 0.7031250, 0.0234375, -0.0859375, 0.1171875, -0.0156250};
+weight2_t w2[9] = {1, 1, 1, 1, 1, 1, 1, 1, 1};
 # 15 "firmware/parameters.h" 2
 # 1 "firmware/weights/b2.h" 1
 # 12 "firmware/weights/b2.h"
@@ -57910,15 +57910,16 @@ struct config2 : nnet::conv2d_config {
 };
 const ap_uint<config2::filt_height * config2::filt_width> config2::pixels[] = {0};
 # 5 "firmware/model_test.cpp" 2
-# 49 "firmware/model_test.cpp"
+# 48 "firmware/model_test.cpp"
 void sparse_input(input_t input_array[10*10*1],
                   ap_uint<10> hash_arr[10 * 2],
                   input_t feat_arr[10]) {
 
-    ap_uint<1> active_bit[10*10*1] = {0};
+    ap_uint<2> active_bit[10*10*1] = {0};
 #pragma HLS ARRAY_PARTITION variable=active_bit complete dim=0
 
 ActiveBitLoop:
+
     for (int i = 0; i < 10*10*1; i++) {
 #pragma HLS UNROLL
 
@@ -57928,14 +57929,16 @@ ActiveBitLoop:
         else {
             active_bit[i] = 0;
         }
+
     }
 
-SparseFillLoop1:
-    ap_uint<2> check_bit = 1;
-    VITIS_LOOP_70_1: for (int i = 0; i < 10; i++) {
-#pragma HLS UNROLL
 
- SparseFillLoop2:
+SparseFillLoop1:
+    for (int i = 0; i < 10; i++) {
+#pragma HLS UNROLL
+ ap_uint<2> check_bit = 1;
+
+    SparseFillLoop2:
         for (int j = 0; j < 10*10*1; j++) {
 #pragma HLS UNROLL
 
@@ -57954,8 +57957,13 @@ SparseFillLoop1:
                 check_bit = 2;
             }
         }
-        check_bit = 1;
+        if (check_bit == 1) {
+            hash_arr[2 * i] = 0;
+            hash_arr[2 * i + 1] = 0;
+            feat_arr[i] = 0;
+        }
     }
+# 118 "firmware/model_test.cpp"
 }
 
 
@@ -57964,48 +57972,52 @@ void sparse_compute(ap_uint<10> hash_arr[10 * 2],
                     result_t feat_out[10],
                     weight2_t w2[9]) {
 MultAddLoop1:
-    for (int i = 0; i < 10; i++) {
+    for (int i_out = 0; i_out < 10; i_out++) {
 #pragma HLS UNROLL
 
- if (feat_in[i] != 0) {
-            feat_out[i] += feat_in[i] * w2[4];
-        }
+ feat_out[i_out] = 0;
+
+
+
+
+        feat_out[i_out] += feat_in[i_out] * w2[4];
 
     MultAddLoop2:
-        for (int j = 0; j < 10; j++) {
+        for (int i_in = 0; i_in < 10; i_in++) {
 #pragma HLS UNROLL
 
- if ((feat_in[i] != 0) && (feat_in[j] != 0)){
-                int offset_h = hash_arr[2 * j] - hash_arr[2 * i];
-                int offset_w = hash_arr[2 * j + 1] - hash_arr[2 * i + 1];
+ if (feat_in[i_out] != 0){
+                ap_int<10> offset_h = hash_arr[2 * i_out] - hash_arr[2 * i_in];
+                ap_int<10> offset_w = hash_arr[2 * i_out + 1] - hash_arr[2 * i_in + 1];
 
                 if ((offset_h == 0) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[3];
+                    feat_out[i_out] += feat_in[i_in] * w2[3];
                 }
                 else if ((offset_h == 0) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[5];
+                    feat_out[i_out] += feat_in[i_in] * w2[5];
                 }
                 else if ((offset_h == 1) && (offset_w == 0)) {
-                    feat_out[j] += feat_in[i] * w2[1];
+                    feat_out[i_out] += feat_in[i_in] * w2[1];
                 }
                 else if ((offset_h == 1) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[0];
+                    feat_out[i_out] += feat_in[i_in] * w2[0];
                 }
                 else if ((offset_h == 1) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[2];
+                    feat_out[i_out] += feat_in[i_in] * w2[2];
                 }
                 else if ((offset_h == -1) && (offset_w == 0)) {
-                    feat_out[j] += feat_in[i] * w2[7];
+                    feat_out[i_out] += feat_in[i_in] * w2[7];
                 }
                 else if ((offset_h == -1) && (offset_w == 1)) {
-                    feat_out[j] += feat_in[i] * w2[6];
+                    feat_out[i_out] += feat_in[i_in] * w2[6];
                 }
                 else if ((offset_h == -1) && (offset_w == -1)) {
-                    feat_out[j] += feat_in[i] * w2[8];
+                    feat_out[i_out] += feat_in[i_in] * w2[8];
                 }
             }
         }
     }
+# 183 "firmware/model_test.cpp"
 }
 
 
@@ -58017,7 +58029,7 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 ) {
 #line 183 "/home/coder/sparse/model_sparse/build_prj.tcl"
 #pragma HLSDIRECTIVE TOP name=model_test
-# 152 "firmware/model_test.cpp"
+# 191 "firmware/model_test.cpp"
 
 
 
@@ -58025,21 +58037,14 @@ __attribute__((sdx_kernel("model_test", 0))) void model_test(
 #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
 #pragma HLS INTERFACE ap_vld port=x_in,layer2_out
 #pragma HLS DATAFLOW
-# 175 "firmware/model_test.cpp"
+# 214 "firmware/model_test.cpp"
  ap_uint<10> hash_arr[10 * 2] = {0};
     input_t feat_arr[10] = {0};
 #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
 #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
  sparse_input(x_in, hash_arr, feat_arr);
 
-    result_t feat_out[10] = {0};
-#pragma HLS ARRAY_PARTITION variable=feat_out complete dim=0
- sparse_compute(hash_arr, feat_arr, feat_out, w2);
+    sparse_compute(hash_arr, feat_arr, layer2_out, w2);
 
-
-    VITIS_LOOP_186_1: for (int i = 0; i < 10; i++) {
-#pragma HLS UNROLL
- layer2_out[i] = feat_out[i];
-    }
 
 }

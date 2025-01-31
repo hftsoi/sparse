@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'model_test'
 ================================================================
-* Date:           Thu Jan 30 18:47:51 2025
+* Date:           Fri Jan 31 22:02:30 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  4.370 ns|     0.62 ns|
+    |ap_clk  |  5.00 ns|  4.372 ns|     0.62 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -34,16 +34,14 @@
 
     + Detail: 
         * Instance: 
-        +-----------------------+--------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |                       |                    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
-        |        Instance       |       Module       |   min   |   max   |    min    |    max    | min | max |   Type  |
-        +-----------------------+--------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |entry_proc_U0          |entry_proc          |        0|        0|       0 ns|       0 ns|    0|    0|       no|
-        |sparse_input_U0        |sparse_input        |       18|       18|  90.000 ns|  90.000 ns|   18|   18|       no|
-        |sparse_compute_U0      |sparse_compute      |        7|        7|  35.000 ns|  35.000 ns|    7|    7|       no|
-        |Block_entry16_proc_U0  |Block_entry16_proc  |        0|        0|       0 ns|       0 ns|    0|    0|       no|
-        |Block_entry17_proc_U0  |Block_entry17_proc  |        0|        0|       0 ns|       0 ns|    0|    0|       no|
-        +-----------------------+--------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        +-------------------+----------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                   |                |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |      Instance     |     Module     |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +-------------------+----------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |entry_proc_U0      |entry_proc      |        0|        0|       0 ns|       0 ns|    0|    0|       no|
+        |sparse_input_U0    |sparse_input    |       18|       18|  90.000 ns|  90.000 ns|   18|   18|       no|
+        |sparse_compute_U0  |sparse_compute  |        7|        7|  35.000 ns|  35.000 ns|    7|    7|       no|
+        +-------------------+----------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
         N/A
@@ -59,36 +57,34 @@
 +---------------------+---------+-------+---------+---------+------+
 |DSP                  |        -|      -|        -|        -|     -|
 |Expression           |        -|      -|        0|      126|     -|
-|FIFO                 |        0|      -|     3826|     2181|     -|
-|Instance             |        -|     28|     5077|    39477|     -|
+|FIFO                 |        0|      -|     3690|     2101|     -|
+|Instance             |        -|      -|     7073|    67185|     -|
 |Memory               |        -|      -|        -|        -|     -|
 |Multiplexer          |        -|      -|        -|      270|     -|
 |Register             |        -|      -|       30|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|     28|     8933|    42054|     0|
+|Total                |        0|      0|    10793|    69682|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization SLR (%)  |        0|     ~0|        1|        9|     0|
+|Utilization SLR (%)  |        0|      0|        1|       16|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available            |     5376|  12288|  3456000|  1728000|  1280|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization (%)      |        0|     ~0|       ~0|        2|     0|
+|Utilization (%)      |        0|      0|       ~0|        4|     0|
 +---------------------+---------+-------+---------+---------+------+
 
 + Detail: 
     * Instance: 
-    +-----------------------+--------------------+---------+----+------+-------+-----+
-    |        Instance       |       Module       | BRAM_18K| DSP|  FF  |  LUT  | URAM|
-    +-----------------------+--------------------+---------+----+------+-------+-----+
-    |Block_entry16_proc_U0  |Block_entry16_proc  |        0|   0|    23|     20|    0|
-    |Block_entry17_proc_U0  |Block_entry17_proc  |        0|   0|    27|     20|    0|
-    |entry_proc_U0          |entry_proc          |        0|   0|     3|     38|    0|
-    |sparse_compute_U0      |sparse_compute      |        0|  28|   302|   4570|    0|
-    |sparse_input_U0        |sparse_input        |        0|   0|  4722|  34829|    0|
-    +-----------------------+--------------------+---------+----+------+-------+-----+
-    |Total                  |                    |        0|  28|  5077|  39477|    0|
-    +-----------------------+--------------------+---------+----+------+-------+-----+
+    +-------------------+----------------+---------+----+------+-------+-----+
+    |      Instance     |     Module     | BRAM_18K| DSP|  FF  |  LUT  | URAM|
+    +-------------------+----------------+---------+----+------+-------+-----+
+    |entry_proc_U0      |entry_proc      |        0|   0|     3|     38|    0|
+    |sparse_compute_U0  |sparse_compute  |        0|   0|  2326|  31293|    0|
+    |sparse_input_U0    |sparse_input    |        0|   0|  4744|  35854|    0|
+    +-------------------+----------------+---------+----+------+-------+-----+
+    |Total              |                |        0|   0|  7073|  67185|    0|
+    +-------------------+----------------+---------+----+------+-------+-----+
 
     * DSP: 
     N/A
@@ -97,45 +93,43 @@
     N/A
 
     * FIFO: 
-    +-----------------------------+---------+------+----+-----+------+------+---------+
-    |             Name            | BRAM_18K|  FF  | LUT| URAM| Depth| Bits | Size:D*B|
-    +-----------------------------+---------+------+----+-----+------+------+---------+
-    |feat_arr_1_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_2_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_3_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_4_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_5_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_6_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_7_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_8_U                 |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_U                   |        0|    36|   0|    -|     2|    12|       24|
-    |feat_arr_channel_U           |        0|    36|   0|    -|     2|    12|       24|
-    |feat_out_channel_U           |        0|    68|   0|    -|     2|    21|       42|
-    |feat_out_load_loc_channel_U  |        0|    68|   0|    -|     2|    21|       42|
-    |hash_arr_10_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_11_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_12_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_13_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_14_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_15_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_16_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_17_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_18_U                |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_1_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_2_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_3_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_4_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_5_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_6_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_7_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_8_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_9_U                 |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_U                   |        0|    12|   0|    -|     2|     4|        8|
-    |hash_arr_channel_U           |        0|    12|   0|    -|     2|     4|        8|
-    |x_in_c_U                     |        0|  3090|   0|    -|     3|  1200|     3600|
-    +-----------------------------+---------+------+----+-----+------+------+---------+
-    |Total                        |        0|  3826|   0|    0|    67|  1442|     4084|
-    +-----------------------------+---------+------+----+-----+------+------+---------+
+    +--------------------+---------+------+----+-----+------+------+---------+
+    |        Name        | BRAM_18K|  FF  | LUT| URAM| Depth| Bits | Size:D*B|
+    +--------------------+---------+------+----+-----+------+------+---------+
+    |feat_arr_1_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_2_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_3_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_4_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_5_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_6_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_7_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_8_U        |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_U          |        0|    36|   0|    -|     2|    12|       24|
+    |feat_arr_channel_U  |        0|    36|   0|    -|     2|    12|       24|
+    |hash_arr_10_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_11_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_12_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_13_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_14_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_15_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_16_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_17_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_18_U       |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_1_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_2_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_3_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_4_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_5_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_6_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_7_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_8_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_9_U        |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_U          |        0|    12|   0|    -|     2|     4|        8|
+    |hash_arr_channel_U  |        0|    12|   0|    -|     2|     4|        8|
+    |x_in_c_U            |        0|  3090|   0|    -|     3|  1200|     3600|
+    +--------------------+---------+------+----+-----+------+------+---------+
+    |Total               |        0|  3690|   0|    0|    63|  1400|     4000|
+    +--------------------+---------+------+----+-----+------+------+---------+
 
     * Expression: 
     +----------------------------------------+----------+----+---+----+------------+------------+
@@ -297,15 +291,24 @@
 |x_in_ap_vld          |   in|     1|      ap_vld|          x_in|       pointer|
 |layer2_out_0         |  out|    25|      ap_vld|  layer2_out_0|       pointer|
 |layer2_out_0_ap_vld  |  out|     1|      ap_vld|  layer2_out_0|       pointer|
-|layer2_out_1         |   in|    25|      ap_vld|  layer2_out_1|       pointer|
-|layer2_out_2         |   in|    25|      ap_vld|  layer2_out_2|       pointer|
-|layer2_out_3         |   in|    25|      ap_vld|  layer2_out_3|       pointer|
-|layer2_out_4         |   in|    25|      ap_vld|  layer2_out_4|       pointer|
-|layer2_out_5         |   in|    25|      ap_vld|  layer2_out_5|       pointer|
-|layer2_out_6         |   in|    25|      ap_vld|  layer2_out_6|       pointer|
-|layer2_out_7         |   in|    25|      ap_vld|  layer2_out_7|       pointer|
-|layer2_out_8         |   in|    25|      ap_vld|  layer2_out_8|       pointer|
-|layer2_out_9         |   in|    25|      ap_vld|  layer2_out_9|       pointer|
+|layer2_out_1         |  out|    25|      ap_vld|  layer2_out_1|       pointer|
+|layer2_out_1_ap_vld  |  out|     1|      ap_vld|  layer2_out_1|       pointer|
+|layer2_out_2         |  out|    25|      ap_vld|  layer2_out_2|       pointer|
+|layer2_out_2_ap_vld  |  out|     1|      ap_vld|  layer2_out_2|       pointer|
+|layer2_out_3         |  out|    25|      ap_vld|  layer2_out_3|       pointer|
+|layer2_out_3_ap_vld  |  out|     1|      ap_vld|  layer2_out_3|       pointer|
+|layer2_out_4         |  out|    25|      ap_vld|  layer2_out_4|       pointer|
+|layer2_out_4_ap_vld  |  out|     1|      ap_vld|  layer2_out_4|       pointer|
+|layer2_out_5         |  out|    25|      ap_vld|  layer2_out_5|       pointer|
+|layer2_out_5_ap_vld  |  out|     1|      ap_vld|  layer2_out_5|       pointer|
+|layer2_out_6         |  out|    25|      ap_vld|  layer2_out_6|       pointer|
+|layer2_out_6_ap_vld  |  out|     1|      ap_vld|  layer2_out_6|       pointer|
+|layer2_out_7         |  out|    25|      ap_vld|  layer2_out_7|       pointer|
+|layer2_out_7_ap_vld  |  out|     1|      ap_vld|  layer2_out_7|       pointer|
+|layer2_out_8         |  out|    25|      ap_vld|  layer2_out_8|       pointer|
+|layer2_out_8_ap_vld  |  out|     1|      ap_vld|  layer2_out_8|       pointer|
+|layer2_out_9         |  out|    25|      ap_vld|  layer2_out_9|       pointer|
+|layer2_out_9_ap_vld  |  out|     1|      ap_vld|  layer2_out_9|       pointer|
 |ap_clk               |   in|     1|  ap_ctrl_hs|    model_test|  return value|
 |ap_rst               |   in|     1|  ap_ctrl_hs|    model_test|  return value|
 |ap_start             |   in|     1|  ap_ctrl_hs|    model_test|  return value|

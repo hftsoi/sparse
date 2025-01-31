@@ -1,0 +1,67 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_model_test_top glbl -Oenable_linking_all_libraries -prj model_test.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s model_test -debug all 
+Multi-threading is on. Using 126 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_model_test_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_entry_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_entry_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_sparse_input.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_sparse_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_sparse_compute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_sparse_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w1200_d3_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w1200_d3_A
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w1200_d3_A_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w4_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w4_d2_S
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w4_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w12_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w12_d2_S
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w12_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_start_for_sparse_input_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_start_for_sparse_input_U0
+INFO: [VRFC 10-311] analyzing module model_test_start_for_sparse_input_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.model_test_entry_proc
+Compiling module xil_defaultlib.model_test_sparse_input
+Compiling module xil_defaultlib.model_test_sparse_compute
+Compiling module xil_defaultlib.model_test_fifo_w1200_d3_A_ram
+Compiling module xil_defaultlib.model_test_fifo_w1200_d3_A
+Compiling module xil_defaultlib.model_test_fifo_w4_d2_S_ShiftReg
+Compiling module xil_defaultlib.model_test_fifo_w4_d2_S
+Compiling module xil_defaultlib.model_test_fifo_w12_d2_S_ShiftRe...
+Compiling module xil_defaultlib.model_test_fifo_w12_d2_S
+Compiling module xil_defaultlib.model_test_start_for_sparse_inpu...
+Compiling module xil_defaultlib.model_test_start_for_sparse_inpu...
+Compiling module xil_defaultlib.model_test
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_model_test_top
+Compiling module work.glbl
+Built simulation snapshot model_test

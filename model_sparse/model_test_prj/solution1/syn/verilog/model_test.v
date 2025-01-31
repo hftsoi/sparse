@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="model_test_model_test,hls_ip_2023_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.370000,HLS_SYN_LAT=27,HLS_SYN_TPT=19,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=8933,HLS_SYN_LUT=42054,HLS_VERSION=2023_1}" *)
+(* CORE_GENERATION_INFO="model_test_model_test,hls_ip_2023_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.372000,HLS_SYN_LAT=27,HLS_SYN_TPT=19,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=10793,HLS_SYN_LUT=69682,HLS_VERSION=2023_1}" *)
 
 module model_test (
         x_in,
@@ -25,6 +25,15 @@ module model_test (
         x_in_ap_vld,
         ap_start,
         layer2_out_0_ap_vld,
+        layer2_out_1_ap_vld,
+        layer2_out_2_ap_vld,
+        layer2_out_3_ap_vld,
+        layer2_out_4_ap_vld,
+        layer2_out_5_ap_vld,
+        layer2_out_6_ap_vld,
+        layer2_out_7_ap_vld,
+        layer2_out_8_ap_vld,
+        layer2_out_9_ap_vld,
         ap_done,
         ap_ready,
         ap_idle
@@ -33,20 +42,29 @@ module model_test (
 
 input  [1199:0] x_in;
 output  [24:0] layer2_out_0;
-input  [24:0] layer2_out_1;
-input  [24:0] layer2_out_2;
-input  [24:0] layer2_out_3;
-input  [24:0] layer2_out_4;
-input  [24:0] layer2_out_5;
-input  [24:0] layer2_out_6;
-input  [24:0] layer2_out_7;
-input  [24:0] layer2_out_8;
-input  [24:0] layer2_out_9;
+output  [24:0] layer2_out_1;
+output  [24:0] layer2_out_2;
+output  [24:0] layer2_out_3;
+output  [24:0] layer2_out_4;
+output  [24:0] layer2_out_5;
+output  [24:0] layer2_out_6;
+output  [24:0] layer2_out_7;
+output  [24:0] layer2_out_8;
+output  [24:0] layer2_out_9;
 input   ap_clk;
 input   ap_rst;
 input   x_in_ap_vld;
 input   ap_start;
 output   layer2_out_0_ap_vld;
+output   layer2_out_1_ap_vld;
+output   layer2_out_2_ap_vld;
+output   layer2_out_3_ap_vld;
+output   layer2_out_4_ap_vld;
+output   layer2_out_5_ap_vld;
+output   layer2_out_6_ap_vld;
+output   layer2_out_7_ap_vld;
+output   layer2_out_8_ap_vld;
+output   layer2_out_9_ap_vld;
 output   ap_done;
 output   ap_ready;
 output   ap_idle;
@@ -221,22 +239,26 @@ wire    sparse_compute_U0_ap_done;
 wire    sparse_compute_U0_ap_continue;
 wire    sparse_compute_U0_ap_idle;
 wire    sparse_compute_U0_ap_ready;
-wire   [20:0] sparse_compute_U0_ap_return;
-wire    feat_out_channel_full_n;
-wire    Block_entry16_proc_U0_ap_start;
-wire    Block_entry16_proc_U0_ap_done;
-wire    Block_entry16_proc_U0_ap_continue;
-wire    Block_entry16_proc_U0_ap_idle;
-wire    Block_entry16_proc_U0_ap_ready;
-wire   [20:0] Block_entry16_proc_U0_ap_return;
-wire    feat_out_load_loc_channel_full_n;
-wire    Block_entry17_proc_U0_ap_start;
-wire    Block_entry17_proc_U0_ap_done;
-wire    Block_entry17_proc_U0_ap_continue;
-wire    Block_entry17_proc_U0_ap_idle;
-wire    Block_entry17_proc_U0_ap_ready;
-wire   [24:0] Block_entry17_proc_U0_layer2_out_0;
-wire    Block_entry17_proc_U0_layer2_out_0_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_0;
+wire    sparse_compute_U0_layer2_out_0_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_1;
+wire    sparse_compute_U0_layer2_out_1_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_2;
+wire    sparse_compute_U0_layer2_out_2_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_3;
+wire    sparse_compute_U0_layer2_out_3_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_4;
+wire    sparse_compute_U0_layer2_out_4_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_5;
+wire    sparse_compute_U0_layer2_out_5_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_6;
+wire    sparse_compute_U0_layer2_out_6_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_7;
+wire    sparse_compute_U0_layer2_out_7_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_8;
+wire    sparse_compute_U0_layer2_out_8_ap_vld;
+wire   [24:0] sparse_compute_U0_layer2_out_9;
+wire    sparse_compute_U0_layer2_out_9_ap_vld;
 wire    x_in_c_full_n;
 wire   [1199:0] x_in_c_dout;
 wire   [2:0] x_in_c_num_data_valid;
@@ -362,14 +384,6 @@ wire   [11:0] feat_arr_8_dout;
 wire   [1:0] feat_arr_8_num_data_valid;
 wire   [1:0] feat_arr_8_fifo_cap;
 wire    feat_arr_8_empty_n;
-wire   [20:0] feat_out_channel_dout;
-wire   [1:0] feat_out_channel_num_data_valid;
-wire   [1:0] feat_out_channel_fifo_cap;
-wire    feat_out_channel_empty_n;
-wire   [20:0] feat_out_load_loc_channel_dout;
-wire   [1:0] feat_out_load_loc_channel_num_data_valid;
-wire   [1:0] feat_out_load_loc_channel_fifo_cap;
-wire    feat_out_load_loc_channel_empty_n;
 wire   [0:0] start_for_sparse_input_U0_din;
 wire    start_for_sparse_input_U0_full_n;
 wire   [0:0] start_for_sparse_input_U0_dout;
@@ -443,6 +457,8 @@ model_test_sparse_input sparse_input_U0(
     .x_in_fifo_cap(x_in_c_fifo_cap),
     .x_in_empty_n(x_in_c_empty_n),
     .x_in_read(sparse_input_U0_x_in_read),
+    .p_read(1'd0),
+    .p_read59(1'd0),
     .ap_return_0(sparse_input_U0_ap_return_0),
     .ap_return_1(sparse_input_U0_ap_return_1),
     .ap_return_2(sparse_input_U0_ap_return_2),
@@ -513,32 +529,26 @@ model_test_sparse_compute sparse_compute_U0(
     .p_read27(feat_arr_6_dout),
     .p_read28(feat_arr_7_dout),
     .p_read29(feat_arr_8_dout),
-    .ap_return(sparse_compute_U0_ap_return)
-);
-
-model_test_Block_entry16_proc Block_entry16_proc_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .ap_start(Block_entry16_proc_U0_ap_start),
-    .ap_done(Block_entry16_proc_U0_ap_done),
-    .ap_continue(Block_entry16_proc_U0_ap_continue),
-    .ap_idle(Block_entry16_proc_U0_ap_idle),
-    .ap_ready(Block_entry16_proc_U0_ap_ready),
-    .p_read(feat_out_channel_dout),
-    .ap_return(Block_entry16_proc_U0_ap_return)
-);
-
-model_test_Block_entry17_proc Block_entry17_proc_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .ap_start(Block_entry17_proc_U0_ap_start),
-    .ap_done(Block_entry17_proc_U0_ap_done),
-    .ap_continue(Block_entry17_proc_U0_ap_continue),
-    .ap_idle(Block_entry17_proc_U0_ap_idle),
-    .ap_ready(Block_entry17_proc_U0_ap_ready),
-    .p_read9(feat_out_load_loc_channel_dout),
-    .layer2_out_0(Block_entry17_proc_U0_layer2_out_0),
-    .layer2_out_0_ap_vld(Block_entry17_proc_U0_layer2_out_0_ap_vld)
+    .layer2_out_0(sparse_compute_U0_layer2_out_0),
+    .layer2_out_0_ap_vld(sparse_compute_U0_layer2_out_0_ap_vld),
+    .layer2_out_1(sparse_compute_U0_layer2_out_1),
+    .layer2_out_1_ap_vld(sparse_compute_U0_layer2_out_1_ap_vld),
+    .layer2_out_2(sparse_compute_U0_layer2_out_2),
+    .layer2_out_2_ap_vld(sparse_compute_U0_layer2_out_2_ap_vld),
+    .layer2_out_3(sparse_compute_U0_layer2_out_3),
+    .layer2_out_3_ap_vld(sparse_compute_U0_layer2_out_3_ap_vld),
+    .layer2_out_4(sparse_compute_U0_layer2_out_4),
+    .layer2_out_4_ap_vld(sparse_compute_U0_layer2_out_4_ap_vld),
+    .layer2_out_5(sparse_compute_U0_layer2_out_5),
+    .layer2_out_5_ap_vld(sparse_compute_U0_layer2_out_5_ap_vld),
+    .layer2_out_6(sparse_compute_U0_layer2_out_6),
+    .layer2_out_6_ap_vld(sparse_compute_U0_layer2_out_6_ap_vld),
+    .layer2_out_7(sparse_compute_U0_layer2_out_7),
+    .layer2_out_7_ap_vld(sparse_compute_U0_layer2_out_7_ap_vld),
+    .layer2_out_8(sparse_compute_U0_layer2_out_8),
+    .layer2_out_8_ap_vld(sparse_compute_U0_layer2_out_8_ap_vld),
+    .layer2_out_9(sparse_compute_U0_layer2_out_9),
+    .layer2_out_9_ap_vld(sparse_compute_U0_layer2_out_9_ap_vld)
 );
 
 model_test_fifo_w1200_d3_A x_in_c_U(
@@ -1006,36 +1016,6 @@ model_test_fifo_w12_d2_S feat_arr_8_U(
     .if_read(sparse_compute_U0_ap_ready)
 );
 
-model_test_fifo_w21_d2_S feat_out_channel_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(sparse_compute_U0_ap_return),
-    .if_full_n(feat_out_channel_full_n),
-    .if_write(sparse_compute_U0_ap_done),
-    .if_dout(feat_out_channel_dout),
-    .if_num_data_valid(feat_out_channel_num_data_valid),
-    .if_fifo_cap(feat_out_channel_fifo_cap),
-    .if_empty_n(feat_out_channel_empty_n),
-    .if_read(Block_entry16_proc_U0_ap_ready)
-);
-
-model_test_fifo_w21_d2_S feat_out_load_loc_channel_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(Block_entry16_proc_U0_ap_return),
-    .if_full_n(feat_out_load_loc_channel_full_n),
-    .if_write(Block_entry16_proc_U0_ap_done),
-    .if_dout(feat_out_load_loc_channel_dout),
-    .if_num_data_valid(feat_out_load_loc_channel_num_data_valid),
-    .if_fifo_cap(feat_out_load_loc_channel_fifo_cap),
-    .if_empty_n(feat_out_load_loc_channel_empty_n),
-    .if_read(Block_entry17_proc_U0_ap_ready)
-);
-
 model_test_start_for_sparse_input_U0 start_for_sparse_input_U0_U(
     .clk(ap_clk),
     .reset(ap_rst),
@@ -1409,14 +1389,6 @@ always @ (posedge ap_clk) begin
     end
 end
 
-assign Block_entry16_proc_U0_ap_continue = feat_out_load_loc_channel_full_n;
-
-assign Block_entry16_proc_U0_ap_start = feat_out_channel_empty_n;
-
-assign Block_entry17_proc_U0_ap_continue = 1'b1;
-
-assign Block_entry17_proc_U0_ap_start = feat_out_load_loc_channel_empty_n;
-
 assign ap_channel_done_feat_arr = (sparse_input_U0_ap_done & (ap_sync_reg_channel_write_feat_arr ^ 1'b1));
 
 assign ap_channel_done_feat_arr_1 = (sparse_input_U0_ap_done & (ap_sync_reg_channel_write_feat_arr_1 ^ 1'b1));
@@ -1477,10 +1449,9 @@ assign ap_channel_done_hash_arr_9 = (sparse_input_U0_ap_done & (ap_sync_reg_chan
 
 assign ap_channel_done_hash_arr_channel = (sparse_input_U0_ap_done & (ap_sync_reg_channel_write_hash_arr_channel ^ 1'b1));
 
-assign ap_done = Block_entry17_proc_U0_ap_done;
+assign ap_done = sparse_compute_U0_ap_done;
 
-assign ap_idle = (sparse_input_U0_ap_idle & sparse_compute_U0_ap_idle & (feat_out_load_loc_channel_empty_n ^ 1'b1) & (feat_out_channel_empty_n ^ 1'b1) & (feat_arr_8_empty_n ^ 1'b1) & (feat_arr_7_empty_n ^ 1'b1) & (feat_arr_6_empty_n ^ 1'b1) & (feat_arr_5_empty_n ^ 1'b1) & (feat_arr_4_empty_n ^ 1'b1) & (feat_arr_3_empty_n ^ 1'b1) & (feat_arr_2_empty_n ^ 1'b1) & (feat_arr_1_empty_n ^ 1'b1) & (feat_arr_empty_n ^ 1'b1) & (feat_arr_channel_empty_n ^ 1'b1) & (hash_arr_18_empty_n ^ 1'b1) & (hash_arr_17_empty_n ^ 1'b1) & (hash_arr_16_empty_n ^ 1'b1) & (hash_arr_15_empty_n ^ 1'b1) & (hash_arr_14_empty_n ^ 1'b1) & (hash_arr_13_empty_n ^ 1'b1) & (hash_arr_12_empty_n ^ 1'b1) & (hash_arr_11_empty_n ^ 1'b1) & (hash_arr_10_empty_n ^ 1'b1) & (hash_arr_9_empty_n ^ 1'b1) & (hash_arr_8_empty_n ^ 1'b1) & (hash_arr_7_empty_n ^ 1'b1) & (hash_arr_6_empty_n ^ 1'b1) & (hash_arr_5_empty_n ^ 1'b1) & (hash_arr_4_empty_n ^ 1'b1) & (hash_arr_3_empty_n ^ 1'b1) & (hash_arr_2_empty_n ^ 1'b1) & (hash_arr_1_empty_n ^ 1'b1) & (hash_arr_empty_n ^ 1'b1) & (hash_arr_channel_empty_n 
-    ^ 1'b1) & entry_proc_U0_ap_idle & Block_entry17_proc_U0_ap_idle & Block_entry16_proc_U0_ap_idle);
+assign ap_idle = (sparse_input_U0_ap_idle & sparse_compute_U0_ap_idle & (feat_arr_8_empty_n ^ 1'b1) & (feat_arr_7_empty_n ^ 1'b1) & (feat_arr_6_empty_n ^ 1'b1) & (feat_arr_5_empty_n ^ 1'b1) & (feat_arr_4_empty_n ^ 1'b1) & (feat_arr_3_empty_n ^ 1'b1) & (feat_arr_2_empty_n ^ 1'b1) & (feat_arr_1_empty_n ^ 1'b1) & (feat_arr_empty_n ^ 1'b1) & (feat_arr_channel_empty_n ^ 1'b1) & (hash_arr_18_empty_n ^ 1'b1) & (hash_arr_17_empty_n ^ 1'b1) & (hash_arr_16_empty_n ^ 1'b1) & (hash_arr_15_empty_n ^ 1'b1) & (hash_arr_14_empty_n ^ 1'b1) & (hash_arr_13_empty_n ^ 1'b1) & (hash_arr_12_empty_n ^ 1'b1) & (hash_arr_11_empty_n ^ 1'b1) & (hash_arr_10_empty_n ^ 1'b1) & (hash_arr_9_empty_n ^ 1'b1) & (hash_arr_8_empty_n ^ 1'b1) & (hash_arr_7_empty_n ^ 1'b1) & (hash_arr_6_empty_n ^ 1'b1) & (hash_arr_5_empty_n ^ 1'b1) & (hash_arr_4_empty_n ^ 1'b1) & (hash_arr_3_empty_n ^ 1'b1) & (hash_arr_2_empty_n ^ 1'b1) & (hash_arr_1_empty_n ^ 1'b1) & (hash_arr_empty_n ^ 1'b1) & (hash_arr_channel_empty_n ^ 1'b1) & entry_proc_U0_ap_idle);
 
 assign ap_ready = entry_proc_U0_ap_ready;
 
@@ -1548,11 +1519,47 @@ assign entry_proc_U0_ap_continue = 1'b1;
 
 assign entry_proc_U0_ap_start = ap_start;
 
-assign layer2_out_0 = Block_entry17_proc_U0_layer2_out_0;
+assign layer2_out_0 = sparse_compute_U0_layer2_out_0;
 
-assign layer2_out_0_ap_vld = Block_entry17_proc_U0_layer2_out_0_ap_vld;
+assign layer2_out_0_ap_vld = sparse_compute_U0_layer2_out_0_ap_vld;
 
-assign sparse_compute_U0_ap_continue = feat_out_channel_full_n;
+assign layer2_out_1 = sparse_compute_U0_layer2_out_1;
+
+assign layer2_out_1_ap_vld = sparse_compute_U0_layer2_out_1_ap_vld;
+
+assign layer2_out_2 = sparse_compute_U0_layer2_out_2;
+
+assign layer2_out_2_ap_vld = sparse_compute_U0_layer2_out_2_ap_vld;
+
+assign layer2_out_3 = sparse_compute_U0_layer2_out_3;
+
+assign layer2_out_3_ap_vld = sparse_compute_U0_layer2_out_3_ap_vld;
+
+assign layer2_out_4 = sparse_compute_U0_layer2_out_4;
+
+assign layer2_out_4_ap_vld = sparse_compute_U0_layer2_out_4_ap_vld;
+
+assign layer2_out_5 = sparse_compute_U0_layer2_out_5;
+
+assign layer2_out_5_ap_vld = sparse_compute_U0_layer2_out_5_ap_vld;
+
+assign layer2_out_6 = sparse_compute_U0_layer2_out_6;
+
+assign layer2_out_6_ap_vld = sparse_compute_U0_layer2_out_6_ap_vld;
+
+assign layer2_out_7 = sparse_compute_U0_layer2_out_7;
+
+assign layer2_out_7_ap_vld = sparse_compute_U0_layer2_out_7_ap_vld;
+
+assign layer2_out_8 = sparse_compute_U0_layer2_out_8;
+
+assign layer2_out_8_ap_vld = sparse_compute_U0_layer2_out_8_ap_vld;
+
+assign layer2_out_9 = sparse_compute_U0_layer2_out_9;
+
+assign layer2_out_9_ap_vld = sparse_compute_U0_layer2_out_9_ap_vld;
+
+assign sparse_compute_U0_ap_continue = 1'b1;
 
 assign sparse_compute_U0_ap_start = (hash_arr_empty_n & hash_arr_channel_empty_n & hash_arr_9_empty_n & hash_arr_8_empty_n & hash_arr_7_empty_n & hash_arr_6_empty_n & hash_arr_5_empty_n & hash_arr_4_empty_n & hash_arr_3_empty_n & hash_arr_2_empty_n & hash_arr_1_empty_n & hash_arr_18_empty_n & hash_arr_17_empty_n & hash_arr_16_empty_n & hash_arr_15_empty_n & hash_arr_14_empty_n & hash_arr_13_empty_n & hash_arr_12_empty_n & hash_arr_11_empty_n & hash_arr_10_empty_n & feat_arr_empty_n & feat_arr_channel_empty_n & feat_arr_8_empty_n & feat_arr_7_empty_n & feat_arr_6_empty_n & feat_arr_5_empty_n & feat_arr_4_empty_n & feat_arr_3_empty_n & feat_arr_2_empty_n & feat_arr_1_empty_n);
 

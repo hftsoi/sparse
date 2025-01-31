@@ -12,20 +12,29 @@ entity model_test is
 port (
     x_in : IN STD_LOGIC_VECTOR (1199 downto 0);
     layer2_out_0 : OUT STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_1 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_2 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_3 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_4 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_5 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_6 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_7 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_8 : IN STD_LOGIC_VECTOR (24 downto 0);
-    layer2_out_9 : IN STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_1 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_2 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_3 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_4 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_5 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_6 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_7 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_8 : OUT STD_LOGIC_VECTOR (24 downto 0);
+    layer2_out_9 : OUT STD_LOGIC_VECTOR (24 downto 0);
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     x_in_ap_vld : IN STD_LOGIC;
     ap_start : IN STD_LOGIC;
     layer2_out_0_ap_vld : OUT STD_LOGIC;
+    layer2_out_1_ap_vld : OUT STD_LOGIC;
+    layer2_out_2_ap_vld : OUT STD_LOGIC;
+    layer2_out_3_ap_vld : OUT STD_LOGIC;
+    layer2_out_4_ap_vld : OUT STD_LOGIC;
+    layer2_out_5_ap_vld : OUT STD_LOGIC;
+    layer2_out_6_ap_vld : OUT STD_LOGIC;
+    layer2_out_7_ap_vld : OUT STD_LOGIC;
+    layer2_out_8_ap_vld : OUT STD_LOGIC;
+    layer2_out_9_ap_vld : OUT STD_LOGIC;
     ap_done : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC );
@@ -35,8 +44,9 @@ end;
 architecture behav of model_test is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "model_test_model_test,hls_ip_2023_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.370000,HLS_SYN_LAT=27,HLS_SYN_TPT=19,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=8933,HLS_SYN_LUT=42054,HLS_VERSION=2023_1}";
+    "model_test_model_test,hls_ip_2023_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.372000,HLS_SYN_LAT=27,HLS_SYN_TPT=19,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=10793,HLS_SYN_LUT=69682,HLS_VERSION=2023_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
 
@@ -210,22 +220,26 @@ architecture behav of model_test is
     signal sparse_compute_U0_ap_continue : STD_LOGIC;
     signal sparse_compute_U0_ap_idle : STD_LOGIC;
     signal sparse_compute_U0_ap_ready : STD_LOGIC;
-    signal sparse_compute_U0_ap_return : STD_LOGIC_VECTOR (20 downto 0);
-    signal feat_out_channel_full_n : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_start : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_done : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_continue : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_idle : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_ready : STD_LOGIC;
-    signal Block_entry16_proc_U0_ap_return : STD_LOGIC_VECTOR (20 downto 0);
-    signal feat_out_load_loc_channel_full_n : STD_LOGIC;
-    signal Block_entry17_proc_U0_ap_start : STD_LOGIC;
-    signal Block_entry17_proc_U0_ap_done : STD_LOGIC;
-    signal Block_entry17_proc_U0_ap_continue : STD_LOGIC;
-    signal Block_entry17_proc_U0_ap_idle : STD_LOGIC;
-    signal Block_entry17_proc_U0_ap_ready : STD_LOGIC;
-    signal Block_entry17_proc_U0_layer2_out_0 : STD_LOGIC_VECTOR (24 downto 0);
-    signal Block_entry17_proc_U0_layer2_out_0_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_0 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_0_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_1 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_1_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_2 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_2_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_3 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_3_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_4 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_4_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_5 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_5_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_6 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_6_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_7 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_7_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_8 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_8_ap_vld : STD_LOGIC;
+    signal sparse_compute_U0_layer2_out_9 : STD_LOGIC_VECTOR (24 downto 0);
+    signal sparse_compute_U0_layer2_out_9_ap_vld : STD_LOGIC;
     signal x_in_c_full_n : STD_LOGIC;
     signal x_in_c_dout : STD_LOGIC_VECTOR (1199 downto 0);
     signal x_in_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
@@ -351,14 +365,6 @@ architecture behav of model_test is
     signal feat_arr_8_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
     signal feat_arr_8_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
     signal feat_arr_8_empty_n : STD_LOGIC;
-    signal feat_out_channel_dout : STD_LOGIC_VECTOR (20 downto 0);
-    signal feat_out_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
-    signal feat_out_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
-    signal feat_out_channel_empty_n : STD_LOGIC;
-    signal feat_out_load_loc_channel_dout : STD_LOGIC_VECTOR (20 downto 0);
-    signal feat_out_load_loc_channel_num_data_valid : STD_LOGIC_VECTOR (1 downto 0);
-    signal feat_out_load_loc_channel_fifo_cap : STD_LOGIC_VECTOR (1 downto 0);
-    signal feat_out_load_loc_channel_empty_n : STD_LOGIC;
     signal start_for_sparse_input_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_sparse_input_U0_full_n : STD_LOGIC;
     signal start_for_sparse_input_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
@@ -401,6 +407,8 @@ architecture behav of model_test is
         x_in_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
         x_in_empty_n : IN STD_LOGIC;
         x_in_read : OUT STD_LOGIC;
+        p_read : IN STD_LOGIC_VECTOR (0 downto 0);
+        p_read59 : IN STD_LOGIC_VECTOR (0 downto 0);
         ap_return_0 : OUT STD_LOGIC_VECTOR (3 downto 0);
         ap_return_1 : OUT STD_LOGIC_VECTOR (3 downto 0);
         ap_return_2 : OUT STD_LOGIC_VECTOR (3 downto 0);
@@ -473,36 +481,26 @@ architecture behav of model_test is
         p_read27 : IN STD_LOGIC_VECTOR (11 downto 0);
         p_read28 : IN STD_LOGIC_VECTOR (11 downto 0);
         p_read29 : IN STD_LOGIC_VECTOR (11 downto 0);
-        ap_return : OUT STD_LOGIC_VECTOR (20 downto 0) );
-    end component;
-
-
-    component model_test_Block_entry16_proc IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        p_read : IN STD_LOGIC_VECTOR (20 downto 0);
-        ap_return : OUT STD_LOGIC_VECTOR (20 downto 0) );
-    end component;
-
-
-    component model_test_Block_entry17_proc IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        p_read9 : IN STD_LOGIC_VECTOR (20 downto 0);
         layer2_out_0 : OUT STD_LOGIC_VECTOR (24 downto 0);
-        layer2_out_0_ap_vld : OUT STD_LOGIC );
+        layer2_out_0_ap_vld : OUT STD_LOGIC;
+        layer2_out_1 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_1_ap_vld : OUT STD_LOGIC;
+        layer2_out_2 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_2_ap_vld : OUT STD_LOGIC;
+        layer2_out_3 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_3_ap_vld : OUT STD_LOGIC;
+        layer2_out_4 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_4_ap_vld : OUT STD_LOGIC;
+        layer2_out_5 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_5_ap_vld : OUT STD_LOGIC;
+        layer2_out_6 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_6_ap_vld : OUT STD_LOGIC;
+        layer2_out_7 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_7_ap_vld : OUT STD_LOGIC;
+        layer2_out_8 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_8_ap_vld : OUT STD_LOGIC;
+        layer2_out_9 : OUT STD_LOGIC_VECTOR (24 downto 0);
+        layer2_out_9_ap_vld : OUT STD_LOGIC );
     end component;
 
 
@@ -550,23 +548,6 @@ architecture behav of model_test is
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
         if_dout : OUT STD_LOGIC_VECTOR (11 downto 0);
-        if_num_data_valid : OUT STD_LOGIC_VECTOR (1 downto 0);
-        if_fifo_cap : OUT STD_LOGIC_VECTOR (1 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component model_test_fifo_w21_d2_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (20 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (20 downto 0);
         if_num_data_valid : OUT STD_LOGIC_VECTOR (1 downto 0);
         if_fifo_cap : OUT STD_LOGIC_VECTOR (1 downto 0);
         if_empty_n : OUT STD_LOGIC;
@@ -625,6 +606,8 @@ begin
         x_in_fifo_cap => x_in_c_fifo_cap,
         x_in_empty_n => x_in_c_empty_n,
         x_in_read => sparse_input_U0_x_in_read,
+        p_read => ap_const_lv1_0,
+        p_read59 => ap_const_lv1_0,
         ap_return_0 => sparse_input_U0_ap_return_0,
         ap_return_1 => sparse_input_U0_ap_return_1,
         ap_return_2 => sparse_input_U0_ap_return_2,
@@ -695,32 +678,26 @@ begin
         p_read27 => feat_arr_6_dout,
         p_read28 => feat_arr_7_dout,
         p_read29 => feat_arr_8_dout,
-        ap_return => sparse_compute_U0_ap_return);
-
-    Block_entry16_proc_U0 : component model_test_Block_entry16_proc
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst,
-        ap_start => Block_entry16_proc_U0_ap_start,
-        ap_done => Block_entry16_proc_U0_ap_done,
-        ap_continue => Block_entry16_proc_U0_ap_continue,
-        ap_idle => Block_entry16_proc_U0_ap_idle,
-        ap_ready => Block_entry16_proc_U0_ap_ready,
-        p_read => feat_out_channel_dout,
-        ap_return => Block_entry16_proc_U0_ap_return);
-
-    Block_entry17_proc_U0 : component model_test_Block_entry17_proc
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst,
-        ap_start => Block_entry17_proc_U0_ap_start,
-        ap_done => Block_entry17_proc_U0_ap_done,
-        ap_continue => Block_entry17_proc_U0_ap_continue,
-        ap_idle => Block_entry17_proc_U0_ap_idle,
-        ap_ready => Block_entry17_proc_U0_ap_ready,
-        p_read9 => feat_out_load_loc_channel_dout,
-        layer2_out_0 => Block_entry17_proc_U0_layer2_out_0,
-        layer2_out_0_ap_vld => Block_entry17_proc_U0_layer2_out_0_ap_vld);
+        layer2_out_0 => sparse_compute_U0_layer2_out_0,
+        layer2_out_0_ap_vld => sparse_compute_U0_layer2_out_0_ap_vld,
+        layer2_out_1 => sparse_compute_U0_layer2_out_1,
+        layer2_out_1_ap_vld => sparse_compute_U0_layer2_out_1_ap_vld,
+        layer2_out_2 => sparse_compute_U0_layer2_out_2,
+        layer2_out_2_ap_vld => sparse_compute_U0_layer2_out_2_ap_vld,
+        layer2_out_3 => sparse_compute_U0_layer2_out_3,
+        layer2_out_3_ap_vld => sparse_compute_U0_layer2_out_3_ap_vld,
+        layer2_out_4 => sparse_compute_U0_layer2_out_4,
+        layer2_out_4_ap_vld => sparse_compute_U0_layer2_out_4_ap_vld,
+        layer2_out_5 => sparse_compute_U0_layer2_out_5,
+        layer2_out_5_ap_vld => sparse_compute_U0_layer2_out_5_ap_vld,
+        layer2_out_6 => sparse_compute_U0_layer2_out_6,
+        layer2_out_6_ap_vld => sparse_compute_U0_layer2_out_6_ap_vld,
+        layer2_out_7 => sparse_compute_U0_layer2_out_7,
+        layer2_out_7_ap_vld => sparse_compute_U0_layer2_out_7_ap_vld,
+        layer2_out_8 => sparse_compute_U0_layer2_out_8,
+        layer2_out_8_ap_vld => sparse_compute_U0_layer2_out_8_ap_vld,
+        layer2_out_9 => sparse_compute_U0_layer2_out_9,
+        layer2_out_9_ap_vld => sparse_compute_U0_layer2_out_9_ap_vld);
 
     x_in_c_U : component model_test_fifo_w1200_d3_A
     port map (
@@ -1186,36 +1163,6 @@ begin
         if_fifo_cap => feat_arr_8_fifo_cap,
         if_empty_n => feat_arr_8_empty_n,
         if_read => sparse_compute_U0_ap_ready);
-
-    feat_out_channel_U : component model_test_fifo_w21_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => sparse_compute_U0_ap_return,
-        if_full_n => feat_out_channel_full_n,
-        if_write => sparse_compute_U0_ap_done,
-        if_dout => feat_out_channel_dout,
-        if_num_data_valid => feat_out_channel_num_data_valid,
-        if_fifo_cap => feat_out_channel_fifo_cap,
-        if_empty_n => feat_out_channel_empty_n,
-        if_read => Block_entry16_proc_U0_ap_ready);
-
-    feat_out_load_loc_channel_U : component model_test_fifo_w21_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => Block_entry16_proc_U0_ap_return,
-        if_full_n => feat_out_load_loc_channel_full_n,
-        if_write => Block_entry16_proc_U0_ap_done,
-        if_dout => feat_out_load_loc_channel_dout,
-        if_num_data_valid => feat_out_load_loc_channel_num_data_valid,
-        if_fifo_cap => feat_out_load_loc_channel_fifo_cap,
-        if_empty_n => feat_out_load_loc_channel_empty_n,
-        if_read => Block_entry17_proc_U0_ap_ready);
 
     start_for_sparse_input_U0_U : component model_test_start_for_sparse_input_U0
     port map (
@@ -1713,10 +1660,6 @@ begin
         end if;
     end process;
 
-    Block_entry16_proc_U0_ap_continue <= feat_out_load_loc_channel_full_n;
-    Block_entry16_proc_U0_ap_start <= feat_out_channel_empty_n;
-    Block_entry17_proc_U0_ap_continue <= ap_const_logic_1;
-    Block_entry17_proc_U0_ap_start <= feat_out_load_loc_channel_empty_n;
     ap_channel_done_feat_arr <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_feat_arr xor ap_const_logic_1));
     ap_channel_done_feat_arr_1 <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_feat_arr_1 xor ap_const_logic_1));
     ap_channel_done_feat_arr_2 <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_feat_arr_2 xor ap_const_logic_1));
@@ -1747,9 +1690,9 @@ begin
     ap_channel_done_hash_arr_8 <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_hash_arr_8 xor ap_const_logic_1));
     ap_channel_done_hash_arr_9 <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_hash_arr_9 xor ap_const_logic_1));
     ap_channel_done_hash_arr_channel <= (sparse_input_U0_ap_done and (ap_sync_reg_channel_write_hash_arr_channel xor ap_const_logic_1));
-    ap_done <= Block_entry17_proc_U0_ap_done;
-    ap_idle <= (sparse_input_U0_ap_idle and sparse_compute_U0_ap_idle and (feat_out_load_loc_channel_empty_n xor ap_const_logic_1) and (feat_out_channel_empty_n xor ap_const_logic_1) and (feat_arr_8_empty_n xor ap_const_logic_1) and (feat_arr_7_empty_n xor ap_const_logic_1) and (feat_arr_6_empty_n xor ap_const_logic_1) and (feat_arr_5_empty_n xor ap_const_logic_1) and (feat_arr_4_empty_n xor ap_const_logic_1) and (feat_arr_3_empty_n xor ap_const_logic_1) and (feat_arr_2_empty_n xor ap_const_logic_1) and (feat_arr_1_empty_n xor ap_const_logic_1) and (feat_arr_empty_n xor ap_const_logic_1) and (feat_arr_channel_empty_n xor ap_const_logic_1) and (hash_arr_18_empty_n xor ap_const_logic_1) and (hash_arr_17_empty_n xor ap_const_logic_1) and (hash_arr_16_empty_n xor ap_const_logic_1) and (hash_arr_15_empty_n xor ap_const_logic_1) and (hash_arr_14_empty_n xor ap_const_logic_1) and (hash_arr_13_empty_n xor ap_const_logic_1) and (hash_arr_12_empty_n xor ap_const_logic_1) and (hash_arr_11_empty_n xor ap_const_logic_1) and (hash_arr_10_empty_n 
-    xor ap_const_logic_1) and (hash_arr_9_empty_n xor ap_const_logic_1) and (hash_arr_8_empty_n xor ap_const_logic_1) and (hash_arr_7_empty_n xor ap_const_logic_1) and (hash_arr_6_empty_n xor ap_const_logic_1) and (hash_arr_5_empty_n xor ap_const_logic_1) and (hash_arr_4_empty_n xor ap_const_logic_1) and (hash_arr_3_empty_n xor ap_const_logic_1) and (hash_arr_2_empty_n xor ap_const_logic_1) and (hash_arr_1_empty_n xor ap_const_logic_1) and (hash_arr_empty_n xor ap_const_logic_1) and (hash_arr_channel_empty_n xor ap_const_logic_1) and entry_proc_U0_ap_idle and Block_entry17_proc_U0_ap_idle and Block_entry16_proc_U0_ap_idle);
+    ap_done <= sparse_compute_U0_ap_done;
+    ap_idle <= (sparse_input_U0_ap_idle and sparse_compute_U0_ap_idle and (feat_arr_8_empty_n xor ap_const_logic_1) and (feat_arr_7_empty_n xor ap_const_logic_1) and (feat_arr_6_empty_n xor ap_const_logic_1) and (feat_arr_5_empty_n xor ap_const_logic_1) and (feat_arr_4_empty_n xor ap_const_logic_1) and (feat_arr_3_empty_n xor ap_const_logic_1) and (feat_arr_2_empty_n xor ap_const_logic_1) and (feat_arr_1_empty_n xor ap_const_logic_1) and (feat_arr_empty_n xor ap_const_logic_1) and (feat_arr_channel_empty_n xor ap_const_logic_1) and (hash_arr_18_empty_n xor ap_const_logic_1) and (hash_arr_17_empty_n xor ap_const_logic_1) and (hash_arr_16_empty_n xor ap_const_logic_1) and (hash_arr_15_empty_n xor ap_const_logic_1) and (hash_arr_14_empty_n xor ap_const_logic_1) and (hash_arr_13_empty_n xor ap_const_logic_1) and (hash_arr_12_empty_n xor ap_const_logic_1) and (hash_arr_11_empty_n xor ap_const_logic_1) and (hash_arr_10_empty_n xor ap_const_logic_1) and (hash_arr_9_empty_n xor ap_const_logic_1) and (hash_arr_8_empty_n xor ap_const_logic_1) 
+    and (hash_arr_7_empty_n xor ap_const_logic_1) and (hash_arr_6_empty_n xor ap_const_logic_1) and (hash_arr_5_empty_n xor ap_const_logic_1) and (hash_arr_4_empty_n xor ap_const_logic_1) and (hash_arr_3_empty_n xor ap_const_logic_1) and (hash_arr_2_empty_n xor ap_const_logic_1) and (hash_arr_1_empty_n xor ap_const_logic_1) and (hash_arr_empty_n xor ap_const_logic_1) and (hash_arr_channel_empty_n xor ap_const_logic_1) and entry_proc_U0_ap_idle);
     ap_ready <= entry_proc_U0_ap_ready;
     ap_sync_channel_write_feat_arr <= ((feat_arr_full_n and ap_channel_done_feat_arr) or ap_sync_reg_channel_write_feat_arr);
     ap_sync_channel_write_feat_arr_1 <= ((feat_arr_1_full_n and ap_channel_done_feat_arr_1) or ap_sync_reg_channel_write_feat_arr_1);
@@ -1783,9 +1726,27 @@ begin
     ap_sync_channel_write_hash_arr_channel <= ((hash_arr_channel_full_n and ap_channel_done_hash_arr_channel) or ap_sync_reg_channel_write_hash_arr_channel);
     entry_proc_U0_ap_continue <= ap_const_logic_1;
     entry_proc_U0_ap_start <= ap_start;
-    layer2_out_0 <= Block_entry17_proc_U0_layer2_out_0;
-    layer2_out_0_ap_vld <= Block_entry17_proc_U0_layer2_out_0_ap_vld;
-    sparse_compute_U0_ap_continue <= feat_out_channel_full_n;
+    layer2_out_0 <= sparse_compute_U0_layer2_out_0;
+    layer2_out_0_ap_vld <= sparse_compute_U0_layer2_out_0_ap_vld;
+    layer2_out_1 <= sparse_compute_U0_layer2_out_1;
+    layer2_out_1_ap_vld <= sparse_compute_U0_layer2_out_1_ap_vld;
+    layer2_out_2 <= sparse_compute_U0_layer2_out_2;
+    layer2_out_2_ap_vld <= sparse_compute_U0_layer2_out_2_ap_vld;
+    layer2_out_3 <= sparse_compute_U0_layer2_out_3;
+    layer2_out_3_ap_vld <= sparse_compute_U0_layer2_out_3_ap_vld;
+    layer2_out_4 <= sparse_compute_U0_layer2_out_4;
+    layer2_out_4_ap_vld <= sparse_compute_U0_layer2_out_4_ap_vld;
+    layer2_out_5 <= sparse_compute_U0_layer2_out_5;
+    layer2_out_5_ap_vld <= sparse_compute_U0_layer2_out_5_ap_vld;
+    layer2_out_6 <= sparse_compute_U0_layer2_out_6;
+    layer2_out_6_ap_vld <= sparse_compute_U0_layer2_out_6_ap_vld;
+    layer2_out_7 <= sparse_compute_U0_layer2_out_7;
+    layer2_out_7_ap_vld <= sparse_compute_U0_layer2_out_7_ap_vld;
+    layer2_out_8 <= sparse_compute_U0_layer2_out_8;
+    layer2_out_8_ap_vld <= sparse_compute_U0_layer2_out_8_ap_vld;
+    layer2_out_9 <= sparse_compute_U0_layer2_out_9;
+    layer2_out_9_ap_vld <= sparse_compute_U0_layer2_out_9_ap_vld;
+    sparse_compute_U0_ap_continue <= ap_const_logic_1;
     sparse_compute_U0_ap_start <= (hash_arr_empty_n and hash_arr_channel_empty_n and hash_arr_9_empty_n and hash_arr_8_empty_n and hash_arr_7_empty_n and hash_arr_6_empty_n and hash_arr_5_empty_n and hash_arr_4_empty_n and hash_arr_3_empty_n and hash_arr_2_empty_n and hash_arr_1_empty_n and hash_arr_18_empty_n and hash_arr_17_empty_n and hash_arr_16_empty_n and hash_arr_15_empty_n and hash_arr_14_empty_n and hash_arr_13_empty_n and hash_arr_12_empty_n and hash_arr_11_empty_n and hash_arr_10_empty_n and feat_arr_empty_n and feat_arr_channel_empty_n and feat_arr_8_empty_n and feat_arr_7_empty_n and feat_arr_6_empty_n and feat_arr_5_empty_n and feat_arr_4_empty_n and feat_arr_3_empty_n and feat_arr_2_empty_n and feat_arr_1_empty_n);
     sparse_input_U0_ap_continue <= (ap_sync_channel_write_hash_arr_channel and ap_sync_channel_write_hash_arr_9 and ap_sync_channel_write_hash_arr_8 and ap_sync_channel_write_hash_arr_7 and ap_sync_channel_write_hash_arr_6 and ap_sync_channel_write_hash_arr_5 and ap_sync_channel_write_hash_arr_4 and ap_sync_channel_write_hash_arr_3 and ap_sync_channel_write_hash_arr_2 and ap_sync_channel_write_hash_arr_18 and ap_sync_channel_write_hash_arr_17 and ap_sync_channel_write_hash_arr_16 and ap_sync_channel_write_hash_arr_15 and ap_sync_channel_write_hash_arr_14 and ap_sync_channel_write_hash_arr_13 and ap_sync_channel_write_hash_arr_12 and ap_sync_channel_write_hash_arr_11 and ap_sync_channel_write_hash_arr_10 and ap_sync_channel_write_hash_arr_1 and ap_sync_channel_write_hash_arr and ap_sync_channel_write_feat_arr_channel and ap_sync_channel_write_feat_arr_8 and ap_sync_channel_write_feat_arr_7 and ap_sync_channel_write_feat_arr_6 and ap_sync_channel_write_feat_arr_5 and ap_sync_channel_write_feat_arr_4 and ap_sync_channel_write_feat_arr_3 and ap_sync_channel_write_feat_arr_2 
     and ap_sync_channel_write_feat_arr_1 and ap_sync_channel_write_feat_arr);

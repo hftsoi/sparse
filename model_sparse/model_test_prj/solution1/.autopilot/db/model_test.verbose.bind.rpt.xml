@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'model_test'" level="0">
-<item name = "Date">Thu Jan 30 18:47:20 2025
+<item name = "Date">Fri Jan 31 22:01:52 2025
 </item>
 <item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">model_test_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 4.370 ns, 0.62 ns</column>
+<column name="ap_clk">5.00 ns, 4.372 ns, 0.62 ns</column>
 </table>
 </item>
 </section>
@@ -31,11 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="call_ln0_entry_proc_fu_72">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
-<column name="grp_sparse_input_fu_79">sparse_input, 18, 18, 90.000 ns, 90.000 ns, 18, 18, no</column>
-<column name="grp_sparse_compute_fu_84">sparse_compute, 7, 7, 35.000 ns, 35.000 ns, 7, 7, no</column>
-<column name="feat_out_load_loc_channel_Block_entry16_proc_fu_118">Block_entry16_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
-<column name="call_ln183_Block_entry17_proc_fu_123">Block_entry17_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="call_ln0_entry_proc_fu_70">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_sparse_input_fu_77">sparse_input, 18, 18, 90.000 ns, 90.000 ns, 18, 18, no</column>
+<column name="grp_sparse_compute_fu_86">sparse_compute, 7, 7, 35.000 ns, 35.000 ns, 7, 7, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

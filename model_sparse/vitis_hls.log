@@ -8,7 +8,7 @@
 
 source /tools/Xilinx/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2023.1/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'coder' on host 'coder-hftsoi-hls' (Linux_x86_64 version 5.15.134+release+2.10.0r8-amd64) on Thu Jan 30 18:45:08 UTC 2025
+INFO: [HLS 200-10] For user 'coder' on host 'coder-hftsoi-hls' (Linux_x86_64 version 5.15.134+release+2.10.0r8-amd64) on Fri Jan 31 21:59:14 UTC 2025
 INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
 INFO: [HLS 200-10] In directory '/home/coder/sparse/model_sparse'
 Sourcing Tcl script 'build_prj.tcl'
@@ -43,7 +43,7 @@ INFO: [HLS 200-1510] Running: set_clock_uncertainty 12.5% default
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
 ***** C/RTL SYNTHESIS *****
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.449 GB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.06 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.449 GB.
 INFO: [HLS 200-10] Analyzing design file 'firmware/model_test.cpp' ... 
 WARNING: [HLS 207-5531] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:33:9)
 WARNING: [HLS 207-5531] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:107:9)
@@ -52,11 +52,9 @@ WARNING: [HLS 207-5532] 'region' in '#pragma HLS Inline' is deprecated, use 'Inl
 WARNING: [HLS 207-5532] 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead (firmware/nnet_utils/nnet_conv2d.h:63:26)
 WARNING: [HLS 207-5559] unexpected pragma argument 'compute_output_buffer_1d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:79:34)
 WARNING: [HLS 207-5559] unexpected pragma argument 'compute_output_buffer_2d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:80:34)
-WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:183:47)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:220:52)
 Resolution: For help on HLS 214-113 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=214-113.html
-WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region (firmware/model_test.cpp:158:9)
-Resolution: For help on HLS 214-114 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=214-114.html
-WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file firmware/model_test.cpp
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file firmware/model_test.cpp
 Resolution: For help on HLS 200-471 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-471.html
 WARNING: [HLS 207-5292] unused parameter 'keep' (firmware/nnet_utils/nnet_helpers.h:285:99)
 WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:14:36)
@@ -69,46 +67,37 @@ WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_functi
 WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:33:58)
 WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:34:51)
 WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:35:49)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.1 seconds. CPU system time: 0.8 seconds. Elapsed time: 8.91 seconds; current allocated memory: 1.454 GB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.18 seconds. CPU system time: 0.8 seconds. Elapsed time: 17.38 seconds; current allocated memory: 1.454 GB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 200-1995] There were 5,571 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 64,538 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 27,996 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
-INFO: [HLS 200-1995] There were 27,950 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_186_1' (firmware/model_test.cpp:186:23) in function 'model_test' completely with a factor of 10 (firmware/model_test.cpp:152:0)
-INFO: [HLS 214-186] Unrolling loop 'MultAddLoop1' (firmware/model_test.cpp:102:5) in function 'sparse_compute' completely with a factor of 10 (firmware/model_test.cpp:100:0)
-INFO: [HLS 214-186] Unrolling loop 'MultAddLoop2' (firmware/model_test.cpp:110:9) in function 'sparse_compute' completely with a factor of 10 (firmware/model_test.cpp:100:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_70_1' (firmware/model_test.cpp:70:22) in function 'sparse_input' completely with a factor of 10 (firmware/model_test.cpp:51:0)
-INFO: [HLS 214-186] Unrolling loop 'SparseFillLoop2' (firmware/model_test.cpp:74:9) in function 'sparse_input' completely with a factor of 100 (firmware/model_test.cpp:51:0)
-INFO: [HLS 214-186] Unrolling loop 'ActiveBitLoop' (firmware/model_test.cpp:57:5) in function 'sparse_input' completely with a factor of 100 (firmware/model_test.cpp:51:0)
-INFO: [HLS 214-248] Applying array_partition to 'active_bit': Complete partitioning on dimension 1. (firmware/model_test.cpp:53:16)
-INFO: [HLS 214-248] Applying array_partition to 'hash_arr': Complete partitioning on dimension 1. (firmware/model_test.cpp:175:14)
-INFO: [HLS 214-248] Applying array_partition to 'feat_arr': Complete partitioning on dimension 1. (firmware/model_test.cpp:176:13)
-INFO: [HLS 214-248] Applying array_partition to 'feat_out': Complete partitioning on dimension 1. (firmware/model_test.cpp:181:14)
-INFO: [HLS 214-248] Applying array_partition to 'layer2_out': Complete partitioning on dimension 1. (firmware/model_test.cpp:152:0)
-INFO: [HLS 214-248] Applying array_reshape to 'x_in': Complete reshaping on dimension 1. (firmware/model_test.cpp:152:0)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 37.82 seconds. CPU system time: 0.54 seconds. Elapsed time: 43.5 seconds; current allocated memory: 1.454 GB.
+INFO: [HLS 200-1995] There were 6,230 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 63,781 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 24,319 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 24,303 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /home/coder/sparse/model_sparse/model_test_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-186] Unrolling loop 'MultAddLoop1' (firmware/model_test.cpp:126:5) in function 'sparse_compute' completely with a factor of 10 (firmware/model_test.cpp:124:0)
+INFO: [HLS 214-186] Unrolling loop 'MultAddLoop2' (firmware/model_test.cpp:137:9) in function 'sparse_compute' completely with a factor of 10 (firmware/model_test.cpp:124:0)
+INFO: [HLS 214-186] Unrolling loop 'SparseFillLoop1' (firmware/model_test.cpp:71:5) in function 'sparse_input' completely with a factor of 10 (firmware/model_test.cpp:50:0)
+INFO: [HLS 214-186] Unrolling loop 'SparseFillLoop2' (firmware/model_test.cpp:76:9) in function 'sparse_input' completely with a factor of 100 (firmware/model_test.cpp:50:0)
+INFO: [HLS 214-186] Unrolling loop 'ActiveBitLoop' (firmware/model_test.cpp:57:5) in function 'sparse_input' completely with a factor of 100 (firmware/model_test.cpp:50:0)
+INFO: [HLS 214-248] Applying array_partition to 'active_bit': Complete partitioning on dimension 1. (firmware/model_test.cpp:52:16)
+INFO: [HLS 214-248] Applying array_partition to 'hash_arr': Complete partitioning on dimension 1. (firmware/model_test.cpp:214:14)
+INFO: [HLS 214-248] Applying array_partition to 'feat_arr': Complete partitioning on dimension 1. (firmware/model_test.cpp:215:13)
+INFO: [HLS 214-248] Applying array_partition to 'layer2_out': Complete partitioning on dimension 1. (firmware/model_test.cpp:191:0)
+INFO: [HLS 214-248] Applying array_reshape to 'x_in': Complete reshaping on dimension 1. (firmware/model_test.cpp:191:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 36.09 seconds. CPU system time: 0.66 seconds. Elapsed time: 45.15 seconds; current allocated memory: 1.454 GB.
 INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.454 GB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 2.75 seconds. CPU system time: 0.02 seconds. Elapsed time: 2.86 seconds; current allocated memory: 1.499 GB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1.83 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.92 seconds; current allocated memory: 1.493 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.91 seconds. CPU system time: 0 seconds. Elapsed time: 0.97 seconds; current allocated memory: 1.502 GB.
-INFO: [XFORM 203-712] Applying dataflow to function 'model_test' (firmware/model_test.cpp:175:1), detected/extracted 7 process function(s): 
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.73 seconds. CPU system time: 0 seconds. Elapsed time: 0.8 seconds; current allocated memory: 1.496 GB.
+INFO: [XFORM 203-712] Applying dataflow to function 'model_test' (firmware/model_test.cpp:214:1), detected/extracted 4 process function(s): 
 	 'entry_proc'
 	 'Block_entry1_proc'
 	 'sparse_input'
-	 'Block_entry13_proc'
-	 'sparse_compute'
-	 'Block_entry16_proc'
-	 'Block_entry17_proc'.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/model_test.cpp:105:17) to (firmware/model_test.cpp:113:24) in function 'sparse_compute'... converting 74 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/model_test.cpp:105:6) to (firmware/model_test.cpp:113:24) in function 'sparse_compute'... converting 19 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/model_test.cpp:105:6) to (firmware/model_test.cpp:144:1) in function 'sparse_compute'... converting 122 basic blocks.
-INFO: [XFORM 203-11] Balancing expressions in function 'sparse_input' (firmware/model_test.cpp:53:17)...197 expression(s) balanced.
-INFO: [XFORM 203-11] Balancing expressions in function 'sparse_compute' (firmware/model_test.cpp:105:17)...70 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 6.34 seconds. CPU system time: 0.04 seconds. Elapsed time: 6.82 seconds; current allocated memory: 1.568 GB.
-INFO: [XFORM 203-603] Evaluating the output(s) of a call to function 'Block_entry13_proc' in function 'model_test' and propagating its result(s) since all actual argument(s) to the function are constants.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.8 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.84 seconds; current allocated memory: 1.596 GB.
+	 'sparse_compute'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/model_test.cpp:134:43) to (firmware/model_test.cpp:183:1) in function 'sparse_compute'... converting 1406 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'sparse_input' (firmware/model_test.cpp:52:17)...199 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 5.59 seconds. CPU system time: 0.01 seconds. Elapsed time: 5.6 seconds; current allocated memory: 1.565 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.95 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.97 seconds; current allocated memory: 1.606 GB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'model_test' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -116,108 +105,64 @@ INFO: [HLS 200-42] -- Implementing module 'entry_proc'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.66 seconds; current allocated memory: 1.596 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.06 seconds. Elapsed time: 0.44 seconds; current allocated memory: 1.608 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.36 seconds; current allocated memory: 1.596 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 1.608 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'sparse_input' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 49.05 seconds. CPU system time: 0.32 seconds. Elapsed time: 49.71 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 55.78 seconds. CPU system time: 0.31 seconds. Elapsed time: 56.92 seconds; current allocated memory: 2.205 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 4.82 seconds. CPU system time: 0.06 seconds. Elapsed time: 5.16 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 5 seconds. CPU system time: 0.04 seconds. Elapsed time: 5.29 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'sparse_compute' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2.93 seconds. CPU system time: 0.05 seconds. Elapsed time: 3.17 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 15.43 seconds. CPU system time: 0.07 seconds. Elapsed time: 15.66 seconds; current allocated memory: 2.205 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.41 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Block_entry16_proc' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.4 seconds; current allocated memory: 2.106 GB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.48 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Block_entry17_proc' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.34 seconds; current allocated memory: 2.106 GB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.68 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.72 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.22 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'model_test' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.47 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.38 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.64 seconds; current allocated memory: 2.205 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.42 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.69 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.43 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.68 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'sparse_input' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'sparse_input'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.72 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.97 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.73 seconds. CPU system time: 0.01 seconds. Elapsed time: 2.22 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'sparse_compute' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_5ns_19s_19_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_5ns_20s_20_1_1': 3 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_5s_19s_19_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_5s_20s_20_1_1': 3 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_6ns_19s_20_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12s_6ns_20s_20_1_1': 3 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_12s_5s_17_1_1': 5 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_12s_6ns_17_1_1': 5 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_12s_7ns_18_1_1': 5 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_12s_8ns_19_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'sparse_compute'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 14.99 seconds. CPU system time: 0.24 seconds. Elapsed time: 16.29 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Block_entry16_proc' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_entry16_proc'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.29 seconds. CPU system time: 0.05 seconds. Elapsed time: 2.19 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Block_entry17_proc' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_entry17_proc'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.7 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 17.32 seconds. CPU system time: 0.24 seconds. Elapsed time: 17.94 seconds; current allocated memory: 2.205 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'model_test' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -233,24 +178,6 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer2_out_7' t
 INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer2_out_8' to 'ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'model_test/layer2_out_9' to 'ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'model_test' to 'ap_ctrl_hs'.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_1' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_2' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_3' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_4' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_5' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_6' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_7' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_8' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-WARNING: [RTGEN 206-101] Port 'model_test/layer2_out_9' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'model_test'.
 INFO: [RTMG 210-285] Implementing FIFO 'x_in_c_U(model_test_fifo_w1200_d3_A)' using Vivado Default RAMs.
 INFO: [RTMG 210-285] Implementing FIFO 'hash_arr_channel_U(model_test_fifo_w4_d2_S)' using Shift Registers.
@@ -283,16 +210,249 @@ INFO: [RTMG 210-285] Implementing FIFO 'feat_arr_5_U(model_test_fifo_w12_d2_S)' 
 INFO: [RTMG 210-285] Implementing FIFO 'feat_arr_6_U(model_test_fifo_w12_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'feat_arr_7_U(model_test_fifo_w12_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'feat_arr_8_U(model_test_fifo_w12_d2_S)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'feat_out_channel_U(model_test_fifo_w21_d2_S)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'feat_out_load_loc_channel_U(model_test_fifo_w21_d2_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'start_for_sparse_input_U0_U(model_test_start_for_sparse_input_U0)' using Shift Registers.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0.03 seconds. Elapsed time: 7.85 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 9.41 seconds. CPU system time: 0.05 seconds. Elapsed time: 10.74 seconds; current allocated memory: 2.106 GB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.36 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.38 seconds; current allocated memory: 2.106 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 8.19 seconds. CPU system time: 0.22 seconds. Elapsed time: 16.2 seconds; current allocated memory: 2.205 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 13.97 seconds. CPU system time: 0.06 seconds. Elapsed time: 20.28 seconds; current allocated memory: 2.205 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.95 seconds. CPU system time: 0.04 seconds. Elapsed time: 2.01 seconds; current allocated memory: 2.205 GB.
 INFO: [VHDL 208-304] Generating VHDL RTL for model_test.
 INFO: [VLOG 209-307] Generating Verilog RTL for model_test.
-INFO: [HLS 200-789] **** Estimated Fmax: 228.83 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 141.69 seconds. CPU system time: 2.31 seconds. Elapsed time: 169.62 seconds; current allocated memory: 672.516 MB.
-***** C/RTL SYNTHESIS COMPLETED IN 0h2m49s *****
-INFO: [HLS 200-112] Total CPU user time: 145.76 seconds. Total CPU system time: 3.03 seconds. Total elapsed time: 175.61 seconds; peak allocated memory: 2.106 GB.
-INFO: [Common 17-206] Exiting vitis_hls at Thu Jan 30 18:48:03 2025...
+INFO: [HLS 200-789] **** Estimated Fmax: 228.73 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 172.4 seconds. CPU system time: 2.63 seconds. Elapsed time: 214.45 seconds; current allocated memory: 773.645 MB.
+***** C/RTL SYNTHESIS COMPLETED IN 0h3m34s *****
+***** C/RTL SIMULATION *****
+INFO: [HLS 200-1510] Running: add_files -tb model_test_test.cpp -cflags -std=c++0x -DRTL_SIM 
+INFO: [HLS 200-10] Adding test bench file 'model_test_test.cpp' to the project
+INFO: [HLS 200-1510] Running: cosim_design -trace_level all -setup 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/bin/g++"
+   Compiling model_test_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_model_test.cpp
+   Compiling model_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_model_test_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+1 2 3 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 13.5 seconds. CPU system time: 2.17 seconds. Elapsed time: 17.26 seconds; current allocated memory: 0.000 MB.
+INFO: [COSIM 212-302] Starting C TB testing ...  
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+1 2 3 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [COSIM 212-323] Starting verilog simulation...
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_model_test_top glbl -Oenable_linking_all_libraries -prj model_test.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_15 -L floating_point_v7_0_20 --lib ieee_proposed=./ieee_proposed -s model_test -debug all 
+Multi-threading is on. Using 126 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_model_test_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_entry_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_entry_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_sparse_input.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_sparse_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_sparse_compute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_sparse_compute
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w1200_d3_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w1200_d3_A
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w1200_d3_A_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w4_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w4_d2_S
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w4_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_fifo_w12_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w12_d2_S
+INFO: [VRFC 10-311] analyzing module model_test_fifo_w12_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test_start_for_sparse_input_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module model_test_start_for_sparse_input_U0
+INFO: [VRFC 10-311] analyzing module model_test_start_for_sparse_input_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.model_test_entry_proc
+Compiling module xil_defaultlib.model_test_sparse_input
+Compiling module xil_defaultlib.model_test_sparse_compute
+Compiling module xil_defaultlib.model_test_fifo_w1200_d3_A_ram
+Compiling module xil_defaultlib.model_test_fifo_w1200_d3_A
+Compiling module xil_defaultlib.model_test_fifo_w4_d2_S_ShiftReg
+Compiling module xil_defaultlib.model_test_fifo_w4_d2_S
+Compiling module xil_defaultlib.model_test_fifo_w12_d2_S_ShiftRe...
+Compiling module xil_defaultlib.model_test_fifo_w12_d2_S
+Compiling module xil_defaultlib.model_test_start_for_sparse_inpu...
+Compiling module xil_defaultlib.model_test_start_for_sparse_inpu...
+Compiling module xil_defaultlib.model_test
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_model_test_top
+Compiling module work.glbl
+Built simulation snapshot model_test
+
+****** xsim v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/model_test/xsim_script.tcl
+# xsim {model_test} -view {{model_test_dataflow_ana.wcfg}} -tclbatch {model_test.tcl} -protoinst {model_test.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file model_test.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_model_test_top/AESL_inst_model_test//AESL_inst_model_test_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_model_test_top/AESL_inst_model_test/entry_proc_U0/entry_proc_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_model_test_top/AESL_inst_model_test/sparse_compute_U0/sparse_compute_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_model_test_top/AESL_inst_model_test/sparse_input_U0/sparse_input_U0_activity
+Time resolution is 1 ps
+open_wave_config model_test_dataflow_ana.wcfg
+source model_test.tcl
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set return_group [add_wave_group return(wire) -into $coutputgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_9_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_8_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_7_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_6_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_5_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_4_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_3_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_2_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_1_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_0_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_9 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_8 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_7 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_6 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_5 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_4 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_3 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_2 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_1 -into $return_group -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/layer2_out_0 -into $return_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set return_group [add_wave_group return(wire) -into $cinputgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/x_in_ap_vld -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/AESL_inst_model_test/x_in -into $return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_start -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_done -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_ready -into $blocksiggroup
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_idle -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_model_test_top/AESL_inst_model_test/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_model_test_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_0 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_1 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_2 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_3 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_4 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_5 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_6 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_7 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_8 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_layer2_out_9 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_model_test_top/LENGTH_x_in -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(wire) -into $tbcoutputgroup]
+## add_wave /apatb_model_test_top/layer2_out_9_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_8_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_7_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_6_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_5_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_4_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_3_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_2_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_1_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_0_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/layer2_out_9 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_8 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_7 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_6 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_5 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_4 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_3 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_2 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_1 -into $tb_return_group -radix hex
+## add_wave /apatb_model_test_top/layer2_out_0 -into $tb_return_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(wire) -into $tbcinputgroup]
+## add_wave /apatb_model_test_top/x_in_ap_vld -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_model_test_top/x_in -into $tb_return_group -radix hex
+## save_wave_config model_test.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 3 [0.00%] @ "113000"
+// RTL Simulation : 1 / 3 [100.00%] @ "263000"
+// RTL Simulation : 2 / 3 [166.67%] @ "358000"
+// RTL Simulation : 3 / 3 [100.00%] @ "453000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 482500 ps : File "/home/coder/sparse/model_sparse/model_test_prj/solution1/sim/verilog/model_test.autotb.v" Line 840
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Jan 31 22:04:22 2025...
+INFO: [COSIM 212-316] Starting C post checking ...
+Processing input 0
+Predictions
+0 0 0 0 0 0 0 0 0 0 
+Quantized predictions
+1 2 3 0 0 0 0 0 0 0 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO:
+Report time       : Fri 31 Jan 2025 10:03:10 PM UTC.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
+***** C/RTL SIMULATION COMPLETED IN 0h1m29s *****
+INFO: [HLS 200-112] Total CPU user time: 256.99 seconds. Total CPU system time: 8.41 seconds. Total elapsed time: 309.82 seconds; peak allocated memory: 2.205 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Fri Jan 31 22:04:23 2025...

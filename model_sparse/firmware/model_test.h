@@ -12,7 +12,7 @@
 void model_test(
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
     //result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2]
-    result_t layer2_out[10]
+    result_t layer2_out[N_MAX_PIXELS]
 );
 
 

@@ -1,29 +1,13 @@
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 152, Column: 0 }
-Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_186_1
-  - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:186:23'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          model_test
-  - String:          ''' completely with a factor of '
-  - Factor:          '10'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop1
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:102:5'
+  - LoopLoc:         'firmware/model_test.cpp:126:5'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -33,13 +17,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -49,13 +33,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -65,13 +49,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -81,13 +65,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -97,13 +81,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -113,13 +97,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -129,13 +113,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -145,13 +129,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -161,13 +145,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -177,13 +161,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 100, Column: 0 }
-Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi8ELi1ELS3_5ELS4_3ELi0EE
+DebugLoc:        { File: firmware/model_test.cpp, Line: 124, Column: 0 }
+Function:        _Z14sparse_computeP7ap_uintILi10EEP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS2_ILi25ELi10ELS3_5ELS4_3ELi0EEPS2_ILi10ELi3ELS3_5ELS4_3ELi0EE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        MultAddLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:110:9'
+  - LoopLoc:         'firmware/model_test.cpp:137:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_compute
@@ -193,13 +177,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_70_1
+  - LoopName:        SparseFillLoop1
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:70:22'
+  - LoopLoc:         'firmware/model_test.cpp:71:5'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -209,13 +193,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -225,13 +209,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -241,13 +225,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -257,13 +241,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -273,13 +257,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -289,13 +273,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -305,13 +289,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -321,13 +305,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -337,13 +321,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -353,13 +337,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        SparseFillLoop2
   - String:          ''' ('
-  - LoopLoc:         'firmware/model_test.cpp:74:9'
+  - LoopLoc:         'firmware/model_test.cpp:76:9'
   - String:          ') '
   - String:          'in function '''
   - String:          sparse_input
@@ -369,7 +353,7 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/model_test.cpp, Line: 51, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 50, Column: 0 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Unrolling loop '''
@@ -385,7 +369,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 53, Column: 16 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 52, Column: 16 }
 Function:        _Z12sparse_inputP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEP7ap_uintILi10EES3_
 Args:            
   - String:          'Applying '
@@ -403,7 +387,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 175, Column: 14 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 214, Column: 14 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -421,7 +405,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 176, Column: 13 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 215, Column: 13 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -439,25 +423,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 181, Column: 14 }
-Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          feat_out
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 152, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 191, Column: 0 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '
@@ -475,7 +441,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-reshape
 Name:            ArrayXform
-DebugLoc:        { File: firmware/model_test.cpp, Line: 152, Column: 0 }
+DebugLoc:        { File: firmware/model_test.cpp, Line: 191, Column: 0 }
 Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
 Args:            
   - String:          'Applying '

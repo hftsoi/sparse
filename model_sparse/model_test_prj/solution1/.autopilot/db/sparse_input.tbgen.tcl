@@ -16,13 +16,17 @@ set C_modelName {sparse_input}
 set C_modelType { int 200 }
 set C_modelArgList {
 	{ x_in int 1200 regular {fifo 0}  }
+	{ p_read int 1 regular  }
+	{ p_read59 int 1 regular  }
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "x_in", "interface" : "fifo", "bitwidth" : 1200, "direction" : "READONLY"} , 
+ 	{ "Name" : "p_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
+ 	{ "Name" : "p_read59", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 200} ]}
 # RTL Port declarations: 
-set portNum 42
+set portNum 44
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -36,6 +40,8 @@ set portList {
 	{ x_in_fifo_cap sc_in sc_lv 3 signal 0 } 
 	{ x_in_empty_n sc_in sc_logic 1 signal 0 } 
 	{ x_in_read sc_out sc_logic 1 signal 0 } 
+	{ p_read sc_in sc_lv 1 signal 1 } 
+	{ p_read59 sc_in sc_lv 1 signal 2 } 
 	{ ap_return_0 sc_out sc_lv 4 signal -1 } 
 	{ ap_return_1 sc_out sc_lv 4 signal -1 } 
 	{ ap_return_2 sc_out sc_lv 4 signal -1 } 
@@ -80,6 +86,8 @@ set NewPortList {[
  	{ "name": "x_in_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "x_in", "role": "fifo_cap" }} , 
  	{ "name": "x_in_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "x_in", "role": "empty_n" }} , 
  	{ "name": "x_in_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "x_in", "role": "read" }} , 
+ 	{ "name": "p_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "p_read", "role": "default" }} , 
+ 	{ "name": "p_read59", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "p_read59", "role": "default" }} , 
  	{ "name": "ap_return_0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "ap_return_0", "role": "default" }} , 
  	{ "name": "ap_return_1", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "ap_return_1", "role": "default" }} , 
  	{ "name": "ap_return_2", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "ap_return_2", "role": "default" }} , 
@@ -129,12 +137,16 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "x_in", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
-					{"Name" : "x_in_blk_n", "Type" : "RtlSignal"}]}]}]}
+					{"Name" : "x_in_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read59", "Type" : "None", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	sparse_input {
-		x_in {Type I LastRead 0 FirstWrite -1}}}
+		x_in {Type I LastRead 0 FirstWrite -1}
+		p_read {Type I LastRead 17 FirstWrite -1}
+		p_read59 {Type I LastRead 17 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -148,4 +160,6 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	x_in { ap_fifo {  { x_in_dout fifo_port_we 0 1200 }  { x_in_num_data_valid fifo_status_num_data_valid 0 3 }  { x_in_fifo_cap fifo_update 0 3 }  { x_in_empty_n fifo_status 0 1 }  { x_in_read fifo_data 1 1 } } }
+	p_read { ap_none {  { p_read in_data 0 1 } } }
+	p_read59 { ap_none {  { p_read59 in_data 0 1 } } }
 }

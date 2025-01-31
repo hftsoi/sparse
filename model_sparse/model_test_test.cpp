@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
             // hls-fpga-machine-learning insert data
       input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
       nnet::copy_data<float, input_t, 0, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, x_in);
-      result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2];
+      result_t layer2_out[N_MAX_PIXELS];
 
             // hls-fpga-machine-learning insert top-level-function
             model_test(x_in,layer2_out);
@@ -69,18 +69,18 @@ int main(int argc, char **argv) {
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
                 // hls-fpga-machine-learning insert predictions
-                for(int i = 0; i < OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2; i++) {
+                for(int i = 0; i < N_MAX_PIXELS; i++) {
                   std::cout << pr[i] << " ";
                 }
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
                 // hls-fpga-machine-learning insert quantized
-                nnet::print_result<result_t, OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2>(layer2_out, std::cout, true);
+                nnet::print_result<result_t, N_MAX_PIXELS>(layer2_out, std::cout, true);
             }
             e++;
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2>(layer2_out, fout);
+            nnet::print_result<result_t, N_MAX_PIXELS>(layer2_out, fout);
         }
         fin.close();
         fpr.close();
@@ -90,16 +90,16 @@ int main(int argc, char **argv) {
         // hls-fpga-machine-learning insert zero
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
     nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(x_in);
-    result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2];
+    result_t layer2_out[N_MAX_PIXELS];
 
         // hls-fpga-machine-learning insert top-level-function
         model_test(x_in,layer2_out);
 
         // hls-fpga-machine-learning insert output
-        nnet::print_result<result_t, OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2>(layer2_out, std::cout, true);
+        nnet::print_result<result_t, N_MAX_PIXELS>(layer2_out, std::cout, true);
 
         // hls-fpga-machine-learning insert tb-output
-        nnet::print_result<result_t, OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2>(layer2_out, fout);
+        nnet::print_result<result_t, N_MAX_PIXELS>(layer2_out, fout);
     }
 
     fout.close();
