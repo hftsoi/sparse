@@ -1,0 +1,41 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1 2",
+    "file": "model_test.cpp",
+    "fileloc": 149,
+    "instructions": 74,
+    "name": "model_test",
+    "total_instructions": 29757
+  },
+  "1": {
+    "basicblocks": 1931,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 48,
+    "instructions": 10702,
+    "loads": {
+      "L": 461
+    },
+    "name": "sparse_input",
+    "stores": {
+      "L": 2895
+    },
+    "total_instructions": 10702
+  },
+  "2": {
+    "basicblocks": 2991,
+    "calls": "",
+    "file": "model_test.cpp",
+    "fileloc": 100,
+    "instructions": 18981,
+    "loads": {
+      "L": 770
+    },
+    "name": "sparse_compute",
+    "stores": {
+      "L": 1470
+    },
+    "total_instructions": 18981
+  }
+}

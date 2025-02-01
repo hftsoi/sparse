@@ -1,0 +1,2216 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 55, 
+                   Column: 25 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'nnet::product::mult<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<8, 1, (ap_q_mode)5, (ap_o_mode)3, 0> >::product(ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<8, 1, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_mult.h, Line: 70, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>(ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>*, config2::weight_t*, config2::bias_t*)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, 
+                       Line: 15, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 41, 
+                   Column: 9 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        PixelLoop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 48, 
+                   Column: 13 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        Product1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 52, 
+                   Column: 17 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        Product2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 62, 
+                   Column: 13 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        ResetAccum
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 69, 
+                   Column: 13 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        Accum1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 72, 
+                   Column: 17 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        Accum2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 80, 
+                   Column: 13 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        Result
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        PixelLoop
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:41:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Result
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:80:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum1
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:69:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '9'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Accum2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:72:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        ResetAccum
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:62:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product1
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:48:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '9'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        Product2
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_conv2d_latency.h:52:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 15, 
+                   Column: 0 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::enable_if<!(std::is_same<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_uint<1> >::value), ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0> >::type nnet::cast<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2_mult>(config2_mult::accum_t)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_mult.h, Line: 110, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>(ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>*, config2::weight_t*, config2::bias_t*)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, 
+                       Line: 15, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/weights/b2.h, Line: 12, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          b2
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/weights/w2.h, Line: 12, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          w2
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 19, 
+                   Column: 12 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          data_buf
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '2'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          layer2_out
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_99
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_98
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_97
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_96
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_95
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_94
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_93
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_92
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_91
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_90
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_89
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_88
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_87
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_86
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_85
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_84
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_83
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_82
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_81
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_80
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_79
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_78
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_77
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_76
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_75
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_74
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_73
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_72
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_71
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_70
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_69
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_68
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_67
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_66
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_65
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_64
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_63
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_62
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_61
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_60
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_59
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_58
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_57
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_56
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_55
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_54
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_53
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_52
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_51
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_50
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_49
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_48
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_47
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_46
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_45
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_44
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_43
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_42
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_41
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_40
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_39
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_38
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_37
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_36
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_35
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_34
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_33
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_32
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_31
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_30
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_29
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_28
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_27
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_26
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_25
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_24
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_23
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_22
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_21
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_20
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_19
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_18
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_17
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_16
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_15
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_14
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_13
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_12
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_11
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_10
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_9
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_8
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_7
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_6
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_5
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_4
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_3
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_2
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_1
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            layer2_out_0
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '25'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-array-reshape
+Name:            ArrayXform
+DebugLoc:        { File: firmware/model_test.cpp, Line: 10, Column: 0 }
+Function:        _Z10model_testP8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EEPS_ILi25ELi10ELS0_5ELS1_3ELi0EE
+Args:            
+  - String:          'Applying '
+  - String:          array_reshape
+  - String:          ' to '''
+  - UOName:          x_in
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' reshaping'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-auto-inline-performance-driven
+Name:            AutoInlinePerf
+DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, Line: 38, 
+                   Column: 2 }
+Function:        _ZN4nnet18conv_2d_latency_clI8ap_fixedILi12ELi4EL9ap_q_mode0EL9ap_o_mode0ELi0EES1_ILi25ELi10ELS2_5ELS3_3ELi0EE7config2EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
+Args:            
+  - String:          'Automatically inlining function '''
+  - Callee:          'nnet::fill_buffer_2<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, config2>::fill_buffer(ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [9], unsigned int)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_code_gen.h, Line: 21, 
+                       Column: 0 }
+  - String:          ''' to improve effectiveness of pipeline pragma in function '''
+  - Caller:          'void nnet::conv_2d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>, config2>(ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<25, 10, (ap_q_mode)5, (ap_o_mode)3, 0>*, config2::weight_t*, config2::bias_t*)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_conv2d_latency.h, 
+                       Line: 15, Column: 0 }
+  - String:          ''''
+...
