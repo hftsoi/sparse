@@ -1,0 +1,65 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "3",
+    "file": "model_test.cpp",
+    "fileloc": 7,
+    "instructions": 8,
+    "name": "model_test",
+    "total_instructions": 7129
+  },
+  "1": {
+    "basicblocks": 1995,
+    "calls": "",
+    "file": "nnet_code_gen.h",
+    "fileloc": 17,
+    "instructions": 5736,
+    "loads": {
+      "L": 784
+    },
+    "name": "fill_buffer",
+    "stores": {
+      "L": 900
+    },
+    "total_instructions": 5736
+  },
+  "2": {
+    "basicblocks": 464,
+    "calls": "1 4 4",
+    "file": "nnet_conv2d_latency.h",
+    "fileloc": 11,
+    "instructions": 1341,
+    "loads": {
+      "L": 130
+    },
+    "name": "conv_2d_latency_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "stores": {
+      "L": 60
+    },
+    "total_instructions": 7119
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "2",
+    "file": "nnet_conv2d.h",
+    "fileloc": 42,
+    "instructions": 2,
+    "name": "conv_2d_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "total_instructions": 7121
+  },
+  "4": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "nnet_mult.h",
+    "fileloc": 110,
+    "instructions": 21,
+    "loads": {
+      "L": 4
+    },
+    "name": "cast<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2_mult>",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 21
+  }
+}

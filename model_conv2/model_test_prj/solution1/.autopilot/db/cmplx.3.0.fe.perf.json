@@ -1,0 +1,35 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "model_test.cpp",
+    "fileloc": 7,
+    "instructions": 103,
+    "name": "model_test",
+    "total_instructions": 1206
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "2",
+    "file": "nnet_conv2d.h",
+    "fileloc": 42,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "name": "conv_2d_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "total_instructions": 1103
+  },
+  "2": {
+    "basicblocks": 105,
+    "calls": "",
+    "file": "nnet_conv2d_latency.h",
+    "fileloc": 11,
+    "instructions": 1100,
+    "name": "conv_2d_latency_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "stores": {
+      "L": 100
+    },
+    "total_instructions": 1100
+  }
+}
