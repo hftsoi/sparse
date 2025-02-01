@@ -1,0 +1,95 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "model_test.cpp",
+    "fileloc": 7,
+    "instructions": 8,
+    "name": "model_test",
+    "total_instructions": 41785
+  },
+  "1": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "nnet_code_gen.h",
+    "fileloc": 17,
+    "instructions": 5096,
+    "loads": {
+      "L": 900
+    },
+    "name": "fill_buffer",
+    "stores": {
+      "L": 900
+    },
+    "total_instructions": 40940
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_mult.h",
+    "fileloc": 70,
+    "instructions": 4,
+    "name": "product",
+    "total_instructions": 155
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "5 8",
+    "file": "model_test.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 3,
+    "name": "",
+    "total_instructions": 3695
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "7",
+    "file": "nnet_conv2d.h",
+    "fileloc": 42,
+    "instructions": 2,
+    "name": "conv_2d_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "total_instructions": 41777
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "w2.h",
+    "fileloc": 12,
+    "instructions": 10,
+    "name": "__cxx_global_var_init.1",
+    "total_instructions": 3673
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_mult.h",
+    "fileloc": 110,
+    "instructions": 3,
+    "name": "cast<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2_mult>",
+    "total_instructions": 61
+  },
+  "7": {
+    "basicblocks": 61,
+    "calls": "1 2 6",
+    "file": "nnet_conv2d_latency.h",
+    "fileloc": 11,
+    "instructions": 210,
+    "loads": {
+      "L": 7
+    },
+    "name": "conv_2d_latency_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 41775
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "b2.h",
+    "fileloc": 12,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.2",
+    "total_instructions": 19
+  }
+}

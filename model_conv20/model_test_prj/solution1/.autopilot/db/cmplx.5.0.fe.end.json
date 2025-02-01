@@ -1,0 +1,23 @@
+{
+    "1": {
+        "name": "conv_2d_cl<ap_fixed<12, 4, AP_RND, AP_SAT, 0>, ap_fixed<25, 10, AP_TRN, AP_WRAP, 0>, config2>",
+        "file": "nnet_conv2d.h",
+        "fileloc": "42",
+        "instructions": "1837",
+        "total_instructions": "1837",
+        "calls": "",
+        "basicblocks": "33",
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "model_test",
+        "file": "model_test.cpp",
+        "fileloc": "7",
+        "instructions": "206",
+        "total_instructions": "2043",
+        "calls": "1",
+        "basicblocks": "1"
+    }
+}
