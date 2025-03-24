@@ -4,146 +4,144 @@
 #include "parameters.h"
 
 
-/*
-void input_streaming(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-                     unsigned hash_arr[N_MAX_PIXELS * 2],
-                     input_t feat_arr[N_MAX_PIXELS]) {
+template <class T> class Op_nonzero {
+    public:
+      T operator()(T a, T b) { return (a.value == 0) ? b : a; }
+};
+  
+constexpr int _floorlog2(int x) { return (x < 2) ? 0 : 1 + _floorlog2(x / 2); }
+constexpr int _pow2(int x) { return x == 0 ? 1 : 2 * _pow2(x - 1); }
 
-    hls::stream<unsigned> hash_h_stream;
-    hls::stream<unsigned> hash_w_stream;
-    hls::stream<input_t> feat_stream;
-    #pragma HLS STREAM variable=hash_h_stream depth=N_MAX_PIXELS*2
-    #pragma HLS STREAM variable=hash_w_stream depth=N_MAX_PIXELS*2
-    #pragma HLS STREAM variable=feat_stream depth=N_MAX_PIXELS*2
-InputStreamLoop:
-    for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
-        #pragma HLS UNROLL
-        
-        if (input_array[i] != 0) {
-            int pixels_per_channel = N_INPUT_1_1 * N_INPUT_2_1;
-            int i_c = i / pixels_per_channel + 1;
-            int remainder = i % pixels_per_channel;
-            int i_h = remainder / N_INPUT_2_1 + 1;
-            int i_w = remainder % N_INPUT_2_1 + 1;
+template <typename T>
+struct value_idx_pair {
+    T value;
+    ap_uint<12> index;
+};
 
-            hash_h_stream.write_nb(i_h);
-            hash_w_stream.write_nb(i_w);
-            feat_stream.write_nb(input_array[i]);
-        }
+template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
+#pragma HLS INLINE
+    // this function finds the leftmost nonzero element in an array
+
+    // split the array with two subarrays
+    // leftN: largest power of 2 that is less than N
+    static constexpr int leftN = _pow2(_floorlog2(N - 1)) > 0 ? _pow2(_floorlog2(N - 1)) : 0;
+    static constexpr int rightN = N - leftN > 0 ? N - leftN : 0;
+
+    if (N == 1) {
+        return x[0];
     }
-
-StreamToArrayLoop:
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        #pragma HLS UNROLL
-
-        if (!feat_stream.empty()) {
-            hash_h_stream.read_nb(hash_arr[2 * i]);
-            hash_w_stream.read_nb(hash_arr[2 * i + 1]);
-            feat_stream.read_nb(feat_arr[i]);
-        }
+    if (N == 2) {
+        return op(x[0], x[1]);
     }
+    return op(find_nonzero<T, leftN, Op>(x, op), find_nonzero<T, rightN, Op>(x + leftN, op));
 }
-*/
 
-void sparse_input(input_t input_array[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-                  ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
-                  input_t feat_arr[N_MAX_PIXELS]) {
+template <class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
+void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
+                         data_T sparse_arr_feat[N_sparse],
+                         hash_T sparse_arr_hash[N_sparse * 2]) {
 
-    ap_uint<1> active_bit[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
-    #pragma HLS ARRAY_PARTITION variable=active_bit complete dim=0
+    value_idx_pair<data_T> pair_arr[N_h * N_w * N_c];
+    #pragma HLS ARRAY_PARTITION variable=pair_arr type=complete dim=0
 
-ActiveBitLoop:
-    for (int i = 0; i < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; i++) {
+    hash_T j_h_arr[N_h * N_w * N_c];
+    hash_T j_w_arr[N_h * N_w * N_c];
+    #pragma HLS ARRAY_PARTITION variable=j_h_arr type=complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=j_w_arr type=complete dim=0
+
+    // This would probably not work
+    //#pragma HLS PIPELINE
+
+    int pixels_per_channel = N_h * N_w;
+
+    DataPrepareLoop:
+    for (int j = 0; j < N_h * N_w * N_c; j++) {
         #pragma HLS UNROLL
+        pair_arr[j].value = input_arr[j]; // seems redundant?
+        pair_arr[j].index = j;
 
-        if (input_array[i] != 0) {
-            active_bit[i] = 1;
-        }
-        else {
-            active_bit[i] = 0;
-        }
+        //int pixels_per_channel = N_h * N_w;
+        hash_T j_c = j / pixels_per_channel + 1;
+        hash_T remainder = j % pixels_per_channel;
+        hash_T j_h = remainder / N_h + 1;
+        hash_T j_w = remainder % N_w + 1;
+
+        j_h_arr[j] = j_h;
+        j_w_arr[j] = j_w;
     }
 
-SparseFillLoop1:
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        #pragma HLS UNROLL
-        ap_uint<2> check_bit = 1;
+    Op_nonzero<value_idx_pair<data_T>> op_nonzero;
+    MaxPixelsLoop:
+    for (int i = 0; i < N_sparse; i++) {
+        #pragma HLS PIPELINE
+        //#pragma HLS UNROLL // Only if the function is pipelined
+        value_idx_pair<data_T> pair = find_nonzero<value_idx_pair<data_T>,
+                                                   N_h * N_w * N_c,
+                                                   Op_nonzero<value_idx_pair<data_T>>>(pair_arr, op_nonzero);
 
-    SparseFillLoop2:
-        for (int j = 0; j < N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1; j++) {
-            #pragma HLS UNROLL
-            
-            ap_uint<10> pixels_per_channel = N_INPUT_1_1 * N_INPUT_2_1;
-            ap_uint<10> j_c = j / pixels_per_channel + 1;
-            ap_uint<10> remainder = j % pixels_per_channel;
-            ap_uint<10> j_h = remainder / N_INPUT_2_1 + 1;
-            ap_uint<10> j_w = remainder % N_INPUT_2_1 + 1;
-            
-            if (active_bit[j] == check_bit) {
-                hash_arr[2 * i] = j_h;
-                hash_arr[2 * i + 1] = j_w;
-                feat_arr[i] = input_array[j];
-
-                active_bit[j] = 0;
-                check_bit = 2;
-            }
+        sparse_arr_feat[i] = pair.value;
+        if (pair.value != 0) {
+            sparse_arr_hash[2 * i] = j_h_arr[pair.index];
+            sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
         }
-        if (check_bit == 1) {
-            hash_arr[2 * i] = 0;
-            hash_arr[2 * i + 1] = 0;
-            feat_arr[i] = 0;
-        }
+        pair_arr[pair.index].value = 0;
     }
 }
 
-
-void sparse_compute(ap_uint<10> hash_arr[N_MAX_PIXELS * 2],
-                    input_t feat_in[N_MAX_PIXELS],
-                    result_t feat_out[N_MAX_PIXELS],
-                    weight2_t w2[9]) {
-MultAddLoop1:
-    for (int i_out = 0; i_out < N_MAX_PIXELS; i_out++) {
+template <class data_T, class res_T, class hash_T, class w_T, int N_sparse>
+void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
+                 res_T sparse_arr_feat_out[N_sparse],
+                 hash_T sparse_arr_hash[N_sparse * 2],
+                 w_T filt_w[9]) {
+    OutputPixelLoop:
+    for (int i_out = 0; i_out < N_sparse; i_out++) {
         #pragma HLS UNROLL
+        //#pragma HLS PIPELINE II=1
 
-        feat_out[i_out] = 0;
-        feat_out[i_out] += feat_in[i_out] * w2[4];
+        // center of 3x3 filter
+        res_T acc = sparse_arr_feat_in[i_out] * filt_w[4];
 
-    MultAddLoop2:
-        for (int i_in = 0; i_in < N_MAX_PIXELS; i_in++) {
-            #pragma HLS UNROLL
+        if (sparse_arr_feat_in[i_out] != 0){
+            // loop over the 8 neighboring input pixels for the current output pixel
+            InputPixelLoop:
+            for (int i_in = 0; i_in < N_sparse; i_in++) {
+                #pragma HLS UNROLL
+                //#pragma HLS PIPELINE
+                // inline?
 
-            if (feat_in[i_out] != 0){
-                ap_int<10> offset_h = hash_arr[2 * i_out] - hash_arr[2 * i_in];
-                ap_int<10> offset_w = hash_arr[2 * i_out + 1] - hash_arr[2 * i_in + 1];
-
+                ap_int<10> offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
+                ap_int<10> offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
+                // try redefining offsets so they are non-negative? (start from filter corner)
                 if ((offset_h == 0) && (offset_w == 1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[3];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[3];
                 }
                 else if ((offset_h == 0) && (offset_w == -1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[5];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[5];
                 }
                 else if ((offset_h == 1) && (offset_w == 0)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[1];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[1];
                 }
                 else if ((offset_h == 1) && (offset_w == 1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[0];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[0];
                 }
                 else if ((offset_h == 1) && (offset_w == -1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[2];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[2];
                 }
                 else if ((offset_h == -1) && (offset_w == 0)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[7];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[7];
                 }
                 else if ((offset_h == -1) && (offset_w == 1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[6];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[6];
                 }
                 else if ((offset_h == -1) && (offset_w == -1)) {
-                    feat_out[i_out] += feat_in[i_in] * w2[8];
+                    acc += sparse_arr_feat_in[i_in] * filt_w[8];
                 }
             }
         }
+        sparse_arr_feat_out[i_out] = acc;
     }
 }
+
 
 
 void model_test(
@@ -173,13 +171,14 @@ void model_test(
     // hls-fpga-machine-learning insert layers
     
 
-    ap_uint<10> hash_arr[N_MAX_PIXELS * 2];
-    input_t feat_arr[N_MAX_PIXELS];
-    #pragma HLS ARRAY_PARTITION variable=hash_arr complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=feat_arr complete dim=0
-    sparse_input(x_in, hash_arr, feat_arr);
+    input_t sparse_arr_feat[N_MAX_PIXELS];
+    ap_uint<10> sparse_arr_hash[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash complete dim=0
 
-    sparse_compute(hash_arr, feat_arr, layer2_out, w2);
+    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat, sparse_arr_hash);
+    sparse_conv<input_t, result_t, ap_uint<10>, weight2_t, N_MAX_PIXELS>(sparse_arr_feat, layer2_out, sparse_arr_hash, w2);
 
 
 }
+
