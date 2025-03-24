@@ -6,7 +6,7 @@
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+-------------------+
 | Function                                  | Location           | Compile/Link      | Unroll/Inline     | Performance/Pipeline | Optimizations     |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+-------------------+
-| + model_test                              | model_test.cpp:147 | 16,876            | 53,356            | 18,284               | 17,660            |
+| + model_test                              | model_test.cpp:160 | 17,104            | 53,532            | 18,396               | 17,743            |
 |  + sparse_input_reduce<ap_fixed...        | model_test.cpp:40  | 12,492            |  4,967            |  2,172               |  1,594            |
 |     value_idx_pair                        | model_test.cpp:16  |     19            |                   |                      |                   |
 |   + find_nonzero<value_idx_pair<...       | model_test.cpp:21  | 11,435            |                   |                      |                   |
@@ -41,6 +41,7 @@
 |      operator()                           | model_test.cpp:9   |    106            |                   |                      |                   |
 |     operator()                            | model_test.cpp:9   |                   |  1,978 (99 calls) |    588 (98 calls)    |    588 (98 calls) |
 |    sparse_conv<ap_fixed<12, 4, ...        | model_test.cpp:92  |  4,321            | 48,360            | 16,008               | 16,008            |
+|    sparse_relu<ap_fixed<25, 10,...        | model_test.cpp:146 |    199            |    161            |     71               |     72            |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+-------------------+
 
 * Description of Compilation Phases

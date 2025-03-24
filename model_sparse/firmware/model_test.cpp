@@ -111,7 +111,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
 
                 ap_int<10> offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
                 ap_int<10> offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
-                // try redefining offsets so they are non-negative? (start from filter corner)
+                
                 if ((offset_h == 0) && (offset_w == 1)) {
                     acc += sparse_arr_feat_in[i_in] * filt_w[3];
                 }
@@ -142,7 +142,20 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
     }
 }
 
+template <class data_T, class res_T, int N_sparse>
+void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[N_sparse]) {
+    #pragma HLS PIPELINE
 
+    data_T data;
+    for (int i = 0; i < N_sparse; i++) {
+        data = sparse_arr_feat_in[i];
+        if (data > 0) {
+            sparse_arr_feat_out[i] = data;
+        } else {
+            sparse_arr_feat_out[i] = 0;
+        }
+    }
+}
 
 void model_test(
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
@@ -175,9 +188,13 @@ void model_test(
     ap_uint<10> sparse_arr_hash[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat complete dim=0
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash complete dim=0
-
     sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat, sparse_arr_hash);
-    sparse_conv<input_t, result_t, ap_uint<10>, weight2_t, N_MAX_PIXELS>(sparse_arr_feat, layer2_out, sparse_arr_hash, w2);
+
+    result_t sparse1_out[N_MAX_PIXELS];
+    #pragma HLS ARRAY_PARTITION variable=sparse1_out complete dim=0
+    sparse_conv<input_t, result_t, ap_uint<10>, weight2_t, N_MAX_PIXELS>(sparse_arr_feat, sparse1_out, sparse_arr_hash, w2);
+
+    sparse_relu<result_t, result_t, N_MAX_PIXELS>(sparse1_out, layer2_out);
 
 
 }
