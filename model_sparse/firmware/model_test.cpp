@@ -36,6 +36,7 @@ template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
     return op(find_nonzero<T, leftN, Op>(x, op), find_nonzero<T, rightN, Op>(x + leftN, op));
 }
 
+
 template <class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
 void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
                          data_T sparse_arr_feat[N_sparse],
@@ -44,15 +45,13 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     value_idx_pair<data_T> pair_arr[N_h * N_w * N_c];
     #pragma HLS ARRAY_PARTITION variable=pair_arr type=complete dim=0
 
-    hash_T j_h_arr[N_h * N_w * N_c];
-    hash_T j_w_arr[N_h * N_w * N_c];
+    int j_h_arr[N_h * N_w * N_c];
+    int j_w_arr[N_h * N_w * N_c];
     #pragma HLS ARRAY_PARTITION variable=j_h_arr type=complete dim=0
     #pragma HLS ARRAY_PARTITION variable=j_w_arr type=complete dim=0
 
     // This would probably not work
     //#pragma HLS PIPELINE
-
-    int pixels_per_channel = N_h * N_w;
 
     DataPrepareLoop:
     for (int j = 0; j < N_h * N_w * N_c; j++) {
@@ -60,11 +59,11 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
         pair_arr[j].value = input_arr[j]; // seems redundant?
         pair_arr[j].index = j;
 
-        //int pixels_per_channel = N_h * N_w;
-        hash_T j_c = j / pixels_per_channel + 1;
-        hash_T remainder = j % pixels_per_channel;
-        hash_T j_h = remainder / N_h + 1;
-        hash_T j_w = remainder % N_w + 1;
+        int pixels_per_channel = N_h * N_w;
+        int j_c = j / pixels_per_channel + 1;
+        int remainder = j % pixels_per_channel;
+        int j_h = remainder / N_h + 1;
+        int j_w = remainder % N_w + 1;
 
         j_h_arr[j] = j_h;
         j_w_arr[j] = j_w;
@@ -88,6 +87,38 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     }
 }
 
+template <class data_T, class res_T, class w_T>
+res_T sparse_mult(int offset_h, int offset_w, data_T feat_in, w_T filt_w[9]) {
+    #pragma HLS INLINE
+
+    res_T mult = 0;
+    if ((offset_h == 0) && (offset_w == 1)) {
+        mult = feat_in * filt_w[3];
+    }
+    else if ((offset_h == 0) && (offset_w == -1)) {
+        mult = feat_in * filt_w[5];
+    }
+    else if ((offset_h == 1) && (offset_w == 0)) {
+        mult = feat_in * filt_w[1];
+    }
+    else if ((offset_h == 1) && (offset_w == 1)) {
+        mult = feat_in * filt_w[0];
+    }
+    else if ((offset_h == 1) && (offset_w == -1)) {
+        mult = feat_in * filt_w[2];
+    }
+    else if ((offset_h == -1) && (offset_w == 0)) {
+        mult = feat_in * filt_w[7];
+    }
+    else if ((offset_h == -1) && (offset_w == 1)) {
+        mult = feat_in * filt_w[6];
+    }
+    else if ((offset_h == -1) && (offset_w == -1)) {
+        mult = feat_in * filt_w[8];
+    }
+    return mult;
+}
+
 template <class data_T, class res_T, class hash_T, class w_T, int N_sparse>
 void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
                  res_T sparse_arr_feat_out[N_sparse],
@@ -96,51 +127,25 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
     OutputPixelLoop:
     for (int i_out = 0; i_out < N_sparse; i_out++) {
         #pragma HLS UNROLL
-        //#pragma HLS PIPELINE II=1
 
         // center of 3x3 filter
         res_T acc = sparse_arr_feat_in[i_out] * filt_w[4];
 
         if (sparse_arr_feat_in[i_out] != 0){
-            // loop over the 8 neighboring input pixels for the current output pixel
             InputPixelLoop:
             for (int i_in = 0; i_in < N_sparse; i_in++) {
                 #pragma HLS UNROLL
-                //#pragma HLS PIPELINE
-                // inline?
 
-                ap_int<10> offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
-                ap_int<10> offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
-                
-                if ((offset_h == 0) && (offset_w == 1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[3];
-                }
-                else if ((offset_h == 0) && (offset_w == -1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[5];
-                }
-                else if ((offset_h == 1) && (offset_w == 0)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[1];
-                }
-                else if ((offset_h == 1) && (offset_w == 1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[0];
-                }
-                else if ((offset_h == 1) && (offset_w == -1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[2];
-                }
-                else if ((offset_h == -1) && (offset_w == 0)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[7];
-                }
-                else if ((offset_h == -1) && (offset_w == 1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[6];
-                }
-                else if ((offset_h == -1) && (offset_w == -1)) {
-                    acc += sparse_arr_feat_in[i_in] * filt_w[8];
-                }
+                int offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
+                int offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
+
+                acc += sparse_mult<data_T, res_T, w_T>(offset_h, offset_w, sparse_arr_feat_in[i_in], filt_w);
             }
         }
         sparse_arr_feat_out[i_out] = acc;
     }
 }
+
 
 template <class data_T, class res_T, int N_sparse>
 void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[N_sparse]) {

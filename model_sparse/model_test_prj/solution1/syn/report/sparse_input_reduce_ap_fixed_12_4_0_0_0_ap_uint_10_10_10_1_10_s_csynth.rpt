@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_s'
 ================================================================
-* Date:           Mon Mar 24 21:32:02 2025
+* Date:           Wed Mar 26 16:33:59 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -296,9 +296,9 @@
     +-------------------------+----------+----+---+----+------------+------------+
     |      Variable Name      | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +-------------------------+----------+----+---+----+------------+------------+
-    |add_ln75_fu_3890_p2      |         +|   0|  0|  12|           4|           1|
-    |icmp_ln75_fu_3884_p2     |      icmp|   0|  0|  12|           4|           4|
-    |icmp_ln83_fu_5393_p2     |      icmp|   0|  0|  19|          12|           1|
+    |add_ln74_fu_3890_p2      |         +|   0|  0|  12|           4|           1|
+    |icmp_ln74_fu_3884_p2     |      icmp|   0|  0|  12|           4|           4|
+    |icmp_ln82_fu_5393_p2     |      icmp|   0|  0|  19|          12|           1|
     |icmp_ln9_fu_5263_p2      |      icmp|   0|  0|  19|          12|           1|
     |ap_block_state1          |        or|   0|  0|   2|           1|           1|
     |pair_value_fu_5269_p3    |    select|   0|  0|  12|           1|          12|
@@ -549,8 +549,8 @@
     |i_1_reg_7818                      |   4|   0|    4|          0|
     |i_1_reg_7818_pp0_iter1_reg        |   4|   0|    4|          0|
     |i_fu_848                          |   4|   0|    4|          0|
-    |icmp_ln75_reg_7822                |   1|   0|    1|          0|
-    |icmp_ln75_reg_7822_pp0_iter1_reg  |   1|   0|    1|          0|
+    |icmp_ln74_reg_7822                |   1|   0|    1|          0|
+    |icmp_ln74_reg_7822_pp0_iter1_reg  |   1|   0|    1|          0|
     |pair_arr_value_10_fu_892          |  12|   0|   12|          0|
     |pair_arr_value_11_fu_896          |  12|   0|   12|          0|
     |pair_arr_value_12_fu_900          |  12|   0|   12|          0|
