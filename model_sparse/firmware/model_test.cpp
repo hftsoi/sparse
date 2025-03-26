@@ -88,35 +88,21 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 }
 
 template <class data_T, class res_T, class w_T>
-res_T sparse_mult(int offset_h, int offset_w, data_T feat_in, w_T filt_w[9]) {
+res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_in, w_T filt_w[9]) {
     #pragma HLS INLINE
 
-    res_T mult = 0;
-    if ((offset_h == 0) && (offset_w == 1)) {
-        mult = feat_in * filt_w[3];
-    }
-    else if ((offset_h == 0) && (offset_w == -1)) {
-        mult = feat_in * filt_w[5];
-    }
-    else if ((offset_h == 1) && (offset_w == 0)) {
-        mult = feat_in * filt_w[1];
-    }
-    else if ((offset_h == 1) && (offset_w == 1)) {
-        mult = feat_in * filt_w[0];
-    }
-    else if ((offset_h == 1) && (offset_w == -1)) {
-        mult = feat_in * filt_w[2];
-    }
-    else if ((offset_h == -1) && (offset_w == 0)) {
-        mult = feat_in * filt_w[7];
-    }
-    else if ((offset_h == -1) && (offset_w == 1)) {
-        mult = feat_in * filt_w[6];
-    }
-    else if ((offset_h == -1) && (offset_w == -1)) {
-        mult = feat_in * filt_w[8];
-    }
-    return mult;
+    w_T w = 0;
+    if ((offset_h == 1) && (offset_w == 1))        { w = filt_w[0]; }
+    else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[1]; }
+    else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[2]; }
+    else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[3]; }
+    // the central one has been done outside this, as it needs no offset check
+    else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[5]; }
+    else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[6]; }
+    else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[7]; }
+    else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[8]; }
+
+    return feat_in * w;
 }
 
 template <class data_T, class res_T, class hash_T, class w_T, int N_sparse>
@@ -139,7 +125,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
                 int offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
                 int offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
 
-                acc += sparse_mult<data_T, res_T, w_T>(offset_h, offset_w, sparse_arr_feat_in[i_in], filt_w);
+                acc += mult_for_sparse_conv<data_T, res_T, w_T>(offset_h, offset_w, sparse_arr_feat_in[i_in], filt_w);
             }
         }
         sparse_arr_feat_out[i_out] = acc;

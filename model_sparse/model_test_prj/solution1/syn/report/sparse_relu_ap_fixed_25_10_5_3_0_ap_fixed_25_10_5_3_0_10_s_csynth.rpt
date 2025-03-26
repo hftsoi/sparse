@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_s'
 ================================================================
-* Date:           Wed Mar 26 16:34:09 2025
+* Date:           Wed Mar 26 19:35:54 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  2.609 ns|     0.62 ns|
+    |ap_clk  |  5.00 ns|  2.629 ns|     0.62 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -49,14 +49,14 @@
 |         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
 +---------------------+---------+-------+---------+---------+------+
 |DSP                  |        -|      -|        -|        -|     -|
-|Expression           |        -|      -|        0|      522|     -|
+|Expression           |        -|      -|        0|      562|     -|
 |FIFO                 |        -|      -|        -|        -|     -|
 |Instance             |        -|      -|        -|        -|     -|
 |Memory               |        -|      -|        -|        -|     -|
 |Multiplexer          |        -|      -|        -|       99|     -|
-|Register             |        -|      -|      222|        -|     -|
+|Register             |        -|      -|      242|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|      0|      222|      621|     0|
+|Total                |        0|      0|      242|      661|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
@@ -84,29 +84,29 @@
     +------------------------+----------+----+---+----+------------+------------+
     |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +------------------------+----------+----+---+----+------------+------------+
-    |icmp_ln157_1_fu_213_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_2_fu_236_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_3_fu_259_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_4_fu_282_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_5_fu_305_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_6_fu_328_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_7_fu_351_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_8_fu_374_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_9_fu_397_p2  |      icmp|   0|  0|  30|          23|           1|
-    |icmp_ln157_fu_190_p2    |      icmp|   0|  0|  30|          23|           1|
+    |icmp_ln143_1_fu_213_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_2_fu_236_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_3_fu_259_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_4_fu_282_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_5_fu_305_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_6_fu_328_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_7_fu_351_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_8_fu_374_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_9_fu_397_p2  |      icmp|   0|  0|  32|          25|           1|
+    |icmp_ln143_fu_190_p2    |      icmp|   0|  0|  32|          25|           1|
     |ap_block_state1         |        or|   0|  0|   2|           1|           1|
-    |data_1_fu_219_p3        |    select|   0|  0|  22|           1|          22|
-    |data_2_fu_242_p3        |    select|   0|  0|  22|           1|          22|
-    |data_3_fu_265_p3        |    select|   0|  0|  22|           1|          22|
-    |data_4_fu_288_p3        |    select|   0|  0|  22|           1|          22|
-    |data_5_fu_311_p3        |    select|   0|  0|  22|           1|          22|
-    |data_6_fu_334_p3        |    select|   0|  0|  22|           1|          22|
-    |data_7_fu_357_p3        |    select|   0|  0|  22|           1|          22|
-    |data_8_fu_380_p3        |    select|   0|  0|  22|           1|          22|
-    |data_9_fu_403_p3        |    select|   0|  0|  22|           1|          22|
-    |data_fu_196_p3          |    select|   0|  0|  22|           1|          22|
+    |data_1_fu_219_p3        |    select|   0|  0|  24|           1|          24|
+    |data_2_fu_242_p3        |    select|   0|  0|  24|           1|          24|
+    |data_3_fu_265_p3        |    select|   0|  0|  24|           1|          24|
+    |data_4_fu_288_p3        |    select|   0|  0|  24|           1|          24|
+    |data_5_fu_311_p3        |    select|   0|  0|  24|           1|          24|
+    |data_6_fu_334_p3        |    select|   0|  0|  24|           1|          24|
+    |data_7_fu_357_p3        |    select|   0|  0|  24|           1|          24|
+    |data_8_fu_380_p3        |    select|   0|  0|  24|           1|          24|
+    |data_9_fu_403_p3        |    select|   0|  0|  24|           1|          24|
+    |data_fu_196_p3          |    select|   0|  0|  24|           1|          24|
     +------------------------+----------+----+---+----+------------+------------+
-    |Total                   |          |   0|  0| 522|         241|         231|
+    |Total                   |          |   0|  0| 562|         261|         251|
     +------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
@@ -114,18 +114,18 @@
     |     Name     | LUT| Input Size| Bits| Total Bits|
     +--------------+----+-----------+-----+-----------+
     |ap_done       |   9|          2|    1|          2|
-    |layer2_out_0  |   9|          2|   22|         44|
-    |layer2_out_1  |   9|          2|   22|         44|
-    |layer2_out_2  |   9|          2|   22|         44|
-    |layer2_out_3  |   9|          2|   22|         44|
-    |layer2_out_4  |   9|          2|   22|         44|
-    |layer2_out_5  |   9|          2|   22|         44|
-    |layer2_out_6  |   9|          2|   22|         44|
-    |layer2_out_7  |   9|          2|   22|         44|
-    |layer2_out_8  |   9|          2|   22|         44|
-    |layer2_out_9  |   9|          2|   22|         44|
+    |layer2_out_0  |   9|          2|   24|         48|
+    |layer2_out_1  |   9|          2|   24|         48|
+    |layer2_out_2  |   9|          2|   24|         48|
+    |layer2_out_3  |   9|          2|   24|         48|
+    |layer2_out_4  |   9|          2|   24|         48|
+    |layer2_out_5  |   9|          2|   24|         48|
+    |layer2_out_6  |   9|          2|   24|         48|
+    |layer2_out_7  |   9|          2|   24|         48|
+    |layer2_out_8  |   9|          2|   24|         48|
+    |layer2_out_9  |   9|          2|   24|         48|
     +--------------+----+-----------+-----+-----------+
-    |Total         |  99|         22|  221|        442|
+    |Total         |  99|         22|  241|        482|
     +--------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -134,18 +134,18 @@
     +-------------------+----+----+-----+-----------+
     |ap_CS_fsm          |   1|   0|    1|          0|
     |ap_done_reg        |   1|   0|    1|          0|
-    |layer2_out_0_preg  |  22|   0|   25|          3|
-    |layer2_out_1_preg  |  22|   0|   25|          3|
-    |layer2_out_2_preg  |  22|   0|   25|          3|
-    |layer2_out_3_preg  |  22|   0|   25|          3|
-    |layer2_out_4_preg  |  22|   0|   25|          3|
-    |layer2_out_5_preg  |  22|   0|   25|          3|
-    |layer2_out_6_preg  |  22|   0|   25|          3|
-    |layer2_out_7_preg  |  22|   0|   25|          3|
-    |layer2_out_8_preg  |  22|   0|   25|          3|
-    |layer2_out_9_preg  |  22|   0|   25|          3|
+    |layer2_out_0_preg  |  24|   0|   25|          1|
+    |layer2_out_1_preg  |  24|   0|   25|          1|
+    |layer2_out_2_preg  |  24|   0|   25|          1|
+    |layer2_out_3_preg  |  24|   0|   25|          1|
+    |layer2_out_4_preg  |  24|   0|   25|          1|
+    |layer2_out_5_preg  |  24|   0|   25|          1|
+    |layer2_out_6_preg  |  24|   0|   25|          1|
+    |layer2_out_7_preg  |  24|   0|   25|          1|
+    |layer2_out_8_preg  |  24|   0|   25|          1|
+    |layer2_out_9_preg  |  24|   0|   25|          1|
     +-------------------+----+----+-----+-----------+
-    |Total              | 222|   0|  252|         30|
+    |Total              | 242|   0|  252|         10|
     +-------------------+----+----+-----+-----------+
 
 
@@ -164,16 +164,16 @@
 |ap_continue          |   in|    1|  ap_ctrl_hs|  sparse_relu<ap_fixed<25, 10, 5, 3, 0>, ap_fixed<25, 10, 5, 3, 0>, 10>|  return value|
 |ap_idle              |  out|    1|  ap_ctrl_hs|  sparse_relu<ap_fixed<25, 10, 5, 3, 0>, ap_fixed<25, 10, 5, 3, 0>, 10>|  return value|
 |ap_ready             |  out|    1|  ap_ctrl_hs|  sparse_relu<ap_fixed<25, 10, 5, 3, 0>, ap_fixed<25, 10, 5, 3, 0>, 10>|  return value|
-|p_read               |   in|   23|     ap_none|                                                                 p_read|        scalar|
-|p_read1              |   in|   23|     ap_none|                                                                p_read1|        scalar|
-|p_read2              |   in|   23|     ap_none|                                                                p_read2|        scalar|
-|p_read3              |   in|   23|     ap_none|                                                                p_read3|        scalar|
-|p_read4              |   in|   23|     ap_none|                                                                p_read4|        scalar|
-|p_read5              |   in|   23|     ap_none|                                                                p_read5|        scalar|
-|p_read6              |   in|   23|     ap_none|                                                                p_read6|        scalar|
-|p_read7              |   in|   23|     ap_none|                                                                p_read7|        scalar|
-|p_read8              |   in|   23|     ap_none|                                                                p_read8|        scalar|
-|p_read9              |   in|   23|     ap_none|                                                                p_read9|        scalar|
+|p_read               |   in|   25|     ap_none|                                                                 p_read|        scalar|
+|p_read1              |   in|   25|     ap_none|                                                                p_read1|        scalar|
+|p_read2              |   in|   25|     ap_none|                                                                p_read2|        scalar|
+|p_read3              |   in|   25|     ap_none|                                                                p_read3|        scalar|
+|p_read4              |   in|   25|     ap_none|                                                                p_read4|        scalar|
+|p_read5              |   in|   25|     ap_none|                                                                p_read5|        scalar|
+|p_read6              |   in|   25|     ap_none|                                                                p_read6|        scalar|
+|p_read7              |   in|   25|     ap_none|                                                                p_read7|        scalar|
+|p_read8              |   in|   25|     ap_none|                                                                p_read8|        scalar|
+|p_read9              |   in|   25|     ap_none|                                                                p_read9|        scalar|
 |layer2_out_0         |  out|   25|      ap_vld|                                                           layer2_out_0|       pointer|
 |layer2_out_0_ap_vld  |  out|    1|      ap_vld|                                                           layer2_out_0|       pointer|
 |layer2_out_1         |  out|   25|      ap_vld|                                                           layer2_out_1|       pointer|
