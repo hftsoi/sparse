@@ -50,13 +50,10 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     #pragma HLS ARRAY_PARTITION variable=j_h_arr type=complete dim=0
     #pragma HLS ARRAY_PARTITION variable=j_w_arr type=complete dim=0
 
-    // This would probably not work
-    //#pragma HLS PIPELINE
-
     DataPrepareLoop:
     for (int j = 0; j < N_h * N_w * N_c; j++) {
         #pragma HLS UNROLL
-        pair_arr[j].value = input_arr[j]; // seems redundant?
+        pair_arr[j].value = input_arr[j];
         pair_arr[j].index = j;
 
         int pixels_per_channel = N_h * N_w;
@@ -73,16 +70,14 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     MaxPixelsLoop:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS PIPELINE
-        //#pragma HLS UNROLL // Only if the function is pipelined
         value_idx_pair<data_T> pair = find_nonzero<value_idx_pair<data_T>,
                                                    N_h * N_w * N_c,
                                                    Op_nonzero<value_idx_pair<data_T>>>(pair_arr, op_nonzero);
 
         sparse_arr_feat[i] = pair.value;
-        if (pair.value != 0) {
-            sparse_arr_hash[2 * i] = j_h_arr[pair.index];
-            sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
-        }
+        sparse_arr_hash[2 * i] = j_h_arr[pair.index];
+        sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
+
         pair_arr[pair.index].value = 0;
     }
 }
@@ -132,7 +127,6 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
     }
 }
 
-
 template <class data_T, class res_T, int N_sparse>
 void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[N_sparse]) {
     #pragma HLS PIPELINE
@@ -145,6 +139,46 @@ void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[
         } else {
             sparse_arr_feat_out[i] = 0;
         }
+    }
+}
+
+template <class data_T, class res_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse, int pool_size>
+void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
+                        res_T sparse_arr_feat_out[N_sparse],
+                        hash_T sparse_arr_hash_in[N_sparse * 2],
+                        hash_T sparse_arr_hash_out[N_sparse * 2]) {
+    int hash_tmp[N_sparse * 2];
+    #pragma HLS ARRAY_PARTITION variable=hash_tmp type=complete dim=0
+
+    for (int i = 0; i < N_sparse; i++) {
+        #pragma HLS UNROLL
+        int j_h_in = sparse_arr_hash_in[2 * i];
+        int j_w_in = sparse_arr_hash_in[2 * i + 1];
+
+        hash_tmp[2 * i] = (j_h_in - 1) / pool_size + 1;
+        hash_tmp[2 * i + 1] = (j_w_in - 1) / pool_size + 1;
+    }
+
+    for (int i = 0; i < N_sparse; i++) {
+        #pragma HLS UNROLL
+        int i_h_out = hash_tmp[2 * i];
+        int i_w_out = hash_tmp[2 * i + 1];
+
+        res_T acc = 0;
+        for (int j = 0; j < N_sparse; j++) {
+            #pragma HLS UNROLL
+            int j_h_out = hash_tmp[2 * j];
+            int j_w_out = hash_tmp[2 * j + 1];
+            data_T data = sparse_arr_feat_in[j];
+
+            if ((data != 0) && (i_h_out == j_h_out) && (i_w_out == j_w_out)) {
+                acc += data;
+                sparse_arr_feat_in[j] = 0;
+            }
+        }
+        sparse_arr_feat_out[i] = acc / (pool_size * 2);
+        sparse_arr_hash_out[2 * i] = i_h_out;
+        sparse_arr_hash_out[2 * i + 1] = i_w_out;
     }
 }
 
@@ -175,18 +209,32 @@ void model_test(
     // hls-fpga-machine-learning insert layers
     
 
-    input_t sparse_arr_feat[N_MAX_PIXELS];
-    ap_uint<10> sparse_arr_hash[N_MAX_PIXELS * 2];
-    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash complete dim=0
-    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat, sparse_arr_hash);
+    input_t sparse_arr_feat1[N_MAX_PIXELS];
+    ap_uint<10> sparse_arr_hash1[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat1 complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash1 complete dim=0
+    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat1, sparse_arr_hash1);
 
     result_t sparse1_out[N_MAX_PIXELS];
     #pragma HLS ARRAY_PARTITION variable=sparse1_out complete dim=0
-    sparse_conv<input_t, result_t, ap_uint<10>, weight2_t, N_MAX_PIXELS>(sparse_arr_feat, sparse1_out, sparse_arr_hash, w2);
+    sparse_conv<input_t, result_t, ap_uint<10>, weight2_t, N_MAX_PIXELS>(sparse_arr_feat1, sparse1_out, sparse_arr_hash1, w2);
 
-    sparse_relu<result_t, result_t, N_MAX_PIXELS>(sparse1_out, layer2_out);
+    result_t act1_out[N_MAX_PIXELS];
+    #pragma HLS ARRAY_PARTITION variable=act1_out complete dim=0
+    sparse_relu<result_t, result_t, N_MAX_PIXELS>(sparse1_out, act1_out);
 
-
+    ap_uint<10> sparse_arr_hash2[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash2 complete dim=0
+    sparse_pooling_avg<result_t, result_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS, 2>(act1_out, layer2_out, sparse_arr_hash1, sparse_arr_hash2);
+    
+    /*
+    std::cout << "========" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS; i++) {
+        std::cout << "hash :" << sparse_arr_hash2[2 * i] << " " << sparse_arr_hash2[2 * i + 1] << std::endl;
+        std::cout << "feat :" << layer2_out[i] << std::endl;
+        std::cout << std::endl;
+    }
+    std::cout << "========" << std::endl;
+    */
 }
 

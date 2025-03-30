@@ -6,8 +6,8 @@
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
 | Function                                  | Location           | Compile/Link      | Unroll/Inline     | Performance/Pipeline | Optimizations    |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
-| + model_test                              | model_test.cpp:151 | 13,485            | 18,700            | 7,035                | 6,382            |
-|  + sparse_input_reduce<ap_fixed...        | model_test.cpp:41  | 12,066            |  4,965            | 2,174                | 1,596            |
+| + model_test                              | model_test.cpp:185 | 14,166            | 24,265            | 8,189                | 7,446            |
+|  + sparse_input_reduce<ap_fixed...        | model_test.cpp:41  | 11,965            |  4,957            | 2,171                | 1,593            |
 |     value_idx_pair                        | model_test.cpp:16  |     19            |                   |                      |                  |
 |   + find_nonzero<value_idx_pair<...       | model_test.cpp:21  | 11,435            |                   |                      |                  |
 |    + find_nonzero<value_idx_pair<...      | model_test.cpp:21  |  7,277            |                   |                      |                  |
@@ -40,9 +40,10 @@
 |       operator()                          | model_test.cpp:9   |    106            |                   |                      |                  |
 |      operator()                           | model_test.cpp:9   |    106            |                   |                      |                  |
 |     operator()                            | model_test.cpp:9   |                   |  1,978 (99 calls) |   588 (98 calls)     |   588 (98 calls) |
-|  + sparse_conv<ap_fixed<12, 4, ...        | model_test.cpp:109 |  1,128            | 13,530            | 4,645                | 4,645            |
-|     mult_for_sparse_conv<ap_fixe...       | model_test.cpp:91  |    352            |                   |                      |                  |
-|    sparse_relu<ap_fixed<25, 10,...        | model_test.cpp:137 |    199            |    161            |    71                |    72            |
+|  + sparse_conv<ap_fixed<12, 4, ...        | model_test.cpp:104 |  1,128            | 13,530            | 4,645                | 4,645            |
+|     mult_for_sparse_conv<ap_fixe...       | model_test.cpp:86  |    352            |                   |                      |                  |
+|    sparse_relu<ap_fixed<25, 10,...        | model_test.cpp:131 |    199            |    161            |    71                |    72            |
+|    sparse_pooling_avg<ap_fixed<...        | model_test.cpp:146 |    727            |  5,546            | 1,036                | 1,036            |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
 
 * Description of Compilation Phases

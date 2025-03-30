@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'model_test'
 ================================================================
-* Date:           Wed Mar 26 19:36:01 2025
+* Date:           Sun Mar 30 20:44:47 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -20,17 +20,17 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  4.176 ns|     0.62 ns|
+    |ap_clk  |  5.00 ns|  4.341 ns|     0.62 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+-----------+-----------+-----+-----+----------+
-    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
-    |   min   |   max   |    min    |    max    | min | max |   Type   |
-    +---------+---------+-----------+-----------+-----+-----+----------+
-    |       16|       16|  80.000 ns|  80.000 ns|   14|   14|  dataflow|
-    +---------+---------+-----------+-----------+-----+-----+----------+
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |       21|       21|  0.105 us|  0.105 us|   14|   14|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
@@ -41,6 +41,7 @@
         |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_U0    |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_s    |       13|       13|  65.000 ns|  65.000 ns|   13|   13|       no|
         |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_U0  |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_s  |        1|        1|   5.000 ns|   5.000 ns|    1|    1|       no|
         |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_U0         |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_s         |        0|        0|       0 ns|       0 ns|    1|    1|      yes|
+        |sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_10_10_1_10_2_U0     |sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_10_10_1_10_2_s     |        4|        4|  20.000 ns|  20.000 ns|    4|    4|       no|
         +--------------------------------------------------------------------+-------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
@@ -56,22 +57,22 @@
 |         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
 +---------------------+---------+-------+---------+---------+------+
 |DSP                  |        -|      -|        -|        -|     -|
-|Expression           |        -|      -|        0|      170|     -|
-|FIFO                 |        -|      -|     1280|      870|     -|
-|Instance             |        -|      -|     2419|    24110|     -|
+|Expression           |        -|      -|        0|      214|     -|
+|FIFO                 |        -|      -|     2060|     1570|     -|
+|Instance             |        -|      -|     3833|    33911|     -|
 |Memory               |        -|      -|        -|        -|     -|
-|Multiplexer          |        -|      -|        -|      360|     -|
-|Register             |        -|      -|       40|        -|     -|
+|Multiplexer          |        -|      -|        -|      450|     -|
+|Register             |        -|      -|       50|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|      0|     3739|    25510|     0|
+|Total                |        0|      0|     5943|    36145|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization SLR (%)  |        0|      0|       ~0|        5|     0|
+|Utilization SLR (%)  |        0|      0|       ~0|        8|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available            |     5376|  12288|  3456000|  1728000|  1280|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization (%)      |        0|      0|       ~0|        1|     0|
+|Utilization (%)      |        0|      0|       ~0|        2|     0|
 +---------------------+---------+-------+---------+---------+------+
 
 + Detail: 
@@ -79,11 +80,12 @@
     +--------------------------------------------------------------------+-------------------------------------------------------------------+---------+----+------+-------+-----+
     |                              Instance                              |                               Module                              | BRAM_18K| DSP|  FF  |  LUT  | URAM|
     +--------------------------------------------------------------------+-------------------------------------------------------------------+---------+----+------+-------+-----+
-    |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_U0  |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_s  |        0|   0|   588|  16285|    0|
-    |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_U0    |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_s    |        0|   0|  1589|   7164|    0|
+    |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_U0  |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_s  |        0|   0|   588|  16465|    0|
+    |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_U0    |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_s    |        0|   0|  1589|   7145|    0|
+    |sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_10_10_1_10_2_U0     |sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_10_10_1_10_2_s     |        0|   0|  1414|   9640|    0|
     |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_U0         |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_s         |        0|   0|   242|    661|    0|
     +--------------------------------------------------------------------+-------------------------------------------------------------------+---------+----+------+-------+-----+
-    |Total                                                               |                                                                   |        0|   0|  2419|  24110|    0|
+    |Total                                                               |                                                                   |        0|   0|  3833|  33911|    0|
     +--------------------------------------------------------------------+-------------------------------------------------------------------+---------+----+------+-------+-----+
 
     * DSP: 
@@ -93,57 +95,97 @@
     N/A
 
     * FIFO: 
-    +----------------------+---------+----+----+-----+------+-----+---------+
-    |         Name         | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
-    +----------------------+---------+----+----+-----+------+-----+---------+
-    |sparse1_out_1_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_2_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_3_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_4_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_5_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_6_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_7_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_8_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_9_U       |        0|  68|   0|    -|     2|   25|       50|
-    |sparse1_out_U         |        0|  68|   0|    -|     2|   25|       50|
-    |sparse_arr_feat_1_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_2_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_3_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_4_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_5_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_6_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_7_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_8_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_9_U   |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_feat_U     |        0|  36|   0|    -|     2|   12|       24|
-    |sparse_arr_hash_10_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_11_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_12_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_13_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_14_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_15_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_16_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_17_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_18_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_19_U  |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_1_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_2_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_3_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_4_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_5_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_6_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_7_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_8_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_9_U   |        0|  12|   0|    -|     2|    4|        8|
-    |sparse_arr_hash_U     |        0|  12|   0|    -|     2|    4|        8|
-    +----------------------+---------+----+----+-----+------+-----+---------+
-    |Total                 |        0|1280|   0|    0|    80|  450|      900|
-    +----------------------+---------+----+----+-----+------+-----+---------+
+    +-----------------------------------+---------+----+----+-----+------+-----+---------+
+    |                Name               | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------------------------+---------+----+----+-----+------+-----+---------+
+    |act1_out_1_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_2_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_3_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_4_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_5_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_6_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_7_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_8_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_9_out_tmp_channel_U       |        0|  68|   0|    -|     2|   24|       48|
+    |act1_out_out_tmp_channel_U         |        0|  68|   0|    -|     2|   24|       48|
+    |sparse1_out_1_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_2_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_3_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_4_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_5_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_6_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_7_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_8_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_9_U                    |        0|  68|   0|    -|     2|   25|       50|
+    |sparse1_out_U                      |        0|  68|   0|    -|     2|   25|       50|
+    |sparse_arr_feat1_1_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_2_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_3_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_4_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_5_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_6_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_7_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_8_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_9_U               |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_feat1_U                 |        0|  36|   0|    -|     2|   12|       24|
+    |sparse_arr_hash1_10_c24_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_10_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_11_c25_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_11_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_12_c26_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_12_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_13_c27_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_13_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_14_c28_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_14_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_15_c29_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_15_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_16_c30_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_16_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_17_c31_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_17_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_18_c32_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_18_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_19_c33_channel_U  |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_19_c_U            |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_1_c15_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_1_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_2_c16_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_2_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_3_c17_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_3_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_4_c18_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_4_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_5_c19_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_5_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_6_c20_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_6_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_7_c21_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_7_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_8_c22_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_8_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_9_c23_channel_U   |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_9_c_U             |        0|   5|   0|    -|     3|    4|       12|
+    |sparse_arr_hash1_c14_channel_U     |        0|  12|   0|    -|     2|    4|        8|
+    |sparse_arr_hash1_c_U               |        0|   5|   0|    -|     3|    4|       12|
+    +-----------------------------------+---------+----+----+-----+------+-----+---------+
+    |Total                              |        0|2060|   0|    0|   160|  770|     1620|
+    +-----------------------------------+---------+----+----+-----+------+-----+---------+
 
     * Expression: 
     +--------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
     |                                  Variable Name                                 | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +--------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_act1_out_1_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_2_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_3_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_4_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_5_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_6_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_7_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_8_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_9_out_tmp_channel                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_act1_out_out_tmp_channel                                        |       and|   0|  0|   2|           1|           1|
     |ap_channel_done_sparse1_out                                                     |       and|   0|  0|   2|           1|           1|
     |ap_channel_done_sparse1_out_1                                                   |       and|   0|  0|   2|           1|           1|
     |ap_channel_done_sparse1_out_2                                                   |       and|   0|  0|   2|           1|           1|
@@ -154,41 +196,53 @@
     |ap_channel_done_sparse1_out_7                                                   |       and|   0|  0|   2|           1|           1|
     |ap_channel_done_sparse1_out_8                                                   |       and|   0|  0|   2|           1|           1|
     |ap_channel_done_sparse1_out_9                                                   |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat                                                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_1                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_2                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_3                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_4                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_5                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_6                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_7                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_8                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_9                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash                                                 |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_1                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_10                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_11                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_12                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_13                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_14                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_15                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_16                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_17                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_18                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_19                                              |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_2                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_3                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_4                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_5                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_6                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_7                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_8                                               |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_9                                               |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1                                                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_1                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_2                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_3                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_4                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_5                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_6                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_7                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_8                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat1_9                                              |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_10_c24_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_11_c25_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_12_c26_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_13_c27_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_14_c28_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_15_c29_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_16_c30_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_17_c31_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_18_c32_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_19_c33_channel                                 |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_1_c15_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_2_c16_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_3_c17_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_4_c18_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_5_c19_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_6_c20_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_7_c21_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_8_c22_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_9_c23_channel                                  |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash1_c14_channel                                    |       and|   0|  0|   2|           1|           1|
     |ap_idle                                                                         |       and|   0|  0|   2|           1|           1|
     |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_U0_ap_continue  |       and|   0|  0|   2|           1|           1|
     |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_16_6_5_3_0_10_U0_ap_start     |       and|   0|  0|   2|           1|           1|
     |sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_U0_ap_continue    |       and|   0|  0|   2|           1|           1|
+    |sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_10_10_1_10_2_U0_ap_start        |       and|   0|  0|   2|           1|           1|
+    |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_U0_ap_continue         |       and|   0|  0|   2|           1|           1|
     |sparse_relu_ap_fixed_25_10_5_3_0_ap_fixed_25_10_5_3_0_10_U0_ap_start            |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_1_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_2_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_3_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_4_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_5_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_6_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_7_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_8_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_9_out_tmp_channel                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_act1_out_out_tmp_channel                                  |        or|   0|  0|   2|           1|           1|
     |ap_sync_channel_write_sparse1_out                                               |        or|   0|  0|   2|           1|           1|
     |ap_sync_channel_write_sparse1_out_1                                             |        or|   0|  0|   2|           1|           1|
     |ap_sync_channel_write_sparse1_out_2                                             |        or|   0|  0|   2|           1|           1|
@@ -199,135 +253,155 @@
     |ap_sync_channel_write_sparse1_out_7                                             |        or|   0|  0|   2|           1|           1|
     |ap_sync_channel_write_sparse1_out_8                                             |        or|   0|  0|   2|           1|           1|
     |ap_sync_channel_write_sparse1_out_9                                             |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat                                           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_1                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_2                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_3                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_4                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_5                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_6                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_7                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_8                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_9                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash                                           |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_1                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_10                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_11                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_12                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_13                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_14                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_15                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_16                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_17                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_18                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_19                                        |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_2                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_3                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_4                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_5                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_6                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_7                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_8                                         |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_9                                         |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1                                          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_1                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_2                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_3                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_4                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_5                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_6                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_7                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_8                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat1_9                                        |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_10_c24_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_11_c25_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_12_c26_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_13_c27_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_14_c28_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_15_c29_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_16_c30_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_17_c31_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_18_c32_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_19_c33_channel                           |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_1_c15_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_2_c16_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_3_c17_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_4_c18_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_5_c19_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_6_c20_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_7_c21_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_8_c22_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_9_c23_channel                            |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash1_c14_channel                              |        or|   0|  0|   2|           1|           1|
     +--------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |Total                                                                           |          |   0|  0| 170|          85|          85|
+    |Total                                                                           |          |   0|  0| 214|         107|         107|
     +--------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------------------------------------+----+-----------+-----+-----------+
-    |                     Name                     | LUT| Input Size| Bits| Total Bits|
-    +----------------------------------------------+----+-----------+-----+-----------+
-    |ap_sync_reg_channel_write_sparse1_out         |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_1       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_2       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_3       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_4       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_5       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_6       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_7       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_8       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse1_out_9       |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat     |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_1   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_2   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_3   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_4   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_5   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_6   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_7   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_8   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_feat_9   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash     |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_1   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_10  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_11  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_12  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_13  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_14  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_15  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_16  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_17  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_18  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_19  |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_2   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_3   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_4   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_5   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_6   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_7   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_8   |   9|          2|    1|          2|
-    |ap_sync_reg_channel_write_sparse_arr_hash_9   |   9|          2|    1|          2|
-    +----------------------------------------------+----+-----------+-----+-----------+
-    |Total                                         | 360|         80|   40|         80|
-    +----------------------------------------------+----+-----------+-----+-----------+
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |                            Name                           | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_act1_out_1_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_2_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_3_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_4_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_5_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_6_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_7_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_8_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_9_out_tmp_channel       |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_act1_out_out_tmp_channel         |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out                      |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_1                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_2                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_3                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_4                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_5                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_6                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_7                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_8                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse1_out_9                    |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1                 |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_1               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_2               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_3               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_4               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_5               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_6               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_7               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_8               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_9               |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_10_c24_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_11_c25_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_12_c26_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_13_c27_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_14_c28_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_15_c29_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_16_c30_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_17_c31_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_18_c32_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_19_c33_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_1_c15_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_2_c16_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_3_c17_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_4_c18_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_5_c19_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_6_c20_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_7_c21_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_8_c22_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_9_c23_channel   |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_c14_channel     |   9|          2|    1|          2|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                      | 450|        100|   50|        100|
+    +-----------------------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +----------------------------------------------+---+----+-----+-----------+
-    |                     Name                     | FF| LUT| Bits| Const Bits|
-    +----------------------------------------------+---+----+-----+-----------+
-    |ap_sync_reg_channel_write_sparse1_out         |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_1       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_2       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_3       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_4       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_5       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_6       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_7       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_8       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse1_out_9       |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat     |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_1   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_2   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_3   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_4   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_5   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_6   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_7   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_8   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_feat_9   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash     |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_1   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_10  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_11  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_12  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_13  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_14  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_15  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_16  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_17  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_18  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_19  |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_2   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_3   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_4   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_5   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_6   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_7   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_8   |  1|   0|    1|          0|
-    |ap_sync_reg_channel_write_sparse_arr_hash_9   |  1|   0|    1|          0|
-    +----------------------------------------------+---+----+-----+-----------+
-    |Total                                         | 40|   0|   40|          0|
-    +----------------------------------------------+---+----+-----+-----------+
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |                            Name                           | FF| LUT| Bits| Const Bits|
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_act1_out_1_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_2_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_3_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_4_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_5_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_6_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_7_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_8_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_9_out_tmp_channel       |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_act1_out_out_tmp_channel         |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out                      |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_1                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_2                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_3                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_4                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_5                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_6                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_7                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_8                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse1_out_9                    |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1                 |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_1               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_2               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_3               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_4               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_5               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_6               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_7               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_8               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_feat1_9               |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_10_c24_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_11_c25_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_12_c26_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_13_c27_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_14_c28_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_15_c29_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_16_c30_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_17_c31_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_18_c32_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_19_c33_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_1_c15_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_2_c16_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_3_c17_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_4_c18_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_5_c19_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_6_c20_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_7_c21_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_8_c22_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_9_c23_channel   |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_sparse_arr_hash1_c14_channel     |  1|   0|    1|          0|
+    +-----------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                      | 50|   0|   50|          0|
+    +-----------------------------------------------------------+---+----+-----+-----------+
 
 
 
