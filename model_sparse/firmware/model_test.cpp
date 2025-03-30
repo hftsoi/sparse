@@ -150,6 +150,7 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
     int hash_tmp[N_sparse * 2];
     #pragma HLS ARRAY_PARTITION variable=hash_tmp type=complete dim=0
 
+    ComputePoolCoord:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
         int j_h_in = sparse_arr_hash_in[2 * i];
@@ -159,12 +160,14 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
         hash_tmp[2 * i + 1] = (j_w_in - 1) / pool_size + 1;
     }
 
+    HashOutLoop:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
         int i_h_out = hash_tmp[2 * i];
         int i_w_out = hash_tmp[2 * i + 1];
 
         res_T acc = 0;
+        HashInLoop:
         for (int j = 0; j < N_sparse; j++) {
             #pragma HLS UNROLL
             int j_h_out = hash_tmp[2 * j];
@@ -186,11 +189,13 @@ template<class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
 void sparse_flatten(data_T sparse_arr_feat[N_sparse],
                     hash_T sparse_arr_hash[N_sparse * 2],
                     data_T flat_arr[N_h * N_w * N_c]) {
+    InitFlatArr:
     for (int i = 0; i < N_h * N_w * N_c; i++) {
         #pragma HLS UNROLL
         flat_arr[i] = 0;
     }
 
+    FillFlatArr:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
         int j_h = sparse_arr_hash[2 * i];
