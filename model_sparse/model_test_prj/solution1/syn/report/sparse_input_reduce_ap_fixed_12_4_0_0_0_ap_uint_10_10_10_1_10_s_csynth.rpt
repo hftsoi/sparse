@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'sparse_input_reduce_ap_fixed_12_4_0_0_0_ap_uint_10_10_10_1_10_s'
 ================================================================
-* Date:           Sun Mar 30 20:44:24 2025
+* Date:           Sun Mar 30 21:38:35 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -660,26 +660,26 @@
     |pair_value_7_fu_1276               |  12|   0|   12|          0|
     |pair_value_8_fu_1280               |  12|   0|   12|          0|
     |pair_value_9_fu_1284               |  12|   0|   12|          0|
-    |sparse_arr_hash1_10_c24_0_fu_1332  |   4|   0|    4|          0|
-    |sparse_arr_hash1_11_c25_0_fu_1336  |   4|   0|    4|          0|
-    |sparse_arr_hash1_12_c26_0_fu_1340  |   4|   0|    4|          0|
-    |sparse_arr_hash1_13_c27_0_fu_1344  |   4|   0|    4|          0|
-    |sparse_arr_hash1_14_c28_0_fu_1348  |   4|   0|    4|          0|
-    |sparse_arr_hash1_15_c29_0_fu_1352  |   4|   0|    4|          0|
-    |sparse_arr_hash1_16_c30_0_fu_1356  |   4|   0|    4|          0|
-    |sparse_arr_hash1_17_c31_0_fu_1360  |   4|   0|    4|          0|
-    |sparse_arr_hash1_18_c32_0_fu_1364  |   4|   0|    4|          0|
-    |sparse_arr_hash1_19_c33_0_fu_1368  |   4|   0|    4|          0|
-    |sparse_arr_hash1_1_c15_0_fu_1296   |   4|   0|    4|          0|
-    |sparse_arr_hash1_2_c16_0_fu_1300   |   4|   0|    4|          0|
-    |sparse_arr_hash1_3_c17_0_fu_1304   |   4|   0|    4|          0|
-    |sparse_arr_hash1_4_c18_0_fu_1308   |   4|   0|    4|          0|
-    |sparse_arr_hash1_5_c19_0_fu_1312   |   4|   0|    4|          0|
-    |sparse_arr_hash1_6_c20_0_fu_1316   |   4|   0|    4|          0|
-    |sparse_arr_hash1_7_c21_0_fu_1320   |   4|   0|    4|          0|
-    |sparse_arr_hash1_8_c22_0_fu_1324   |   4|   0|    4|          0|
-    |sparse_arr_hash1_9_c23_0_fu_1328   |   4|   0|    4|          0|
-    |sparse_arr_hash1_c14_0_fu_1292     |   4|   0|    4|          0|
+    |sparse_arr_hash1_10_c26_0_fu_1332  |   4|   0|    4|          0|
+    |sparse_arr_hash1_11_c27_0_fu_1336  |   4|   0|    4|          0|
+    |sparse_arr_hash1_12_c28_0_fu_1340  |   4|   0|    4|          0|
+    |sparse_arr_hash1_13_c29_0_fu_1344  |   4|   0|    4|          0|
+    |sparse_arr_hash1_14_c30_0_fu_1348  |   4|   0|    4|          0|
+    |sparse_arr_hash1_15_c31_0_fu_1352  |   4|   0|    4|          0|
+    |sparse_arr_hash1_16_c32_0_fu_1356  |   4|   0|    4|          0|
+    |sparse_arr_hash1_17_c33_0_fu_1360  |   4|   0|    4|          0|
+    |sparse_arr_hash1_18_c34_0_fu_1364  |   4|   0|    4|          0|
+    |sparse_arr_hash1_19_c35_0_fu_1368  |   4|   0|    4|          0|
+    |sparse_arr_hash1_1_c17_0_fu_1296   |   4|   0|    4|          0|
+    |sparse_arr_hash1_2_c18_0_fu_1300   |   4|   0|    4|          0|
+    |sparse_arr_hash1_3_c19_0_fu_1304   |   4|   0|    4|          0|
+    |sparse_arr_hash1_4_c20_0_fu_1308   |   4|   0|    4|          0|
+    |sparse_arr_hash1_5_c21_0_fu_1312   |   4|   0|    4|          0|
+    |sparse_arr_hash1_6_c22_0_fu_1316   |   4|   0|    4|          0|
+    |sparse_arr_hash1_7_c23_0_fu_1320   |   4|   0|    4|          0|
+    |sparse_arr_hash1_8_c24_0_fu_1324   |   4|   0|    4|          0|
+    |sparse_arr_hash1_9_c25_0_fu_1328   |   4|   0|    4|          0|
+    |sparse_arr_hash1_c16_0_fu_1292     |   4|   0|    4|          0|
     +-----------------------------------+----+----+-----+-----------+
     |Total                              |1589|   0| 1589|          0|
     +-----------------------------------+----+----+-----+-----------+

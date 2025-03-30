@@ -6,7 +6,7 @@
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
 | Function                                  | Location           | Compile/Link      | Unroll/Inline     | Performance/Pipeline | Optimizations    |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
-| + model_test                              | model_test.cpp:185 | 14,166            | 24,265            | 8,189                | 7,446            |
+| + model_test                              | model_test.cpp:207 | 14,422            | 24,625            | 8,931                | 8,193            |
 |  + sparse_input_reduce<ap_fixed...        | model_test.cpp:41  | 11,965            |  4,957            | 2,171                | 1,593            |
 |     value_idx_pair                        | model_test.cpp:16  |     19            |                   |                      |                  |
 |   + find_nonzero<value_idx_pair<...       | model_test.cpp:21  | 11,435            |                   |                      |                  |
@@ -44,6 +44,7 @@
 |     mult_for_sparse_conv<ap_fixe...       | model_test.cpp:86  |    352            |                   |                      |                  |
 |    sparse_relu<ap_fixed<25, 10,...        | model_test.cpp:131 |    199            |    161            |    71                |    72            |
 |    sparse_pooling_avg<ap_fixed<...        | model_test.cpp:146 |    727            |  5,546            | 1,036                | 1,036            |
+|    sparse_flatten<ap_fixed<25, ...        | model_test.cpp:186 |    226            |    344            |   686                |   706            |
 +-------------------------------------------+--------------------+-------------------+-------------------+----------------------+------------------+
 
 * Description of Compilation Phases

@@ -182,10 +182,32 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
     }
 }
 
+template<class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
+void sparse_flatten(data_T sparse_arr_feat[N_sparse],
+                    hash_T sparse_arr_hash[N_sparse * 2],
+                    data_T flat_arr[N_h * N_w * N_c]) {
+    for (int i = 0; i < N_h * N_w * N_c; i++) {
+        #pragma HLS UNROLL
+        flat_arr[i] = 0;
+    }
+
+    for (int i = 0; i < N_sparse; i++) {
+        #pragma HLS UNROLL
+        int j_h = sparse_arr_hash[2 * i];
+        int j_w = sparse_arr_hash[2 * i + 1];
+        int flat_idx = (j_h - 1) * N_w + (j_w - 1);
+
+        data_T data = sparse_arr_feat[i];
+        if (data != 0) {
+            flat_arr[flat_idx] = data;
+        }
+    }
+}
+
 void model_test(
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
     //result_t layer2_out[OUT_HEIGHT_2*OUT_WIDTH_2*N_FILT_2]
-    result_t layer2_out[N_MAX_PIXELS]
+    result_t layer2_out[N_OUT]
 ) {
 
     // hls-fpga-machine-learning insert IO
@@ -224,17 +246,12 @@ void model_test(
     sparse_relu<result_t, result_t, N_MAX_PIXELS>(sparse1_out, act1_out);
 
     ap_uint<10> sparse_arr_hash2[N_MAX_PIXELS * 2];
+    result_t pool1_out[N_MAX_PIXELS];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash2 complete dim=0
-    sparse_pooling_avg<result_t, result_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS, 2>(act1_out, layer2_out, sparse_arr_hash1, sparse_arr_hash2);
+    #pragma HLS ARRAY_PARTITION variable=pool1_out complete dim=0
+    sparse_pooling_avg<result_t, result_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS, 2>(act1_out, pool1_out, sparse_arr_hash1, sparse_arr_hash2);
+
+    sparse_flatten<result_t, ap_uint<10>, 5, 5, 1, N_MAX_PIXELS>(pool1_out, sparse_arr_hash2, layer2_out);
     
-    /*
-    std::cout << "========" << std::endl;
-    for (int i = 0; i < N_MAX_PIXELS; i++) {
-        std::cout << "hash :" << sparse_arr_hash2[2 * i] << " " << sparse_arr_hash2[2 * i + 1] << std::endl;
-        std::cout << "feat :" << layer2_out[i] << std::endl;
-        std::cout << std::endl;
-    }
-    std::cout << "========" << std::endl;
-    */
 }
 

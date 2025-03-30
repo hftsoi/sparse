@@ -11,7 +11,7 @@
 // Prototype of top level function for C-synthesis
 void model_test(
     input_t x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    result_t layer2_out[N_MAX_PIXELS]
+    result_t layer2_out[N_OUT]
 );
 
 

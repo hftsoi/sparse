@@ -50,32 +50,32 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 // Wrapper of top level function for Python bridge
 void model_test_float(
     float x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    float layer2_out[N_MAX_PIXELS]
+    float layer2_out[N_OUT]
 ) {
 
     input_t x_in_ap[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
     nnet::convert_data<float, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(x_in, x_in_ap);
 
-    result_t layer2_out_ap[N_MAX_PIXELS];
+    result_t layer2_out_ap[N_OUT];
 
     model_test(x_in_ap,layer2_out_ap);
 
-    nnet::convert_data<result_t, float, N_MAX_PIXELS>(layer2_out_ap, layer2_out);
+    nnet::convert_data<result_t, float, N_OUT>(layer2_out_ap, layer2_out);
 }
 
 void model_test_double(
     double x_in[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    double layer2_out[N_MAX_PIXELS]
+    double layer2_out[N_OUT]
 ) {
 
     input_t x_in_ap[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
     nnet::convert_data<double, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(x_in, x_in_ap);
 
-    result_t layer2_out_ap[N_MAX_PIXELS];
+    result_t layer2_out_ap[N_OUT];
 
     model_test(x_in_ap,layer2_out_ap);
 
-    nnet::convert_data<result_t, double, N_MAX_PIXELS>(layer2_out_ap, layer2_out);
+    nnet::convert_data<result_t, double, N_OUT>(layer2_out_ap, layer2_out);
 }
 }
 
