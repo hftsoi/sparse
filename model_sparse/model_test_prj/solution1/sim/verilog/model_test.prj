@@ -1,9 +1,0 @@
-sv work "glbl.v"
-sv xil_defaultlib "model_test.autotb.v"
-sv xil_defaultlib "model_test_sparse_input.v"
-sv xil_defaultlib "model_test_sparse_compute.v"
-sv xil_defaultlib "model_test.v"
-sv xil_defaultlib "model_test_fifo_w4_d2_S.v"
-sv xil_defaultlib "model_test_fifo_w12_d2_S.v"
-sv xil_defaultlib "dataflow_monitor.sv"
-

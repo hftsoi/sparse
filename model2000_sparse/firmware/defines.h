@@ -32,9 +32,10 @@
 #define N_SIZE_0_10 20
 #define N_LAYER_11 1
 
+#define N_MAX_PIXELS 20
 
 // hls-fpga-machine-learning insert layer-precision
-typedef ap_fixed<12,4,AP_RND,AP_SAT,0> input_t;
+typedef ap_fixed<2,0> input_t;
 typedef ap_fixed<16,6> model_default_t;
 typedef ap_fixed<33,16> conv1_result_t;
 typedef ap_fixed<16,7> weight2_t;

@@ -1,8 +1,0 @@
----
-MainSourceFile:  /home/coder/sparse/model_sparse/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp
-Diagnostics:     
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '182:52'
-    FilePath:        firmware/model_test.cpp
-...
