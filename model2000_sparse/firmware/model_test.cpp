@@ -150,8 +150,9 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
     int hash_tmp[N_sparse * 2];
     #pragma HLS ARRAY_PARTITION variable=hash_tmp type=complete dim=0
 
-    ap_fixed<10,0> pool_size_recip = 0.5;
-    if (pool_size == 3) { pool_size_recip = 0.33333; }
+    ap_fixed<10,0> pool_size_recip = 0;
+    if (pool_size == 2) { pool_size_recip = 0.5; }
+    else if (pool_size == 3) { pool_size_recip = 0.33333; }
     else if (pool_size == 4) { pool_size_recip = 0.25; }
     else if (pool_size == 5) { pool_size_recip = 0.2; }
     else if (pool_size == 6) { pool_size_recip = 0.16667; }
