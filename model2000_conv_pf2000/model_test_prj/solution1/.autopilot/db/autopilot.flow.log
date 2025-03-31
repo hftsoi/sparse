@@ -1,0 +1,129 @@
+INFO-FLOW: Workspace /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1 opened at Mon Mar 31 14:19:09 UTC 2025
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Command     open_solution done; 0.49 sec.
+Execute     config_array_partition -maximum_size 4096 
+INFO: [HLS 200-1510] Running: config_array_partition -maximum_size 4096 
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 4096.
+ERROR: [HLS 200-642] The 'config_array_partition -maximum_size' command is not supported.
+Command     config_array_partition done; error code: 1; 
+Execute     config_compile -name_max_length 80 
+INFO: [HLS 200-1510] Running: config_compile -name_max_length 80 
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+Execute     set_part xcvu13p-flga2577-2-e 
+INFO: [HLS 200-1510] Running: set_part xcvu13p-flga2577-2-e 
+Execute       create_platform xcvu13p-flga2577-2-e -board  
+DBG:HLSDevice: Trying to load device library: /tools/Xilinx/Vitis_HLS/2023.1/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/Vivado/2023.1/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcvu13p-flga2577-2-e'
+Command       create_platform done; 4.28 sec.
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/util.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       ap_part_info -name xcvu13p-flga2577-2-e -data info 
+Execute       config_compile -quiet -complex-mul-dsp=0 
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+Command     set_part done; 4.49 sec.
+Execute     config_schedule -enable_dsp_full_reg=false 
+INFO: [HLS 200-1510] Running: config_schedule -enable_dsp_full_reg=false 
+Execute     create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+Execute       ap_set_clock -name default -period 5 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+Execute     set_clock_uncertainty 12.5% default 
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 12.5% default 
+Execute       ap_set_clock -name default -uncertainty 0.625 -unit % 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
+Execute     csynth_design 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO-FLOW: Running SLX 'csynth' proc: ::SLX::run_csynth
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 1.449 GB.
+Execute         set_directive_top model_test -name=model_test 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/try/try.tcl 
+INFO: [HLS 200-10] Analyzing design file 'firmware/model_test.cpp' ... 
+INFO-FLOW: Compiling one TU...
+INFO-FLOW: Handling firmware/model_test.cpp as C++
+Execute         ap_part_info -name xcvu13p-flga2577-2-e -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang firmware/model_test.cpp -foptimization-record-file=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0 -fhls -fno-exceptions -insert-hls-directive=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/all.directive.json -E -std=c++0x -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_5376.000000_DSP_12288.000000_FF_3456000.000000_LUT_1728000.000000_SLICE_216000.000000_SLR_4.000000_URAM_1280.000000 -device-name-info=xcvu13p-flga2577-2-e > /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.cpp.clang.out.log 2> /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.cpp.clang.err.log
+INFO-FLOW: Done: GCC PP 39 time: 0.4 seconds per iteration
+INFO-FLOW: Source syntax check for synthesis
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_5376.000000_DSP_12288.000000_FF_3456000.000000_LUT_1728000.000000_SLICE_216000.000000_SLR_4.000000_URAM_1280.000000 -device-name-info=xcvu13p-flga2577-2-e > /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/clang.out.log 2> /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/clang.err.log
+WARNING: [HLS 207-5531] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:33:9)
+WARNING: [HLS 207-5531] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:107:9)
+WARNING: [HLS 207-5531] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:189:9)
+WARNING: [HLS 207-5532] 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead (firmware/nnet_utils/nnet_conv2d.h:47:26)
+WARNING: [HLS 207-5532] 'region' in '#pragma HLS Inline' is deprecated, use 'Inline Pragma' instead (firmware/nnet_utils/nnet_conv2d.h:63:26)
+WARNING: [HLS 207-5559] unexpected pragma argument 'compute_output_buffer_1d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:79:34)
+WARNING: [HLS 207-5559] unexpected pragma argument 'compute_output_buffer_2d', expects function/operation (firmware/nnet_utils/nnet_conv2d_stream.h:80:34)
+WARNING: [HLS 207-5559] unexpected pragma argument 'pool_op', expects function/operation (firmware/nnet_utils/nnet_pooling.h:295:34)
+Execute         clang_tidy xilinx-systemc-detector -desc systemc-detector /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp std=c++0x -target fpga  -directive=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/.systemc_flag -fix-errors /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -- -std=c++0x -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 2.96 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute         clang_tidy xilinx-directive2pragma -desc directive2pragma /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp std=c++0x -target fpga  -directive=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/all.directive.json -fix-errors /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -- -std=c++0x -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 3.73 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 3.7 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
+Execute         clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp std=c++0x -target fpga  
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -- -std=c++0x -target fpga -fhls -ferror-limit=0 > /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang-tidy.loop-label.err.log
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Command         clang_tidy done; 5.72 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -- -std=c++0x -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.xilinx-dataflow-lawyer.err.log
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:38:71)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:38:75)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:50:78)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:50:82)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:61:73)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/model_test.cpp:61:78)
+Execute         send_msg_by_id WARNING @200-471@%s%s 6 firmware/model_test.cpp 
+WARNING: [HLS 200-471] Dataflow form checks found 6 issue(s) in file firmware/model_test.cpp
+Execute         ap_part_info -name xcvu13p-flga2577-2-e -data info 
+INFO-FLOW: compiling source code to llvm bc
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp -std=c++0x -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.bc -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_5376.000000_DSP_12288.000000_FF_3456000.000000_LUT_1728000.000000_SLICE_216000.000000_SLR_4.000000_URAM_1280.000000 -device-name-info=xcvu13p-flga2577-2-e > /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang.out.log 2> /home/coder/sparse/model2000_conv_pf2000/model_test_prj/solution1/.autopilot/db/model_test.pp.0.cpp.clang.err.log
+INFO-FLOW: Caught error in elaborate: Compilation of the preprocessed source 'model_test' failed
+    while executing
+"ap_compile_one_ll_39 $base $cppf ${CFLAGS} $objdir $is_xip"
+    (procedure "AP::ap_compile_one_tu_39" line 60)
+    invoked from within
+"AP::ap_compile_one_tu_39 $srcfile $skip_transform $dbgInfo $skip_cdt "$cflags""
+    ("foreach" body line 10)
+    invoked from within
+"foreach fentry $dut_files {
+        #puts "file: $fentry"
+        set fatt [lindex $fentry 1]
+        array set opt $fatt
+        set srcfile $opt(nam..."
+    (procedure "AP::compile_dut_files_39" line 18)
+    invoked from within
+"AP::compile_dut_files_39 $dut_files $dbgInfo $skip_cdt $skip_transform"
+    (procedure "AP::compile" line 103)
+    invoked from within
+"AP::compile 1 $skip_cdt $skip_transform"
+    (procedure "ap_internal_elaborate" line 83)
+    invoked from within
+"ap_internal_elaborate "
+Command       elaborate done; error code: 2; 25.06 sec.
+INFO-FLOW: Caught error in csynth_design: Compilation of the preprocessed source 'model_test' failed
+    while executing
+"ap_internal_csynth_design "
+Command     csynth_design done; error code: 2; 25.14 sec.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 21.13 seconds. CPU system time: 1.65 seconds. Elapsed time: 25.14 seconds; current allocated memory: 4.301 MB.
+Command   ap_source done; error code: 1; 30.73 sec.
+Execute   cleanup_all 
