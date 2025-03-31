@@ -150,14 +150,20 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
     int hash_tmp[N_sparse * 2];
     #pragma HLS ARRAY_PARTITION variable=hash_tmp type=complete dim=0
 
+    ap_fixed<10,0> pool_size_recip = 0.5;
+    if (pool_size == 3) { pool_size_recip = 0.33333; }
+    else if (pool_size == 4) { pool_size_recip = 0.25; }
+    else if (pool_size == 5) { pool_size_recip = 0.2; }
+    else if (pool_size == 6) { pool_size_recip = 0.16667; }
+
     ComputePoolCoord:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
         int j_h_in = sparse_arr_hash_in[2 * i];
         int j_w_in = sparse_arr_hash_in[2 * i + 1];
 
-        hash_tmp[2 * i] = (j_h_in - 1) / pool_size + 1;
-        hash_tmp[2 * i + 1] = (j_w_in - 1) / pool_size + 1;
+        hash_tmp[2 * i] = (j_h_in - 1) * pool_size_recip + 1;
+        hash_tmp[2 * i + 1] = (j_w_in - 1) * pool_size_recip + 1;
     }
 
     HashOutLoop:
@@ -179,7 +185,7 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
                 sparse_arr_feat_in[j] = 0;
             }
         }
-        sparse_arr_feat_out[i] = acc / (pool_size * 2);
+        sparse_arr_feat_out[i] = acc * pool_size_recip * pool_size_recip;
         sparse_arr_hash_out[2 * i] = i_h_out;
         sparse_arr_hash_out[2 * i + 1] = i_w_out;
     }
@@ -203,7 +209,7 @@ void sparse_flatten(data_T sparse_arr_feat[N_sparse],
         int flat_idx = (j_h - 1) * N_w + (j_w - 1);
 
         data_T data = sparse_arr_feat[i];
-        if (data != 0) {
+        if (data != 0) {// not needed
             flat_arr[flat_idx] = data;
         }
     }
@@ -216,7 +222,8 @@ void model_test(
 ) {
 
     // hls-fpga-machine-learning insert IO
-    #pragma HLS ARRAY_RESHAPE variable=x_in complete dim=0
+    //#pragma HLS ARRAY_RESHAPE variable=x_in complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=x_in complete dim=0
     #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
     #pragma HLS INTERFACE ap_vld port=x_in,layer11_out 
     #pragma HLS DATAFLOW
