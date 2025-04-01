@@ -69,7 +69,7 @@ InputData: null
 KerasModel: !keras_model 'model_test/keras_model.keras'
 OutputDir: model_test
 OutputPredictions: null
-Part: xcvu13p-flga2577-2-e
+Part: xcu250-figd2104-2L-e
 ProjectName: model_test
 Stamp: d8740bd6
 Version: 1.0.0
