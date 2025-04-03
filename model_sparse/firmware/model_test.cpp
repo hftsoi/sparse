@@ -45,7 +45,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     value_idx_pair<data_T> pair_arr[N_h * N_w];
     #pragma HLS ARRAY_PARTITION variable=pair_arr type=complete dim=0
 
-    // scan the first channel, and assume the same sparsity structure for the rest of channels
+    // scan the first channel only, and assume the same sparsity structure for the rest of channels
     int j_h_arr[N_h * N_w];
     int j_w_arr[N_h * N_w];
     #pragma HLS ARRAY_PARTITION variable=j_h_arr type=complete dim=0
@@ -65,6 +65,8 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 
         j_h_arr[j] = j_h;
         j_w_arr[j] = j_w;
+        // ^ these indices can be precomputed for a given dataset
+        // so no need to compute at runtime (expecially there are division and modulo)
     }
 
     Op_nonzero<value_idx_pair<data_T>> op_nonzero;
@@ -81,49 +83,64 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
             sparse_arr_feat[N_c * i + j] = input_arr[N_c * j + pair.index];
         }
 
-        sparse_arr_hash[2 * i] = j_h_arr[pair.index]; // split to 3 separate arr (h, w, c, so they have same size with same index order)?
+        sparse_arr_hash[2 * i] = j_h_arr[pair.index]; 
         sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
 
         pair_arr[pair.index].value = 0;
     }
 }
 
-template <class data_T, class res_T, class w_T, int n_chan, int n_filt>
-res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_in, w_T filt_w[3 * 3 * n_chan * n_filt]) {
+template <class data_T, class res_T, class w_T, int n_chan, int n_filt, int i_filt>
+res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_chan], w_T filt_w[3 * 3 * n_chan * n_filt]) {
     #pragma HLS INLINE
 
-    w_T w = 0;
-    if ((offset_h == 1) && (offset_w == 1))        { w = filt_w[0]; }
-    else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[1]; }
-    else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[2]; }
-    else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[3]; }
-    // the central one has been done outside this, as it needs no offset check
-    else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[5]; }
-    else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[6]; }
-    else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[7]; }
-    else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[8]; }
+    res_T acc = 0;
+    for (int i_chan = 0; i_chan < n_chan; i_chan++) {
+        #pragma HLS UNROLL
+        w_T w = 0;
+        int w_idx = 3 * 3 * n_chan * i_filt + i_chan * 3 * 3;
+        if ((offset_h == 1) && (offset_w == 1))        { w = filt_w[w_idx]; }
+        else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[w_idx + 1]; }
+        else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[w_idx + 2]; }
+        else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[w_idx + 3]; }
+        // the central one has been done outside this, as it needs no offset check
+        else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[w_idx + 5]; }
+        else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[w_idx + 6]; }
+        else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[w_idx + 7]; }
+        else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[w_idx + 8]; }
+
+        acc += w * feat_per_pixel[i_chan];
+    }
     // possible to turn this if-else block into a lookup table of weights?
     // like inputs are the two offset values, which point to the corresponding weight in the LUT arr
     // or w = filt_w[offset_h + offset_int, offset_w + offset_int]
     // where offset_h offset_w are bounded by ap_int<?> so they dont exceed array size limit
-
-    return feat_in * w;
+    return acc;
 }
 // make sparse conv to do one filter at a time
 // so the hash and feat array structure stays the same
 template <class data_T, class res_T, class hash_T, class w_T, int N_sparse, int n_chan, int n_filt>
-void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
-                 res_T sparse_arr_feat_out[N_sparse],
+void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
+                 res_T sparse_arr_feat_out[N_sparse * n_filt],
                  hash_T sparse_arr_hash[N_sparse * 2],
                  w_T filt_w[3 * 3 * n_chan * n_filt]) {
     OutputPixelLoop:
     for (int i_out = 0; i_out < N_sparse; i_out++) {
         #pragma HLS UNROLL
 
-        // center of 3x3 filter
-        res_T acc = sparse_arr_feat_in[i_out] * filt_w[4];
+        OoutputFilterLoop:
+        for (int i_filt = 0; i < n_filt; i_filt++) {
+            #pragma HLS UNROLL
+            res_T acc = 0;
 
-        if (sparse_arr_feat_in[i_out] != 0){
+            // central field per input channel per output filter
+            InputChannelLoopForCentralField:
+            for (int i_chan = 0; i < n_chan; i_chan++) {
+                #pragma HLS UNROLL
+                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[i_filt * n_chan * 3 * 3 + i_chan * 3 * 3 + 4];
+            }
+        
+            // look for fields away from the central by offset checking
             InputPixelLoop:
             for (int i_in = 0; i_in < N_sparse; i_in++) {
                 #pragma HLS UNROLL
@@ -132,19 +149,25 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse],
                 int offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
                 // relate these offsets to power of two?
 
-                acc += mult_for_sparse_conv<data_T, res_T, w_T>(offset_h, offset_w, sparse_arr_feat_in[i_in], filt_w);
+                data_T feat_per_pixel[n_chan];
+                #pragma HLS ARRAY_PARTITION variable=feat_per_pixel type=complete dim=0
+                for (int k = 0; k < n_chan; k++) {
+                    #pragma HLS UNROLL
+                    feat_per_pixel[k] = sparse_arr_feat_in[n_chan * i_in + k];
+                }
+                acc += mult_for_sparse_conv<data_T, res_T, w_T, n_chan, n_filt, i_filt>(offset_h, offset_w, feat_per_pixel, filt_w);
             }
+            sparse_arr_feat_out[n_filt * i_out + i_filt] = acc;
         }
-        sparse_arr_feat_out[i_out] = acc;
     }
 }
 
-template <class data_T, class res_T, int N_sparse>
-void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[N_sparse]) {
+template <class data_T, class res_T, int N_sparse, int n_chan>
+void sparse_relu(data_T sparse_arr_feat_in[N_sparse * n_chan], res_T sparse_arr_feat_out[N_sparse * n_chan]) {
     #pragma HLS PIPELINE
 
     data_T data;
-    for (int i = 0; i < N_sparse; i++) {
+    for (int i = 0; i < N_sparse * n_chan; i++) {
         data = sparse_arr_feat_in[i];
         if (data > 0) {
             sparse_arr_feat_out[i] = data;
@@ -154,9 +177,9 @@ void sparse_relu(data_T sparse_arr_feat_in[N_sparse], res_T sparse_arr_feat_out[
     }
 }
 
-template <class data_T, class res_T, class hash_T, int N_sparse, int pool_size>
-void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
-                        res_T sparse_arr_feat_out[N_sparse],
+template <class data_T, class res_T, class hash_T, int N_sparse, int n_chan, int pool_size>
+void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
+                        res_T sparse_arr_feat_out[N_sparse * n_chan],
                         hash_T sparse_arr_hash_in[N_sparse * 2],
                         hash_T sparse_arr_hash_out[N_sparse * 2]) {
     int hash_tmp[N_sparse * 2];
@@ -172,11 +195,8 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
     ComputePoolCoord:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
-        int j_h_in = sparse_arr_hash_in[2 * i];
-        int j_w_in = sparse_arr_hash_in[2 * i + 1];
-
-        hash_tmp[2 * i] = (j_h_in - 1) * pool_size_recip + 1;
-        hash_tmp[2 * i + 1] = (j_w_in - 1) * pool_size_recip + 1;
+        hash_tmp[2 * i] = (sparse_arr_hash_in[2 * i] - 1) * pool_size_recip + 1;
+        hash_tmp[2 * i + 1] = (sparse_arr_hash_in[2 * i + 1] - 1) * pool_size_recip + 1;
     }
 
     HashOutLoop:
@@ -185,31 +205,35 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse],
         int i_h_out = hash_tmp[2 * i];
         int i_w_out = hash_tmp[2 * i + 1];
 
-        res_T acc = 0;
         HashInLoop:
         for (int j = 0; j < N_sparse; j++) {
             #pragma HLS UNROLL
             int j_h_out = hash_tmp[2 * j];
             int j_w_out = hash_tmp[2 * j + 1];
-            data_T data = sparse_arr_feat_in[j];
 
-            if ((data != 0) && (i_h_out == j_h_out) && (i_w_out == j_w_out)) {
-                acc += data;
-                sparse_arr_feat_in[j] = 0;
+            ChannelLoop:
+            for (int i_chan = 0; i_chan < n_chan; i_chan++) {
+                res_T acc = 0;
+                data_T data = sparse_arr_feat_in[n_chan * j + i_chan];
+
+                if ((i_h_out == j_h_out) && (i_w_out == j_w_out)) {
+                    acc += data;
+                    sparse_arr_feat_in[n_chan * j + i_chan] = 0;
+                }
+                sparse_arr_feat_out[n_chan * i + i_chan] = acc * pool_size_recip * pool_size_recip;
             }
         }
-        sparse_arr_feat_out[i] = acc * pool_size_recip * pool_size_recip;
         sparse_arr_hash_out[2 * i] = i_h_out;
         sparse_arr_hash_out[2 * i + 1] = i_w_out;
     }
 }
 
-template<class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
-void sparse_flatten(data_T sparse_arr_feat[N_sparse],
+template<class data_T, class hash_T, int n_height, int n_width, int n_chan, int N_sparse>
+void sparse_flatten(data_T sparse_arr_feat[N_sparse * n_chan],
                     hash_T sparse_arr_hash[N_sparse * 2],
-                    data_T flat_arr[N_h * N_w * N_c]) {
+                    data_T flat_arr[n_height * n_width * n_chan]) {
     InitFlatArr:
-    for (int i = 0; i < N_h * N_w * N_c; i++) {
+    for (int i = 0; i < n_height * n_width * n_chan; i++) {
         #pragma HLS UNROLL
         flat_arr[i] = 0;
     }
@@ -219,11 +243,11 @@ void sparse_flatten(data_T sparse_arr_feat[N_sparse],
         #pragma HLS UNROLL
         int j_h = sparse_arr_hash[2 * i];
         int j_w = sparse_arr_hash[2 * i + 1];
-        int flat_idx = (j_h - 1) * N_w + (j_w - 1);
+        int flat_idx = (j_h - 1) * n_width + (j_w - 1);
 
-        data_T data = sparse_arr_feat[i];
-        if (data != 0) {// not needed
-            flat_arr[flat_idx] = data;
+        for (int i_chan = 0; i_chan < n_chan; i_chan++) {
+            #pragma HLS UNROLL
+            flat_arr[n_height * n_width * i_chan + flat_idx] = sparse_arr_feat[n_chan * i + i_chan];
         }
     }
 }
@@ -257,9 +281,31 @@ void model_test(
 
     // hls-fpga-machine-learning insert layers
 
-    
+    input_t sparse_arr_feat_reduce_out[N_MAX_PIXELS * N_INPUT_3_1];
+    ap_uint<10> sparse_arr_hash_reduce_out[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_reduce_out complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash_reduce_out complete dim=0
+    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat_reduce_out, sparse_arr_hash_reduce_out); // sparse array creation
 
-    nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // dense1
+    model_default_t sparse_arr_feat_conv1_out[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_conv1_out complete dim=0
+    sparse_conv<input_t, model_default_t, ap_uint<10>, weight2_t, N_MAX_PIXELS, 3, 2>(sparse_arr_feat_reduce_out, sparse_arr_feat_conv1_out, sparse_arr_hash_reduce_out, w2); // sparse conv1
+
+    model_default_t sparse_arr_feat_act1_out[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_act1_out complete dim=0
+    sparse_relu<model_default_t, model_default_t, N_MAX_PIXELS, 2>(sparse_arr_feat_conv1_out, sparse_arr_feat_act1_out); // sparse relu1
+
+    model_default_t sparse_arr_feat_pool1_out[N_MAX_PIXELS * 2];
+    ap_uint<10> sparse_arr_hash_pool1_out[N_MAX_PIXELS * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_pool1_out complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash_pool1_out complete dim=0
+    sparse_pooling_avg<model_default_t, model_default_t, ap_uint<10>, N_MAX_PIXELS, 2, 2>(sparse_arr_feat_act1_out, sparse_arr_feat_pool1_out, sparse_arr_hash_reduce_out, sparse_arr_hash_pool1_out); // sparse pool1
+
+    model_default_t sparse_arr_flatten_out[5 * 5 * 2];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_flatten_out complete dim=0
+    sparse_flatten<model_default_t, ap_uint<10>, 5, 5, 2, N_MAX_PIXELS>(sparse_arr_feat_pool1_out, sparse_arr_hash_pool1_out, sparse_arr_flatten_out); // sparse flatten
+
+    nnet::dense<model_default_t, result_t, config7>(sparse_arr_flatten_out, layer7_out, w7, b7); // dense1
 
 }
 
