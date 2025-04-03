@@ -128,7 +128,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
     for (int i_out = 0; i_out < N_sparse; i_out++) {
         #pragma HLS UNROLL
 
-        OoutputFilterLoop:
+        OutputFilterLoop:
         for (int i_filt = 0; i_filt < n_filt; i_filt++) {
             #pragma HLS UNROLL
             res_T acc = 0;
@@ -165,7 +165,6 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
 template <class data_T, class res_T, int N_sparse, int n_chan>
 void sparse_relu(data_T sparse_arr_feat_in[N_sparse * n_chan], res_T sparse_arr_feat_out[N_sparse * n_chan]) {
     #pragma HLS PIPELINE
-
     data_T data;
     for (int i = 0; i < N_sparse * n_chan; i++) {
         data = sparse_arr_feat_in[i];
@@ -199,6 +198,12 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
         hash_tmp[2 * i + 1] = (sparse_arr_hash_in[2 * i + 1] - 1) * pool_size_recip + 1;
     }
 
+    data_T sparse_arr_feat_in_local[N_sparse * n_chan];
+    #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_in_local type=complete dim=0
+    for (int ii = 0; ii < N_sparse * n_chan; ii++) {
+        sparse_arr_feat_in_local[ii] = sparse_arr_feat_in[ii];
+    }
+
     HashOutLoop:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS UNROLL
@@ -215,11 +220,11 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
             for (int i_chan = 0; i_chan < n_chan; i_chan++) {
                 #pragma HLS UNROLL
                 res_T acc = 0;
-                data_T data = sparse_arr_feat_in[n_chan * j + i_chan];
+                data_T data = sparse_arr_feat_in_local[n_chan * j + i_chan];
 
                 if ((i_h_out == j_h_out) && (i_w_out == j_w_out)) {
                     acc += data;
-                    sparse_arr_feat_in[n_chan * j + i_chan] = 0;
+                    sparse_arr_feat_in_local[n_chan * j + i_chan] = 0;
                 }
                 sparse_arr_feat_out[n_chan * i + i_chan] = acc * pool_size_recip * pool_size_recip;
             }
@@ -302,11 +307,11 @@ void model_test(
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash_pool1_out complete dim=0
     sparse_pooling_avg<model_default_t, model_default_t, ap_uint<10>, N_MAX_PIXELS, 2, 4>(sparse_arr_feat_act1_out, sparse_arr_feat_pool1_out, sparse_arr_hash_reduce_out, sparse_arr_hash_pool1_out); // sparse pool1
 
-    model_default_t sparse_arr_flatten_out[5 * 5 * 2];
-    #pragma HLS ARRAY_PARTITION variable=sparse_arr_flatten_out complete dim=0
-    sparse_flatten<model_default_t, ap_uint<10>, 5, 5, 2, N_MAX_PIXELS>(sparse_arr_feat_pool1_out, sparse_arr_hash_pool1_out, sparse_arr_flatten_out); // sparse flatten
+    model_default_t flatten_out[5 * 5 * 2];
+    #pragma HLS ARRAY_PARTITION variable=flatten_out complete dim=0
+    sparse_flatten<model_default_t, ap_uint<10>, 5, 5, 2, N_MAX_PIXELS>(sparse_arr_feat_pool1_out, sparse_arr_hash_pool1_out, flatten_out); // sparse flatten
 
-    nnet::dense<model_default_t, result_t, config7>(sparse_arr_flatten_out, layer7_out, w7, b7); // dense1
+    nnet::dense<model_default_t, result_t, config7>(flatten_out, layer7_out, w7, b7); // dense1
 
     std::cout << "feat" << std::endl;
     for (int i = 0; i < N_MAX_PIXELS * 3; i++) {
@@ -317,6 +322,36 @@ void model_test(
     std::cout << "hash" << std::endl;
     for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
         std::cout << sparse_arr_hash_reduce_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "conv" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
+        std::cout << sparse_arr_feat_conv1_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "act" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
+        std::cout << sparse_arr_feat_act1_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "pool (feat)" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
+        std::cout << sparse_arr_feat_pool1_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "pool (hash)" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
+        std::cout << sparse_arr_hash_pool1_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "flat" << std::endl;
+    for (int i = 0; i < 50; i++) {
+        std::cout << flatten_out[i] << ' ';
     }
     std::cout << " " << std::endl << std::endl;
 }
