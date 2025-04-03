@@ -54,7 +54,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     DataPrepareLoop:
     for (int j = 0; j < N_h * N_w; j++) {
         #pragma HLS UNROLL
-        pair_arr[j].value = input_arr[j];
+        pair_arr[j].value = input_arr[N_c * j];
         pair_arr[j].index = j;
 
         int pixels_per_channel = N_h * N_w;
@@ -80,7 +80,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
         sparse_arr_feat[N_c * i] = pair.value;
         // other channels
         for (int j = 1; j < N_c; j++) {
-            sparse_arr_feat[N_c * i + j] = input_arr[N_c * j + pair.index];
+            sparse_arr_feat[N_c * i + j] = input_arr[N_c * pair.index + j];
         }
 
         sparse_arr_hash[2 * i] = j_h_arr[pair.index]; 
@@ -308,5 +308,16 @@ void model_test(
 
     nnet::dense<model_default_t, result_t, config7>(sparse_arr_flatten_out, layer7_out, w7, b7); // dense1
 
+    std::cout << "feat" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 3; i++) {
+        std::cout << sparse_arr_feat_reduce_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
+
+    std::cout << "hash" << std::endl;
+    for (int i = 0; i < N_MAX_PIXELS * 2; i++) {
+        std::cout << sparse_arr_hash_reduce_out[i] << ' ';
+    }
+    std::cout << " " << std::endl << std::endl;
 }
 
