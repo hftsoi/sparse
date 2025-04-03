@@ -90,8 +90,8 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     }
 }
 
-template <class data_T, class res_T, class w_T, int n_chan, int n_filt, int i_filt>
-res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_chan], w_T filt_w[3 * 3 * n_chan * n_filt]) {
+template <class data_T, class res_T, class w_T, int n_chan, int n_filt>
+res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_chan], w_T filt_w[3 * 3 * n_chan * n_filt], int i_filt) {
     #pragma HLS INLINE
 
     res_T acc = 0;
@@ -129,13 +129,13 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
         #pragma HLS UNROLL
 
         OoutputFilterLoop:
-        for (int i_filt = 0; i < n_filt; i_filt++) {
+        for (int i_filt = 0; i_filt < n_filt; i_filt++) {
             #pragma HLS UNROLL
             res_T acc = 0;
 
             // central field per input channel per output filter
             InputChannelLoopForCentralField:
-            for (int i_chan = 0; i < n_chan; i_chan++) {
+            for (int i_chan = 0; i_chan < n_chan; i_chan++) {
                 #pragma HLS UNROLL
                 acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[i_filt * n_chan * 3 * 3 + i_chan * 3 * 3 + 4];
             }
@@ -155,7 +155,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
                     #pragma HLS UNROLL
                     feat_per_pixel[k] = sparse_arr_feat_in[n_chan * i_in + k];
                 }
-                acc += mult_for_sparse_conv<data_T, res_T, w_T, n_chan, n_filt, i_filt>(offset_h, offset_w, feat_per_pixel, filt_w);
+                acc += mult_for_sparse_conv<data_T, res_T, w_T, n_chan, n_filt>(offset_h, offset_w, feat_per_pixel, filt_w, i_filt);
             }
             sparse_arr_feat_out[n_filt * i_out + i_filt] = acc;
         }
@@ -213,6 +213,7 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
 
             ChannelLoop:
             for (int i_chan = 0; i_chan < n_chan; i_chan++) {
+                #pragma HLS UNROLL
                 res_T acc = 0;
                 data_T data = sparse_arr_feat_in[n_chan * j + i_chan];
 
@@ -299,7 +300,7 @@ void model_test(
     ap_uint<10> sparse_arr_hash_pool1_out[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_pool1_out complete dim=0
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash_pool1_out complete dim=0
-    sparse_pooling_avg<model_default_t, model_default_t, ap_uint<10>, N_MAX_PIXELS, 2, 2>(sparse_arr_feat_act1_out, sparse_arr_feat_pool1_out, sparse_arr_hash_reduce_out, sparse_arr_hash_pool1_out); // sparse pool1
+    sparse_pooling_avg<model_default_t, model_default_t, ap_uint<10>, N_MAX_PIXELS, 2, 4>(sparse_arr_feat_act1_out, sparse_arr_feat_pool1_out, sparse_arr_hash_reduce_out, sparse_arr_hash_pool1_out); // sparse pool1
 
     model_default_t sparse_arr_flatten_out[5 * 5 * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_flatten_out complete dim=0

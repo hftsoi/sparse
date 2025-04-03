@@ -1,0 +1,114 @@
+<design_size title="Design Size Report">
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
+            <rows>
+                <row id="0" col0="model_test" col1="model_test.cpp:257" col2="52176" col3="107109" col3_note="*" col4="33959" col5="31156">
+                    <row id="10" col0="sparse_input_reduce&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;" col1="model_test.cpp:41" col2="46486" col3="19657" col4="8507" col5="6127">
+                        <row id="23" col0="value_idx_pair" col1="model_test.cpp:16" col2="19" col3="" col4="" col5=""/>
+                        <row id="12" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 400, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="46085" col3="" col4="" col5="">
+                            <row id="9" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 256, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="29453" col3="" col4="" col5="">
+                                <row id="2" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 128, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="29338" col2_disp="29,338 (2 calls)" col3="" col4="" col5="">
+                                    <row id="3" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 64, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="29108" col2_disp="29,108 (4 calls)" col3="" col4="" col5="">
+                                        <row id="5" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 32, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="28648" col2_disp="28,648 (8 calls)" col3="" col4="" col5="">
+                                            <row id="24" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 16, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="27728" col2_disp="27,728 (16 calls)" col3="" col4="" col5="">
+                                                <row id="21" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 8, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="25888" col2_disp="25,888 (32 calls)" col3="" col4="" col5="">
+                                                    <row id="22" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 4, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="22208" col2_disp="22,208 (64 calls)" col3="" col4="" col5="">
+                                                        <row id="25" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 2, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="14848" col2_disp="14,848 (128 calls)" col3="" col4="" col5="">
+                                                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="13568" col2_disp="13,568 (128 calls)" col3="" col4="" col5=""/>
+                                                        </row>
+                                                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="6784" col2_disp=" 6,784 (64 calls)" col3="" col4="" col5=""/>
+                                                    </row>
+                                                    <row id="6" col0="operator()" col1="model_test.cpp:9" col2="3392" col2_disp=" 3,392 (32 calls)" col3="" col4="" col5=""/>
+                                                </row>
+                                                <row id="6" col0="operator()" col1="model_test.cpp:9" col2="1696" col2_disp=" 1,696 (16 calls)" col3="" col4="" col5=""/>
+                                            </row>
+                                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="848" col2_disp="   848 (8 calls)" col3="" col4="" col5=""/>
+                                        </row>
+                                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="424" col2_disp="   424 (4 calls)" col3="" col4="" col5=""/>
+                                    </row>
+                                    <row id="6" col0="operator()" col1="model_test.cpp:9" col2="212" col2_disp="   212 (2 calls)" col3="" col4="" col5=""/>
+                                </row>
+                                <row id="6" col0="operator()" col1="model_test.cpp:9" col2="106" col3="" col4="" col5=""/>
+                            </row>
+                            <row id="7" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 144, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="16517" col3="" col4="" col5="">
+                                <row id="2" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 128, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="14669" col3="" col4="" col5="">
+                                    <row id="3" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 64, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="14554" col2_disp="14,554 (2 calls)" col3="" col4="" col5="">
+                                        <row id="5" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 32, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="14324" col2_disp="14,324 (4 calls)" col3="" col4="" col5="">
+                                            <row id="24" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 16, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="13864" col2_disp="13,864 (8 calls)" col3="" col4="" col5="">
+                                                <row id="21" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 8, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="12944" col2_disp="12,944 (16 calls)" col3="" col4="" col5="">
+                                                    <row id="22" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 4, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="11104" col2_disp="11,104 (32 calls)" col3="" col4="" col5="">
+                                                        <row id="25" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 2, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="7424" col2_disp=" 7,424 (64 calls)" col3="" col4="" col5="">
+                                                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="6784" col2_disp=" 6,784 (64 calls)" col3="" col4="" col5=""/>
+                                                        </row>
+                                                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="3392" col2_disp=" 3,392 (32 calls)" col3="" col4="" col5=""/>
+                                                    </row>
+                                                    <row id="6" col0="operator()" col1="model_test.cpp:9" col2="1696" col2_disp=" 1,696 (16 calls)" col3="" col4="" col5=""/>
+                                                </row>
+                                                <row id="6" col0="operator()" col1="model_test.cpp:9" col2="848" col2_disp="   848 (8 calls)" col3="" col4="" col5=""/>
+                                            </row>
+                                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="424" col2_disp="   424 (4 calls)" col3="" col4="" col5=""/>
+                                        </row>
+                                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="212" col2_disp="   212 (2 calls)" col3="" col4="" col5=""/>
+                                    </row>
+                                    <row id="6" col0="operator()" col1="model_test.cpp:9" col2="106" col3="" col4="" col5=""/>
+                                </row>
+                                <row id="24" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 16, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="1733" col3="" col4="" col5="">
+                                    <row id="21" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 8, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="1618" col2_disp=" 1,618 (2 calls)" col3="" col4="" col5="">
+                                        <row id="22" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 4, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="1388" col2_disp=" 1,388 (4 calls)" col3="" col4="" col5="">
+                                            <row id="25" col0="find_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;, 2, Op_nonzero&lt;value_idx_pair&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt; &gt; &gt;" col1="model_test.cpp:21" col2="928" col2_disp="   928 (8 calls)" col3="" col4="" col5="">
+                                                <row id="6" col0="operator()" col1="model_test.cpp:9" col2="848" col2_disp="   848 (8 calls)" col3="" col4="" col5=""/>
+                                            </row>
+                                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="424" col2_disp="   424 (4 calls)" col3="" col4="" col5=""/>
+                                        </row>
+                                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="212" col2_disp="   212 (2 calls)" col3="" col4="" col5=""/>
+                                    </row>
+                                    <row id="6" col0="operator()" col1="model_test.cpp:9" col2="106" col3="" col4="" col5=""/>
+                                </row>
+                                <row id="6" col0="operator()" col1="model_test.cpp:9" col2="106" col3="" col4="" col5=""/>
+                            </row>
+                            <row id="6" col0="operator()" col1="model_test.cpp:9" col2="106" col3="" col4="" col5=""/>
+                        </row>
+                        <row id="6" col0="operator()" col1="model_test.cpp:9" col2="" col3="7978" col3_disp="  7,978 (399 calls)" col4="2388" col4_disp=" 2,388 (398 calls)" col5="2388" col5_disp=" 2,388 (398 calls)"/>
+                    </row>
+                    <row id="8" col0="sparse_conv&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_uint&lt;10&gt;, ap_fixed&lt;6, 1, AP_TRN, AP_WRAP, 0&gt;, 10, 3, 2&gt;" col1="model_test.cpp:123" col2="1599" col3="69974" col4="20371" col5="20371">
+                        <row id="19" col0="mult_for_sparse_conv&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;6, 1, AP_TRN, AP_WRAP, 0&gt;, 3, 2&gt;" col1="model_test.cpp:94" col2="621" col3="" col4="" col5=""/>
+                    </row>
+                    <row id="14" col0="sparse_relu&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, 10, 2&gt;" col1="model_test.cpp:166" col2="199" col3="321" col4="141" col5="142"/>
+                    <row id="16" col0="sparse_pooling_avg&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_uint&lt;10&gt;, 10, 2, 4&gt;" col1="model_test.cpp:181" col2="2884" col3="13083" col4="2317" col5="2317"/>
+                    <row id="17" col0="sparse_flatten&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_uint&lt;10&gt;, 5, 5, 2, 10&gt;" col1="model_test.cpp:233" col2="132" col3="444" col4="1271" col5="1291"/>
+                    <row id="20" col0="dense&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense.h:41" col2="670" col3="" col4="" col5="">
+                        <row id="1" col0="dense" col1="nnet_dense.h:50" col2="668" col3="" col4="" col5="">
+                            <row id="4" col0="dense_latency&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense_latency.h:13" col2="666" col3="" col4="" col5="">
+                                <row id="26" col0="product" col1="nnet_mult.h:70" col2="155" col3="" col4="" col5=""/>
+                                <row id="18" col0="cast&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_mult.h:110" col2="3" col3="" col4="" col5=""/>
+                            </row>
+                        </row>
+                    </row>
+                    <row id="4" col0="dense_latency&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense_latency.h:13" col2="" col3="3527" col4="713" col5="714">
+                        <row id="18" col0="cast&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_mult.h:110" col2="" col3="3" col4="" col5=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes>
+                <note name="*" desc="Exceeded design size warning message threshold"/>
+            </notes>
+        </hiertable>
+    </item>
+    <item name="Description of Compilation Phases">
+        <table>
+            <keys size="2">Compilation Phase, Description</keys>
+            <column name="Compile/Link">All functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">After user unroll and inline pragmas are applied</column>
+            <column name="Performance/Pipeline">After performance and pipeline pragmas are applied</column>
+            <column name="Optimizations">After high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+
