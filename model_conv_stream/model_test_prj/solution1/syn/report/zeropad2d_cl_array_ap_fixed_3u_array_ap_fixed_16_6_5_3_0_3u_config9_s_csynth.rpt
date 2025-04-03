@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vitis HLS Report for 'zeropad2d_cl_array_ap_fixed_3u_array_ap_fixed_16_6_5_3_0_3u_config9_s'
+================================================================
+* Date:           Tue Apr  1 19:25:32 2025
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        model_test_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu250-figd2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  1.207 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      497|      497|  2.485 us|  2.485 us|  497|  497|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
+        |                                                                                        |                                                                              |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |                                        Instance                                        |                                    Module                                    |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
+        |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadTopWidth_fu_28  |zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadTopWidth  |       24|       24|  0.120 us|  0.120 us|   24|   24|       no|
+        |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadMain_fu_34      |zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadMain      |      442|      442|  2.210 us|  2.210 us|  442|  442|       no|
+        |grp_zeropad2d_cl_array_array_ap_fixed_3u_config9_Pipeline_PadBottomWidth_fu_42          |zeropad2d_cl_array_array_ap_fixed_3u_config9_Pipeline_PadBottomWidth          |       24|       24|  0.120 us|  0.120 us|   24|   24|       no|
+        +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|        2|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|       95|      381|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        -|      110|     -|
+|Register             |        -|      -|       13|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|      108|      493|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----+----+-----+-----+
+    |                                        Instance                                        |                                    Module                                    | BRAM_18K| DSP| FF | LUT | URAM|
+    +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----+----+-----+-----+
+    |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadMain_fu_34      |zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadMain      |        0|   0|  79|  235|    0|
+    |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadTopWidth_fu_28  |zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadTopWidth  |        0|   0|   8|   73|    0|
+    |grp_zeropad2d_cl_array_array_ap_fixed_3u_config9_Pipeline_PadBottomWidth_fu_42          |zeropad2d_cl_array_array_ap_fixed_3u_config9_Pipeline_PadBottomWidth          |        0|   0|   8|   73|    0|
+    +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----+----+-----+-----+
+    |Total                                                                                   |                                                                              |        0|   0|  95|  381|    0|
+    +----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----+----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  49|          9|    1|          9|
+    |ap_done                   |   9|          2|    1|          2|
+    |layer9_out_din            |  14|          3|   48|        144|
+    |layer9_out_write          |  20|          4|    1|          4|
+    |real_start                |   9|          2|    1|          2|
+    |x_in_TREADY_int_regslice  |   9|          2|    1|          2|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     | 110|         22|   53|        163|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |                                                 Name                                                | FF| LUT| Bits| Const Bits|
+    +-----------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                                                            |  8|   0|    8|          0|
+    |ap_done_reg                                                                                          |  1|   0|    1|          0|
+    |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadMain_fu_34_ap_start_reg      |  1|   0|    1|          0|
+    |grp_zeropad2d_cl_array_array_ap_fixed_16_6_5_3_0_3u_config9_Pipeline_PadTopWidth_fu_28_ap_start_reg  |  1|   0|    1|          0|
+    |grp_zeropad2d_cl_array_array_ap_fixed_3u_config9_Pipeline_PadBottomWidth_fu_42_ap_start_reg          |  1|   0|    1|          0|
+    |start_once_reg                                                                                       |  1|   0|    1|          0|
+    +-----------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                                                                | 13|   0|   13|          0|
+    +-----------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-------------------------------------------------------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |                              Source Object                              |    C Type    |
++---------------------------+-----+-----+------------+-------------------------------------------------------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|start_full_n               |   in|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_continue                |   in|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|start_out                  |  out|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|start_write                |  out|    1|  ap_ctrl_hs|  zeropad2d_cl<array<ap_fixed,3u>,array<ap_fixed<16,6,5,3,0>,3u>,config9>|  return value|
+|x_in_TDATA                 |   in|   48|        axis|                                                                     x_in|       pointer|
+|x_in_TVALID                |   in|    1|        axis|                                                                     x_in|       pointer|
+|x_in_TREADY                |  out|    1|        axis|                                                                     x_in|       pointer|
+|layer9_out_din             |  out|   48|     ap_fifo|                                                               layer9_out|       pointer|
+|layer9_out_num_data_valid  |   in|   10|     ap_fifo|                                                               layer9_out|       pointer|
+|layer9_out_fifo_cap        |   in|   10|     ap_fifo|                                                               layer9_out|       pointer|
+|layer9_out_full_n          |   in|    1|     ap_fifo|                                                               layer9_out|       pointer|
+|layer9_out_write           |  out|    1|     ap_fifo|                                                               layer9_out|       pointer|
++---------------------------+-----+-----+------------+-------------------------------------------------------------------------+--------------+
+

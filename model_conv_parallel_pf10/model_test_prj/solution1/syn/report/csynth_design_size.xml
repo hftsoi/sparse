@@ -1,0 +1,56 @@
+<design_size title="Design Size Report">
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
+            <rows>
+                <row id="0" col0="model_test" col1="model_test.cpp:7" col2="101522" col2_note="*" col3="212963" col3_note="*" col4="69150" col5="66615">
+                    <row id="1" col0="conv_2d_cl&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;28, 13, AP_TRN, AP_WRAP, 0&gt;, config2&gt;" col1="nnet_conv2d.h:42" col2="98730" col3="79899" col4="11524" col5="11531">
+                        <row id="19" col0="conv_2d_latency_cl&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;28, 13, AP_TRN, AP_WRAP, 0&gt;, config2&gt;" col1="nnet_conv2d_latency.h:11" col2="98728" col3="79897" col4="11521" col5="11528">
+                            <row id="7" col0="fill_buffer" col1="nnet_code_gen.h:17" col2="98017" col3="44550" col4="" col5=""/>
+                            <row id="3" col0="product" col1="nnet_mult.h:70" col2="155" col3="" col4="" col5=""/>
+                            <row id="17" col0="cast&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, ap_fixed&lt;28, 13, AP_TRN, AP_WRAP, 0&gt;, config2_mult&gt;" col1="nnet_mult.h:110" col2="3" col3="60" col3_disp="     60 (20 calls)" col4="" col5=""/>
+                        </row>
+                    </row>
+                    <row id="18" col0="relu&lt;ap_fixed&lt;28, 13, AP_TRN, AP_WRAP, 0&gt;, ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, relu_config4&gt;" col1="nnet_activation.h:39" col2="833" col3="68001" col4="42401" col5="42402"/>
+                    <row id="16" col0="pooling2d_cl&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, config5&gt;" col1="nnet_pooling.h:173" col2="1204" col3="61624" col4="10401" col5="10402">
+                        <row id="8" col0="pool_op_limit&lt;config5&gt;" col1="nnet_pooling.h:168" col2="1" col3="" col4="" col5=""/>
+                        <row id="11" col0="pad_val&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, nnet::Average&gt;" col1="nnet_pooling.h:45" col2="311" col3="8800" col3_disp="  8,800 (800 calls)" col4="" col5=""/>
+                        <row id="4" col0="pool_op&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, 16, nnet::Average, ap_ufixed&lt;14, 4, AP_TRN, AP_WRAP, 0&gt; &gt;" col1="nnet_pooling.h:31" col2="373" col3="32100" col3_disp=" 32,100 (50 calls)" col4="" col5="">
+                            <row id="14" col0="avg&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, 16, ap_ufixed&lt;14, 4, AP_TRN, AP_WRAP, 0&gt; &gt;" col1="nnet_pooling.h:20" col2="371" col3="32000" col3_disp=" 32,000 (50 calls)" col4="" col5=""/>
+                        </row>
+                    </row>
+                    <row id="15" col0="dense&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense.h:41" col2="658" col3="" col4="" col5="">
+                        <row id="13" col0="dense" col1="nnet_dense.h:50" col2="656" col3="" col4="" col5="">
+                            <row id="9" col0="dense_latency&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense_latency.h:13" col2="654" col3="" col4="" col5="">
+                                <row id="3" col0="product" col1="nnet_mult.h:70" col2="155" col3="" col4="" col5=""/>
+                                <row id="10" col0="cast&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_mult.h:110" col2="3" col3="" col4="" col5=""/>
+                            </row>
+                        </row>
+                    </row>
+                    <row id="9" col0="dense_latency&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_dense_latency.h:13" col2="" col3="3387" col4="617" col5="618">
+                        <row id="10" col0="cast&lt;ap_ufixed&lt;6, 0, AP_RND_CONV, AP_SAT, 0&gt;, ap_fixed&lt;19, 8, AP_TRN, AP_WRAP, 0&gt;, config7&gt;" col1="nnet_mult.h:110" col2="" col3="3" col4="" col5=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes>
+                <note name="*" desc="Exceeded design size warning message threshold"/>
+            </notes>
+        </hiertable>
+    </item>
+    <item name="Description of Compilation Phases">
+        <table>
+            <keys size="2">Compilation Phase, Description</keys>
+            <column name="Compile/Link">All functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">After user unroll and inline pragmas are applied</column>
+            <column name="Performance/Pipeline">After performance and pipeline pragmas are applied</column>
+            <column name="Optimizations">After high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

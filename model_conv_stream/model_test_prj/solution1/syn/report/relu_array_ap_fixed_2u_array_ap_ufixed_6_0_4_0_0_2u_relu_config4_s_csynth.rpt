@@ -1,0 +1,185 @@
+
+
+================================================================
+== Vitis HLS Report for 'relu_array_ap_fixed_2u_array_ap_ufixed_6_0_4_0_0_2u_relu_config4_s'
+================================================================
+* Date:           Tue Apr  1 19:25:43 2025
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        model_test_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu250-figd2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  2.912 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      403|      403|  2.015 us|  2.015 us|  403|  403|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- ReLUActLoop  |      401|      401|         3|          1|          1|   400|       yes|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|      248|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        -|        -|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        -|       63|     -|
+|Register             |        -|      -|       27|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|       27|      311|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |add_ln52_1_fu_338_p2       |         +|   0|  0|  13|           6|           6|
+    |add_ln52_fu_202_p2         |         +|   0|  0|  13|           6|           6|
+    |i_4_fu_119_p2              |         +|   0|  0|  16|           9|           1|
+    |and_ln52_1_fu_252_p2       |       and|   0|  0|   2|           1|           1|
+    |and_ln52_2_fu_328_p2       |       and|   0|  0|   2|           1|           1|
+    |and_ln52_3_fu_388_p2       |       and|   0|  0|   2|           1|           1|
+    |and_ln52_fu_192_p2         |       and|   0|  0|   2|           1|           1|
+    |ap_condition_114           |       and|   0|  0|   2|           1|           1|
+    |icmp_ln41_fu_113_p2        |      icmp|   0|  0|  16|           9|           8|
+    |icmp_ln51_1_fu_274_p2      |      icmp|   0|  0|  35|          28|           1|
+    |icmp_ln51_fu_144_p2        |      icmp|   0|  0|  35|          28|           1|
+    |icmp_ln52_1_fu_218_p2      |      icmp|   0|  0|  20|          13|           1|
+    |icmp_ln52_2_fu_316_p2      |      icmp|   0|  0|  15|           8|           1|
+    |icmp_ln52_3_fu_354_p2      |      icmp|   0|  0|  20|          13|           1|
+    |icmp_ln52_fu_180_p2        |      icmp|   0|  0|  15|           8|           1|
+    |ap_block_pp0_stage0_01001  |        or|   0|  0|   2|           1|           1|
+    |or_ln52_1_fu_322_p2        |        or|   0|  0|   2|           1|           1|
+    |or_ln52_2_fu_246_p2        |        or|   0|  0|   2|           1|           1|
+    |or_ln52_3_fu_382_p2        |        or|   0|  0|   2|           1|           1|
+    |or_ln52_fu_186_p2          |        or|   0|  0|   2|           1|           1|
+    |out_data_1_fu_266_p3       |    select|   0|  0|   6|           1|           6|
+    |out_data_2_fu_394_p3       |    select|   0|  0|   6|           1|           6|
+    |out_data_3_fu_402_p3       |    select|   0|  0|   6|           1|           6|
+    |out_data_fu_258_p3         |    select|   0|  0|   6|           1|           6|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    |xor_ln52_1_fu_376_p2       |       xor|   0|  0|   2|           1|           2|
+    |xor_ln52_fu_240_p2         |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0| 248|         145|          67|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_3     |   9|          2|    9|         18|
+    |i_fu_88                  |   9|          2|    9|         18|
+    |layer2_out_blk_n         |   9|          2|    1|          2|
+    |layer4_out_blk_n         |   9|          2|    1|          2|
+    |real_start               |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  63|         14|   23|         46|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+---+----+-----+-----------+
+    |               Name               | FF| LUT| Bits| Const Bits|
+    +----------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                         |  1|   0|    1|          0|
+    |ap_done_reg                       |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |  1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |  1|   0|    1|          0|
+    |i_fu_88                           |  9|   0|    9|          0|
+    |out_data_1_reg_428                |  6|   0|    6|          0|
+    |out_data_3_reg_433                |  6|   0|    6|          0|
+    |start_once_reg                    |  1|   0|    1|          0|
+    +----------------------------------+---+----+-----+-----------+
+    |Total                             | 27|   0|   27|          0|
+    +----------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |                             Source Object                            |    C Type    |
++---------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|start_full_n               |   in|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_continue                |   in|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|start_out                  |  out|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|start_write                |  out|    1|  ap_ctrl_hs|  relu<array<ap_fixed,2u>,array<ap_ufixed<6,0,4,0,0>,2u>,relu_config4>|  return value|
+|layer2_out_dout            |   in|   56|     ap_fifo|                                                            layer2_out|       pointer|
+|layer2_out_num_data_valid  |   in|   10|     ap_fifo|                                                            layer2_out|       pointer|
+|layer2_out_fifo_cap        |   in|   10|     ap_fifo|                                                            layer2_out|       pointer|
+|layer2_out_empty_n         |   in|    1|     ap_fifo|                                                            layer2_out|       pointer|
+|layer2_out_read            |  out|    1|     ap_fifo|                                                            layer2_out|       pointer|
+|layer4_out_din             |  out|   12|     ap_fifo|                                                            layer4_out|       pointer|
+|layer4_out_num_data_valid  |   in|   10|     ap_fifo|                                                            layer4_out|       pointer|
+|layer4_out_fifo_cap        |   in|   10|     ap_fifo|                                                            layer4_out|       pointer|
+|layer4_out_full_n          |   in|    1|     ap_fifo|                                                            layer4_out|       pointer|
+|layer4_out_write           |  out|    1|     ap_fifo|                                                            layer4_out|       pointer|
++---------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+
