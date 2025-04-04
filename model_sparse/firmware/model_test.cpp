@@ -98,16 +98,16 @@ res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_c
     for (int i_chan = 0; i_chan < n_chan; i_chan++) {
         #pragma HLS UNROLL
         w_T w = 0;
-        int w_idx = 3 * 3 * n_chan * i_filt + i_chan * 3 * 3;
+        int w_idx = n_chan * i_filt + i_chan;
         if ((offset_h == 1) && (offset_w == 1))        { w = filt_w[w_idx]; }
-        else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[w_idx + 1]; }
-        else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[w_idx + 2]; }
-        else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[w_idx + 3]; }
+        else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[w_idx + n_filt * n_chan]; }
+        else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[w_idx + n_filt * n_chan * 2]; }
+        else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[w_idx + n_filt * n_chan * 3]; }
         // the central one has been done outside this, as it needs no offset check
-        else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[w_idx + 5]; }
-        else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[w_idx + 6]; }
-        else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[w_idx + 7]; }
-        else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[w_idx + 8]; }
+        else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[w_idx + n_filt * n_chan * 5]; }
+        else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[w_idx + n_filt * n_chan * 6]; }
+        else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[w_idx + n_filt * n_chan * 7]; }
+        else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[w_idx + n_filt * n_chan * 8]; }
 
         acc += w * feat_per_pixel[i_chan];
     }
@@ -124,6 +124,11 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
                  res_T sparse_arr_feat_out[N_sparse * n_filt],
                  hash_T sparse_arr_hash[N_sparse * 2],
                  w_T filt_w[3 * 3 * n_chan * n_filt]) {
+    // note the order of filter weights stored by hls4ml
+    // pixel_loop->filter_loop->channel_loop, so (h, w, f, c) fattened
+    // if 2 channels, 2 filters:
+    // [p1-f1-c1, p1-f1-c2, p1-f2-c1, p1-f2-c2, p2-f1-c1,...]
+
     OutputPixelLoop:
     for (int i_out = 0; i_out < N_sparse; i_out++) {
         #pragma HLS UNROLL
@@ -137,7 +142,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
             InputChannelLoopForCentralField:
             for (int i_chan = 0; i_chan < n_chan; i_chan++) {
                 #pragma HLS UNROLL
-                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[i_filt * n_chan * 3 * 3 + i_chan * 3 * 3 + 4];
+                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[4 * n_chan * n_filt + i_chan]; // 4 = floor(3 * 3 / 2)
             }
         
             // look for fields away from the central by offset checking
@@ -249,11 +254,11 @@ void sparse_flatten(data_T sparse_arr_feat[N_sparse * n_chan],
         #pragma HLS UNROLL
         int j_h = sparse_arr_hash[2 * i];
         int j_w = sparse_arr_hash[2 * i + 1];
-        int flat_idx = (j_h - 1) * n_width + (j_w - 1);
+        int pixel_idx = (j_h - 1) * n_width + (j_w - 1);
 
         for (int i_chan = 0; i_chan < n_chan; i_chan++) {
             #pragma HLS UNROLL
-            flat_arr[n_height * n_width * i_chan + flat_idx] = sparse_arr_feat[n_chan * i + i_chan];
+            flat_arr[n_chan * pixel_idx + i_chan] = sparse_arr_feat[n_chan * i + i_chan];
         }
     }
 }
