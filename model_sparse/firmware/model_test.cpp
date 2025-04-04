@@ -80,6 +80,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
         sparse_arr_feat[N_c * i] = pair.value;
         // other channels
         for (int j = 1; j < N_c; j++) {
+            #pragma HLS UNROLL
             sparse_arr_feat[N_c * i + j] = input_arr[N_c * pair.index + j];
         }
 
@@ -117,6 +118,7 @@ res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_c
     // where offset_h offset_w are bounded by ap_int<?> so they dont exceed array size limit
     return acc;
 }
+
 // make sparse conv to do one filter at a time
 // so the hash and feat array structure stays the same
 template <class data_T, class res_T, class hash_T, class w_T, int N_sparse, int n_chan, int n_filt>
@@ -206,6 +208,7 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
     data_T sparse_arr_feat_in_local[N_sparse * n_chan];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_in_local type=complete dim=0
     for (int ii = 0; ii < N_sparse * n_chan; ii++) {
+        #pragma HLS UNROLL
         sparse_arr_feat_in_local[ii] = sparse_arr_feat_in[ii];
     }
 
