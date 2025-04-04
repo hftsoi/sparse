@@ -215,24 +215,24 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
         int i_h_out = hash_tmp[2 * i];
         int i_w_out = hash_tmp[2 * i + 1];
 
-        HashInLoop:
-        for (int j = 0; j < N_sparse; j++) {
+        ChannelLoop:
+        for (int i_chan = 0; i_chan < n_chan; i_chan++) {
             #pragma HLS UNROLL
-            int j_h_out = hash_tmp[2 * j];
-            int j_w_out = hash_tmp[2 * j + 1];
+            res_T acc = 0;
 
-            ChannelLoop:
-            for (int i_chan = 0; i_chan < n_chan; i_chan++) {
+            HashInLoop:
+            for (int j = 0; j < N_sparse; j++) {
                 #pragma HLS UNROLL
-                res_T acc = 0;
-                data_T data = sparse_arr_feat_in_local[n_chan * j + i_chan];
+                int j_h_out = hash_tmp[2 * j];
+                int j_w_out = hash_tmp[2 * j + 1];
 
+                data_T data = sparse_arr_feat_in_local[n_chan * j + i_chan];
                 if ((i_h_out == j_h_out) && (i_w_out == j_w_out)) {
                     acc += data;
                     sparse_arr_feat_in_local[n_chan * j + i_chan] = 0;
                 }
-                sparse_arr_feat_out[n_chan * i + i_chan] = acc * pool_size_recip * pool_size_recip;
             }
+            sparse_arr_feat_out[n_chan * i + i_chan] = acc * pool_size_recip * pool_size_recip;
         }
         sparse_arr_hash_out[2 * i] = i_h_out;
         sparse_arr_hash_out[2 * i + 1] = i_w_out;
@@ -258,7 +258,10 @@ void sparse_flatten(data_T sparse_arr_feat[N_sparse * n_chan],
 
         for (int i_chan = 0; i_chan < n_chan; i_chan++) {
             #pragma HLS UNROLL
-            flat_arr[n_chan * pixel_idx + i_chan] = sparse_arr_feat[n_chan * i + i_chan];
+            data_T data = sparse_arr_feat[n_chan * i + i_chan];
+            if (data != 0) { // this check is needed as the hash arr after pooling could have duplicate pixels with 0 feat val
+                flat_arr[n_chan * pixel_idx + i_chan] = data;
+            }
         }
     }
 }
@@ -318,6 +321,7 @@ void model_test(
 
     nnet::dense<model_default_t, result_t, config7>(flatten_out, layer7_out, w7, b7); // dense1
 
+    /*
     std::cout << "feat" << std::endl;
     for (int i = 0; i < N_MAX_PIXELS * 3; i++) {
         std::cout << sparse_arr_feat_reduce_out[i] << ' ';
@@ -359,5 +363,6 @@ void model_test(
         std::cout << flatten_out[i] << ' ';
     }
     std::cout << " " << std::endl << std::endl;
+    */
 }
 

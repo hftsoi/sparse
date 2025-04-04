@@ -1,0 +1,222 @@
+
+
+================================================================
+== Vitis HLS Report for 'sparse_pooling_avg_ap_fixed_ap_fixed_ap_uint_10_2_4_Pipeline_VITIS_LOOP_208_1'
+================================================================
+* Date:           Fri Apr  4 04:27:36 2025
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        model_test_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu250-figd2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  1.094 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       22|       22|  0.110 us|  0.110 us|   22|   22|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_208_1  |       20|       20|         1|          1|          1|    20|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+------+
+|         Name        | BRAM_18K|  DSP  |    FF   |   LUT   | URAM |
++---------------------+---------+-------+---------+---------+------+
+|DSP                  |        -|      -|        -|        -|     -|
+|Expression           |        -|      -|        0|       24|     -|
+|FIFO                 |        -|      -|        -|        -|     -|
+|Instance             |        -|      -|        0|       97|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        -|       27|     -|
+|Register             |        -|      -|      307|        -|     -|
++---------------------+---------+-------+---------+---------+------+
+|Total                |        0|      0|      307|      148|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available SLR        |     1344|   3072|   864000|   432000|   320|
++---------------------+---------+-------+---------+---------+------+
+|Utilization SLR (%)  |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+|Available            |     5376|  12288|  3456000|  1728000|  1280|
++---------------------+---------+-------+---------+---------+------+
+|Utilization (%)      |        0|      0|       ~0|       ~0|     0|
++---------------------+---------+-------+---------+---------+------+
+
++ Detail: 
+    * Instance: 
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |       Instance       |      Module     | BRAM_18K| DSP| FF| LUT| URAM|
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |mux_20_5_15_1_1_U645  |mux_20_5_15_1_1  |        0|   0|  0|  97|    0|
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |Total                 |                 |        0|   0|  0|  97|    0|
+    +----------------------+-----------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln208_fu_502_p2   |         +|   0|  0|  12|           5|           1|
+    |icmp_ln208_fu_496_p2  |      icmp|   0|  0|  12|           5|           5|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  24|          10|           6|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_done_int            |   9|          2|    1|          2|
+    |ap_sig_allocacmp_ii_1  |   9|          2|    5|         10|
+    |ii_fu_144              |   9|          2|    5|         10|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  |  27|          6|   11|         22|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------+----+----+-----+-----------+
+    |                Name                | FF | LUT| Bits| Const Bits|
+    +------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                           |   1|   0|    1|          0|
+    |ap_done_reg                         |   1|   0|    1|          0|
+    |ii_fu_144                           |   5|   0|    5|          0|
+    |sparse_arr_feat_in_local_10_fu_152  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_11_fu_156  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_12_fu_160  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_13_fu_164  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_14_fu_168  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_15_fu_172  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_16_fu_176  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_17_fu_180  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_18_fu_184  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_19_fu_188  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_20_fu_192  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_21_fu_196  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_22_fu_200  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_23_fu_204  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_24_fu_208  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_25_fu_212  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_26_fu_216  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_27_fu_220  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_28_fu_224  |  15|   0|   16|          1|
+    |sparse_arr_feat_in_local_fu_148     |  15|   0|   16|          1|
+    +------------------------------------+----+----+-----+-----------+
+    |Total                               | 307|   0|  327|         20|
+    +------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------------------+--------------+
+|                RTL Ports               | Dir | Bits|  Protocol  |                                  Source Object                                 |    C Type    |
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------------------+--------------+
+|ap_clk                                  |   in|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|ap_rst                                  |   in|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|ap_start                                |   in|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|ap_done                                 |  out|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|ap_idle                                 |  out|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|ap_ready                                |  out|    1|  ap_ctrl_hs|  sparse_pooling_avg<ap_fixed,ap_fixed,ap_uint,10,2,4>_Pipeline_VITIS_LOOP_208_1|  return value|
+|p_read                                  |   in|   15|     ap_none|                                                                          p_read|        scalar|
+|p_read1                                 |   in|   15|     ap_none|                                                                         p_read1|        scalar|
+|p_read2                                 |   in|   15|     ap_none|                                                                         p_read2|        scalar|
+|p_read3                                 |   in|   15|     ap_none|                                                                         p_read3|        scalar|
+|p_read4                                 |   in|   15|     ap_none|                                                                         p_read4|        scalar|
+|p_read5                                 |   in|   15|     ap_none|                                                                         p_read5|        scalar|
+|p_read6                                 |   in|   15|     ap_none|                                                                         p_read6|        scalar|
+|p_read7                                 |   in|   15|     ap_none|                                                                         p_read7|        scalar|
+|p_read8                                 |   in|   15|     ap_none|                                                                         p_read8|        scalar|
+|p_read9                                 |   in|   15|     ap_none|                                                                         p_read9|        scalar|
+|p_read10                                |   in|   15|     ap_none|                                                                        p_read10|        scalar|
+|p_read11                                |   in|   15|     ap_none|                                                                        p_read11|        scalar|
+|p_read12                                |   in|   15|     ap_none|                                                                        p_read12|        scalar|
+|p_read13                                |   in|   15|     ap_none|                                                                        p_read13|        scalar|
+|p_read14                                |   in|   15|     ap_none|                                                                        p_read14|        scalar|
+|p_read15                                |   in|   15|     ap_none|                                                                        p_read15|        scalar|
+|p_read16                                |   in|   15|     ap_none|                                                                        p_read16|        scalar|
+|p_read17                                |   in|   15|     ap_none|                                                                        p_read17|        scalar|
+|p_read18                                |   in|   15|     ap_none|                                                                        p_read18|        scalar|
+|p_read19                                |   in|   15|     ap_none|                                                                        p_read19|        scalar|
+|sparse_arr_feat_in_local_28_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_28_out|       pointer|
+|sparse_arr_feat_in_local_28_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_28_out|       pointer|
+|sparse_arr_feat_in_local_27_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_27_out|       pointer|
+|sparse_arr_feat_in_local_27_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_27_out|       pointer|
+|sparse_arr_feat_in_local_26_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_26_out|       pointer|
+|sparse_arr_feat_in_local_26_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_26_out|       pointer|
+|sparse_arr_feat_in_local_25_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_25_out|       pointer|
+|sparse_arr_feat_in_local_25_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_25_out|       pointer|
+|sparse_arr_feat_in_local_24_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_24_out|       pointer|
+|sparse_arr_feat_in_local_24_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_24_out|       pointer|
+|sparse_arr_feat_in_local_23_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_23_out|       pointer|
+|sparse_arr_feat_in_local_23_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_23_out|       pointer|
+|sparse_arr_feat_in_local_22_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_22_out|       pointer|
+|sparse_arr_feat_in_local_22_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_22_out|       pointer|
+|sparse_arr_feat_in_local_21_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_21_out|       pointer|
+|sparse_arr_feat_in_local_21_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_21_out|       pointer|
+|sparse_arr_feat_in_local_20_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_20_out|       pointer|
+|sparse_arr_feat_in_local_20_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_20_out|       pointer|
+|sparse_arr_feat_in_local_19_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_19_out|       pointer|
+|sparse_arr_feat_in_local_19_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_19_out|       pointer|
+|sparse_arr_feat_in_local_18_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_18_out|       pointer|
+|sparse_arr_feat_in_local_18_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_18_out|       pointer|
+|sparse_arr_feat_in_local_17_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_17_out|       pointer|
+|sparse_arr_feat_in_local_17_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_17_out|       pointer|
+|sparse_arr_feat_in_local_16_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_16_out|       pointer|
+|sparse_arr_feat_in_local_16_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_16_out|       pointer|
+|sparse_arr_feat_in_local_15_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_15_out|       pointer|
+|sparse_arr_feat_in_local_15_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_15_out|       pointer|
+|sparse_arr_feat_in_local_14_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_14_out|       pointer|
+|sparse_arr_feat_in_local_14_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_14_out|       pointer|
+|sparse_arr_feat_in_local_13_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_13_out|       pointer|
+|sparse_arr_feat_in_local_13_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_13_out|       pointer|
+|sparse_arr_feat_in_local_12_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_12_out|       pointer|
+|sparse_arr_feat_in_local_12_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_12_out|       pointer|
+|sparse_arr_feat_in_local_11_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_11_out|       pointer|
+|sparse_arr_feat_in_local_11_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_11_out|       pointer|
+|sparse_arr_feat_in_local_10_out         |  out|   16|      ap_vld|                                                 sparse_arr_feat_in_local_10_out|       pointer|
+|sparse_arr_feat_in_local_10_out_ap_vld  |  out|    1|      ap_vld|                                                 sparse_arr_feat_in_local_10_out|       pointer|
+|sparse_arr_feat_in_local_out            |  out|   16|      ap_vld|                                                    sparse_arr_feat_in_local_out|       pointer|
+|sparse_arr_feat_in_local_out_ap_vld     |  out|    1|      ap_vld|                                                    sparse_arr_feat_in_local_out|       pointer|
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------------------+--------------+
+

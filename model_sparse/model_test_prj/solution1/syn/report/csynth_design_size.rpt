@@ -6,8 +6,8 @@
 +---------------------------------------------+-------------------------+--------------------+---------------------+----------------------+--------------------+
 | Function                                    | Location                | Compile/Link       | Unroll/Inline       | Performance/Pipeline | Optimizations      |
 +---------------------------------------------+-------------------------+--------------------+---------------------+----------------------+--------------------+
-| + model_test                                | model_test.cpp:257      | 52,176             | 107,109 *           | 33,959               | 31,156             |
-|  + sparse_input_reduce<ap_fixed...          | model_test.cpp:41       | 46,486             |  19,657             |  8,507               |  6,127             |
+| + model_test                                | model_test.cpp:270      | 52,415             | 104,951 *           | 32,807               | 30,029             |
+|  + sparse_input_reduce<ap_fixed...          | model_test.cpp:41       | 46,589             |  19,659             |  8,509               |  6,129             |
 |     value_idx_pair                          | model_test.cpp:16       |     19             |                     |                      |                    |
 |   + find_nonzero<value_idx_pair<...         | model_test.cpp:21       | 46,085             |                     |                      |                    |
 |    + find_nonzero<value_idx_pair<...        | model_test.cpp:21       | 29,453             |                     |                      |                    |
@@ -52,11 +52,11 @@
 |       operator()                            | model_test.cpp:9        |    106             |                     |                      |                    |
 |      operator()                             | model_test.cpp:9        |    106             |                     |                      |                    |
 |     operator()                              | model_test.cpp:9        |                    |   7,978 (399 calls) |  2,388 (398 calls)   |  2,388 (398 calls) |
-|  + sparse_conv<ap_fixed<16, 6, ...          | model_test.cpp:123      |  1,599             |  69,974             | 20,371               | 20,371             |
-|     mult_for_sparse_conv<ap_fixe...         | model_test.cpp:94       |    621             |                     |                      |                    |
-|    sparse_relu<ap_fixed<16, 6, ...          | model_test.cpp:166      |    199             |     321             |    141               |    142             |
-|    sparse_pooling_avg<ap_fixed<...          | model_test.cpp:181      |  2,884             |  13,083             |  2,317               |  2,317             |
-|    sparse_flatten<ap_fixed<16, ...          | model_test.cpp:233      |    132             |     444             |  1,271               |  1,291             |
+|  + sparse_conv<ap_fixed<16, 6, ...          | model_test.cpp:123      |  1,591             |  69,914             | 19,691               | 19,691             |
+|     mult_for_sparse_conv<ap_fixe...         | model_test.cpp:94       |    619             |                     |                      |                    |
+|    sparse_relu<ap_fixed<16, 6, ...          | model_test.cpp:171      |    199             |     321             |    141               |    142             |
+|    sparse_pooling_avg<ap_fixed<...          | model_test.cpp:185      |  2,921             |  10,833             |  1,833               |  1,838             |
+|    sparse_flatten<ap_fixed<16, ...          | model_test.cpp:243      |    239             |     594             |  1,281               |  1,321             |
 |  + dense<ap_fixed<16, 6, AP_TRN...          | nnet_dense.h:41         |    670             |                     |                      |                    |
 |   + dense                                   | nnet_dense.h:50         |    668             |                     |                      |                    |
 |    + dense_latency<ap_fixed<16, 6...        | nnet_dense_latency.h:13 |    666             |                     |                      |                    |
