@@ -39,6 +39,8 @@ template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
 
 template <class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
 void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
+                         //int row_arr[N_h * N_w],
+                         //int col_arr[N_h * N_w],
                          data_T sparse_arr_feat[N_sparse * N_c],
                          hash_T sparse_arr_hash[N_sparse * 2]) {
 
@@ -65,8 +67,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 
         j_h_arr[j] = j_h;
         j_w_arr[j] = j_w;
-        // ^ these indices can be precomputed for a given dataset
-        // so no need to compute at runtime (expecially there are division and modulo)
+        // ^ pre-computed and stored in row_arr[N_h * N_w] and col_arr[N_h * N_w]
     }
 
     Op_nonzero<value_idx_pair<data_T>> op_nonzero;
@@ -86,6 +87,8 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 
         sparse_arr_hash[2 * i] = j_h_arr[pair.index]; 
         sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
+        //sparse_arr_hash[2 * i] = row_arr[pair.index]; 
+        //sparse_arr_hash[2 * i + 1] = col_arr[pair.index];
 
         pair_arr[pair.index].value = 0;
     }
@@ -296,6 +299,11 @@ void model_test(
     // NETWORK INSTANTIATION
     // ****************************************
 
+    //int row_arr[N_INPUT_1_1*N_INPUT_2_1] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20};
+    //int col_arr[N_INPUT_1_1*N_INPUT_2_1] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    //#pragma HLS ARRAY_PARTITION variable=row_arr complete dim=0
+    //#pragma HLS ARRAY_PARTITION variable=col_arr complete dim=0
+
     // hls-fpga-machine-learning insert layers
 
     input_t sparse_arr_feat_reduce_out[N_MAX_PIXELS * N_INPUT_3_1];
@@ -366,6 +374,36 @@ void model_test(
         std::cout << flatten_out[i] << ' ';
     }
     std::cout << " " << std::endl << std::endl;
+    */
+
+    /**
+    int N_h = N_INPUT_1_1;
+    int N_w = N_INPUT_2_1;
+    std::cout << "row" << std::endl;
+    for (int j = 0; j < N_h * N_w; j++) {
+
+        int pixels_per_channel = N_h * N_w;
+        int j_c = j / pixels_per_channel + 1;
+        int remainder = j % pixels_per_channel;
+        int j_h = remainder / N_h + 1;
+        int j_w = remainder % N_w + 1;
+
+        std::cout << j_h << ", ";
+    }
+
+    std::cout << std::endl;
+    std::cout << "col" << std::endl;
+    for (int j = 0; j < N_h * N_w; j++) {
+
+        int pixels_per_channel = N_h * N_w;
+        int j_c = j / pixels_per_channel + 1;
+        int remainder = j % pixels_per_channel;
+        int j_h = remainder / N_h + 1;
+        int j_w = remainder % N_w + 1;
+
+        std::cout << j_w << ", ";
+    }
+    std::cout << std::endl;
     */
 }
 
