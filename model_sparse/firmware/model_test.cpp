@@ -39,8 +39,6 @@ template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
 
 template <class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
 void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
-                         //int row_arr[N_h * N_w],
-                         //int col_arr[N_h * N_w],
                          data_T sparse_arr_feat[N_sparse * N_c],
                          hash_T sparse_arr_hash[N_sparse * 2]) {
 
@@ -67,7 +65,8 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 
         j_h_arr[j] = j_h;
         j_w_arr[j] = j_w;
-        // ^ pre-computed and stored in row_arr[N_h * N_w] and col_arr[N_h * N_w]
+        // ^ I tried pre-computing these and storing in row_arr[N_h * N_w] and col_arr[N_h * N_w]
+        // but resources stayed exactly the same
     }
 
     Op_nonzero<value_idx_pair<data_T>> op_nonzero;
@@ -87,8 +86,6 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
 
         sparse_arr_hash[2 * i] = j_h_arr[pair.index]; 
         sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
-        //sparse_arr_hash[2 * i] = row_arr[pair.index]; 
-        //sparse_arr_hash[2 * i + 1] = col_arr[pair.index];
 
         pair_arr[pair.index].value = 0;
     }
@@ -112,7 +109,7 @@ res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_c
         else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[w_idx + n_filt * n_chan * 6]; }
         else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[w_idx + n_filt * n_chan * 7]; }
         else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[w_idx + n_filt * n_chan * 8]; }
-
+        
         acc += w * feat_per_pixel[i_chan];
     }
     // possible to turn this if-else block into a lookup table of weights?
@@ -147,7 +144,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
             InputChannelLoopForCentralField:
             for (int i_chan = 0; i_chan < n_chan; i_chan++) {
                 #pragma HLS UNROLL
-                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[4 * n_chan * n_filt + i_chan]; // 4 = floor(3 * 3 / 2)
+                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[4 * n_chan * n_filt + n_chan * i_filt + i_chan];
             }
         
             // look for fields away from the central by offset checking
@@ -299,10 +296,6 @@ void model_test(
     // NETWORK INSTANTIATION
     // ****************************************
 
-    //int row_arr[N_INPUT_1_1*N_INPUT_2_1] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20};
-    //int col_arr[N_INPUT_1_1*N_INPUT_2_1] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    //#pragma HLS ARRAY_PARTITION variable=row_arr complete dim=0
-    //#pragma HLS ARRAY_PARTITION variable=col_arr complete dim=0
 
     // hls-fpga-machine-learning insert layers
 
@@ -376,34 +369,5 @@ void model_test(
     std::cout << " " << std::endl << std::endl;
     */
 
-    /**
-    int N_h = N_INPUT_1_1;
-    int N_w = N_INPUT_2_1;
-    std::cout << "row" << std::endl;
-    for (int j = 0; j < N_h * N_w; j++) {
-
-        int pixels_per_channel = N_h * N_w;
-        int j_c = j / pixels_per_channel + 1;
-        int remainder = j % pixels_per_channel;
-        int j_h = remainder / N_h + 1;
-        int j_w = remainder % N_w + 1;
-
-        std::cout << j_h << ", ";
-    }
-
-    std::cout << std::endl;
-    std::cout << "col" << std::endl;
-    for (int j = 0; j < N_h * N_w; j++) {
-
-        int pixels_per_channel = N_h * N_w;
-        int j_c = j / pixels_per_channel + 1;
-        int remainder = j % pixels_per_channel;
-        int j_h = remainder / N_h + 1;
-        int j_w = remainder % N_w + 1;
-
-        std::cout << j_w << ", ";
-    }
-    std::cout << std::endl;
-    */
 }
 
