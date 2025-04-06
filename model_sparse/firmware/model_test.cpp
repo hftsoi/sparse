@@ -91,8 +91,8 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     }
 }
 
-template <class data_T, class res_T, class w_T, int n_chan, int n_filt>
-res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_chan], w_T filt_w[3 * 3 * n_chan * n_filt], int i_filt) {
+template <class data_T, class res_T, class w_T, int n_chan, int n_filt, int N_sparse>
+res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T sparse_arr_feat_in[n_chan * N_sparse], w_T filt_w[3 * 3 * n_chan * n_filt], int i_filt, int i_in) {
     #pragma HLS INLINE
 
     res_T acc = 0;
@@ -104,28 +104,23 @@ res_T mult_for_sparse_conv(int offset_h, int offset_w, data_T feat_per_pixel[n_c
         else if ((offset_h == 1) && (offset_w == 0))   { w = filt_w[w_idx + n_filt * n_chan]; }
         else if ((offset_h == 1) && (offset_w == -1))  { w = filt_w[w_idx + n_filt * n_chan * 2]; }
         else if ((offset_h == 0) && (offset_w == 1))   { w = filt_w[w_idx + n_filt * n_chan * 3]; }
-        // the central one has been done outside this, as it needs no offset check
+        // the central one has been done outside this, as it needs no offset check, and some LUTs are saved
         else if ((offset_h == 0) && (offset_w == -1))  { w = filt_w[w_idx + n_filt * n_chan * 5]; }
         else if ((offset_h == -1) && (offset_w == 1))  { w = filt_w[w_idx + n_filt * n_chan * 6]; }
         else if ((offset_h == -1) && (offset_w == 0))  { w = filt_w[w_idx + n_filt * n_chan * 7]; }
         else if ((offset_h == -1) && (offset_w == -1)) { w = filt_w[w_idx + n_filt * n_chan * 8]; }
         
-        acc += w * feat_per_pixel[i_chan];
+        acc += w * sparse_arr_feat_in[n_chan * i_in + i_chan];
     }
-    // possible to turn this if-else block into a lookup table of weights?
-    // like inputs are the two offset values, which point to the corresponding weight in the LUT arr
-    // or w = filt_w[offset_h + offset_int, offset_w + offset_int]
-    // where offset_h offset_w are bounded by ap_int<?> so they dont exceed array size limit
     return acc;
 }
 
-// make sparse conv to do one filter at a time
-// so the hash and feat array structure stays the same
-template <class data_T, class res_T, class hash_T, class w_T, int N_sparse, int n_chan, int n_filt>
+template <class data_T, class res_T, class hash_T, class w_T, class b_T, int N_sparse, int n_chan, int n_filt>
 void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
                  res_T sparse_arr_feat_out[N_sparse * n_filt],
                  hash_T sparse_arr_hash[N_sparse * 2],
-                 w_T filt_w[3 * 3 * n_chan * n_filt]) {
+                 w_T w[3 * 3 * n_chan * n_filt],
+                 b_T b[n_filt]) {
     // note the order of filter weights stored by hls4ml
     // pixel_loop->filter_loop->channel_loop, so (h, w, f, c) fattened
     // if 2 channels, 2 filters:
@@ -144,7 +139,7 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
             InputChannelLoopForCentralField:
             for (int i_chan = 0; i_chan < n_chan; i_chan++) {
                 #pragma HLS UNROLL
-                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * filt_w[4 * n_chan * n_filt + n_chan * i_filt + i_chan];
+                acc += sparse_arr_feat_in[n_chan * i_out + i_chan] * w[4 * n_chan * n_filt + n_chan * i_filt + i_chan];
             }
         
             // look for fields away from the central by offset checking
@@ -154,17 +149,10 @@ void sparse_conv(data_T sparse_arr_feat_in[N_sparse * n_chan],
 
                 int offset_h = sparse_arr_hash[2 * i_out] - sparse_arr_hash[2 * i_in];
                 int offset_w = sparse_arr_hash[2 * i_out + 1] - sparse_arr_hash[2 * i_in + 1];
-                // relate these offsets to power of two?
 
-                data_T feat_per_pixel[n_chan];
-                #pragma HLS ARRAY_PARTITION variable=feat_per_pixel type=complete dim=0
-                for (int k = 0; k < n_chan; k++) {
-                    #pragma HLS UNROLL
-                    feat_per_pixel[k] = sparse_arr_feat_in[n_chan * i_in + k];
-                }
-                acc += mult_for_sparse_conv<data_T, res_T, w_T, n_chan, n_filt>(offset_h, offset_w, feat_per_pixel, filt_w, i_filt);
+                acc += mult_for_sparse_conv<data_T, res_T, w_T, n_chan, n_filt, N_sparse>(offset_h, offset_w, sparse_arr_feat_in, w, i_filt, i_in);
             }
-            sparse_arr_feat_out[n_filt * i_out + i_filt] = acc;
+            sparse_arr_feat_out[n_filt * i_out + i_filt] = acc + b[i_filt];
         }
     }
 }
@@ -307,7 +295,7 @@ void model_test(
 
     model_default_t sparse_arr_feat_conv1_out[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_conv1_out complete dim=0
-    sparse_conv<input_t, model_default_t, ap_uint<10>, weight2_t, N_MAX_PIXELS, 3, 2>(sparse_arr_feat_reduce_out, sparse_arr_feat_conv1_out, sparse_arr_hash_reduce_out, w2); // sparse conv1
+    sparse_conv<input_t, model_default_t, ap_uint<10>, weight2_t, bias2_t, N_MAX_PIXELS, 3, 2>(sparse_arr_feat_reduce_out, sparse_arr_feat_conv1_out, sparse_arr_hash_reduce_out, w2, b2); // sparse conv1
 
     model_default_t sparse_arr_feat_act1_out[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_act1_out complete dim=0
@@ -370,4 +358,3 @@ void model_test(
     */
 
 }
-

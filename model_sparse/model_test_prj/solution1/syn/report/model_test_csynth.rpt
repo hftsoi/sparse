@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'model_test'
 ================================================================
-* Date:           Fri Apr  4 20:31:23 2025
+* Date:           Sun Apr  6 02:15:42 2025
 
 * Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        model_test_prj
@@ -34,17 +34,17 @@
 
     + Detail: 
         * Instance: 
-        +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |                                                                       |                                                                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
-        |                                Instance                               |                                Module                                |   min   |   max   |    min    |    max    | min | max |   Type  |
-        +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0       |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_s       |       34|       34|   0.170 us|   0.170 us|   34|   34|       no|
-        |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_U0  |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_s  |        4|        4|  20.000 ns|  20.000 ns|    4|    4|       no|
-        |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0            |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_s            |        0|        0|       0 ns|       0 ns|    1|    1|      yes|
-        |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0   |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_s   |        3|        3|  15.000 ns|  15.000 ns|    3|    3|       no|
-        |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0              |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_s              |        4|        4|  20.000 ns|  20.000 ns|    4|    4|       no|
-        |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0       |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_s       |        2|        2|  10.000 ns|  10.000 ns|    1|    1|      yes|
-        +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                                                      |                                                                     |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |                               Instance                               |                                Module                               |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0      |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_s      |       34|       34|   0.170 us|   0.170 us|   34|   34|       no|
+        |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_U0     |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_s     |        4|        4|  20.000 ns|  20.000 ns|    4|    4|       no|
+        |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0           |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_s           |        0|        0|       0 ns|       0 ns|    1|    1|      yes|
+        |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0  |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_s  |        3|        3|  15.000 ns|  15.000 ns|    3|    3|       no|
+        |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0             |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_s             |        4|        4|  20.000 ns|  20.000 ns|    4|    4|       no|
+        |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0      |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_s      |        2|        2|  10.000 ns|  10.000 ns|    1|    1|      yes|
+        +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
         N/A
@@ -61,12 +61,12 @@
 |DSP                  |        -|      -|        -|        -|     -|
 |Expression           |        -|      -|        0|      734|     -|
 |FIFO                 |        -|      -|     5708|     4094|     -|
-|Instance             |        -|    464|    23403|    88033|     -|
+|Instance             |        -|    464|    23403|    88493|     -|
 |Memory               |        -|      -|        -|        -|     -|
 |Multiplexer          |        -|      -|        -|     1602|     -|
 |Register             |        -|      -|      178|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|    464|    29289|    94463|     0|
+|Total                |        0|    464|    29289|    94923|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
@@ -79,18 +79,18 @@
 
 + Detail: 
     * Instance: 
-    +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+-----+------+-------+-----+
-    |                                Instance                               |                                Module                                | BRAM_18K| DSP |  FF  |  LUT  | URAM|
-    +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+-----+------+-------+-----+
-    |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0       |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_s       |        0|    4|   411|   1861|    0|
-    |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_U0  |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_s  |        0|  460|  9946|  37002|    0|
-    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0              |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_s              |        0|    0|  2335|   7102|    0|
-    |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0       |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_s       |        0|    0|  9369|  33910|    0|
-    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0   |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_s   |        0|    0|  1040|   7207|    0|
-    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0            |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_s            |        0|    0|   302|    951|    0|
-    +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+-----+------+-------+-----+
-    |Total                                                                  |                                                                      |        0|  464| 23403|  88033|    0|
-    +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+-----+------+-------+-----+
+    +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+-----+------+-------+-----+
+    |                               Instance                               |                                Module                               | BRAM_18K| DSP |  FF  |  LUT  | URAM|
+    +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+-----+------+-------+-----+
+    |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0      |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_s      |        0|    4|   411|   1861|    0|
+    |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_U0     |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_s     |        0|  460|  9946|  37462|    0|
+    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0             |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_s             |        0|    0|  2335|   7102|    0|
+    |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0      |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_s      |        0|    0|  9369|  33910|    0|
+    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0  |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_s  |        0|    0|  1040|   7207|    0|
+    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0           |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_s           |        0|    0|   302|    951|    0|
+    +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+-----+------+-------+-----+
+    |Total                                                                 |                                                                     |        0|  464| 23403|  88493|    0|
+    +----------------------------------------------------------------------+---------------------------------------------------------------------+---------+-----+------+-------+-----+
 
     * DSP: 
     N/A
@@ -305,379 +305,379 @@
     +---------------------------------------------+---------+----+----+-----+------+-----+---------+
 
     * Expression: 
-    +-----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |                                   Variable Name                                   | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |ap_channel_done_flatten_out                                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_1                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_10                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_11                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_12                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_13                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_14                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_15                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_16                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_17                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_18                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_19                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_2                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_20                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_21                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_22                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_23                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_24                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_25                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_26                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_27                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_28                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_29                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_3                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_30                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_31                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_32                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_33                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_34                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_35                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_36                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_37                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_38                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_39                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_4                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_40                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_41                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_42                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_43                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_44                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_45                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_46                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_47                                                     |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_5                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_6                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_7                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_8                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_flatten_out_9                                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out                                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_1                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_10                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_11                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_12                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_13                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_14                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_15                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_16                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_17                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_18                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_19                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_2                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_3                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_4                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_5                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_6                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_7                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_8                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_act1_out_9                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out                                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_1                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_10                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_11                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_12                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_13                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_14                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_15                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_16                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_17                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_18                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_19                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_2                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_3                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_4                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_5                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_6                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_7                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_8                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_conv1_out_9                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out                                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_1                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_10                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_11                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_12                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_13                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_14                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_15                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_16                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_17                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_18                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_19                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_2                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_3                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_4                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_5                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_6                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_7                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_8                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_pool1_out_9                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out                                         |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_1                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_10                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_11                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_12                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_13                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_14                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_15                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_16                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_17                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_18                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_19                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_2                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_20                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_21                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_22                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_23                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_24                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_25                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_26                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_27                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_28                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_29                                      |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_3                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_4                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_5                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_6                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_7                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_8                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_feat_reduce_out_9                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out                                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_1                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_10                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_11                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_12                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_13                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_14                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_15                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_16                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_17                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_18                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_19                                       |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_2                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_3                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_4                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_5                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_6                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_7                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_8                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_pool1_out_9                                        |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_10_c29_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_11_c30_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_12_c31_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_13_c32_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_14_c33_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_15_c34_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_16_c35_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_17_c36_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_18_c37_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_19_c38_channel                          |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_1_c20_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_2_c21_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_3_c22_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_4_c23_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_5_c24_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_6_c25_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_7_c26_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_8_c27_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_9_c28_channel                           |       and|   0|  0|   2|           1|           1|
-    |ap_channel_done_sparse_arr_hash_reduce_out_c19_channel                             |       and|   0|  0|   2|           1|           1|
-    |ap_idle                                                                            |       and|   0|  0|   2|           1|           1|
-    |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0_ap_start          |       and|   0|  0|   2|           1|           1|
-    |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_U0_ap_continue  |       and|   0|  0|   2|           1|           1|
-    |sparse_conv_ap_fixed_ap_fixed_ap_uint_10_ap_fixed_6_1_5_3_0_10_3_2_U0_ap_start     |       and|   0|  0|   2|           1|           1|
-    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0_ap_continue              |       and|   0|  0|   2|           1|           1|
-    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0_ap_start                 |       and|   0|  0|   2|           1|           1|
-    |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0_ap_continue       |       and|   0|  0|   2|           1|           1|
-    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0_ap_continue   |       and|   0|  0|   2|           1|           1|
-    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0_ap_start      |       and|   0|  0|   2|           1|           1|
-    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0_ap_continue            |       and|   0|  0|   2|           1|           1|
-    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0_ap_start               |       and|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out                                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_1                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_10                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_11                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_12                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_13                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_14                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_15                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_16                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_17                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_18                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_19                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_2                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_20                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_21                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_22                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_23                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_24                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_25                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_26                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_27                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_28                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_29                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_3                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_30                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_31                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_32                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_33                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_34                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_35                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_36                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_37                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_38                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_39                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_4                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_40                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_41                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_42                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_43                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_44                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_45                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_46                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_47                                               |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_5                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_6                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_7                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_8                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_flatten_out_9                                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out                                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_1                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_10                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_11                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_12                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_13                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_14                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_15                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_16                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_17                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_18                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_19                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_2                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_3                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_4                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_5                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_6                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_7                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_8                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_act1_out_9                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out                                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_1                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_10                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_11                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_12                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_13                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_14                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_15                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_16                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_17                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_18                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_19                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_2                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_3                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_4                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_5                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_6                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_7                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_8                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_conv1_out_9                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out                                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_1                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_10                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_11                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_12                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_13                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_14                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_15                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_16                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_17                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_18                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_19                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_2                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_3                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_4                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_5                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_6                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_7                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_8                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_pool1_out_9                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out                                   |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_1                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_10                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_11                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_12                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_13                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_14                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_15                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_16                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_17                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_18                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_19                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_2                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_20                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_21                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_22                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_23                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_24                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_25                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_26                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_27                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_28                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_29                                |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_3                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_4                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_5                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_6                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_7                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_8                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_feat_reduce_out_9                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out                                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_1                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_10                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_11                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_12                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_13                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_14                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_15                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_16                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_17                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_18                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_19                                 |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_2                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_3                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_4                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_5                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_6                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_7                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_8                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_pool1_out_9                                  |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_10_c29_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_11_c30_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_12_c31_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_13_c32_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_14_c33_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_15_c34_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_16_c35_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_17_c36_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_18_c37_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_19_c38_channel                    |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_1_c20_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_2_c21_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_3_c22_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_4_c23_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_5_c24_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_6_c25_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_7_c26_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_8_c27_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_9_c28_channel                     |        or|   0|  0|   2|           1|           1|
-    |ap_sync_channel_write_sparse_arr_hash_reduce_out_c19_channel                       |        or|   0|  0|   2|           1|           1|
-    +-----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
-    |Total                                                                              |          |   0|  0| 734|         367|         367|
-    +-----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    +----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                                   Variable Name                                  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_flatten_out                                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_1                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_10                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_11                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_12                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_13                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_14                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_15                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_16                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_17                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_18                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_19                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_2                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_20                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_21                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_22                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_23                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_24                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_25                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_26                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_27                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_28                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_29                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_3                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_30                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_31                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_32                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_33                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_34                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_35                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_36                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_37                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_38                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_39                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_4                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_40                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_41                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_42                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_43                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_44                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_45                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_46                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_47                                                    |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_5                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_6                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_7                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_8                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_flatten_out_9                                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out                                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_1                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_10                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_11                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_12                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_13                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_14                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_15                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_16                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_17                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_18                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_19                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_2                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_3                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_4                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_5                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_6                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_7                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_8                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_act1_out_9                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out                                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_1                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_10                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_11                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_12                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_13                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_14                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_15                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_16                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_17                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_18                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_19                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_2                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_3                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_4                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_5                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_6                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_7                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_8                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_conv1_out_9                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out                                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_1                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_10                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_11                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_12                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_13                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_14                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_15                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_16                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_17                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_18                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_19                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_2                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_3                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_4                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_5                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_6                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_7                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_8                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_pool1_out_9                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out                                        |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_1                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_10                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_11                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_12                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_13                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_14                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_15                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_16                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_17                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_18                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_19                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_2                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_20                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_21                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_22                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_23                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_24                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_25                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_26                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_27                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_28                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_29                                     |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_3                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_4                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_5                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_6                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_7                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_8                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_feat_reduce_out_9                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out                                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_1                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_10                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_11                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_12                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_13                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_14                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_15                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_16                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_17                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_18                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_19                                      |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_2                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_3                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_4                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_5                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_6                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_7                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_8                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_pool1_out_9                                       |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_10_c29_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_11_c30_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_12_c31_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_13_c32_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_14_c33_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_15_c34_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_16_c35_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_17_c36_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_18_c37_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_19_c38_channel                         |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_1_c20_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_2_c21_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_3_c22_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_4_c23_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_5_c24_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_6_c25_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_7_c26_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_8_c27_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_9_c28_channel                          |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_sparse_arr_hash_reduce_out_c19_channel                            |       and|   0|  0|   2|           1|           1|
+    |ap_idle                                                                           |       and|   0|  0|   2|           1|           1|
+    |dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_19_8_5_3_0_config7_U0_ap_start         |       and|   0|  0|   2|           1|           1|
+    |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_U0_ap_continue     |       and|   0|  0|   2|           1|           1|
+    |sparse_conv_ap_fixed_ap_fixed_ap_uint_ap_fixed_ap_fixed_10_3_2_U0_ap_start        |       and|   0|  0|   2|           1|           1|
+    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0_ap_continue             |       and|   0|  0|   2|           1|           1|
+    |sparse_flatten_ap_fixed_16_6_5_3_0_ap_uint_10_5_5_2_10_U0_ap_start                |       and|   0|  0|   2|           1|           1|
+    |sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_U0_ap_continue      |       and|   0|  0|   2|           1|           1|
+    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0_ap_continue  |       and|   0|  0|   2|           1|           1|
+    |sparse_pooling_avg_ap_fixed_ap_fixed_16_6_5_3_0_ap_uint_10_10_2_4_U0_ap_start     |       and|   0|  0|   2|           1|           1|
+    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0_ap_continue           |       and|   0|  0|   2|           1|           1|
+    |sparse_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_10_2_U0_ap_start              |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out                                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_1                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_10                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_11                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_12                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_13                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_14                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_15                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_16                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_17                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_18                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_19                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_2                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_20                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_21                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_22                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_23                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_24                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_25                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_26                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_27                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_28                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_29                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_3                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_30                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_31                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_32                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_33                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_34                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_35                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_36                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_37                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_38                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_39                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_4                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_40                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_41                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_42                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_43                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_44                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_45                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_46                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_47                                              |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_5                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_6                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_7                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_8                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_flatten_out_9                                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out                                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_1                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_10                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_11                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_12                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_13                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_14                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_15                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_16                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_17                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_18                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_19                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_2                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_3                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_4                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_5                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_6                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_7                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_8                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_act1_out_9                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out                                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_1                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_10                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_11                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_12                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_13                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_14                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_15                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_16                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_17                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_18                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_19                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_2                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_3                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_4                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_5                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_6                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_7                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_8                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_conv1_out_9                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out                                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_1                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_10                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_11                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_12                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_13                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_14                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_15                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_16                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_17                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_18                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_19                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_2                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_3                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_4                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_5                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_6                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_7                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_8                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_pool1_out_9                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out                                  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_1                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_10                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_11                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_12                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_13                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_14                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_15                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_16                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_17                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_18                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_19                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_2                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_20                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_21                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_22                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_23                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_24                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_25                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_26                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_27                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_28                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_29                               |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_3                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_4                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_5                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_6                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_7                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_8                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_feat_reduce_out_9                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out                                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_1                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_10                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_11                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_12                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_13                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_14                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_15                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_16                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_17                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_18                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_19                                |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_2                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_3                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_4                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_5                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_6                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_7                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_8                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_pool1_out_9                                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_10_c29_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_11_c30_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_12_c31_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_13_c32_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_14_c33_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_15_c34_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_16_c35_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_17_c36_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_18_c37_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_19_c38_channel                   |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_1_c20_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_2_c21_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_3_c22_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_4_c23_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_5_c24_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_6_c25_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_7_c26_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_8_c27_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_9_c28_channel                    |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_sparse_arr_hash_reduce_out_c19_channel                      |        or|   0|  0|   2|           1|           1|
+    +----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                                             |          |   0|  0| 734|         367|         367|
+    +----------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
     +---------------------------------------------------------------------+----+-----------+-----+-----------+
