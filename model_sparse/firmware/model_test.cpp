@@ -245,11 +245,11 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
     // Now, the pooling operation.
     // Loop over the pixels.
     HashOutLoop:
-    for (int i_pixel_out = 0; i_pixel_out < N_sparse; i_pixel_out++) {
+    for (int i_pixel = 0; i_pixel < N_sparse; i_pixel++) {
         #pragma HLS UNROLL
         // Get the pooled locations for a given output hash.
-        int h_out = hash_tmp[2 * i_pixel_out];
-        int w_out = hash_tmp[2 * i_pixel_out + 1];
+        int h_out = hash_tmp[2 * i_pixel];
+        int w_out = hash_tmp[2 * i_pixel + 1];
 
         // Loop over the input channels.
         ChannelLoop:
@@ -257,28 +257,28 @@ void sparse_pooling_avg(data_T sparse_arr_feat_in[N_sparse * n_chan],
             #pragma HLS UNROLL
             res_T acc = 0;
 
-            // Loop over given the pixels to find if any belongs to the same pool for a given i_pixel_out.
+            // Loop over given the pixels to find if any belongs to the same pool for a given i_pixel.
             HashInLoop:
-            for (int i_pixel_in = 0; i_pixel_in < N_sparse; i_pixel_in++) {
+            for (int j_pixel = 0; j_pixel < N_sparse; j_pixel++) {
                 #pragma HLS UNROLL
                 // Get the pooled locations for a given input hash.
-                int h_in = hash_tmp[2 * i_pixel_in];
-                int w_in = hash_tmp[2 * i_pixel_in + 1];
+                int h_in = hash_tmp[2 * j_pixel];
+                int w_in = hash_tmp[2 * j_pixel + 1];
 
-                // Accumulate if the i_pixel_in belong to the same pool as i_pixel_out.
-                data_T data = sparse_arr_feat_in_copy[n_chan * i_pixel_in + i_chan];
+                // Accumulate if the j_pixel belong to the same pool as i_pixel.
+                data_T data = sparse_arr_feat_in_copy[n_chan * j_pixel + i_chan];
                 if ((h_out == h_in) && (w_out == w_in)) {
                     acc += data;
                     // Zero it out so the next iteration will not double count it.
-                    sparse_arr_feat_in_copy[n_chan * i_pixel_in + i_chan] = 0;
+                    sparse_arr_feat_in_copy[n_chan * j_pixel + i_chan] = 0;
                 }
             }
             // Divide the sum by the number pixels within the pool.
-            sparse_arr_feat_out[n_chan * i_pixel_out + i_chan] = acc * pool_size_recip * pool_size_recip;
+            sparse_arr_feat_out[n_chan * i_pixel + i_chan] = acc * pool_size_recip * pool_size_recip;
         }
         // Fill the pixel locations after pooling.
-        sparse_arr_hash_out[2 * i_pixel_out] = h_out;
-        sparse_arr_hash_out[2 * i_pixel_out + 1] = w_out;
+        sparse_arr_hash_out[2 * i_pixel] = h_out;
+        sparse_arr_hash_out[2 * i_pixel + 1] = w_out;
     }
     // Note that there could be more zero-padded elements in sparse_arr_feat_out than sparse_arr_feat_in due to pooling,
     // and the new zero-padded elements will have redundant values in hash.
