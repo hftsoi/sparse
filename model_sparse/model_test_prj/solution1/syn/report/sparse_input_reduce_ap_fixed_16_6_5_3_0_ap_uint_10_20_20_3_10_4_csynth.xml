@@ -8,7 +8,7 @@
 <unit>ns</unit>
 <ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu250-figd2104-2L-e</Part>
-<TopModelName>sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_s</TopModelName>
+<TopModelName>sparse_input_reduce_ap_fixed_16_6_5_3_0_ap_uint_10_20_20_3_10_4</TopModelName>
 <TargetClockPeriod>5.00</TargetClockPeriod>
 <ClockUncertainty>1.35</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
@@ -65,7 +65,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -76,7 +76,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -87,7 +87,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -98,7 +98,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -109,7 +109,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_continue</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -120,7 +120,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -131,7 +131,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -142,7 +142,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_0</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -153,7 +153,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_1</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -164,7 +164,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_2</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -175,7 +175,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_3</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -186,7 +186,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_4</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -197,7 +197,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_5</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -208,7 +208,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_6</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -219,7 +219,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_7</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -230,7 +230,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_8</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -241,7 +241,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_9</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -252,7 +252,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_10</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -263,7 +263,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_11</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -274,7 +274,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_12</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -285,7 +285,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_13</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -296,7 +296,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_14</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -307,7 +307,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_15</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -318,7 +318,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_16</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -329,7 +329,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_17</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -340,7 +340,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_18</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -351,7 +351,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_19</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -362,7 +362,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_20</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -373,7 +373,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_21</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -384,7 +384,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_22</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -395,7 +395,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_23</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -406,7 +406,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_24</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -417,7 +417,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_25</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -428,7 +428,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_26</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -439,7 +439,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_27</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -450,7 +450,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_28</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -461,7 +461,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_29</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -472,7 +472,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_30</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -483,7 +483,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_31</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -494,7 +494,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_32</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -505,7 +505,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_33</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -516,7 +516,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_34</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -527,7 +527,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_35</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -538,7 +538,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_36</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -549,7 +549,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_37</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -560,7 +560,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_38</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -571,7 +571,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_39</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -582,7 +582,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_40</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -593,7 +593,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_41</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -604,7 +604,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_42</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -615,7 +615,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_43</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -626,7 +626,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_44</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -637,7 +637,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_45</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -648,7 +648,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_46</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -659,7 +659,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_47</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -670,7 +670,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_48</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -681,7 +681,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return_49</name>
-<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;</Object>
+<Object>sparse_input_reduce&lt;ap_fixed&lt;16, 6, 5, 3, 0&gt;, ap_uint&lt;10&gt;, 20, 20, 3, 10&gt;4</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>

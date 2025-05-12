@@ -6,57 +6,57 @@
 +---------------------------------------------+-------------------------+--------------------+---------------------+----------------------+--------------------+
 | Function                                    | Location                | Compile/Link       | Unroll/Inline       | Performance/Pipeline | Optimizations      |
 +---------------------------------------------+-------------------------+--------------------+---------------------+----------------------+--------------------+
-| + model_test                                | model_test.cpp:323      | 52,608             | 102,516 *           | 33,198               | 30,415             |
-|  + sparse_input_reduce<ap_fixed...          | model_test.cpp:41       | 46,589             |  19,659             |  8,509               |  6,129             |
+| + model_test                                | model_test.cpp:325      | 21,155             | 104,120 *           | 33,201               | 30,418             |
+|  + sparse_input_reduce<ap_fixed...          | model_test.cpp:41       | 15,068             |  21,255             |  8,510               |  6,130             |
 |     value_idx_pair                          | model_test.cpp:16       |     19             |                     |                      |                    |
-|   + find_nonzero<value_idx_pair<...         | model_test.cpp:21       | 46,085             |                     |                      |                    |
-|    + find_nonzero<value_idx_pair<...        | model_test.cpp:21       | 29,453             |                     |                      |                    |
-|     + find_nonzero<value_idx_pair<...       | model_test.cpp:21       | 29,338 (2 calls)   |                     |                      |                    |
-|      + find_nonzero<value_idx_pair<...      | model_test.cpp:21       | 29,108 (4 calls)   |                     |                      |                    |
-|       + find_nonzero<value_idx_pair<...     | model_test.cpp:21       | 28,648 (8 calls)   |                     |                      |                    |
-|        + find_nonzero<value_idx_pair<...    | model_test.cpp:21       | 27,728 (16 calls)  |                     |                      |                    |
-|         + find_nonzero<value_idx_pair<...   | model_test.cpp:21       | 25,888 (32 calls)  |                     |                      |                    |
-|          + find_nonzero<value_idx_pair<...  | model_test.cpp:21       | 22,208 (64 calls)  |                     |                      |                    |
-|           + find_nonzero<value_idx_pair<... | model_test.cpp:21       | 14,848 (128 calls) |                     |                      |                    |
-|              operator()                     | model_test.cpp:9        | 13,568 (128 calls) |                     |                      |                    |
-|             operator()                      | model_test.cpp:9        |  6,784 (64 calls)  |                     |                      |                    |
-|            operator()                       | model_test.cpp:9        |  3,392 (32 calls)  |                     |                      |                    |
-|           operator()                        | model_test.cpp:9        |  1,696 (16 calls)  |                     |                      |                    |
-|          operator()                         | model_test.cpp:9        |    848 (8 calls)   |                     |                      |                    |
-|         operator()                          | model_test.cpp:9        |    424 (4 calls)   |                     |                      |                    |
-|        operator()                           | model_test.cpp:9        |    212 (2 calls)   |                     |                      |                    |
-|       operator()                            | model_test.cpp:9        |    106             |                     |                      |                    |
-|    + find_nonzero<value_idx_pair<...        | model_test.cpp:21       | 16,517             |                     |                      |                    |
-|     + find_nonzero<value_idx_pair<...       | model_test.cpp:21       | 14,669             |                     |                      |                    |
-|      + find_nonzero<value_idx_pair<...      | model_test.cpp:21       | 14,554 (2 calls)   |                     |                      |                    |
-|       + find_nonzero<value_idx_pair<...     | model_test.cpp:21       | 14,324 (4 calls)   |                     |                      |                    |
-|        + find_nonzero<value_idx_pair<...    | model_test.cpp:21       | 13,864 (8 calls)   |                     |                      |                    |
-|         + find_nonzero<value_idx_pair<...   | model_test.cpp:21       | 12,944 (16 calls)  |                     |                      |                    |
-|          + find_nonzero<value_idx_pair<...  | model_test.cpp:21       | 11,104 (32 calls)  |                     |                      |                    |
-|           + find_nonzero<value_idx_pair<... | model_test.cpp:21       |  7,424 (64 calls)  |                     |                      |                    |
-|              operator()                     | model_test.cpp:9        |  6,784 (64 calls)  |                     |                      |                    |
-|             operator()                      | model_test.cpp:9        |  3,392 (32 calls)  |                     |                      |                    |
-|            operator()                       | model_test.cpp:9        |  1,696 (16 calls)  |                     |                      |                    |
-|           operator()                        | model_test.cpp:9        |    848 (8 calls)   |                     |                      |                    |
-|          operator()                         | model_test.cpp:9        |    424 (4 calls)   |                     |                      |                    |
-|         operator()                          | model_test.cpp:9        |    212 (2 calls)   |                     |                      |                    |
-|        operator()                           | model_test.cpp:9        |    106             |                     |                      |                    |
-|     + find_nonzero<value_idx_pair<...       | model_test.cpp:21       |  1,733             |                     |                      |                    |
-|      + find_nonzero<value_idx_pair<...      | model_test.cpp:21       |  1,618 (2 calls)   |                     |                      |                    |
-|       + find_nonzero<value_idx_pair<...     | model_test.cpp:21       |  1,388 (4 calls)   |                     |                      |                    |
-|        + find_nonzero<value_idx_pair<...    | model_test.cpp:21       |    928 (8 calls)   |                     |                      |                    |
-|           operator()                        | model_test.cpp:9        |    848 (8 calls)   |                     |                      |                    |
-|          operator()                         | model_test.cpp:9        |    424 (4 calls)   |                     |                      |                    |
-|         operator()                          | model_test.cpp:9        |    212 (2 calls)   |                     |                      |                    |
-|        operator()                           | model_test.cpp:9        |    106             |                     |                      |                    |
-|       operator()                            | model_test.cpp:9        |    106             |                     |                      |                    |
-|      operator()                             | model_test.cpp:9        |    106             |                     |                      |                    |
-|     operator()                              | model_test.cpp:9        |                    |   7,978 (399 calls) |  2,388 (398 calls)   |  2,388 (398 calls) |
-|  + sparse_conv<ap_fixed<16, 6, ...          | model_test.cpp:142      |  1,784             |  67,410             | 20,151               | 20,151             |
-|     mult_for_sparse_conv_kernel3...         | model_test.cpp:108      |    621             |                     |                      |                    |
-|    sparse_relu<ap_fixed<16, 6, ...          | model_test.cpp:194      |    199             |     321             |    141               |    142             |
-|    sparse_pooling_avg<ap_fixed<...          | model_test.cpp:208      |  2,921             |  10,902             |  1,764               |  1,764             |
-|    sparse_flatten<ap_fixed<16, ...          | model_test.cpp:289      |    239             |     594             |  1,281               |  1,321             |
+|   + find_active<value_idx_pair<a...         | model_test.cpp:21       | 14,561             |                     |                      |                    |
+|    + find_active<value_idx_pair<a...        | model_test.cpp:21       |  9,305             |                     |                      |                    |
+|     + find_active<value_idx_pair<a...       | model_test.cpp:21       |  9,266 (2 calls)   |                     |                      |                    |
+|      + find_active<value_idx_pair<a...      | model_test.cpp:21       |  9,188 (4 calls)   |                     |                      |                    |
+|       + find_active<value_idx_pair<a...     | model_test.cpp:21       |  9,032 (8 calls)   |                     |                      |                    |
+|        + find_active<value_idx_pair<a...    | model_test.cpp:21       |  8,720 (16 calls)  |                     |                      |                    |
+|         + find_active<value_idx_pair<a...   | model_test.cpp:21       |  8,096 (32 calls)  |                     |                      |                    |
+|          + find_active<value_idx_pair<a...  | model_test.cpp:21       |  6,848 (64 calls)  |                     |                      |                    |
+|           + find_active<value_idx_pair<a... | model_test.cpp:21       |  4,352 (128 calls) |                     |                      |                    |
+|              operator()                     | model_test.cpp:9        |  2,688 (128 calls) |                     |                      |                    |
+|             operator()                      | model_test.cpp:9        |  1,344 (64 calls)  |                     |                      |                    |
+|            operator()                       | model_test.cpp:9        |    672 (32 calls)  |                     |                      |                    |
+|           operator()                        | model_test.cpp:9        |    336 (16 calls)  |                     |                      |                    |
+|          operator()                         | model_test.cpp:9        |    168 (8 calls)   |                     |                      |                    |
+|         operator()                          | model_test.cpp:9        |     84 (4 calls)   |                     |                      |                    |
+|        operator()                           | model_test.cpp:9        |     42 (2 calls)   |                     |                      |                    |
+|       operator()                            | model_test.cpp:9        |     21             |                     |                      |                    |
+|    + find_active<value_idx_pair<a...        | model_test.cpp:21       |  5,217             |                     |                      |                    |
+|     + find_active<value_idx_pair<a...       | model_test.cpp:21       |  4,633             |                     |                      |                    |
+|      + find_active<value_idx_pair<a...      | model_test.cpp:21       |  4,594 (2 calls)   |                     |                      |                    |
+|       + find_active<value_idx_pair<a...     | model_test.cpp:21       |  4,516 (4 calls)   |                     |                      |                    |
+|        + find_active<value_idx_pair<a...    | model_test.cpp:21       |  4,360 (8 calls)   |                     |                      |                    |
+|         + find_active<value_idx_pair<a...   | model_test.cpp:21       |  4,048 (16 calls)  |                     |                      |                    |
+|          + find_active<value_idx_pair<a...  | model_test.cpp:21       |  3,424 (32 calls)  |                     |                      |                    |
+|           + find_active<value_idx_pair<a... | model_test.cpp:21       |  2,176 (64 calls)  |                     |                      |                    |
+|              operator()                     | model_test.cpp:9        |  1,344 (64 calls)  |                     |                      |                    |
+|             operator()                      | model_test.cpp:9        |    672 (32 calls)  |                     |                      |                    |
+|            operator()                       | model_test.cpp:9        |    336 (16 calls)  |                     |                      |                    |
+|           operator()                        | model_test.cpp:9        |    168 (8 calls)   |                     |                      |                    |
+|          operator()                         | model_test.cpp:9        |     84 (4 calls)   |                     |                      |                    |
+|         operator()                          | model_test.cpp:9        |     42 (2 calls)   |                     |                      |                    |
+|        operator()                           | model_test.cpp:9        |     21             |                     |                      |                    |
+|     + find_active<value_idx_pair<a...       | model_test.cpp:21       |    545             |                     |                      |                    |
+|      + find_active<value_idx_pair<a...      | model_test.cpp:21       |    506 (2 calls)   |                     |                      |                    |
+|       + find_active<value_idx_pair<a...     | model_test.cpp:21       |    428 (4 calls)   |                     |                      |                    |
+|        + find_active<value_idx_pair<a...    | model_test.cpp:21       |    272 (8 calls)   |                     |                      |                    |
+|           operator()                        | model_test.cpp:9        |    168 (8 calls)   |                     |                      |                    |
+|          operator()                         | model_test.cpp:9        |     84 (4 calls)   |                     |                      |                    |
+|         operator()                          | model_test.cpp:9        |     42 (2 calls)   |                     |                      |                    |
+|        operator()                           | model_test.cpp:9        |     21             |                     |                      |                    |
+|       operator()                            | model_test.cpp:9        |     21             |                     |                      |                    |
+|      operator()                             | model_test.cpp:9        |     21             |                     |                      |                    |
+|     operator()                              | model_test.cpp:9        |                    |   6,781 (399 calls) |  2,388 (398 calls)   |  2,388 (398 calls) |
+|  + sparse_conv<ap_fixed<16, 6, ...          | model_test.cpp:144      |  1,784             |  67,410             | 20,151               | 20,151             |
+|     mult_for_sparse_conv_kernel3...         | model_test.cpp:110      |    621             |                     |                      |                    |
+|    sparse_relu<ap_fixed<16, 6, ...          | model_test.cpp:196      |    199             |     321             |    141               |    142             |
+|    sparse_pooling_avg<ap_fixed<...          | model_test.cpp:210      |  2,921             |  10,902             |  1,764               |  1,764             |
+|    sparse_flatten<ap_fixed<16, ...          | model_test.cpp:291      |    239             |     594             |  1,281               |  1,321             |
 |  + dense<ap_fixed<16, 6, AP_TRN...          | nnet_dense.h:41         |    670             |                     |                      |                    |
 |   + dense                                   | nnet_dense.h:50         |    668             |                     |                      |                    |
 |    + dense_latency<ap_fixed<16, 6...        | nnet_dense_latency.h:13 |    666             |                     |                      |                    |

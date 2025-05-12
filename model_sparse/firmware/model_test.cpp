@@ -4,9 +4,9 @@
 #include "parameters.h"
 
 
-template <class T> class Op_nonzero {
+template <class T, class t> class Op_active {
     public:
-      T operator()(T a, T b) { return (a.value == 0) ? b : a; }
+      T operator()(T a, T b, t threshold) { return (a.value > threshold) ? a : b; }
 };
   
 constexpr int _floorlog2(int x) { return (x < 2) ? 0 : 1 + _floorlog2(x / 2); }
@@ -18,7 +18,7 @@ struct value_idx_pair {
     ap_uint<12> index;
 };
 
-template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
+template <class T, int N, class Op, class t> T find_active(T *x, Op op, t threshold) {
 #pragma HLS INLINE
     // This function finds the leftmost nonzero element in an array.
 
@@ -31,14 +31,15 @@ template <class T, int N, class Op> T find_nonzero(T *x, Op op) {
         return x[0];
     }
     if (N == 2) {
-        return op(x[0], x[1]);
+        return op(x[0], x[1], threshold);
     }
-    return op(find_nonzero<T, leftN, Op>(x, op), find_nonzero<T, rightN, Op>(x + leftN, op));
+    return op(find_active<T, leftN, Op, t>(x, op, threshold), find_active<T, rightN, Op, t>(x + leftN, op, threshold), threshold);
 }
 
 
 template <class data_T, class hash_T, int N_h, int N_w, int N_c, int N_sparse>
 void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
+                         data_T threshold,
                          data_T sparse_arr_feat[N_sparse * N_c],
                          hash_T sparse_arr_hash[N_sparse * 2]) {
     // This function reduces the full input array into sparse arrays, storing active inputs (nonzeros).
@@ -75,14 +76,15 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
     }
 
     // Find active pixels and fill the sparse arrays.
-    Op_nonzero<value_idx_pair<data_T>> op_nonzero;
+    Op_active<value_idx_pair<data_T>, data_T> op_active;
     MaxPixelsLoop:
     for (int i = 0; i < N_sparse; i++) {
         #pragma HLS PIPELINE
-        // Iteratively find the leftmost nonzero element in the input array.
-        value_idx_pair<data_T> pair = find_nonzero<value_idx_pair<data_T>,
-                                                   N_h * N_w,
-                                                   Op_nonzero<value_idx_pair<data_T>>>(pair_arr, op_nonzero);
+        // Iteratively find the leftmost active element in the input array.
+        value_idx_pair<data_T> pair = find_active<value_idx_pair<data_T>,
+                                                  N_h * N_w,
+                                                  Op_active<value_idx_pair<data_T>, data_T>,
+                                                  data_T>(pair_arr, op_active, threshold);
         // Fill feature for the first channel.
         sparse_arr_feat[N_c * i] = pair.value;
         // Other channels, if there is any.
@@ -95,7 +97,7 @@ void sparse_input_reduce(data_T input_arr[N_h * N_w * N_c],
         sparse_arr_hash[2 * i] = j_h_arr[pair.index]; 
         sparse_arr_hash[2 * i + 1] = j_w_arr[pair.index];
 
-        // Update the filled nonzero feature to zero so the next find_nonzero can find the next nonzero.
+        // Update the filled active feature to zero so the next find_active can find the next active.
         pair_arr[pair.index].value = 0;
     }
     // Note that sparse_arr_hash[2 * i] and sparse_arr_hash[2 * i + 1] can fill arbitrary numbers even when the corresponding
@@ -348,12 +350,12 @@ void model_test(
 
 
     // hls-fpga-machine-learning insert layers
-
+    input_t active_threshold = 0;
     input_t sparse_arr_feat_reduce_out[N_MAX_PIXELS * N_INPUT_3_1];
     ap_uint<10> sparse_arr_hash_reduce_out[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_reduce_out complete dim=0
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_hash_reduce_out complete dim=0
-    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, sparse_arr_feat_reduce_out, sparse_arr_hash_reduce_out); // sparse array creation
+    sparse_input_reduce<input_t, ap_uint<10>, N_INPUT_1_1, N_INPUT_2_1, N_INPUT_3_1, N_MAX_PIXELS>(x_in, active_threshold, sparse_arr_feat_reduce_out, sparse_arr_hash_reduce_out); // sparse array creation
 
     model_default_t sparse_arr_feat_conv1_out[N_MAX_PIXELS * 2];
     #pragma HLS ARRAY_PARTITION variable=sparse_arr_feat_conv1_out complete dim=0
